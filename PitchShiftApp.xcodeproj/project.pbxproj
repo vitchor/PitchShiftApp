@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACC4C05317EA45CD0083611E /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC4C05217EA45CD0083611E /* sax.wav */; };
+		ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */; };
+		ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */; };
+		ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */; };
+		ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD2B9E717EA2A180052A96A /* libsndfile.a */; };
+		ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA017E8BF8500E818A0 /* Foundation.framework */; };
+		ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */; };
+		ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA417E8BF8500E818A0 /* UIKit.framework */; };
+		ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACE6EEA917E8BF8500E818A0 /* InfoPlist.strings */; };
+		ACE6EEAD17E8BF8500E818A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6EEAC17E8BF8500E818A0 /* main.m */; };
+		ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6EEB017E8BF8500E818A0 /* AppDelegate.m */; };
+		ACE6EEB317E8BF8500E818A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE6EEB217E8BF8500E818A0 /* Images.xcassets */; };
+		ACE6EEBA17E8BF8500E818A0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEB917E8BF8500E818A0 /* XCTest.framework */; };
+		ACE6EEBB17E8BF8500E818A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA017E8BF8500E818A0 /* Foundation.framework */; };
+		ACE6EEBC17E8BF8500E818A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA417E8BF8500E818A0 /* UIKit.framework */; };
+		ACE6EEC417E8BF8500E818A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACE6EEC217E8BF8500E818A0 /* InfoPlist.strings */; };
+		ACE6EEC617E8BF8500E818A0 /* PitchShiftAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6EEC517E8BF8500E818A0 /* PitchShiftAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACE6EEBD17E8BF8500E818A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACE6EE9517E8BF8500E818A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACE6EE9C17E8BF8500E818A0;
+			remoteInfo = PitchShiftApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ACC4C05217EA45CD0083611E /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
+		ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PitchShiftIterative.cpp; sourceTree = "<group>"; };
+		ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShiftIterative.h; sourceTree = "<group>"; };
+		ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmbPitchShifter.cpp; sourceTree = "<group>"; };
+		ACD2B9DC17E9F4E50052A96A /* PitchShifter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShifter.h; sourceTree = "<group>"; };
+		ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PitchShifter.mm; sourceTree = "<group>"; };
+		ACD2B9E717EA2A180052A96A /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsndfile.a; sourceTree = "<group>"; };
+		ACD2B9E917EA2ED20052A96A /* sndfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sndfile.h; sourceTree = "<group>"; };
+		ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmbPitchShifter.h; sourceTree = "<group>"; };
+		ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchShiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE6EEA017E8BF8500E818A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ACE6EEA417E8BF8500E818A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ACE6EEA817E8BF8500E818A0 /* PitchShiftApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PitchShiftApp-Info.plist"; sourceTree = "<group>"; };
+		ACE6EEAA17E8BF8500E818A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACE6EEAC17E8BF8500E818A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ACE6EEAE17E8BF8500E818A0 /* PitchShiftApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PitchShiftApp-Prefix.pch"; sourceTree = "<group>"; };
+		ACE6EEAF17E8BF8500E818A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ACE6EEB017E8BF8500E818A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ACE6EEB217E8BF8500E818A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ACE6EEB817E8BF8500E818A0 /* PitchShiftAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchShiftAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE6EEB917E8BF8500E818A0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ACE6EEC117E8BF8500E818A0 /* PitchShiftAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PitchShiftAppTests-Info.plist"; sourceTree = "<group>"; };
+		ACE6EEC317E8BF8500E818A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACE6EEC517E8BF8500E818A0 /* PitchShiftAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PitchShiftAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACE6EE9A17E8BF8500E818A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */,
+				ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */,
+				ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */,
+				ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACE6EEB517E8BF8500E818A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACE6EEBA17E8BF8500E818A0 /* XCTest.framework in Frameworks */,
+				ACE6EEBC17E8BF8500E818A0 /* UIKit.framework in Frameworks */,
+				ACE6EEBB17E8BF8500E818A0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACD2B9CA17E8D1A90052A96A /* PitchShifter */ = {
+			isa = PBXGroup;
+			children = (
+				ACC4C05217EA45CD0083611E /* sax.wav */,
+				ACD2B9E717EA2A180052A96A /* libsndfile.a */,
+				ACD2B9DC17E9F4E50052A96A /* PitchShifter.h */,
+				ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */,
+				ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */,
+				ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */,
+				ACD2B9CB17E8D2020052A96A /* auxLib */,
+			);
+			name = PitchShifter;
+			sourceTree = "<group>";
+		};
+		ACD2B9CB17E8D2020052A96A /* auxLib */ = {
+			isa = PBXGroup;
+			children = (
+				ACD2B9E917EA2ED20052A96A /* sndfile.h */,
+				ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */,
+				ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */,
+			);
+			name = auxLib;
+			sourceTree = "<group>";
+		};
+		ACE6EE9417E8BF8500E818A0 = {
+			isa = PBXGroup;
+			children = (
+				ACE6EEA617E8BF8500E818A0 /* PitchShiftApp */,
+				ACE6EEBF17E8BF8500E818A0 /* PitchShiftAppTests */,
+				ACE6EE9F17E8BF8500E818A0 /* Frameworks */,
+				ACE6EE9E17E8BF8500E818A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACE6EE9E17E8BF8500E818A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */,
+				ACE6EEB817E8BF8500E818A0 /* PitchShiftAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACE6EE9F17E8BF8500E818A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
+				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
+				ACE6EEA417E8BF8500E818A0 /* UIKit.framework */,
+				ACE6EEB917E8BF8500E818A0 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACE6EEA617E8BF8500E818A0 /* PitchShiftApp */ = {
+			isa = PBXGroup;
+			children = (
+				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
+				ACE6EEAF17E8BF8500E818A0 /* AppDelegate.h */,
+				ACE6EEB017E8BF8500E818A0 /* AppDelegate.m */,
+				ACE6EEB217E8BF8500E818A0 /* Images.xcassets */,
+				ACE6EEA717E8BF8500E818A0 /* Supporting Files */,
+			);
+			path = PitchShiftApp;
+			sourceTree = "<group>";
+		};
+		ACE6EEA717E8BF8500E818A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACE6EEA817E8BF8500E818A0 /* PitchShiftApp-Info.plist */,
+				ACE6EEA917E8BF8500E818A0 /* InfoPlist.strings */,
+				ACE6EEAC17E8BF8500E818A0 /* main.m */,
+				ACE6EEAE17E8BF8500E818A0 /* PitchShiftApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACE6EEBF17E8BF8500E818A0 /* PitchShiftAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACE6EEC517E8BF8500E818A0 /* PitchShiftAppTests.m */,
+				ACE6EEC017E8BF8500E818A0 /* Supporting Files */,
+			);
+			path = PitchShiftAppTests;
+			sourceTree = "<group>";
+		};
+		ACE6EEC017E8BF8500E818A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACE6EEC117E8BF8500E818A0 /* PitchShiftAppTests-Info.plist */,
+				ACE6EEC217E8BF8500E818A0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACE6EE9C17E8BF8500E818A0 /* PitchShiftApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftApp" */;
+			buildPhases = (
+				ACE6EE9917E8BF8500E818A0 /* Sources */,
+				ACE6EE9A17E8BF8500E818A0 /* Frameworks */,
+				ACE6EE9B17E8BF8500E818A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PitchShiftApp;
+			productName = PitchShiftApp;
+			productReference = ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACE6EEB717E8BF8500E818A0 /* PitchShiftAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACE6EECC17E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftAppTests" */;
+			buildPhases = (
+				ACE6EEB417E8BF8500E818A0 /* Sources */,
+				ACE6EEB517E8BF8500E818A0 /* Frameworks */,
+				ACE6EEB617E8BF8500E818A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACE6EEBE17E8BF8500E818A0 /* PBXTargetDependency */,
+			);
+			name = PitchShiftAppTests;
+			productName = PitchShiftAppTests;
+			productReference = ACE6EEB817E8BF8500E818A0 /* PitchShiftAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACE6EE9517E8BF8500E818A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = CheeseCakeGarage;
+				TargetAttributes = {
+					ACE6EE9C17E8BF8500E818A0 = {
+						DevelopmentTeam = VSFCXFBUY3;
+					};
+					ACE6EEB717E8BF8500E818A0 = {
+						TestTargetID = ACE6EE9C17E8BF8500E818A0;
+					};
+				};
+			};
+			buildConfigurationList = ACE6EE9817E8BF8500E818A0 /* Build configuration list for PBXProject "PitchShiftApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ACE6EE9417E8BF8500E818A0;
+			productRefGroup = ACE6EE9E17E8BF8500E818A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACE6EE9C17E8BF8500E818A0 /* PitchShiftApp */,
+				ACE6EEB717E8BF8500E818A0 /* PitchShiftAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACE6EE9B17E8BF8500E818A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC4C05317EA45CD0083611E /* sax.wav in Resources */,
+				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
+				ACE6EEB317E8BF8500E818A0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACE6EEB617E8BF8500E818A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACE6EEC417E8BF8500E818A0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACE6EE9917E8BF8500E818A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */,
+				ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */,
+				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
+				ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */,
+				ACE6EEAD17E8BF8500E818A0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACE6EEB417E8BF8500E818A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACE6EEC617E8BF8500E818A0 /* PitchShiftAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACE6EEBE17E8BF8500E818A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACE6EE9C17E8BF8500E818A0 /* PitchShiftApp */;
+			targetProxy = ACE6EEBD17E8BF8500E818A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ACE6EEA917E8BF8500E818A0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACE6EEAA17E8BF8500E818A0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ACE6EEC217E8BF8500E818A0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACE6EEC317E8BF8500E818A0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACE6EEC717E8BF8500E818A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACE6EEC817E8BF8500E818A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACE6EECA17E8BF8500E818A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
+				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/alexandre/Workspace/PitchShiftApp/PitchShiftApp,
+					/Users/alexandre/Workspace/PitchShiftApp,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ACE6EECB17E8BF8500E818A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
+				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/alexandre/Workspace/PitchShiftApp/PitchShiftApp,
+					/Users/alexandre/Workspace/PitchShiftApp,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		ACE6EECD17E8BF8500E818A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PitchShiftApp.app/PitchShiftApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PitchShiftAppTests/PitchShiftAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ACE6EECE17E8BF8500E818A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PitchShiftApp.app/PitchShiftApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
+				INFOPLIST_FILE = "PitchShiftAppTests/PitchShiftAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACE6EE9817E8BF8500E818A0 /* Build configuration list for PBXProject "PitchShiftApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACE6EEC717E8BF8500E818A0 /* Debug */,
+				ACE6EEC817E8BF8500E818A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACE6EECA17E8BF8500E818A0 /* Debug */,
+				ACE6EECB17E8BF8500E818A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACE6EECC17E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACE6EECD17E8BF8500E818A0 /* Debug */,
+				ACE6EECE17E8BF8500E818A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACE6EE9517E8BF8500E818A0 /* Project object */;
+}
