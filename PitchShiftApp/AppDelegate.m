@@ -27,46 +27,9 @@
     
     [self.window addSubview:self.navigationController.view];
     
-//    //Get wav file's directory
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *inWavName = @"440Hz.wav";
-    NSString *outWavName = @"/result.wav";
+    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
-    NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath =  [directoriesPath objectAtIndex:0];
-    
-    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
-    NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
-    
-    char *inWavPathCharArray = [inWavPath UTF8String];
-    char *outWavPathCharArray = [outWavPath UTF8String];
-
-    
-    PitchShifter *pitchShifter = [PitchShifter alloc];
-    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
-    
-    //[pitchShifter pitchShiftWavFile];
-    
-    NSString *documentsDirectoryPath = [directoryPaths objectAtIndex:0];
-    if ([fileManager fileExistsAtPath:outWavPath]==YES) {
-        NSLog(@"File exists: %@",outWavPath);
-    } else {
-        NSLog(@"File does not exist");
-    }
-    
-    NSURL *url = [NSURL fileURLWithPath:outWavPath];
-    
-    NSError *error;
-    
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    NSLog(@"%@",error);
-    
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-    
-    NSLog(@"%@",error);
+    [self.navigationController pushViewController:mainViewController animated:YES];
     
     return YES;
 }
