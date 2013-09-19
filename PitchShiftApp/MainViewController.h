@@ -30,11 +30,15 @@
 }
 
 - (IBAction)recordButtonAction:(id)sender;
+
+
 - (IBAction)playButtonAction:(id)sender;
 
-- (IBAction)startRecording;
-- (IBAction)stopRecording;
-- (IBAction)playRecording;
-- (IBAction)stopPlaying;
+- (IBAction)startRecording:(UIButton *)sender;
+- (IBAction)stopRecording:(UIButton *)sender;
+
+
+- (IBAction)playRecording:(UIButton *)sender;
+- (IBAction)stopPlaying:(UIButton *)sender;
 
 @end

@@ -37,24 +37,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)doPitchShift {
+- (void)doPitchShift:(NSString *)inWavPath {
+    
+    NSError *error = nil ;
 
     //Get wav file's directory
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *inWavName = @"440Hz.wav";
-    NSString *outWavName = @"/result.wav";
+    NSString *outWavName = @"/result-pitchshifted.wav";
 
     NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath =  [directoriesPath objectAtIndex:0];
 
-    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
     NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
 
+    if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
+        [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
+    
     char *inWavPathCharArray = [inWavPath UTF8String];
     char *outWavPathCharArray = [outWavPath UTF8String];
-
 
     PitchShifter *pitchShifter = [PitchShifter alloc];
     [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
@@ -68,7 +70,6 @@
 
     NSURL *url = [NSURL fileURLWithPath:outWavPath];
 
-    NSError *error;
 
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     NSLog(@"%@",error);
@@ -79,12 +80,11 @@
     NSLog(@"%@",error);
 }
 
-- (IBAction)recordButtonAction:(id)sender {
-    
-}
-
 - (IBAction)playButtonAction:(id)sender {
-    [self doPitchShift];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *recDir = [paths objectAtIndex:0];
+    NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
+    [self doPitchShift:inWavPath];
 }
 
 -(IBAction) startRecording:(UIButton *)sender
@@ -140,7 +140,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordTest.caf", recDir]];
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recorded.caf", recDir]];
     
     NSError *error = nil;
     audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
@@ -163,48 +163,11 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
-    NSString *filePath = [NSString stringWithFormat:@"%@/recordTest.caf", recDir];
+    NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
     
     if ( ![self exportAssetAsWaveFormat:filePath]) {
         NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
     }
-}
-
--(IBAction) playRecording:(UIButton *)sender
-{
-    NSLog(@"playRecording");
-    // Init audio with playback capability
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    //    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordTest.caf", recDir]];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *recDir = [paths objectAtIndex:0];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/WavConverted.wav", recDir]];
-    
-    
-    
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *inWavName = @"sax.wav";
-    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
-    NSURL *url2 = [NSURL fileURLWithPath:inWavPath];
-    
-    NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url2 error:&error];
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-    NSLog(@"playing");
-}
-
--(IBAction) stopPlaying:(UIButton *)sender
-{
-    NSLog(@"stopPlaying");
-    [audioPlayer stop];
-    NSLog(@"stopped");
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
@@ -243,7 +206,7 @@
     if (![assetReader startReading]) return NO;
     
     
-    NSString *title = @"WavConverted";
+    NSString *title = @"recordedWAV";
     NSArray *docDirs = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [docDirs objectAtIndex: 0];
     NSString *outPath = [[docDir stringByAppendingPathComponent :title]
@@ -285,7 +248,7 @@
                 
                 if (sampleBuffer) {
                     [assetWriterInput appendSampleBuffer :sampleBuffer];
-                    CFRelease(sampleBuffer);
+//                    CFRelease(sampleBuffer);
                 } else {
                     [assetWriterInput markAsFinished];
                     break;
@@ -300,5 +263,67 @@
     
     return YES;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (IBAction)recordButtonAction:(id)sender {
+    [self startRecording:nil];
+}
+
+-(IBAction) playRecording:(UIButton *)sender
+{
+    NSLog(@"playRecording");
+    // Init audio with playback capability
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    //    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordTest.caf", recDir]];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *recDir = [paths objectAtIndex:0];
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recorded-converted.wav", recDir]];
+    
+    
+    
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *inWavName = @"sax.wav";
+    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
+    NSURL *url2 = [NSURL fileURLWithPath:inWavPath];
+    
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url2 error:&error];
+    audioPlayer.numberOfLoops = 0;
+    [audioPlayer play];
+    NSLog(@"playing");
+}
+
+-(IBAction) stopPlaying:(UIButton *)sender
+{
+    NSLog(@"stopPlaying");
+    [audioPlayer stop];
+    NSLog(@"stopped");
+}
+
 
 @end

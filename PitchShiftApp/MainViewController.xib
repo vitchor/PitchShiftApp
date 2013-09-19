@@ -15,14 +15,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE">
-                    <rect key="frame" x="102" y="231" width="104" height="33"/>
+                    <rect key="frame" x="102" y="166" width="104" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Record">
+                    <state key="normal" title="Record Start">
                         <color key="titleColor" red="1" green="0.035239849817832236" blue="0.012178171607263533" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="recordButtonAction:" destination="-1" eventType="touchUpInside" id="6RJ-fI-ETU"/>
+                        <action selector="startRecording:" destination="-1" eventType="touchUpInside" id="t7o-d4-gsW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWW-JA-vCh">
+                    <rect key="frame" x="102" y="226" width="104" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Record Stop">
+                        <color key="titleColor" red="1" green="0.035239849820000002" blue="0.01217817161" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="stopRecording:" destination="-1" eventType="touchUpInside" id="p5y-0K-bzW"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTM-2g-Ger">
@@ -33,7 +44,7 @@
                         <color key="titleColor" red="1" green="0.035239849820000002" blue="0.01217817161" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="lsf-cj-bll"/>
+                        <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="z1n-9O-WvO"/>
                     </connections>
                 </button>
             </subviews>
