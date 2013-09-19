@@ -67,7 +67,7 @@ void PitchShiftIterative::get_info(char* c_in_wav_file_name) {
     i_wave_channels = m_wave_info.channels;
     i_wave_num_of_itens = i_wave_frames*i_wave_channels;
     
-    printf("Info gathered from WAV file: \n Sample rate: %d", i_wave_sample_rate);
+    printf("Info gathered from WAV file: \n Sample rate: %d\nNumber of Channels: %d\n", i_wave_sample_rate, i_wave_channels);
     
     sf_close(m_wave_file);
 }

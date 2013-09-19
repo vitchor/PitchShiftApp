@@ -455,8 +455,7 @@
 				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/alexandre/Workspace/PitchShiftApp/PitchShiftApp,
-					/Users/alexandre/Workspace/PitchShiftApp,
+					./PitchShiftApp,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -475,8 +474,7 @@
 				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/alexandre/Workspace/PitchShiftApp/PitchShiftApp,
-					/Users/alexandre/Workspace/PitchShiftApp,
+					./PitchShiftApp,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

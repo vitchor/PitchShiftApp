@@ -39,6 +39,9 @@
 
 - (void)doPitchShift:(NSString *)inWavPath {
     
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
     NSError *error = nil ;
 
     //Get wav file's directory
@@ -101,7 +104,7 @@
     {
         [recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
         [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
-        [recordSettings setObject:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
+        [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
         [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
         [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
         [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
@@ -132,7 +135,7 @@
         
         [recordSettings setObject:formatObject forKey: AVFormatIDKey];
         [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
-        [recordSettings setObject:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
+        [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
         [recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
         [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
         [recordSettings setObject:[NSNumber numberWithInt: AVAudioQualityHigh] forKey: AVEncoderAudioQualityKey];
@@ -176,7 +179,7 @@
     
     NSDictionary *audioSetting = [NSDictionary dictionaryWithObjectsAndKeys:
                                   [ NSNumber numberWithFloat:44100.0], AVSampleRateKey,
-                                  [ NSNumber numberWithInt:2], AVNumberOfChannelsKey,
+                                  [ NSNumber numberWithInt:1], AVNumberOfChannelsKey,
                                   [ NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
                                   [ NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
                                   [ NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
@@ -189,7 +192,7 @@
     
     if (!URLAsset) return NO ;
     
-    AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:URLAsset error:&error];
+    assetReader = [AVAssetReader assetReaderWithAsset:URLAsset error:&error];
     if (error) return NO;
     
     NSArray *tracks = [URLAsset tracksWithMediaType:AVMediaTypeAudio];
@@ -217,7 +220,7 @@
     
     NSURL *outURL = [NSURL fileURLWithPath:outPath];
     
-    AVAssetWriter *assetWriter = [AVAssetWriter assetWriterWithURL:outURL
+    assetWriter = [AVAssetWriter assetWriterWithURL:outURL
                                                           fileType:AVFileTypeWAVE
                                                              error:&error];
     if (error) return NO;
@@ -234,6 +237,7 @@
     
     [assetWriter startSessionAtSourceTime:kCMTimeZero ];
     
+    
     dispatch_queue_t queue = dispatch_queue_create( "assetWriterQueue", NULL );
     
     [assetWriterInput requestMediaDataWhenReadyOnQueue:queue usingBlock:^{
@@ -248,7 +252,7 @@
                 
                 if (sampleBuffer) {
                     [assetWriterInput appendSampleBuffer :sampleBuffer];
-//                    CFRelease(sampleBuffer);
+                    CFRelease(sampleBuffer);
                 } else {
                     [assetWriterInput markAsFinished];
                     break;
@@ -299,20 +303,18 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recorded-converted.wav", recDir]];
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordedWAV.wav", recDir]];
     
-    
-    
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *inWavName = @"sax.wav";
-    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
-    NSURL *url2 = [NSURL fileURLWithPath:inWavPath];
+//    
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
+//    (NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *inWavName = @"sax.wav";
+//    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
+//    NSURL *url2 = [NSURL fileURLWithPath:inWavPath];
     
     NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url2 error:&error];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     audioPlayer.numberOfLoops = 0;
     [audioPlayer play];
     NSLog(@"playing");

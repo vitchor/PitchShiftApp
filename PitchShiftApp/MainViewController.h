@@ -18,6 +18,9 @@
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     
+    AVAssetReader *assetReader;
+    AVAssetWriter *assetWriter;
+    
     enum
     {
         ENC_AAC = 1,
@@ -29,15 +32,18 @@
     } encodingTypes;
 }
 
-- (IBAction)recordButtonAction:(id)sender;
 
 
-- (IBAction)playButtonAction:(id)sender;
+
+
 
 - (IBAction)startRecording:(UIButton *)sender;
 - (IBAction)stopRecording:(UIButton *)sender;
+- (IBAction)playButtonAction:(id)sender;
 
 
+
+- (IBAction)recordButtonAction:(id)sender;
 - (IBAction)playRecording:(UIButton *)sender;
 - (IBAction)stopPlaying:(UIButton *)sender;
 
