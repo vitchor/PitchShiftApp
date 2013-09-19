@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface PitchShifter : NSObject
--(void) pitchShiftWavFile;
+-(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath;
 @end

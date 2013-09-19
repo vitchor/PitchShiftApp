@@ -45,14 +45,21 @@ PitchShiftIterative::~PitchShiftIterative() {
 void PitchShiftIterative::get_info(char* c_in_wav_file_name) {
     SNDFILE *m_wave_file;
     SF_INFO m_wave_info;
+    int i_err_code;
     
     // Opens wav file:
     m_wave_info.format = 0;
     m_wave_file = sf_open(c_in_wav_file_name,SFM_READ,&m_wave_info);
-    if (not m_wave_file) {
-        printf("Failed to open WAV file to read.\n");
+    
+    i_err_code = sf_error(m_wave_file);
+    
+    if (i_err_code == SF_ERR_NO_ERROR) {
+        printf("Opened WAV file to gather info successfully.\n");
+    } else {
+        printf("SNDFILE ERROR: %s\n", sf_error_number(i_err_code));
         return;
     }
+
     
     // Gathers information from wav file:
     i_wave_frames = m_wave_info.frames;
@@ -60,22 +67,31 @@ void PitchShiftIterative::get_info(char* c_in_wav_file_name) {
     i_wave_channels = m_wave_info.channels;
     i_wave_num_of_itens = i_wave_frames*i_wave_channels;
     
+    printf("Info gathered from WAV file: \n Sample rate: %d", i_wave_sample_rate);
+    
     sf_close(m_wave_file);
 }
 
 void PitchShiftIterative::wave_to_array(char* c_in_wav_file_name, int* i_out_wave_array) {
-    //printf("File name: %s", c_in_wav_file_name);
+    printf("File name i got: %s\n", c_in_wav_file_name);
     
     SNDFILE *m_wave_file;
     SF_INFO m_wave_info;
+    int i_err_code;
     
     // Opens wave file
     m_wave_info.format = 0;
     m_wave_file = sf_open(c_in_wav_file_name,SFM_READ,&m_wave_info);
-    if (not m_wave_file) {
-        printf("Failed to open WAV file to read.\n");
+    
+    i_err_code = sf_error(m_wave_file);
+    
+    if (i_err_code == SF_ERR_NO_ERROR) {
+        printf("Opened WAV file to read successfully.\n");
+    } else {
+        printf("SNDFILE ERROR: %s\n", sf_error_number(i_err_code));
         return;
     }
+
     
     // Writes on integer range the wave to i_out_wave_array
     i_wave_length = sf_read_int(m_wave_file,i_out_wave_array,i_wave_num_of_itens);
@@ -83,8 +99,11 @@ void PitchShiftIterative::wave_to_array(char* c_in_wav_file_name, int* i_out_wav
 }
 
 void PitchShiftIterative::array_to_wave(char* c_out_wav_file_name, int* i_in_wave_array) {
+
+    printf("File name i got: %s\n", c_out_wav_file_name);
     
     const int i_format=SF_FORMAT_WAV | SF_FORMAT_PCM_32;
+    int i_err_code;
     
     SNDFILE *m_wave_file;
     SF_INFO m_wave_info;
@@ -94,11 +113,14 @@ void PitchShiftIterative::array_to_wave(char* c_out_wav_file_name, int* i_in_wav
     m_wave_info.samplerate = i_wave_sample_rate;
     m_wave_file = sf_open(c_out_wav_file_name, SFM_WRITE, &m_wave_info);
     
-    if (not m_wave_file) {
-        printf("Failed to open WAV file to write.\n");
+    i_err_code = sf_error(m_wave_file);
+
+    if (i_err_code == SF_ERR_NO_ERROR) {
+        printf("Opened WAV file to write successfully.\n");
+    } else {
+        printf("SNDFILE ERROR ON WRITING: %s\n", sf_error_number(i_err_code));
         return;
     }
-    
     sf_write_int(m_wave_file, i_in_wave_array, i_wave_num_of_itens);
     sf_close(m_wave_file);
     

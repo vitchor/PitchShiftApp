@@ -11,13 +11,11 @@
 
 @implementation PitchShifter
 
--(void) pitchShiftWavFile {
+-(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath {
     NSLog(@"Initializing shifting algorithm");
     PitchShiftIterative *pitchShiftIterator = PitchShiftIterative::getInstance();
     
-    char* c_in_file = "sax.wav";
-    //TODO: convert the given wavFileName to c_in_file
-    pitchShiftIterator->get_info(c_in_file);
+    pitchShiftIterator->get_info(wavFilePath);
     
     int *i_original_wave_array;
     int *i_third_up_wave_array;
@@ -32,7 +30,7 @@
     
     // Converts from wave to array
     NSLog(@"Converting from wave to array");
-    pitchShiftIterator->wave_to_array(c_in_file, i_original_wave_array);
+    pitchShiftIterator->wave_to_array(wavFilePath, i_original_wave_array);
     
     // Generates thirds and fifths up
     NSLog(@"Generating thirds and fifths up");
@@ -43,9 +41,14 @@
     NSLog(@"Summing all three waves");
     pitchShiftIterator->sum_three_waves(i_original_wave_array, i_third_up_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
     
+    free(i_original_wave_array);
+    free(i_third_up_wave_array);
+    free(i_fifth_up_wave_array);
+    
     // Writes the wav file for the triads
     NSLog(@"Writing wav file");
-    char* c_out_file_name = "triad.wav";
-    pitchShiftIterator->array_to_wave(c_out_file_name, i_summed_triads_array);
+    pitchShiftIterator->array_to_wave(outWavFilePath, i_summed_triads_array);
+    //pitchShiftIterator->array_to_wave(outWavFilePath, i_original_wave_array);
+    free(i_summed_triads_array);
 }
 @end
