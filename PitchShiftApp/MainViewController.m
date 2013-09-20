@@ -26,14 +26,14 @@ float GlobalAudioSampleRate = 32000;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-<<<<<<< HEAD
     recordEncoding = ENC_PCM;
     
-    pickerStatus = [[NSArray alloc] initWithObjects:@"Third shift", @"Fifth shift", @"Triad shift", nil];}
-=======
-    recordEncoding = ENC_AAC;
+    pickerStatus = [[NSArray alloc] initWithObjects:@"Third shift", @"Fifth shift", @"Triad shift", nil];
+    
+    [progressView setProgress:0.0];
+
 }
->>>>>>> 76140f2a13da2f7e054e0f678036b1228b9891b8
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -231,10 +231,8 @@ float GlobalAudioSampleRate = 32000;
 - (IBAction)processButtonAction:(UIButton *)sender {
 
 
-    [sender setTitle:@"Processing..." forState:UIControlStateNormal];
-    
-
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        isProcessing = YES;
         
         [self processSound];
         
@@ -242,9 +240,31 @@ float GlobalAudioSampleRate = 32000;
             
             [sender setTitle:@"Process" forState:UIControlStateNormal];
             
+            isProcessing = NO;
+            
+            if(!isProcessing)
+                NSLog(@"PAROU MEEEESSSMO!");
+            
         });
     });
+
     
+    [sender setTitle:@"Processing..." forState:UIControlStateNormal];
+
+    sleep(1);
+    
+    float progress = 0.0;
+    
+    while (progress < 0.98 && isProcessing) {
+
+        progress = [pitchShifter getProgressStatus];
+        NSLog(@"STATUS: %f ",progress);
+
+        [progressView setProgress: progress animated:NO];
+        usleep(50000);
+    }
+    
+    //NSLog(@"STATUS: %f ",progress);
 }
 
 -(void) processSound{
@@ -274,11 +294,12 @@ float GlobalAudioSampleRate = 32000;
         [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
     
     char *inWavPathCharArray = [inWavPath UTF8String];
+    
     char *outWavPathCharArray = [outWavPath UTF8String];
     
-    PitchShifter *pitchShifter = [PitchShifter alloc];
-    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
-    
+    pitchShifter = [PitchShifter alloc];
+    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:SHIFT_FIFTH];
+//    NSLog(@"ESTADO FINAL: %f ",[pitchShifter getProgressStatus]);
 }
 
 
@@ -334,61 +355,5 @@ float GlobalAudioSampleRate = 32000;
     //set item per row
     return [pickerStatus objectAtIndex:row];
 }
-
-
-
-
-////// NOT USED:
-
--(IBAction) stopRecording:(UIButton *)sender
-{
-    NSLog(@"stopRecording");
-    [audioRecorder stop];
-    NSLog(@"stopped");
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *recDir = [paths objectAtIndex:0];
-    NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
-    
-    if ( ![self exportAssetAsWaveFormat:filePath]) {
-        NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
-    }
-}
-
--(IBAction) playRecording:(UIButton *)sender
-{
-    NSLog(@"playRecording");
-    // Init audio with playback capability
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    //    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordTest.caf", recDir]];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *recDir = [paths objectAtIndex:0];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordedWAV.wav", recDir]];
-    
-//    
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-//    (NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *inWavName = @"sax.wav";
-//    NSString *inWavPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:inWavName];
-//    NSURL *url2 = [NSURL fileURLWithPath:inWavPath];
-    
-    NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-    NSLog(@"playing");
-}
-
--(IBAction) stopPlaying:(UIButton *)sender
-{
-    NSLog(@"stopPlaying");
-    [audioPlayer stop];
-    NSLog(@"stopped");
-}
-
 
 @end

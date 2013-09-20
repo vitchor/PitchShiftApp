@@ -58,7 +58,8 @@ void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, lo
  Author: (c)1999-2009 Stephan M. Bernsee <smb [AT] dspdimension [DOT] com>
  */
 {
-    
+    progress = 0.0;
+
 	static float gInFIFO[MAX_FRAME_LENGTH];
 	static float gOutFIFO[MAX_FRAME_LENGTH];
 	static float gFFTworksp[2*MAX_FRAME_LENGTH];

@@ -7,21 +7,32 @@
 //
 
 #import "PitchShifter.h"
+#import "PitchShiftIterative.h"
 
-@implementation PitchShifter
-
-@synthesize pitchShiftIterator;
-
+PitchShiftIterative *pitchShiftIterator;
 float progressStatus;
 float numStages, currentStage;
+float currentProgress = 0.0;
 
+@implementation PitchShifter
 -(float) getProgressStatus {
-    float currentProgress;
+    //float currentProgress;
     
-    currentProgress = (currentStage-1)/numStages;
-    currentProgress += 1/numStages*self.pitchShiftIterator->getSmbPitchShiftProgress();
+    //currentProgress = currentStage/numStages;
+    //currentProgress *= pitchShiftIterator->getSmbPitchShiftProgress();
     
-    return currentProgress;
+    if(pitchShiftIterator->getSmbPitchShiftProgress()> 0.99 && pitchShiftIterator->getSmbPitchShiftProgress() < 1.1) {
+        
+        return currentProgress;
+        
+    }else{
+        currentProgress = (currentStage-1)/numStages;
+        currentProgress += 1/numStages*pitchShiftIterator->getSmbPitchShiftProgress();
+        
+        return currentProgress;
+    }
+    
+    
 }
 
 
@@ -96,7 +107,7 @@ float numStages, currentStage;
 
     free(i_summed_triads_array);
     
-    delete(pitchShiftIterator);
+    //delete(pitchShiftIterator);
     
      NSLog(@"*** SUCCESS! Ready to reproduce wav ***");
 }

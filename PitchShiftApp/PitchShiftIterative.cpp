@@ -37,13 +37,14 @@ PitchShiftIterative *PitchShiftIterative::getInstance() {
 	return instance;
 }
 PitchShiftIterative::~PitchShiftIterative() {
-    delete smbPitchShifter;
+    //delete smbPitchShifter;
 }
 
 #pragma region "PitchShift Functions Implementation"
 
 float PitchShiftIterative::getSmbPitchShiftProgress() {
     return smbPitchShifter->getProgress();
+    //return 2.0;
 }
 
 

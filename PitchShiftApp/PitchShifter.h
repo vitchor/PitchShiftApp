@@ -7,15 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PitchShiftIterative.h"
-
 #define SHIFT_THIRD 1
 #define SHIFT_FIFTH 2
 #define SHIFT_TRIAD 3
 
-@interface PitchShifter : NSObject
-
-@property (nonatomic, readonly) PitchShiftIterative *pitchShiftIterator;
+@interface PitchShifter : NSObject {}
 
 -(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath andShiftType:(int) shiftType;
 -(float) getProgressStatus;

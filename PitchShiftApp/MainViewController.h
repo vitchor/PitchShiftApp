@@ -37,6 +37,8 @@
     
     IBOutlet UIPickerView *shiftTypePicker;
     IBOutlet UIProgressView *progressView;
+    
+    PitchShifter *pitchShifter;
 }
 
 - (IBAction)recordButtonAction:(UIButton *)sender;
