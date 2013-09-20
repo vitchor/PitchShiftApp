@@ -11,7 +11,7 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
 
-@interface MainViewController : UIViewController {
+@interface MainViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
     
     int recordEncoding;
     bool isRecording;
@@ -32,6 +32,11 @@
         ENC_ULAW = 5,
         ENC_PCM = 6,
     } encodingTypes;
+    
+    NSArray *pickerStatus;
+    
+    IBOutlet UIPickerView *shiftTypePicker;
+    IBOutlet UIProgressView *progressView;
 }
 
 - (IBAction)recordButtonAction:(UIButton *)sender;

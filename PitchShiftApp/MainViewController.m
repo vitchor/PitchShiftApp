@@ -25,7 +25,8 @@
     // Do any additional setup after loading the view from its nib.
     
     recordEncoding = ENC_PCM;
-}
+    
+    pickerStatus = [[NSArray alloc] initWithObjects:@"Third shift", @"Fifth shift", @"Triad shift", nil];}
 
 - (void)didReceiveMemoryWarning
 {
@@ -309,7 +310,23 @@
 
 
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    //One column
+    return 1;
+}
 
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    //set number of rows
+    return pickerStatus.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    //set item per row
+    return [pickerStatus objectAtIndex:row];
+}
 
 
 
