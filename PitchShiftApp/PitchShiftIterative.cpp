@@ -124,15 +124,6 @@ void PitchShiftIterative::array_to_wave(char* c_out_wav_file_name, int* i_in_wav
     sf_write_int(m_wave_file, i_in_wave_array, i_wave_num_of_itens);
     sf_close(m_wave_file);
     
-//    // Writes a wav file with the shifted pitch
-//    const int i_format=SF_FORMAT_WAV | SF_FORMAT_PCM_32;
-//    
-//    SndfileHandle h_outfile(c_out_wav_file_name, SFM_WRITE, i_format, i_wave_channels, i_wave_sample_rate);
-//    if (not h_outfile) {
-//        printf("Failed to open WAV file to write.\n");
-//        return;
-//    }
-//    h_outfile.write(i_in_wave_array, i_wave_length);
 }
 
 void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_array, float f_ratio_shift) {
@@ -142,10 +133,7 @@ void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_arra
     
     f_wave_array = (float *) malloc(i_wave_num_of_itens*sizeof(float));
     f_wave_shifted_pitch = (float *) malloc(i_wave_num_of_itens*sizeof(float));
-    
-    //int *i_wave_array;
-    //int *i_wave_shifted_pitch;
-    
+
     // Normalizes the wave data from wave_array to the interval [-1,1]
     for (int i = 0; i < i_wave_length; i += i_wave_channels) {
         f_wave_array[i] = 1.0 * i_in_wave_array[i];

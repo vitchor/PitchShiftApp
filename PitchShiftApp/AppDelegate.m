@@ -23,6 +23,7 @@
     // Configures UINavigationController:
     
     self.navigationController = [[UINavigationController alloc] init];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.window.rootViewController = self.navigationController;
     
     [self.window addSubview:self.navigationController.view];

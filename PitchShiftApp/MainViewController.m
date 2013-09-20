@@ -58,13 +58,13 @@
     if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
         [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
     
-    char *inWavPathCharArray = [inWavPath UTF8String];
-    char *outWavPathCharArray = [outWavPath UTF8String];
+    const char *inWavPathCharArray = [inWavPath UTF8String];
+    const char *outWavPathCharArray = [outWavPath UTF8String];
 
     PitchShifter *pitchShifter = [PitchShifter alloc];
     [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
 
-    NSString *documentsDirectoryPath = [directoryPaths objectAtIndex:0];
+//    NSString *documentsDirectoryPath = [directoryPaths objectAtIndex:0];
     if ([fileManager fileExistsAtPath:outWavPath] == YES) {
         NSLog(@"File exists: %@",outWavPath);
     } else {
@@ -81,9 +81,14 @@
     [audioPlayer play];
 
     NSLog(@"%@",error);
+    
+//    [playButton setTitle:@"Play" forState:UIControlStateNormal];
 }
 
-- (IBAction)playButtonAction:(id)sender {
+- (IBAction)playButtonAction:(UIButton *)sender {
+    
+    [sender setTitle:@"Processing..." forState:UIControlStateNormal];
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
     NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
@@ -92,70 +97,95 @@
 
 -(IBAction) startRecording:(UIButton *)sender
 {
-    NSLog(@"startRecording");
-    audioRecorder = nil;
-    
-    // Init audio with record capability
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
-    
-    NSMutableDictionary *recordSettings = [[NSMutableDictionary alloc] initWithCapacity:10];
-    if(recordEncoding == ENC_PCM)
-    {
-        [recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
-        [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
-        [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
-        [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
-        [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
-        [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
-    }
-    else
-    {
-        NSNumber *formatObject;
+    if(!isRecording){
         
-        switch (recordEncoding) {
-            case (ENC_AAC):
-                formatObject = [NSNumber numberWithInt: kAudioFormatMPEG4AAC];
-                break;
-            case (ENC_ALAC):
-                formatObject = [NSNumber numberWithInt: kAudioFormatAppleLossless];
-                break;
-            case (ENC_IMA4):
-                formatObject = [NSNumber numberWithInt: kAudioFormatAppleIMA4];
-                break;
-            case (ENC_ILBC):
-                formatObject = [NSNumber numberWithInt: kAudioFormatiLBC];
-                break;
-            case (ENC_ULAW):
-                formatObject = [NSNumber numberWithInt: kAudioFormatULaw];
-                break;
-            default:
-                formatObject = [NSNumber numberWithInt: kAudioFormatAppleIMA4];
+        [sender setTitle:@"Recording..." forState:UIControlStateNormal];
+        
+        isRecording = true;
+        NSLog(@"startRecording");
+        audioRecorder = nil;
+        
+        // Init audio with record capability
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
+        
+        NSMutableDictionary *recordSettings = [[NSMutableDictionary alloc] initWithCapacity:10];
+        if(recordEncoding == ENC_PCM)
+        {
+            [recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
+            [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
+            [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
+            [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
+        }
+        else
+        {
+            NSNumber *formatObject;
+            
+            switch (recordEncoding) {
+                case (ENC_AAC):
+                    formatObject = [NSNumber numberWithInt: kAudioFormatMPEG4AAC];
+                    break;
+                case (ENC_ALAC):
+                    formatObject = [NSNumber numberWithInt: kAudioFormatAppleLossless];
+                    break;
+                case (ENC_IMA4):
+                    formatObject = [NSNumber numberWithInt: kAudioFormatAppleIMA4];
+                    break;
+                case (ENC_ILBC):
+                    formatObject = [NSNumber numberWithInt: kAudioFormatiLBC];
+                    break;
+                case (ENC_ULAW):
+                    formatObject = [NSNumber numberWithInt: kAudioFormatULaw];
+                    break;
+                default:
+                    formatObject = [NSNumber numberWithInt: kAudioFormatAppleIMA4];
+            }
+            
+            [recordSettings setObject:formatObject forKey: AVFormatIDKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
+            [recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
+            [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
+            [recordSettings setObject:[NSNumber numberWithInt: AVAudioQualityHigh] forKey: AVEncoderAudioQualityKey];
         }
         
-        [recordSettings setObject:formatObject forKey: AVFormatIDKey];
-        [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
-        [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
-        [recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
-        [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
-        [recordSettings setObject:[NSNumber numberWithInt: AVAudioQualityHigh] forKey: AVEncoderAudioQualityKey];
-    }
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *recDir = [paths objectAtIndex:0];
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recorded.caf", recDir]];
+        
+        NSError *error = nil;
+        audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
+        
+        if ([audioRecorder prepareToRecord] == YES){
+            [audioRecorder record];
+        }else {
+            int errorCode = CFSwapInt32HostToBig ([error code]);
+            NSLog(@"Error: %@ [%4.4s])" , [error localizedDescription], (char*)&errorCode);
+            
+        }
+        NSLog(@"recording");
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *recDir = [paths objectAtIndex:0];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recorded.caf", recDir]];
+    }else{
     
-    NSError *error = nil;
-    audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
-    
-    if ([audioRecorder prepareToRecord] == YES){
-        [audioRecorder record];
-    }else {
-        int errorCode = CFSwapInt32HostToBig ([error code]);
-        NSLog(@"Error: %@ [%4.4s])" , [error localizedDescription], (char*)&errorCode);
+        [sender setTitle:@"Record" forState:UIControlStateNormal];
+        
+        isRecording = false;
+        NSLog(@"stopRecording");
+        [audioRecorder stop];
+        NSLog(@"stopped");
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *recDir = [paths objectAtIndex:0];
+        NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
+        
+        if ( ![self exportAssetAsWaveFormat:filePath]) {
+            NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
+        }
+
         
     }
-    NSLog(@"recording");
 }
 
 -(IBAction) stopRecording:(UIButton *)sender
@@ -269,24 +299,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+////// NOT USED:
 
 - (IBAction)recordButtonAction:(id)sender {
     [self startRecording:nil];

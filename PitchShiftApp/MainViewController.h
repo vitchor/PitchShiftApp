@@ -14,6 +14,7 @@
 @interface MainViewController : UIViewController {
     
     int recordEncoding;
+    bool isRecording;
 
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
@@ -32,14 +33,9 @@
     } encodingTypes;
 }
 
-
-
-
-
-
 - (IBAction)startRecording:(UIButton *)sender;
 - (IBAction)stopRecording:(UIButton *)sender;
-- (IBAction)playButtonAction:(id)sender;
+- (IBAction)playButtonAction:(UIButton *)sender;
 
 
 
