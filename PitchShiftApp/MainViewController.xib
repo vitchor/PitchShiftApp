@@ -15,18 +15,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE">
-                    <rect key="frame" x="102" y="207" width="104" height="33"/>
+                    <rect key="frame" x="102" y="154" width="104" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Record">
                         <color key="titleColor" red="1" green="0.035239849817832236" blue="0.012178171607263533" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="startRecording:" destination="-1" eventType="touchUpInside" id="t7o-d4-gsW"/>
+                        <action selector="recordButtonAction:" destination="-1" eventType="touchUpInside" id="5ER-sE-58v"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyj-KL-hc7">
+                    <rect key="frame" x="102" y="238" width="104" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Process">
+                        <color key="titleColor" red="1" green="0.035239849820000002" blue="0.01217817161" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="processButtonAction:" destination="-1" eventType="touchUpInside" id="I4n-cz-oMF"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTM-2g-Ger">
-                    <rect key="frame" x="102" y="283" width="104" height="33"/>
+                    <rect key="frame" x="102" y="326" width="104" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Play">

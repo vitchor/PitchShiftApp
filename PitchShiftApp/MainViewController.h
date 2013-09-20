@@ -15,7 +15,8 @@
     
     int recordEncoding;
     bool isRecording;
-
+    bool isProcessing;
+    
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     
@@ -33,13 +34,12 @@
     } encodingTypes;
 }
 
-- (IBAction)startRecording:(UIButton *)sender;
-- (IBAction)stopRecording:(UIButton *)sender;
+- (IBAction)recordButtonAction:(UIButton *)sender;
+- (IBAction)processButtonAction:(UIButton *)sender;
 - (IBAction)playButtonAction:(UIButton *)sender;
 
 
-
-- (IBAction)recordButtonAction:(id)sender;
+- (IBAction)stopRecording:(UIButton *)sender;
 - (IBAction)playRecording:(UIButton *)sender;
 - (IBAction)stopPlaying:(UIButton *)sender;
 

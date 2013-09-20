@@ -37,65 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)doPitchShift:(NSString *)inWavPath {
-    
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    NSError *error = nil ;
-
-    //Get wav file's directory
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *outWavName = @"/result-pitchshifted.wav";
-
-    NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath =  [directoriesPath objectAtIndex:0];
-
-    NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
-
-    if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
-        [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
-    
-    const char *inWavPathCharArray = [inWavPath UTF8String];
-    const char *outWavPathCharArray = [outWavPath UTF8String];
-
-    PitchShifter *pitchShifter = [PitchShifter alloc];
-    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
-
-//    NSString *documentsDirectoryPath = [directoryPaths objectAtIndex:0];
-    if ([fileManager fileExistsAtPath:outWavPath] == YES) {
-        NSLog(@"File exists: %@",outWavPath);
-    } else {
-        NSLog(@"File does not exist");
-    }
-
-    NSURL *url = [NSURL fileURLWithPath:outWavPath];
-
-
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    NSLog(@"%@",error);
-
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-
-    NSLog(@"%@",error);
-    
-//    [playButton setTitle:@"Play" forState:UIControlStateNormal];
-}
-
-- (IBAction)playButtonAction:(UIButton *)sender {
-    
-    [sender setTitle:@"Processing..." forState:UIControlStateNormal];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *recDir = [paths objectAtIndex:0];
-    NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
-    [self doPitchShift:inWavPath];
-}
-
--(IBAction) startRecording:(UIButton *)sender
+-(IBAction) recordButtonAction:(UIButton *)sender
 {
     if(!isRecording){
         
@@ -184,22 +126,6 @@
             NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
         }
 
-        
-    }
-}
-
--(IBAction) stopRecording:(UIButton *)sender
-{
-    NSLog(@"stopRecording");
-    [audioRecorder stop];
-    NSLog(@"stopped");
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *recDir = [paths objectAtIndex:0];
-    NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
-    
-    if ( ![self exportAssetAsWaveFormat:filePath]) {
-        NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
     }
 }
 
@@ -298,11 +224,122 @@
     return YES;
 }
 
+- (IBAction)processButtonAction:(UIButton *)sender {
+
+    isProcessing = true;
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        while (isProcessing)
+            [sender setTitle:@"Processing..." forState:UIControlStateNormal];
+        
+        [sender setTitle:@"Process" forState:UIControlStateNormal];
+
+    });
+
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [self processSound];
+    });
+    
+
+    
+}
+
+
+-(void) processSound{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *recDir = [paths objectAtIndex:0];
+    NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
+
+    [self doPitchShift:inWavPath];
+}
+
+- (BOOL)doPitchShift:(NSString *)inWavPath {
+    
+    //Get wav file's directory
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *outWavName = @"/result-pitchshifted.wav";
+    
+    NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath =  [directoriesPath objectAtIndex:0];
+    
+    NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
+    
+    NSError *error = nil ;
+    if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
+        [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
+    
+    char *inWavPathCharArray = [inWavPath UTF8String];
+    char *outWavPathCharArray = [outWavPath UTF8String];
+    
+    PitchShifter *pitchShifter = [PitchShifter alloc];
+    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
+    
+    isProcessing = false;
+    
+    return true;
+}
+
+
+- (IBAction)playButtonAction:(UIButton *)sender {
+    
+    
+    NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath =  [directoryPath objectAtIndex:0];
+    NSString *outWavName = @"/result-pitchshifted.wav";
+    NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:outWavPath] == YES) {
+        NSLog(@"File exists: %@",outWavPath);
+    } else {
+        NSLog(@"File does not exist");
+    }
+    
+    NSURL *url = [NSURL fileURLWithPath:outWavPath];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    NSError *error = nil ;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    NSLog(@"%@",error);
+    
+    audioPlayer.numberOfLoops = 0;
+    [audioPlayer play];
+    
+    NSLog(@"%@",error);
+
+    [sender setTitle:@"Play" forState:UIControlStateNormal];
+}
+
+
+
+
+
+
+
 
 ////// NOT USED:
 
-- (IBAction)recordButtonAction:(id)sender {
-    [self startRecording:nil];
+-(IBAction) stopRecording:(UIButton *)sender
+{
+    NSLog(@"stopRecording");
+    [audioRecorder stop];
+    NSLog(@"stopped");
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *recDir = [paths objectAtIndex:0];
+    NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
+    
+    if ( ![self exportAssetAsWaveFormat:filePath]) {
+        NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
+    }
 }
 
 -(IBAction) playRecording:(UIButton *)sender
