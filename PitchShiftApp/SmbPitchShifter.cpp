@@ -40,12 +40,15 @@
 #define M_PI 3.14159265358979323846
 #define MAX_FRAME_LENGTH 8192
 
-void smbFft(float *fftBuffer, long fftFrameSize, long sign);
-double smbAtan2(double x, double y);
+//void smbFft(float *fftBuffer, long fftFrameSize, long sign);
+//double smbAtan2(double x, double y);
 
 
 // -----------------------------------------------------------------------------------------------------------------
 
+float SmbPitchShifter::getProgress() {
+    return progress;
+}
 
 void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, long fftFrameSize, long osamp, float sampleRate, float *indata, float *outdata)
 /*
@@ -70,6 +73,8 @@ void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, lo
 	double magn, phase, tmp, window, real, imag;
 	double freqPerBin, expct;
 	long i,k, qpd, index, inFifoLatency, stepSize, fftFrameSize2;
+    
+    //int willUpdateProgressStatus;
     
 	/* set up some handy variables */
 	fftFrameSize2 = fftFrameSize/2;
@@ -96,10 +101,17 @@ void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, lo
 	/* main processing loop */
 	for (i = 0; i < numSampsToProcess; i++){
         
+//        willUpdateProgressStatus = i % 100;
+//        if (willUpdateProgressStatus == 0) {
+//            progress = (float)i/(float)numSampsToProcess;
+//            //printf("Current progress: %f\n",progress);
+//        }
+        
+        progress = (float)i/(float)numSampsToProcess;
+
 		/* As long as we have not yet collected enough data just read in */
 		gInFIFO[gRover] = indata[i];
 		outdata[i] = gOutFIFO[gRover-inFifoLatency];
-        //printf("Correspondent in: %f, New out: %f\n", indata[i], outdata[i]);
 		gRover++;
         
 		/* now we have enough data for processing */

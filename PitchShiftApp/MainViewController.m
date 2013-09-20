@@ -8,9 +8,7 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
-
-@end
+float GlobalAudioSampleRate = 32000;
 
 @implementation MainViewController
 
@@ -28,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    recordEncoding = ENC_PCM;
+    recordEncoding = ENC_AAC;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,7 +53,7 @@
         if(recordEncoding == ENC_PCM)
         {
             [recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
-            [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:GlobalAudioSampleRate] forKey: AVSampleRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
             [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
             [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
@@ -86,7 +84,7 @@
             }
             
             [recordSettings setObject:formatObject forKey: AVFormatIDKey];
-            [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:GlobalAudioSampleRate] forKey: AVSampleRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
             [recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
@@ -134,7 +132,7 @@
     NSError *error = nil ;
     
     NSDictionary *audioSetting = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  [ NSNumber numberWithFloat:44100.0], AVSampleRateKey,
+                                  [ NSNumber numberWithFloat:GlobalAudioSampleRate], AVSampleRateKey,
                                   [ NSNumber numberWithInt:1], AVNumberOfChannelsKey,
                                   [ NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
                                   [ NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
