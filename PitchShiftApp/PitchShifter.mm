@@ -7,56 +7,93 @@
 //
 
 #import "PitchShifter.h"
-#import "PitchShiftIterative.h"
 
 @implementation PitchShifter
 
+@synthesize pitchShiftIterator;
+
 float progressStatus;
+float numStages, currentStage;
 
 -(float) getProgressStatus {
-    return progressStatus;
+    float currentProgress;
+    
+    currentProgress = (currentStage-1)/numStages;
+    currentProgress += 1/numStages*self.pitchShiftIterator->getSmbPitchShiftProgress();
+    
+    return currentProgress;
 }
 
 
--(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath {
+-(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath andShiftType:(int)shiftType {
     NSLog(@"Initializing shifting algorithm");
-    PitchShiftIterative *pitchShiftIterator = PitchShiftIterative::getInstance();
+    pitchShiftIterator = PitchShiftIterative::getInstance();
     
     pitchShiftIterator->get_info(wavFilePath);
     
     int *i_original_wave_array;
-    //int *i_third_up_wave_array;
+    int *i_third_up_wave_array;
     int *i_fifth_up_wave_array;
     int *i_summed_triads_array;
 
     NSLog(@"[1/5] Allocating space for wave arrays");
     i_original_wave_array = (int *) malloc(pitchShiftIterator->i_wave_num_of_itens*sizeof(int));
-    //i_third_up_wave_array = (int *) malloc(pitchShiftIterator->i_wave_num_of_itens*sizeof(int));
+    i_third_up_wave_array = (int *) malloc(pitchShiftIterator->i_wave_num_of_itens*sizeof(int));
     i_fifth_up_wave_array = (int *) malloc(pitchShiftIterator->i_wave_num_of_itens*sizeof(int));
     i_summed_triads_array = (int *) malloc(pitchShiftIterator->i_wave_num_of_itens*sizeof(int));
     
-    // Converts from wave to array
     NSLog(@"[2/5] Converting from wave to array");
     pitchShiftIterator->wave_to_array(wavFilePath, i_original_wave_array);
     
-    // Generates thirds and fifths up
-    NSLog(@"[3/5] Generating thirds and/or fifths up");
-    //pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
-    pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
-    
-    // Sums all three waves
-    NSLog(@"[4/5] Summing all three waves");
-    //pitchShiftIterator->sum_three_waves(i_original_wave_array, i_third_up_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
-    pitchShiftIterator->sum_two_waves(i_original_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
+    switch (shiftType) {
+            
+        case SHIFT_THIRD:
+            
+            numStages = 1.0;
+            
+            NSLog(@"[3/5] Generating third up");
+            currentStage = 1.0;
+            pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
+            
+            NSLog(@"[4/5] Summing the waves");
+            pitchShiftIterator->sum_two_waves(i_original_wave_array, i_third_up_wave_array, i_summed_triads_array);
+            break;
+            
+        case SHIFT_FIFTH:
+            
+            numStages = 1.0;
+            
+            NSLog(@"[3/5] Generating fifth up");
+            currentStage = 1.0;
+            pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
+            
+            NSLog(@"[4/5] Summing the waves");
+            pitchShiftIterator->sum_two_waves(i_original_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
+            break;
+            
+        case SHIFT_TRIAD:
+            
+            numStages = 2.0;
+            
+            NSLog(@"[3/5] Generating thirds and fifths up");
+            currentStage = 1.0;
+            pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
+            currentStage = 2.0;
+            pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
+            
+            NSLog(@"[4/5] Summing all three waves");
+            pitchShiftIterator->sum_three_waves(i_original_wave_array, i_third_up_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
+            break;
+            
+    }
     
     free(i_original_wave_array);
-    //free(i_third_up_wave_array);
+    free(i_third_up_wave_array);
     free(i_fifth_up_wave_array);
     
-    // Writes the wav file for the triads
     NSLog(@"[5/5] Writing wav file");
     pitchShiftIterator->array_to_wave(outWavFilePath, i_summed_triads_array);
-    //pitchShiftIterator->array_to_wave(outWavFilePath, i_original_wave_array);
+
     free(i_summed_triads_array);
     
     delete(pitchShiftIterator);
