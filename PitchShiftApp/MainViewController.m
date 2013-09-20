@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 
+float GlobalAudioSampleRate = 32000;
+
 @implementation MainViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -24,9 +26,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+<<<<<<< HEAD
     recordEncoding = ENC_PCM;
     
     pickerStatus = [[NSArray alloc] initWithObjects:@"Third shift", @"Fifth shift", @"Triad shift", nil];}
+=======
+    recordEncoding = ENC_AAC;
+}
+>>>>>>> 76140f2a13da2f7e054e0f678036b1228b9891b8
 
 - (void)didReceiveMemoryWarning
 {
@@ -52,7 +59,7 @@
         if(recordEncoding == ENC_PCM)
         {
             [recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
-            [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:GlobalAudioSampleRate] forKey: AVSampleRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
             [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
             [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
@@ -83,7 +90,7 @@
             }
             
             [recordSettings setObject:formatObject forKey: AVFormatIDKey];
-            [recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:GlobalAudioSampleRate] forKey: AVSampleRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
             [recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
@@ -131,7 +138,7 @@
     NSError *error = nil ;
     
     NSDictionary *audioSetting = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  [ NSNumber numberWithFloat:44100.0], AVSampleRateKey,
+                                  [ NSNumber numberWithFloat:GlobalAudioSampleRate], AVSampleRateKey,
                                   [ NSNumber numberWithInt:1], AVNumberOfChannelsKey,
                                   [ NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
                                   [ NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,

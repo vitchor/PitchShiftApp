@@ -13,6 +13,7 @@
 // Additional libs required
 #include "SmbPitchShifter.h"
 #include "sndfile.h"
+#include "pthread.h"
 
 // Music frequencies definitions
 #define THIRD_UP 1.259921
@@ -32,6 +33,7 @@ class PitchShiftIterative {
         void sum_two_waves(int* i_in_first_wave_array, int* i_in_second_wave_array, int* i_out_result_wave_array);
         void sum_three_waves(int* i_in_first_wave_array, int* i_in_second_wave_array, int* i_in_third_wave_array, int* i_out_result_wave_array);
         virtual ~PitchShiftIterative();
+        float getSmbPitchShiftProgress();
     
         // GLOBAL VARIABLES:
         int i_num_channels, i_wave_length, i_wave_num_of_itens;
@@ -39,6 +41,7 @@ class PitchShiftIterative {
     
     private:
         static PitchShiftIterative *instance;
+        SmbPitchShifter *smbPitchShifter;
 
     protected:
         PitchShiftIterative();

@@ -10,4 +10,5 @@
 
 @interface PitchShifter : NSObject
 -(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath;
+-(float) getProgressStatus;
 @end

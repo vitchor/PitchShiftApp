@@ -28,7 +28,7 @@ using namespace std;
 
 PitchShiftIterative *PitchShiftIterative::instance;
 PitchShiftIterative::PitchShiftIterative() {
-    //constructor functions
+    smbPitchShifter = new SmbPitchShifter();
 }
 PitchShiftIterative *PitchShiftIterative::getInstance() {
     if (!instance) {
@@ -37,10 +37,15 @@ PitchShiftIterative *PitchShiftIterative::getInstance() {
 	return instance;
 }
 PitchShiftIterative::~PitchShiftIterative() {
-    //destructor functions
+    delete smbPitchShifter;
 }
 
 #pragma region "PitchShift Functions Implementation"
+
+float PitchShiftIterative::getSmbPitchShiftProgress() {
+    return smbPitchShifter->getProgress();
+}
+
 
 void PitchShiftIterative::get_info(char* c_in_wav_file_name) {
     SNDFILE *m_wave_file;
@@ -100,7 +105,7 @@ void PitchShiftIterative::wave_to_array(char* c_in_wav_file_name, int* i_out_wav
 
 void PitchShiftIterative::array_to_wave(char* c_out_wav_file_name, int* i_in_wave_array) {
 
-    printf("File name i got: %s\n", c_out_wav_file_name);
+    //printf("File name i got: %s\n", c_out_wav_file_name);
     
     const int i_format=SF_FORMAT_WAV | SF_FORMAT_PCM_32;
     int i_err_code;
@@ -130,6 +135,7 @@ void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_arra
     float *f_wave_array;
     float *f_wave_shifted_pitch;
     float f_byte_value;
+    float f_sample_rate;
     
     f_wave_array = (float *) malloc(i_wave_num_of_itens*sizeof(float));
     f_wave_shifted_pitch = (float *) malloc(i_wave_num_of_itens*sizeof(float));
@@ -140,23 +146,39 @@ void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_arra
         f_wave_array[i] /= INT_MAX;
     }
     
-    SmbPitchShifter *smbPitchShifter;
-    smbPitchShifter = new SmbPitchShifter;
+    printf("[3. 1/5] Starting pitch shifting algorithm de facto:\n");
     
-    smbPitchShifter->smbPitchShift(f_ratio_shift, i_wave_length, 1024, 32, 44100, f_wave_array, f_wave_shifted_pitch);
+    f_sample_rate = i_wave_sample_rate * 1.0;
+    
+    //smbPitchShifter->smbPitchShift(f_ratio_shift, i_wave_length, 1024, 32, 44100, f_wave_array, f_wave_shifted_pitch);
+    smbPitchShifter->smbPitchShift(f_ratio_shift, i_wave_length, 1024, 32, f_sample_rate, f_wave_array, f_wave_shifted_pitch);
+    
+    printf("[3. 2/5]Finished pitch shifting algorithm\n");
     
     // Gets max absolute value from f_wave_shifted_pitch so as to normalize it back to [-1,1]
+    
+    printf("[3. 3/5] Getting max value of wave for normalization:\n");
+    
     float f_abs_max_of_wave = 0.0;
     for (int i = 0; i < i_wave_length; i += i_wave_channels) {
         f_abs_max_of_wave = std::max(fabs(f_wave_shifted_pitch[i]), f_abs_max_of_wave);
     }
     
+    printf("[3. 4/5] Finished getting max value of wave for normalization:\n");
+    
     // Normalizes f_wave_shifted_pitch back to [-1,1]. Converts the result back as an integer on i_wave_shifted_pitch
+    
+    printf("[3. 5/5] Normalizing wave back to integer values:\n");
     for (int i = 0; i < i_wave_length; i += i_wave_channels) {
         f_wave_shifted_pitch[i] /= f_abs_max_of_wave;
         f_byte_value = f_wave_shifted_pitch[i] * INT_MAX;
         i_out_wave_array[i] = f_byte_value;
     }
+    
+    //delete(smbPitchShifter);
+    
+    printf("*** Finished normalizing wave back to integer values: ***\n");
+
 }
 
 void PitchShiftIterative::sum_two_waves(int* i_in_first_wave_array, int* i_in_second_wave_array, int* i_out_result_wave_array) {
