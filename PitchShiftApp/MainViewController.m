@@ -224,26 +224,22 @@ float GlobalAudioSampleRate = 32000;
 
 - (IBAction)processButtonAction:(UIButton *)sender {
 
-    isProcessing = true;
-    
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        
-        while (isProcessing)
-            [sender setTitle:@"Processing..." forState:UIControlStateNormal];
-        
-        [sender setTitle:@"Process" forState:UIControlStateNormal];
 
-    });
-
+    [sender setTitle:@"Processing..." forState:UIControlStateNormal];
     
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         [self processSound];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [sender setTitle:@"Process" forState:UIControlStateNormal];
+            
+        });
     });
-    
-
     
 }
-
 
 -(void) processSound{
     
@@ -254,7 +250,7 @@ float GlobalAudioSampleRate = 32000;
     [self doPitchShift:inWavPath];
 }
 
-- (BOOL)doPitchShift:(NSString *)inWavPath {
+- (void)doPitchShift:(NSString *)inWavPath {
     
     //Get wav file's directory
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -277,9 +273,6 @@ float GlobalAudioSampleRate = 32000;
     PitchShifter *pitchShifter = [PitchShifter alloc];
     [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray];
     
-    isProcessing = false;
-    
-    return true;
 }
 
 
