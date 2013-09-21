@@ -58,8 +58,6 @@ void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, lo
  Author: (c)1999-2009 Stephan M. Bernsee <smb [AT] dspdimension [DOT] com>
  */
 {
-    progress = 0.0;
-
 	static float gInFIFO[MAX_FRAME_LENGTH];
 	static float gOutFIFO[MAX_FRAME_LENGTH];
 	static float gFFTworksp[2*MAX_FRAME_LENGTH];
@@ -84,6 +82,8 @@ void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, lo
 	expct = 2.*M_PI*(double)stepSize/(double)fftFrameSize;
 	inFifoLatency = fftFrameSize-stepSize;
 	if (gRover == false) gRover = inFifoLatency;
+    
+    progress = 0.0;
     
 	/* initialize our static arrays */
 	if (gInit == false) {
@@ -228,6 +228,7 @@ void SmbPitchShifter::smbPitchShift(float pitchShift, long numSampsToProcess, lo
 			for (k = 0; k < inFifoLatency; k++) gInFIFO[k] = gInFIFO[k+stepSize];
 		}
 	}
+    progress = 0.0;
 }
 
 // -----------------------------------------------------------------------------------------------------------------

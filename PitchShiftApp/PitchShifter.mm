@@ -16,23 +16,11 @@ float currentProgress = 0.0;
 
 @implementation PitchShifter
 -(float) getProgressStatus {
-    //float currentProgress;
+
+    currentProgress = (currentStage-1)/numStages;
+    currentProgress += 1/numStages*pitchShiftIterator->getSmbPitchShiftProgress();
     
-    //currentProgress = currentStage/numStages;
-    //currentProgress *= pitchShiftIterator->getSmbPitchShiftProgress();
-    
-    if(pitchShiftIterator->getSmbPitchShiftProgress()> 0.99 && pitchShiftIterator->getSmbPitchShiftProgress() < 1.1) {
-        
-        return currentProgress;
-        
-    }else{
-        currentProgress = (currentStage-1)/numStages;
-        currentProgress += 1/numStages*pitchShiftIterator->getSmbPitchShiftProgress();
-        
-        return currentProgress;
-    }
-    
-    
+    return currentProgress;
 }
 
 

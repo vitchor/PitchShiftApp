@@ -298,7 +298,7 @@ float GlobalAudioSampleRate = 32000;
     char *outWavPathCharArray = [outWavPath UTF8String];
     
     pitchShifter = [PitchShifter alloc];
-    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:SHIFT_FIFTH];
+    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:SHIFT_TRIAD];
 //    NSLog(@"ESTADO FINAL: %f ",[pitchShifter getProgressStatus]);
 }
 
