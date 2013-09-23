@@ -14,6 +14,7 @@
 @interface MainViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
     
     int recordEncoding;
+    int shiftTypeRow;
     bool isRecording;
     bool isProcessing;
     

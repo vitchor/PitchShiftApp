@@ -230,6 +230,7 @@ float GlobalAudioSampleRate = 32000;
 
 - (IBAction)processButtonAction:(UIButton *)sender {
 
+    [progressView setProgress:0.0];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         isProcessing = YES;
@@ -250,19 +251,44 @@ float GlobalAudioSampleRate = 32000;
 
     
     [sender setTitle:@"Processing..." forState:UIControlStateNormal];
-
+    
     sleep(1);
+    
+//    isProcessing = true;
     
     float progress = 0.0;
     
     while (progress < 0.98 && isProcessing) {
 
+//        NSLog(@"PORRA DOIDAAAAA");
+        
         progress = [pitchShifter getProgressStatus];
+        
+//        progress = progress + 0.1;
+//        
         NSLog(@"STATUS: %f ",progress);
-
-        [progressView setProgress: progress animated:NO];
-        usleep(50000);
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            progressView.progress = progress;
+//        });
+        
+        progressView.progress = progress;
+        
+        usleep(500000);
     }
+    
+//    for ( int i = 1; i  < 100; i++ ) {
+//        // Other stuff in background
+//        
+//        NSLog(@"STUUUUUUUUFFFFFFFFF");
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            progressView.progress = i;
+//        });
+//                NSLog(@"STUUUUUUUUFFFaudghadshuasdFFFFFF");    }
+//    
+//    sleep(1);
+//    
+//     NSLog(@"PORRA MALUCAAA");
     
     //NSLog(@"STATUS: %f ",progress);
 }
@@ -298,7 +324,8 @@ float GlobalAudioSampleRate = 32000;
     char *outWavPathCharArray = [outWavPath UTF8String];
     
     pitchShifter = [PitchShifter alloc];
-    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:SHIFT_TRIAD];
+    
+    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:shiftTypeRow+1];
 //    NSLog(@"ESTADO FINAL: %f ",[pitchShifter getProgressStatus]);
 }
 
@@ -354,6 +381,12 @@ float GlobalAudioSampleRate = 32000;
 {
     //set item per row
     return [pickerStatus objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    if(component == 0)
+        shiftTypeRow = row;
 }
 
 @end
