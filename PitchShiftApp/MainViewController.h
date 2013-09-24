@@ -16,6 +16,7 @@
     int recordEncoding;
     bool isProcessing;
     NSTimer* levelTimer;
+    double lowPassResults;
     
     enum
     {
@@ -45,8 +46,10 @@
     __weak IBOutlet UIButton *shareButton;
     __weak IBOutlet UILabel *centerTextLabel;
     __weak IBOutlet UIView *selectingEffectView;
-
+    __weak IBOutlet UIImageView *floatingCircle;
+    
     IBOutlet UIProgressView *progressView;
+
     
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;

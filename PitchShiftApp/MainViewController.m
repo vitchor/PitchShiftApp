@@ -57,6 +57,7 @@ float GlobalAudioSampleRate = 32000;
                 [shareButton setHidden:YES];
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [floatingCircle setHidden:YES];
                 
                 [centerButton setTitle:@"Record" forState:UIControlStateNormal];
                 
@@ -75,6 +76,7 @@ float GlobalAudioSampleRate = 32000;
                 [shareButton setHidden:YES];
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [floatingCircle setHidden:NO];
                 
                 [centerButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
                 
@@ -93,6 +95,7 @@ float GlobalAudioSampleRate = 32000;
                 [downloadButton setHidden:YES];
                 [shareButton setHidden:YES];
                 [progressView setHidden:YES];
+                [floatingCircle setHidden:YES];
                 
                 currentViewState = SELECTING_EFFECT_VIEW;
                 
@@ -109,6 +112,7 @@ float GlobalAudioSampleRate = 32000;
                 [downloadButton setHidden:YES];
                 [shareButton setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [floatingCircle setHidden:YES];
                 
                 [centerButton setTitle:@"Processing" forState:UIControlStateNormal];
                 
@@ -127,6 +131,7 @@ float GlobalAudioSampleRate = 32000;
                 [listButton setHidden:YES];
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [floatingCircle setHidden:YES];
                 
                 [centerButton setTitle:@"Start Playing" forState:UIControlStateNormal];
                 
@@ -145,6 +150,7 @@ float GlobalAudioSampleRate = 32000;
                 [listButton setHidden:YES];
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [floatingCircle setHidden:YES];
                 
                 [centerButton setTitle:@"Stop" forState:UIControlStateNormal];
                 
@@ -163,6 +169,7 @@ float GlobalAudioSampleRate = 32000;
                 [listButton setHidden:YES];
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [floatingCircle setHidden:YES];
                 
                 [centerButton setTitle:@"Play" forState:UIControlStateNormal];
                 
@@ -257,7 +264,16 @@ float GlobalAudioSampleRate = 32000;
 - (void)levelTimerCallback:(NSTimer *)timer {
     if (audioRecorder) {
         [audioRecorder updateMeters];
-        NSLog(@"Average input: %f Peak input: %f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0]);
+        
+        const double ALPHA = 0.05;
+        double peakPowerForChannel = pow(10, (0.05 * [audioRecorder peakPowerForChannel:0]));
+        lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
+        
+        //NSLog(@"Average input: %f Peak input: %f Low pass results:%f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0], lowPassResults);
+        
+        floatingCircle.frame = CGRectMake(160-(200*lowPassResults)/2, 280-(200*lowPassResults)/2, 200*lowPassResults, 200*lowPassResults);
+        //floatingCircle.transform = CGAffineTransformRotate(floatingCircle.transform, 0.001);
+        
     } else {
         NSLog(@"Timer still running");
     }
