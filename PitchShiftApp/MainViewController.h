@@ -48,8 +48,9 @@
     IBOutlet UILabel *centerTextLabel;
     IBOutlet UIView *selectingEffectView;
     IBOutlet UIImageView *floatingCircle;
-    IBOutlet UIImageView *progressView;
-
+    IBOutlet UIImageView *progressBar;
+    IBOutlet UIImageView *progressBarBackground;
+    
     NSTimer* levelTimer;
     NSTimer* progressBarTimer;
     AVAudioPlayer *audioPlayer;

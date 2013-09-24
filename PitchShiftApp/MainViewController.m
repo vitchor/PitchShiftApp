@@ -29,7 +29,7 @@ float GlobalAudioSampleRate = 32000;
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
     
-    progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, 1.0, progressView.frame.size.height);
+    progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, 1.0, progressBar.frame.size.height);
     
     [self setupXib:INITIAL_VIEW];
 }
@@ -55,7 +55,8 @@ float GlobalAudioSampleRate = 32000;
                 [downloadButton setHidden:YES];
                 [cancelButton setHidden:YES];
                 [shareButton setHidden:YES];
-                [progressView setHidden:YES];
+                [progressBarBackground setHidden:YES];
+                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 
@@ -74,7 +75,8 @@ float GlobalAudioSampleRate = 32000;
                 [downloadButton setHidden:YES];
                 [cancelButton setHidden:YES];
                 [shareButton setHidden:YES];
-                [progressView setHidden:YES];
+                [progressBarBackground setHidden:YES];
+                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:NO];
                 
@@ -94,7 +96,8 @@ float GlobalAudioSampleRate = 32000;
                 [listButton setHidden:YES];
                 [downloadButton setHidden:YES];
                 [shareButton setHidden:YES];
-                [progressView setHidden:YES];
+                [progressBarBackground setHidden:YES];
+                [progressBar setHidden:YES];
                 [floatingCircle setHidden:YES];
                 
                 currentViewState = SELECTING_EFFECT_VIEW;
@@ -104,7 +107,8 @@ float GlobalAudioSampleRate = 32000;
             case PROCESSING_VIEW:
                 
                 [centerButton setHidden:NO];
-                [progressView setHidden:NO];
+                [progressBarBackground setHidden:NO];
+                [progressBar setHidden:NO];
                 [cancelButton setHidden:NO];
                 
                 [centerTextLabel setHidden:YES];
@@ -129,7 +133,8 @@ float GlobalAudioSampleRate = 32000;
                 
                 [centerTextLabel setHidden:YES];
                 [listButton setHidden:YES];
-                [progressView setHidden:YES];
+                [progressBarBackground setHidden:YES];
+                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 
@@ -148,7 +153,8 @@ float GlobalAudioSampleRate = 32000;
                 
                 [centerTextLabel setHidden:YES];
                 [listButton setHidden:YES];
-                [progressView setHidden:YES];
+                [progressBarBackground setHidden:YES];
+                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 
@@ -167,7 +173,8 @@ float GlobalAudioSampleRate = 32000;
                 [downloadButton setHidden:YES];
                 [centerTextLabel setHidden:YES];
                 [listButton setHidden:YES];
-                [progressView setHidden:YES];
+                [progressBarBackground setHidden:YES];
+                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 
@@ -396,9 +403,9 @@ float GlobalAudioSampleRate = 32000;
 
 - (void)processSound:(int) pitchShiftType {
 
-    progress = 0.0;
+    progress = 0.1;
     
-    progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
+    progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
@@ -410,28 +417,24 @@ float GlobalAudioSampleRate = 32000;
 
 -(void) updateProgressBar {
     
-    if (progress < 1.0){
+    if (progress < 0.95){
         
         progress = [pitchShifter getProgressStatus];
         
-        if(progress == 0.0){
-            
-            progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
-            
-            [progressBarTimer invalidate], progressBarTimer = nil;
-            
-            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+        if (progress != progress || progress == -1.0) {
+            progress = 0.1;
         }
+        
         else
         {
             NSLog(@"STATUS: %f ",progress);
             
-           progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, progress*PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
+           progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, progress * PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
         }
     }
     else
     {
-        progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
+        progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
         
         [progressBarTimer invalidate], progressBarTimer = nil;
         

@@ -12,7 +12,8 @@
                 <outlet property="downloadButton" destination="V6D-lN-jvH" id="4sW-sw-Sr9"/>
                 <outlet property="floatingCircle" destination="Dnq-YR-ZLu" id="yPT-y4-uHo"/>
                 <outlet property="listButton" destination="b2w-Xi-OiD" id="fHR-Vh-bfn"/>
-                <outlet property="progressView" destination="Lj1-4U-8Xk" id="92d-VU-H6t"/>
+                <outlet property="progressBar" destination="Lj1-4U-8Xk" id="jMb-vv-48l"/>
+                <outlet property="progressBarBackground" destination="Cbq-NI-OKe" id="GFz-YG-w6F"/>
                 <outlet property="selectingEffectView" destination="nkY-Eb-1Bm" id="gAW-Bk-elE"/>
                 <outlet property="shareButton" destination="3cA-6k-brc" id="99R-44-PSk"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -82,8 +83,13 @@
                         <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="5eA-X8-Dwx"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barra 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbq-NI-OKe" userLabel="Image View - Progress Bar Background">
                     <rect key="frame" x="40" y="200" width="240" height="62"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barra 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk">
+                    <rect key="frame" x="40" y="200" width="1" height="62"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-YR-ZLu">
