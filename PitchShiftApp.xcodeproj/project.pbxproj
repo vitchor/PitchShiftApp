@@ -25,6 +25,7 @@
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
 		AC7807A517EB99A80094711F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7807A317EB99A80094711F /* MainViewController.xib */; };
+		AC7CDCEA17F2171600B8BD6A /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7CDCE917F2171600B8BD6A /* Circle.png */; };
 		ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */; };
 		ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */; };
 		ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */; };
@@ -73,6 +74,7 @@
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AC7807A217EB99A80094711F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		AC7807A317EB99A80094711F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		AC7CDCE917F2171600B8BD6A /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
 		ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PitchShiftIterative.cpp; sourceTree = "<group>"; };
 		ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShiftIterative.h; sourceTree = "<group>"; };
 		ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmbPitchShifter.cpp; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		AC742B1617F103D4004E48D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC7CDCE917F2171600B8BD6A /* Circle.png */,
 				AC742B1717F1043B004E48D8 /* barra 1.png */,
 				AC742B1817F1043B004E48D8 /* barra 2.png */,
 				AC742B1917F1043B004E48D8 /* Botão central.png */,
@@ -366,6 +369,7 @@
 				AC742B2717F1043B004E48D8 /* barra 2.png in Resources */,
 				AC742B3117F1043B004E48D8 /* stop.png in Resources */,
 				AC742B2917F1043B004E48D8 /* circulo.png in Resources */,
+				AC7CDCEA17F2171600B8BD6A /* Circle.png in Resources */,
 				AC742B2817F1043B004E48D8 /* Botão central.png in Resources */,
 				AC742B2B17F1043B004E48D8 /* cancelar.png in Resources */,
 				AC742B2A17F1043B004E48D8 /* fundo.png in Resources */,

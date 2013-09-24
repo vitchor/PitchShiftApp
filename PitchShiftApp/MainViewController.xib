@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -10,9 +10,9 @@
                 <outlet property="centerButton" destination="4Ki-Wi-PzE" id="1TZ-2J-hUY"/>
                 <outlet property="centerTextLabel" destination="SSt-SC-j5p" id="Sco-4P-f0O"/>
                 <outlet property="downloadButton" destination="V6D-lN-jvH" id="4sW-sw-Sr9"/>
+                <outlet property="floatingCircle" destination="Dnq-YR-ZLu" id="yPT-y4-uHo"/>
                 <outlet property="listButton" destination="b2w-Xi-OiD" id="fHR-Vh-bfn"/>
-                <outlet property="progressBarWidth" destination="HvM-dM-v33" id="HWR-Bo-2Jc"/>
-                <outlet property="progressView" destination="6FY-Hf-REl" id="Gtf-fQ-J4V"/>
+                <outlet property="progressView" destination="d94-Oa-J2a" id="gTO-ap-1q9"/>
                 <outlet property="selectingEffectView" destination="nkY-Eb-1Bm" id="gAW-Bk-elE"/>
                 <outlet property="shareButton" destination="3cA-6k-brc" id="99R-44-PSk"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -23,15 +23,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE">
-                    <rect key="frame" x="135" y="162" width="50" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE">
+                    <rect key="frame" x="21" y="162" width="279" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Record"/>
                     <connections>
                         <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2w-Xi-OiD">
+                <progressView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d94-Oa-J2a">
+                    <rect key="frame" x="85" y="330" width="150" height="3"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </progressView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2w-Xi-OiD">
                     <rect key="frame" x="270" y="430" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="List">
@@ -62,7 +66,7 @@
                         <action selector="downloadButtonAction:" destination="-1" eventType="touchUpInside" id="cCa-tp-93S"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THK-3i-2Cc">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THK-3i-2Cc">
                     <rect key="frame" x="20" y="430" width="48" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Cancel">
@@ -72,7 +76,7 @@
                         <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="Aqk-9J-4Qr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cA-6k-brc">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cA-6k-brc">
                     <rect key="frame" x="260" y="430" width="40" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Share">
@@ -82,12 +86,9 @@
                         <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="5eA-X8-Dwx"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barra 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="6FY-Hf-REl">
-                    <rect key="frame" x="40" y="215" width="240" height="50"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-YR-ZLu">
+                    <rect key="frame" x="110" y="281" width="100" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="HvM-dM-v33"/>
-                    </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkY-Eb-1Bm" userLabel="Selecting Effect View">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -139,28 +140,26 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="4oR-ja-QTk"/>
-                <constraint firstItem="6FY-Hf-REl" firstAttribute="top" secondItem="4Ki-Wi-PzE" secondAttribute="bottom" constant="23" id="90r-Wj-7gH"/>
-                <constraint firstItem="3cA-6k-brc" firstAttribute="leading" secondItem="V6D-lN-jvH" secondAttribute="trailing" constant="65" id="9Ov-iw-72J"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="nkY-Eb-1Bm" secondAttribute="centerX" id="BKA-va-oyT"/>
+                <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="V6D-lN-jvH" secondAttribute="centerX" id="1Qe-vf-QMM"/>
+                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="1Wv-tU-JGd"/>
+                <constraint firstAttribute="centerX" secondItem="Dnq-YR-ZLu" secondAttribute="centerX" id="5uB-It-ABG"/>
+                <constraint firstItem="d94-Oa-J2a" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="85" id="A1V-hc-OdO"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="top" secondItem="1" secondAttribute="top" constant="200" id="HcZ-L6-mkm"/>
-                <constraint firstItem="V6D-lN-jvH" firstAttribute="baseline" secondItem="THK-3i-2Cc" secondAttribute="baseline" id="K9c-8A-We8"/>
-                <constraint firstAttribute="bottom" secondItem="V6D-lN-jvH" secondAttribute="bottom" constant="20" symbolic="YES" id="Not-gE-Bqp"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" id="PWd-Ab-OrY"/>
-                <constraint firstItem="V6D-lN-jvH" firstAttribute="baseline" secondItem="3cA-6k-brc" secondAttribute="baseline" id="Wf7-yO-WfG"/>
+                <constraint firstAttribute="bottom" secondItem="d94-Oa-J2a" secondAttribute="bottom" constant="148" id="P0Q-FT-sQ6"/>
+                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="centerX" secondItem="V6D-lN-jvH" secondAttribute="centerX" id="SbR-Uc-jdV"/>
+                <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" id="Tob-X8-k6p"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="top" secondItem="4Ki-Wi-PzE" secondAttribute="bottom" constant="8" symbolic="YES" id="Yb7-nP-b6o"/>
-                <constraint firstItem="b2w-Xi-OiD" firstAttribute="trailing" secondItem="3cA-6k-brc" secondAttribute="trailing" id="b3k-OL-4SM"/>
-                <constraint firstItem="6FY-Hf-REl" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="ccv-dJ-bz8"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="V6D-lN-jvH" secondAttribute="centerX" id="lEa-3A-0jj"/>
-                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="top" secondItem="1" secondAttribute="top" id="npT-F9-JuT"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="6FY-Hf-REl" secondAttribute="centerX" id="rE8-EE-x9E"/>
-                <constraint firstItem="V6D-lN-jvH" firstAttribute="leading" secondItem="THK-3i-2Cc" secondAttribute="trailing" constant="58" id="rV3-Pc-17W"/>
-                <constraint firstItem="V6D-lN-jvH" firstAttribute="baseline" secondItem="b2w-Xi-OiD" secondAttribute="baseline" id="vP9-b5-68f"/>
+                <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="d6O-1V-ofh"/>
+                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" id="mBV-8a-iSg"/>
+                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="top" secondItem="1" secondAttribute="top" id="nkt-XA-aC6"/>
+                <constraint firstItem="V6D-lN-jvH" firstAttribute="top" secondItem="d94-Oa-J2a" secondAttribute="bottom" constant="98" id="ofc-6j-PYp"/>
+                <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="4Ki-Wi-PzE" secondAttribute="centerX" id="wRS-7e-anL"/>
+                <constraint firstAttribute="centerY" secondItem="Dnq-YR-ZLu" secondAttribute="centerY" id="y1m-07-iht"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
-        <image name="barra 2.png" width="266" height="115"/>
+        <image name="Circle.png" width="379" height="379"/>
     </resources>
 </document>

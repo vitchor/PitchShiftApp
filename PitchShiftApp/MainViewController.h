@@ -19,6 +19,7 @@
     float progress;
     bool isProcessing;
     NSTimer* levelTimer;
+    double lowPassResults;
     NSTimer* progressBarTimer;
     
     enum
@@ -42,14 +43,17 @@
         PLAYER_VIEW = 6, 
     } currentViewState;
     
-    IBOutlet UIButton *centerButton;
-    IBOutlet UIButton *listButton;
-    IBOutlet UIButton *downloadButton;
-    IBOutlet UIButton *cancelButton;
-    IBOutlet UIButton *shareButton;
-    IBOutlet UILabel *centerTextLabel;
-    IBOutlet UIView *selectingEffectView;
-    IBOutlet UIImageView *progressView;
+    __weak IBOutlet UIButton *centerButton;
+    __weak IBOutlet UIButton *listButton;
+    __weak IBOutlet UIButton *downloadButton;
+    __weak IBOutlet UIButton *cancelButton;
+    __weak IBOutlet UIButton *shareButton;
+    __weak IBOutlet UILabel *centerTextLabel;
+    __weak IBOutlet UIView *selectingEffectView;
+    __weak IBOutlet UIImageView *floatingCircle;
+    
+    IBOutlet UIProgressView *progressView;
+
     
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
