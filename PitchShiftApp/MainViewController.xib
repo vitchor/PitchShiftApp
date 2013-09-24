@@ -22,8 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE">
-                    <rect key="frame" x="72" y="162" width="177" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE">
+                    <rect key="frame" x="21" y="162" width="279" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Record"/>
                     <connections>
@@ -136,15 +136,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="V6D-lN-jvH" secondAttribute="centerX" id="1Qe-vf-QMM"/>
+                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="7Ab-Dq-xgz"/>
                 <constraint firstItem="d94-Oa-J2a" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="85" id="A1V-hc-OdO"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="top" secondItem="1" secondAttribute="top" constant="200" id="HcZ-L6-mkm"/>
                 <constraint firstAttribute="bottom" secondItem="d94-Oa-J2a" secondAttribute="bottom" constant="148" id="P0Q-FT-sQ6"/>
                 <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" id="Tob-X8-k6p"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="top" secondItem="4Ki-Wi-PzE" secondAttribute="bottom" constant="8" symbolic="YES" id="Yb7-nP-b6o"/>
-                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="top" secondItem="1" secondAttribute="top" id="aLg-4C-vnr"/>
+                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="top" secondItem="1" secondAttribute="top" id="Z3t-cq-3ED"/>
                 <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="d6O-1V-ofh"/>
                 <constraint firstItem="V6D-lN-jvH" firstAttribute="top" secondItem="d94-Oa-J2a" secondAttribute="bottom" constant="98" id="ofc-6j-PYp"/>
-                <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="nkY-Eb-1Bm" secondAttribute="centerX" id="uVg-a4-vDj"/>
                 <constraint firstItem="d94-Oa-J2a" firstAttribute="centerX" secondItem="4Ki-Wi-PzE" secondAttribute="centerX" id="wRS-7e-anL"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

@@ -128,7 +128,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Start";
+                centerButton.titleLabel.text = @"Start Playing";
                 
                 currentViewState = PREVIEW_VIEW_NOT_PLAYING;
                 
@@ -431,7 +431,7 @@ float GlobalAudioSampleRate = 32000;
 
 - (void)playSound {
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
         (NSDocumentDirectory, NSUserDomainMask, YES);
@@ -453,18 +453,20 @@ float GlobalAudioSampleRate = 32000;
         
         NSError *error = nil ;
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        NSLog(@"%@",error);
+        //NSLog(@"%@",error);
         
         audioPlayer.numberOfLoops = 0;
         [audioPlayer play];
         
-        NSLog(@"%@",error);
+        NSLog(@"TERMINEI DE TOCAR");
         
     });
 }
 
 - (void)stopSound {
-    [audioPlayer stop];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [audioPlayer stop];
+    });
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender {
@@ -493,7 +495,7 @@ float GlobalAudioSampleRate = 32000;
             
         case PROCESSING_VIEW:
             
-            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+            //[self setupXib:PREVIEW_VIEW_NOT_PLAYING];
             
             // do preview
             
@@ -507,9 +509,6 @@ float GlobalAudioSampleRate = 32000;
             break;
             
         case PREVIEW_VIEW_PLAYING:
-            
-            // do player sound
-            
             [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
             [self stopSound];
             break;
