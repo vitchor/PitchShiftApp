@@ -27,13 +27,12 @@ float GlobalAudioSampleRate = 32000;
     // Do any additional setup after loading the view from its nib.
     
     recordEncoding = ENC_PCM;
-    
-    pickerStatus = [[NSArray alloc] initWithObjects:@"Third shift", @"Fifth shift", @"Triad shift", nil];
+    currentViewState = INITIAL_VIEW;
     
     [progressView setProgress:0.0];
-
+    
+    [self setupXib:INITIAL_VIEW];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -41,13 +40,150 @@ float GlobalAudioSampleRate = 32000;
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction) recordButtonAction:(UIButton *)sender
+-(void)setupXib:(int)state
 {
-    if(!isRecording){
+    dispatch_async(dispatch_get_main_queue(), ^{
         
-        [sender setTitle:@"Recording..." forState:UIControlStateNormal];
+        switch (state) {
+                
+            case INITIAL_VIEW:
+                
+                [centerButton setHidden:NO];
+                [centerTextLabel setHidden:NO];
+                [listButton setHidden:NO];
+                
+                [downloadButton setHidden:YES];
+                [cancelButton setHidden:YES];
+                [shareButton setHidden:YES];
+                [progressView setHidden:YES];
+                [selectingEffectView setHidden:YES];
+                
+                centerButton.titleLabel.text = @"Record";
+                
+                currentViewState = INITIAL_VIEW;
+                
+                break;
+                
+            case RECORDING_VIEW:
+                
+                [centerButton setHidden:NO];
+                
+                [centerTextLabel setHidden:YES];
+                [listButton setHidden:YES];
+                [downloadButton setHidden:YES];
+                [cancelButton setHidden:YES];
+                [shareButton setHidden:YES];
+                [progressView setHidden:YES];
+                [selectingEffectView setHidden:YES];
+                
+                centerButton.titleLabel.text = @"Stop Recording";
+                
+                currentViewState = RECORDING_VIEW;
+
+                break;
+                
+            case SELECTING_EFFECT_VIEW:
+                
+                [selectingEffectView setHidden:NO];
+                [cancelButton setHidden:NO];
+                
+                [centerButton setHidden:YES];
+                [centerTextLabel setHidden:YES];
+                [listButton setHidden:YES];
+                [downloadButton setHidden:YES];
+                [shareButton setHidden:YES];
+                [progressView setHidden:YES];
+                
+                currentViewState = SELECTING_EFFECT_VIEW;
+                
+                break;
+            
+            case PROCESSING_VIEW:
+                
+                [centerButton setHidden:NO];
+                [progressView setHidden:NO];
+                [cancelButton setHidden:NO];
+                
+                [centerTextLabel setHidden:YES];
+                [listButton setHidden:YES];
+                [downloadButton setHidden:YES];
+                [shareButton setHidden:YES];
+                [selectingEffectView setHidden:YES];
+                
+                centerButton.titleLabel.text = @"Processing";
+                
+                currentViewState = PROCESSING_VIEW;
+                
+                break;
+                
+            case PREVIEW_VIEW_NOT_PLAYING:
+                
+                [centerButton setHidden:NO];
+                [downloadButton setHidden:NO];
+                [shareButton setHidden:NO];
+                [cancelButton setHidden:NO];
+                
+                [centerTextLabel setHidden:YES];
+                [listButton setHidden:YES];
+                [progressView setHidden:YES];
+                [selectingEffectView setHidden:YES];
+                
+                centerButton.titleLabel.text = @"Start";
+                
+                currentViewState = PREVIEW_VIEW_NOT_PLAYING;
+                
+                break;
+            
+            case PREVIEW_VIEW_PLAYING:
+                
+                [centerButton setHidden:NO];
+                [downloadButton setHidden:NO];
+                [shareButton setHidden:NO];
+                [cancelButton setHidden:NO];
+                
+                [centerTextLabel setHidden:YES];
+                [listButton setHidden:YES];
+                [progressView setHidden:YES];
+                [selectingEffectView setHidden:YES];
+                
+                centerButton.titleLabel.text = @"Stop";
+                
+                currentViewState = PREVIEW_VIEW_PLAYING;
+                
+                break;
+                
+            case PLAYER_VIEW:
+                
+                [centerButton setHidden:NO];
+                [shareButton setHidden:NO];
+                [cancelButton setHidden:NO];
+                
+                [downloadButton setHidden:YES];
+                [centerTextLabel setHidden:YES];
+                [listButton setHidden:YES];
+                [progressView setHidden:YES];
+                [selectingEffectView setHidden:YES];
+                
+                centerButton.titleLabel.text = @"Play";
+                
+                currentViewState = PLAYER_VIEW;
+                
+                break;
+                
+            default:
+                
+                NSLog(@"UNRECOGNIZED STATE! setupXib : %d", state);
+                
+                break;
+        }
         
-        isRecording = true;
+    });
+}
+
+- (void) startRecordingSound
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    
         NSLog(@"startRecording");
         audioRecorder = nil;
         
@@ -112,12 +248,14 @@ float GlobalAudioSampleRate = 32000;
             
         }
         NSLog(@"recording");
-    
-    }else{
-    
-        [sender setTitle:@"Record" forState:UIControlStateNormal];
         
-        isRecording = false;
+    });
+}
+
+- (void) stopRecordingSound
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         NSLog(@"stopRecording");
         [audioRecorder stop];
         NSLog(@"stopped");
@@ -129,8 +267,9 @@ float GlobalAudioSampleRate = 32000;
         if ( ![self exportAssetAsWaveFormat:filePath]) {
             NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
         }
+        
+    });
 
-    }
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
@@ -189,7 +328,7 @@ float GlobalAudioSampleRate = 32000;
                                                                                 outputSettings:audioSetting];
     assetWriterInput. expectsMediaDataInRealTime = NO;
     
-    if (![assetWriter canAddInput:assetWriterInput]) return NO ;
+    if (![assetWriter canAddInput:assetWriterInput]) return NO;
     
     [assetWriter addInput :assetWriterInput];
     
@@ -228,165 +367,193 @@ float GlobalAudioSampleRate = 32000;
     return YES;
 }
 
-- (IBAction)processButtonAction:(UIButton *)sender {
+- (void)processSound:(int) pitchShiftType {
 
     [progressView setProgress:0.0];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        isProcessing = YES;
-        
-        [self processSound];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [sender setTitle:@"Process" forState:UIControlStateNormal];
-            
-            isProcessing = NO;
-            
-            if(!isProcessing)
-                NSLog(@"PAROU MEEEESSSMO!");
-            
-        });
-    });
-
-    
-    [sender setTitle:@"Processing..." forState:UIControlStateNormal];
-    
-    sleep(1);
-    
-//    isProcessing = true;
-    
-    float progress = 0.0;
-    
-    while (progress < 0.98 && isProcessing) {
-
-//        NSLog(@"PORRA DOIDAAAAA");
-        
-        progress = [pitchShifter getProgressStatus];
-        
-//        progress = progress + 0.1;
-//        
-        NSLog(@"STATUS: %f ",progress);
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            progressView.progress = progress;
-//        });
-        
-        progressView.progress = progress;
-        
-        usleep(500000);
-    }
-    
-//    for ( int i = 1; i  < 100; i++ ) {
-//        // Other stuff in background
-//        
-//        NSLog(@"STUUUUUUUUFFFFFFFFF");
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            progressView.progress = i;
-//        });
-//                NSLog(@"STUUUUUUUUFFFaudghadshuasdFFFFFF");    }
-//    
-//    sleep(1);
-//    
-//     NSLog(@"PORRA MALUCAAA");
-    
-    //NSLog(@"STATUS: %f ",progress);
-}
-
--(void) processSound{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
     NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
+    
+    [self doPitchShift:inWavPath type:pitchShiftType];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        float progress = 0.0;
+        
+        while (progress < 0.98) {
+            
+            progress = [pitchShifter getProgressStatus];
+            
+            NSLog(@"STATUS: %f ",progress);
+            
+            progressView.progress = progress;
+            
+            usleep(50000);
+        }
+        
+        [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+        
+    });
 
-    [self doPitchShift:inWavPath];
 }
 
-- (void)doPitchShift:(NSString *)inWavPath {
+- (void)doPitchShift:(NSString *)inWavPath type:(int)pitchShiftType{
     
-    //Get wav file's directory
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *outWavName = @"/result-pitchshifted.wav";
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     
-    NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath =  [directoriesPath objectAtIndex:0];
+        //Get wav file's directory
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
+        (NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *outWavName = @"/result-pitchshifted.wav";
+        
+        NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsPath =  [directoriesPath objectAtIndex:0];
+        
+        NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
+        
+        NSError *error = nil ;
+        if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
+            [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
+        
+        char *inWavPathCharArray = [inWavPath UTF8String];
+        
+        char *outWavPathCharArray = [outWavPath UTF8String];
+        
+        pitchShifter = [PitchShifter alloc];
+        
+        [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
     
-    NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
-    
-    NSError *error = nil ;
-    if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
-        [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
-    
-    char *inWavPathCharArray = [inWavPath UTF8String];
-    
-    char *outWavPathCharArray = [outWavPath UTF8String];
-    
-    pitchShifter = [PitchShifter alloc];
-    
-    [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:shiftTypeRow+1];
-//    NSLog(@"ESTADO FINAL: %f ",[pitchShifter getProgressStatus]);
+    });
 }
 
 
-- (IBAction)playButtonAction:(UIButton *)sender {
+- (void)playSound {
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        
+        NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
+        (NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsPath =  [directoryPath objectAtIndex:0];
+        NSString *outWavName = @"/result-pitchshifted.wav";
+        NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager fileExistsAtPath:outWavPath] == YES) {
+            NSLog(@"File exists: %@",outWavPath);
+        } else {
+            NSLog(@"File does not exist");
+        }
+        
+        NSURL *url = [NSURL fileURLWithPath:outWavPath];
+        
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        
+        NSError *error = nil ;
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        NSLog(@"%@",error);
+        
+        audioPlayer.numberOfLoops = 0;
+        [audioPlayer play];
+        
+        NSLog(@"%@",error);
+        
+    });
+}
+
+- (void)stopSound {
+    [audioPlayer stop];
+}
+
+- (IBAction)centerButtonAction:(UIButton *)sender {
     
-    NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath =  [directoryPath objectAtIndex:0];
-    NSString *outWavName = @"/result-pitchshifted.wav";
-    NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:outWavPath] == YES) {
-        NSLog(@"File exists: %@",outWavPath);
-    } else {
-        NSLog(@"File does not exist");
+    switch (currentViewState) {
+        
+        case INITIAL_VIEW:
+            
+            // change center button
+            
+            [self startRecordingSound];
+            
+            [self setupXib:RECORDING_VIEW];
+            
+            break;
+            
+        case RECORDING_VIEW:
+            
+            [self stopRecordingSound];
+            
+            [self setupXib:SELECTING_EFFECT_VIEW];
+            
+            // do selecting
+            
+            break;
+            
+        case PROCESSING_VIEW:
+            
+            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+            
+            // do preview
+            
+            break;
+            
+        case PREVIEW_VIEW_NOT_PLAYING:
+            
+            // do player sound
+            [self setupXib:PREVIEW_VIEW_PLAYING];
+            [self playSound];
+            break;
+            
+        case PREVIEW_VIEW_PLAYING:
+            
+            // do player sound
+            
+            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+            [self stopSound];
+            break;
+            
+        case PLAYER_VIEW:
+            
+            // do player selected sound
+            
+            break;
+            
+        default:
+            
+            NSLog(@"UNRECOGNIZED STATE! centerButtonAction : %d", currentViewState);
+            
+            break;
     }
     
-    NSURL *url = [NSURL fileURLWithPath:outWavPath];
-    
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    NSError *error = nil ;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    NSLog(@"%@",error);
-    
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-    
-    NSLog(@"%@",error);
-
-    [sender setTitle:@"Play" forState:UIControlStateNormal];
 }
 
-
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    //One column
-    return 1;
+- (IBAction)listButtonAction:(id)sender {
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    //set number of rows
-    return pickerStatus.count;
+- (IBAction)downloadButtonAction:(UIButton *)sender {
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    //set item per row
-    return [pickerStatus objectAtIndex:row];
+- (IBAction)cancelButtonAction:(UIButton *)sender {
+    [self setupXib:INITIAL_VIEW]; //testing - avoid app termination
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
-    if(component == 0)
-        shiftTypeRow = row;
+- (IBAction)shareButtonAction:(UIButton *)sender {
 }
 
+- (IBAction)selectThirdButtonAction:(UIButton *)sender {
+    [self setupXib:PROCESSING_VIEW];
+    [self processSound:SHIFT_THIRD];
+}
+
+- (IBAction)selectFifthButtonAction:(UIButton *)sender {
+    [self setupXib:PROCESSING_VIEW];
+    [self processSound:SHIFT_FIFTH];
+}
+
+- (IBAction)selectTriadButtonAction:(UIButton *)sender {
+    [self setupXib:PROCESSING_VIEW];
+    [self processSound:SHIFT_TRIAD];
+}
 @end

@@ -11,18 +11,10 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
 
-@interface MainViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
+@interface MainViewController : UIViewController{
     
     int recordEncoding;
-    int shiftTypeRow;
-    bool isRecording;
     bool isProcessing;
-    
-    AVAudioPlayer *audioPlayer;
-    AVAudioRecorder *audioRecorder;
-    
-    AVAssetReader *assetReader;
-    AVAssetWriter *assetWriter;
     
     enum
     {
@@ -34,21 +26,44 @@
         ENC_PCM = 6,
     } encodingTypes;
     
-    NSArray *pickerStatus;
+    enum
+    {
+        INITIAL_VIEW = 0,
+        RECORDING_VIEW = 1,
+        SELECTING_EFFECT_VIEW = 2,
+        PROCESSING_VIEW = 3,
+        PREVIEW_VIEW_NOT_PLAYING = 4,
+        PREVIEW_VIEW_PLAYING = 5,
+        PLAYER_VIEW = 6, 
+    } currentViewState;
     
-    IBOutlet UIPickerView *shiftTypePicker;
+    __weak IBOutlet UIButton *centerButton;
+    __weak IBOutlet UIButton *listButton;
+    __weak IBOutlet UIButton *downloadButton;
+    __weak IBOutlet UIButton *cancelButton;
+    __weak IBOutlet UIButton *shareButton;
+    __weak IBOutlet UILabel *centerTextLabel;
+    __weak IBOutlet UIView *selectingEffectView;
+
     IBOutlet UIProgressView *progressView;
     
+    AVAudioPlayer *audioPlayer;
+    AVAudioRecorder *audioRecorder;
+    AVAssetReader *assetReader;
+    AVAssetWriter *assetWriter;
+    
     PitchShifter *pitchShifter;
+    
 }
 
-- (IBAction)recordButtonAction:(UIButton *)sender;
-- (IBAction)processButtonAction:(UIButton *)sender;
-- (IBAction)playButtonAction:(UIButton *)sender;
+- (IBAction)centerButtonAction:(UIButton *)sender;
+- (IBAction)listButtonAction:(UIButton *)sender;
+- (IBAction)downloadButtonAction:(UIButton *)sender;
+- (IBAction)cancelButtonAction:(UIButton *)sender;
+- (IBAction)shareButtonAction:(UIButton *)sender;
+- (IBAction)selectThirdButtonAction:(UIButton *)sender;
+- (IBAction)selectFifthButtonAction:(UIButton *)sender;
+- (IBAction)selectTriadButtonAction:(UIButton *)sender;
 
-
-- (IBAction)stopRecording:(UIButton *)sender;
-- (IBAction)playRecording:(UIButton *)sender;
-- (IBAction)stopPlaying:(UIButton *)sender;
 
 @end
