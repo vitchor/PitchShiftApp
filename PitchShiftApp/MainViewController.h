@@ -15,6 +15,7 @@
     
     int recordEncoding;
     bool isProcessing;
+    NSTimer* levelTimer;
     
     enum
     {

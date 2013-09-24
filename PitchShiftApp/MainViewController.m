@@ -58,7 +58,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Record";
+                [centerButton setTitle:@"Record" forState:UIControlStateNormal];
                 
                 currentViewState = INITIAL_VIEW;
                 
@@ -76,7 +76,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Stop Recording";
+                [centerButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
                 
                 currentViewState = RECORDING_VIEW;
 
@@ -110,7 +110,7 @@ float GlobalAudioSampleRate = 32000;
                 [shareButton setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Processing";
+                [centerButton setTitle:@"Processing" forState:UIControlStateNormal];
                 
                 currentViewState = PROCESSING_VIEW;
                 
@@ -128,7 +128,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Start Playing";
+                [centerButton setTitle:@"Start Playing" forState:UIControlStateNormal];
                 
                 currentViewState = PREVIEW_VIEW_NOT_PLAYING;
                 
@@ -146,7 +146,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Stop";
+                [centerButton setTitle:@"Stop" forState:UIControlStateNormal];
                 
                 currentViewState = PREVIEW_VIEW_PLAYING;
                 
@@ -164,7 +164,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressView setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 
-                centerButton.titleLabel.text = @"Play";
+                [centerButton setTitle:@"Play" forState:UIControlStateNormal];
                 
                 currentViewState = PLAYER_VIEW;
                 
@@ -241,6 +241,7 @@ float GlobalAudioSampleRate = 32000;
         audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
         
         if ([audioRecorder prepareToRecord] == YES){
+            audioRecorder.meteringEnabled = YES;
             [audioRecorder record];
         }else {
             int errorCode = CFSwapInt32HostToBig ([error code]);
@@ -250,6 +251,16 @@ float GlobalAudioSampleRate = 32000;
         NSLog(@"recording");
         
     });
+    levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+}
+
+- (void)levelTimerCallback:(NSTimer *)timer {
+    if (audioRecorder) {
+        [audioRecorder updateMeters];
+        NSLog(@"Average input: %f Peak input: %f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0]);
+    } else {
+        NSLog(@"Timer still running");
+    }
 }
 
 - (void) stopRecordingSound
@@ -269,7 +280,7 @@ float GlobalAudioSampleRate = 32000;
         }
         
     });
-
+    [levelTimer invalidate];
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
