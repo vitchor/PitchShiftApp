@@ -29,7 +29,9 @@ float GlobalAudioSampleRate = 32000;
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
     
-    [progressView setProgress:0.0];
+//    progressBarWidth.constant = 1.0;
+    
+    progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, 100, progressView.frame.size.height);
     
     [self setupXib:INITIAL_VIEW];
 }
@@ -380,33 +382,48 @@ float GlobalAudioSampleRate = 32000;
 
 - (void)processSound:(int) pitchShiftType {
 
-    [progressView setProgress:0.0];
+    progress = 0.0;
+    
+    progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.05 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
     NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
     
     [self doPitchShift:inWavPath type:pitchShiftType];
+
+}
+
+-(void) updateProgressBar {
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    if (progress < 1.0){
         
-        float progress = 0.0;
+        progress = [pitchShifter getProgressStatus];
         
-        while (progress < 0.98) {
+        if(progress == 0.0){
             
-            progress = [pitchShifter getProgressStatus];
+//            progressBarWidth.constant = PROGRESS_BAR_FULL_WIDTH;
+            progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
             
+            [progressBarTimer invalidate], progressBarTimer = nil;
+            
+            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+        }
+        else
+        {
             NSLog(@"STATUS: %f ",progress);
             
-            progressView.progress = progress;
-            
-            usleep(50000);
+           progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, progress*PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
         }
+    }
+    else
+    {
+        progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
+        
+        [progressBarTimer invalidate], progressBarTimer = nil;
         
         [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
-        
-    });
-
+    }
 }
 
 - (void)doPitchShift:(NSString *)inWavPath type:(int)pitchShiftType{

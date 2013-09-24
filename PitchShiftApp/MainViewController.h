@@ -11,11 +11,15 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
 
+#define PROGRESS_BAR_FULL_WIDTH 240
+
 @interface MainViewController : UIViewController{
     
     int recordEncoding;
+    float progress;
     bool isProcessing;
     NSTimer* levelTimer;
+    NSTimer* progressBarTimer;
     
     enum
     {
@@ -38,15 +42,14 @@
         PLAYER_VIEW = 6, 
     } currentViewState;
     
-    __weak IBOutlet UIButton *centerButton;
-    __weak IBOutlet UIButton *listButton;
-    __weak IBOutlet UIButton *downloadButton;
-    __weak IBOutlet UIButton *cancelButton;
-    __weak IBOutlet UIButton *shareButton;
-    __weak IBOutlet UILabel *centerTextLabel;
-    __weak IBOutlet UIView *selectingEffectView;
-
-    IBOutlet UIProgressView *progressView;
+    IBOutlet UIButton *centerButton;
+    IBOutlet UIButton *listButton;
+    IBOutlet UIButton *downloadButton;
+    IBOutlet UIButton *cancelButton;
+    IBOutlet UIButton *shareButton;
+    IBOutlet UILabel *centerTextLabel;
+    IBOutlet UIView *selectingEffectView;
+    IBOutlet UIImageView *progressView;
     
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
@@ -55,6 +58,7 @@
     
     PitchShifter *pitchShifter;
     
+    IBOutlet NSLayoutConstraint *progressBarWidth;
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
