@@ -17,10 +17,7 @@
     
     int recordEncoding;
     float progress;
-    bool isProcessing;
-    NSTimer* levelTimer;
     double lowPassResults;
-    NSTimer* progressBarTimer;
     
     enum
     {
@@ -43,26 +40,24 @@
         PLAYER_VIEW = 6, 
     } currentViewState;
     
-    __weak IBOutlet UIButton *centerButton;
-    __weak IBOutlet UIButton *listButton;
-    __weak IBOutlet UIButton *downloadButton;
-    __weak IBOutlet UIButton *cancelButton;
-    __weak IBOutlet UIButton *shareButton;
-    __weak IBOutlet UILabel *centerTextLabel;
-    __weak IBOutlet UIView *selectingEffectView;
-    __weak IBOutlet UIImageView *floatingCircle;
-    
-    IBOutlet UIProgressView *progressView;
+    IBOutlet UIButton *centerButton;
+    IBOutlet UIButton *listButton;
+    IBOutlet UIButton *downloadButton;
+    IBOutlet UIButton *cancelButton;
+    IBOutlet UIButton *shareButton;
+    IBOutlet UILabel *centerTextLabel;
+    IBOutlet UIView *selectingEffectView;
+    IBOutlet UIImageView *floatingCircle;
+    IBOutlet UIImageView *progressView;
 
-    
+    NSTimer* levelTimer;
+    NSTimer* progressBarTimer;
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     AVAssetReader *assetReader;
     AVAssetWriter *assetWriter;
     
     PitchShifter *pitchShifter;
-    
-    IBOutlet NSLayoutConstraint *progressBarWidth;
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender;

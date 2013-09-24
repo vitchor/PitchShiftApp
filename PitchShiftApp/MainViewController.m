@@ -29,9 +29,7 @@ float GlobalAudioSampleRate = 32000;
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
     
-//    progressBarWidth.constant = 1.0;
-    
-    progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, 100, progressView.frame.size.height);
+    progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, 1.0, progressView.frame.size.height);
     
     [self setupXib:INITIAL_VIEW];
 }
@@ -400,7 +398,7 @@ float GlobalAudioSampleRate = 32000;
 
     progress = 0.0;
     
-    progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.05 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
+    progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
@@ -418,7 +416,6 @@ float GlobalAudioSampleRate = 32000;
         
         if(progress == 0.0){
             
-//            progressBarWidth.constant = PROGRESS_BAR_FULL_WIDTH;
             progressView.frame = CGRectMake(progressView.frame.origin.x, progressView.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressView.frame.size.height);
             
             [progressBarTimer invalidate], progressBarTimer = nil;
