@@ -277,7 +277,7 @@ float GlobalAudioSampleRate = 32000;
         if ([audioRecorder prepareToRecord] == YES){
             audioRecorder.meteringEnabled = YES;
             [audioRecorder record];
-        }else {
+        } else {
             int errorCode = CFSwapInt32HostToBig ([error code]);
             NSLog(@"Error: %@ [%4.4s])" , [error localizedDescription], (char*)&errorCode);
             
@@ -286,29 +286,71 @@ float GlobalAudioSampleRate = 32000;
         
     });
     levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+    
+    animationTimer = [NSTimer scheduledTimerWithTimeInterval: 0.025 target: self selector: @selector(animateCircles) userInfo: nil repeats: YES];
+}
+
+-(void)animateCircles{
+    
+//    CGAffineTransform transformScale = CGAffineTransformMakeScale((float)((float)rand()/(float)INT32_MAX), (float)((float)rand()/(float)INT32_MAX));
+//    CGAffineTransform transformRotateInverse = CGAffineTransformRotate(floatingCircleInverse.transform, 0.01);
+//    CGAffineTransform transformRotate = CGAffineTransformRotate(floatingCircle.transform, -0.01);
+//    
+//
+//    
+//    NSLog(@"TIMEEEEERRRRRR");
+//    
+//    [UIView animateWithDuration:0.025 animations:^(void){
+//        floatingCircleInverse.transform = transformRotateInverse;
+//        floatingCircle.transform = transformRotate;
+//    }];
 }
 
 - (void)levelTimerCallback:(NSTimer *)timer {
+    
+    float angle = 0;
+    
+    floatingCircle.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    
     if (audioRecorder) {
         [audioRecorder updateMeters];
-        float circleMinSize = 180;
-        float circleMaxSize = 250;
+        float circleMinSize = 200;
+        float circleMaxSize = 300;
         float circleCurrentSize;
-        float invCircleMinSize = 180;
+        float invCircleMinSize = 200;
         float invCircleMaxSize = 300;
         float invCircleCurrentSize;
         
+        angle = angle + 0.1;
+        
         const double ALPHA = 0.05;
-        double peakPowerForChannel = pow(10, (0.05 * [audioRecorder peakPowerForChannel:0]));
-        lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
+        double averagePowerForChannel = pow(10, (0.05 * [audioRecorder averagePowerForChannel:0]));
+        lowPassResults = ALPHA * averagePowerForChannel + (1.0 - ALPHA) * lowPassResults;
         
         //NSLog(@"Average input: %f Peak input: %f Low pass results:%f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0], lowPassResults);
         circleCurrentSize = circleMinSize + (circleMaxSize-circleMinSize)*lowPassResults;
         invCircleCurrentSize = invCircleMinSize + (invCircleMaxSize-invCircleMinSize)*(1-lowPassResults);
         
+////        CGAffineTransform transformScale = CGAffineTransformMakeScale(circleCurrentSize, circleCurrentSize);
+//        CGAffineTransform transformRotate = CGAffineTransformMakeRotation(angle);
+//        
+//        
+//        
+//        NSLog(@"TIMEEEEERRRRRR");
+//        
+////        [UIView animateWithDuration:0.0002 animations:^(void){
+//        
+//            floatingCircleInverse.transform = transformRotate;
+//            
+////        }];
+//
+//        
+//        
         floatingCircle.frame = CGRectMake(160-circleCurrentSize/2, 208-circleCurrentSize/2, circleCurrentSize, circleCurrentSize);
+        
+        
         floatingCircleInverse.frame = CGRectMake(160-invCircleCurrentSize/2, 208-invCircleCurrentSize/2, invCircleCurrentSize, invCircleCurrentSize);
-        //floatingCircle.transform = CGAffineTransformRotate(floatingCircle.transform, 0.001);
+//        floatingCircle.transform = CGAffineTransformRotate(floatingCircle.transform, 0.001);
         
     } else {
         NSLog(@"Timer still running");

@@ -27,6 +27,8 @@
 		AC8F329F17F31301009784D3 /* PSA_0.1_ShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328F17F31301009784D3 /* PSA_0.1_ShareButton.png */; };
 		AC8F32A017F31301009784D3 /* PSA_0.1_SoundCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F329017F31301009784D3 /* PSA_0.1_SoundCircle.png */; };
 		AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */; };
+		ACCF06C017F37EF2006D8698 /* PSA_0.1_SoundCircle2.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCF06BE17F37EF2006D8698 /* PSA_0.1_SoundCircle2.png */; };
+		ACCF06C117F37EF2006D8698 /* PSA_0.1_SoundCircle3.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCF06BF17F37EF2006D8698 /* PSA_0.1_SoundCircle3.png */; };
 		ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */; };
 		ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */; };
 		ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */; };
@@ -77,6 +79,8 @@
 		AC8F328F17F31301009784D3 /* PSA_0.1_ShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_ShareButton.png; sourceTree = "<group>"; };
 		AC8F329017F31301009784D3 /* PSA_0.1_SoundCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_SoundCircle.png; sourceTree = "<group>"; };
 		AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_StopButton.png; sourceTree = "<group>"; };
+		ACCF06BE17F37EF2006D8698 /* PSA_0.1_SoundCircle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_SoundCircle2.png; sourceTree = "<group>"; };
+		ACCF06BF17F37EF2006D8698 /* PSA_0.1_SoundCircle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_SoundCircle3.png; sourceTree = "<group>"; };
 		ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PitchShiftIterative.cpp; sourceTree = "<group>"; };
 		ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShiftIterative.h; sourceTree = "<group>"; };
 		ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmbPitchShifter.cpp; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				AC8F328E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png */,
 				AC8F328F17F31301009784D3 /* PSA_0.1_ShareButton.png */,
 				AC8F329017F31301009784D3 /* PSA_0.1_SoundCircle.png */,
+				ACCF06BE17F37EF2006D8698 /* PSA_0.1_SoundCircle2.png */,
+				ACCF06BF17F37EF2006D8698 /* PSA_0.1_SoundCircle3.png */,
 				AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */,
 			);
 			name = "PSA 0.1 UI Images";
@@ -372,6 +378,7 @@
 				AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */,
 				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
+				ACCF06C017F37EF2006D8698 /* PSA_0.1_SoundCircle2.png in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
 				AC8F329617F31301009784D3 /* PSA_0.1_DownloadButton.png in Resources */,
 				AC8F329A17F31301009784D3 /* PSA_0.1_List.png in Resources */,
@@ -382,6 +389,7 @@
 				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
 				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,
 				AC7807A017EB8C900094711F /* 440Hz.wav in Resources */,
+				ACCF06C117F37EF2006D8698 /* PSA_0.1_SoundCircle3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

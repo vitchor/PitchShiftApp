@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -29,14 +29,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_SoundCircle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-YR-ZLu">
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_SoundCircle2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-YR-ZLu">
                     <rect key="frame" x="45" y="96" width="230" height="230"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="230" id="a4P-t0-7Uw"/>
                     </constraints>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_SoundCircle.png" translatesAutoresizingMaskIntoConstraints="NO" id="J9m-qc-jCX">
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_SoundCircle3.png" translatesAutoresizingMaskIntoConstraints="NO" id="J9m-qc-jCX">
                     <rect key="frame" x="25" y="76" width="270" height="270"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -246,6 +246,7 @@
         <image name="PSA_0.1_ProgressBarBackground.png" width="824" height="125"/>
         <image name="PSA_0.1_ProgressBarForeground.png" width="266" height="125"/>
         <image name="PSA_0.1_ShareButton.png" width="90" height="109"/>
-        <image name="PSA_0.1_SoundCircle.png" width="604" height="604"/>
+        <image name="PSA_0.1_SoundCircle2.png" width="1250" height="1250"/>
+        <image name="PSA_0.1_SoundCircle3.png" width="1242" height="1250"/>
     </resources>
 </document>
