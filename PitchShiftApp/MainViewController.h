@@ -55,6 +55,7 @@
     
     NSTimer* levelTimer;
     NSTimer* progressBarTimer;
+    NSTimer* animationTimer;
     NSTimer* playerTimer;
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
