@@ -30,8 +30,22 @@ float GlobalAudioSampleRate = 32000;
     currentViewState = INITIAL_VIEW;
     
     progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, 1.0, progressBar.frame.size.height);
-    
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
+    {
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    }
+    else
+    {
+        // iOS 6
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    }
     [self setupXib:INITIAL_VIEW];
+}
+
+// Add this method
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,8 +64,9 @@ float GlobalAudioSampleRate = 32000;
                 
                 [centerButton setHidden:NO];
                 [centerTextLabel setHidden:NO];
-                [listButton setHidden:NO];
-                
+                //[listButton setHidden:NO];
+                [listButton setHidden:YES];
+
                 [downloadButton setHidden:YES];
                 [cancelButton setHidden:YES];
                 [shareButton setHidden:YES];
@@ -59,8 +74,11 @@ float GlobalAudioSampleRate = 32000;
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
                 
-                [centerButton setTitle:@"Record" forState:UIControlStateNormal];
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
+                
+                //[centerButton setTitle:@"Record" forState:UIControlStateNormal];
                 
                 currentViewState = INITIAL_VIEW;
                 
@@ -79,8 +97,10 @@ float GlobalAudioSampleRate = 32000;
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:NO];
+                [floatingCircleInverse setHidden:NO];
                 
-                [centerButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
+                //[centerButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
                 
                 currentViewState = RECORDING_VIEW;
 
@@ -99,6 +119,8 @@ float GlobalAudioSampleRate = 32000;
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
+
                 
                 currentViewState = SELECTING_EFFECT_VIEW;
                 
@@ -117,8 +139,12 @@ float GlobalAudioSampleRate = 32000;
                 [shareButton setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
+
                 
-                [centerButton setTitle:@"Processing" forState:UIControlStateNormal];
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
+                
+                //[centerButton setTitle:@"Processing" forState:UIControlStateNormal];
                 
                 currentViewState = PROCESSING_VIEW;
                 
@@ -137,9 +163,12 @@ float GlobalAudioSampleRate = 32000;
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
-                
-                [centerButton setTitle:@"Start Playing" forState:UIControlStateNormal];
-                
+                [floatingCircleInverse setHidden:YES];
+
+             
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
+//                [centerButton setTitle:@"Start Playing" forState:UIControlStateNormal];
+
                 currentViewState = PREVIEW_VIEW_NOT_PLAYING;
                 
                 break;
@@ -157,8 +186,11 @@ float GlobalAudioSampleRate = 32000;
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
+
                 
-                [centerButton setTitle:@"Stop" forState:UIControlStateNormal];
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
+//                [centerButton setTitle:@"Stop" forState:UIControlStateNormal];
                 
                 currentViewState = PREVIEW_VIEW_PLAYING;
                 
@@ -177,8 +209,10 @@ float GlobalAudioSampleRate = 32000;
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
+
                 
-                [centerButton setTitle:@"Play" forState:UIControlStateNormal];
+//                [centerButton setTitle:@"Play" forState:UIControlStateNormal];
                 
                 currentViewState = PLAYER_VIEW;
                 
@@ -271,14 +305,23 @@ float GlobalAudioSampleRate = 32000;
 - (void)levelTimerCallback:(NSTimer *)timer {
     if (audioRecorder) {
         [audioRecorder updateMeters];
+        float circleMinSize = 180;
+        float circleMaxSize = 250;
+        float circleCurrentSize;
+        float invCircleMinSize = 180;
+        float invCircleMaxSize = 300;
+        float invCircleCurrentSize;
         
         const double ALPHA = 0.05;
         double peakPowerForChannel = pow(10, (0.05 * [audioRecorder peakPowerForChannel:0]));
         lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
         
         //NSLog(@"Average input: %f Peak input: %f Low pass results:%f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0], lowPassResults);
+        circleCurrentSize = circleMinSize + (circleMaxSize-circleMinSize)*lowPassResults;
+        invCircleCurrentSize = invCircleMinSize + (invCircleMaxSize-invCircleMinSize)*(1-lowPassResults);
         
-        floatingCircle.frame = CGRectMake(160-(200*lowPassResults)/2, 280-(200*lowPassResults)/2, 200*lowPassResults, 200*lowPassResults);
+        floatingCircle.frame = CGRectMake(160-circleCurrentSize/2, 208-circleCurrentSize/2, circleCurrentSize, circleCurrentSize);
+        floatingCircleInverse.frame = CGRectMake(160-invCircleCurrentSize/2, 208-invCircleCurrentSize/2, invCircleCurrentSize, invCircleCurrentSize);
         //floatingCircle.transform = CGAffineTransformRotate(floatingCircle.transform, 0.001);
         
     } else {
@@ -579,6 +622,9 @@ float GlobalAudioSampleRate = 32000;
 }
 
 - (IBAction)cancelButtonAction:(UIButton *)sender {
+    if (pitchShifter) {
+        pitchShifter = nil;
+    }
     [self setupXib:INITIAL_VIEW]; //testing - avoid app termination
 }
 

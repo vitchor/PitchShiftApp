@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		AC742B2617F1043B004E48D8 /* barra 1.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1717F1043B004E48D8 /* barra 1.png */; };
 		AC742B2717F1043B004E48D8 /* barra 2.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1817F1043B004E48D8 /* barra 2.png */; };
-		AC742B2817F1043B004E48D8 /* Botão central.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1917F1043B004E48D8 /* Botão central.png */; };
-		AC742B2917F1043B004E48D8 /* circulo.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1A17F1043B004E48D8 /* circulo.png */; };
-		AC742B2A17F1043B004E48D8 /* fundo.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1B17F1043B004E48D8 /* fundo.png */; };
-		AC742B2B17F1043B004E48D8 /* cancelar.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1D17F1043B004E48D8 /* cancelar.png */; };
-		AC742B2C17F1043B004E48D8 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1E17F1043B004E48D8 /* download.png */; };
-		AC742B2D17F1043B004E48D8 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1F17F1043B004E48D8 /* share.png */; };
-		AC742B2E17F1043B004E48D8 /* voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B2017F1043B004E48D8 /* voltar.png */; };
-		AC742B2F17F1043B004E48D8 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B2117F1043B004E48D8 /* play.png */; };
-		AC742B3017F1043B004E48D8 /* quinta.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B2217F1043B004E48D8 /* quinta.png */; };
-		AC742B3117F1043B004E48D8 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B2317F1043B004E48D8 /* stop.png */; };
-		AC742B3217F1043B004E48D8 /* terça.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B2417F1043B004E48D8 /* terça.png */; };
-		AC742B3317F1043B004E48D8 /* triade.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B2517F1043B004E48D8 /* triade.png */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
 		AC7807A517EB99A80094711F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7807A317EB99A80094711F /* MainViewController.xib */; };
 		AC7CDCEA17F2171600B8BD6A /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7CDCE917F2171600B8BD6A /* Circle.png */; };
+		AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328217F31301009784D3 /* PSA_0.1_BackButton.png */; };
+		AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328317F31301009784D3 /* PSA_0.1_Background.png */; };
+		AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328417F31301009784D3 /* PSA_0.1_CancelButton.png */; };
+		AC8F329517F31301009784D3 /* PSA_0.1_CenterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328517F31301009784D3 /* PSA_0.1_CenterButton.png */; };
+		AC8F329617F31301009784D3 /* PSA_0.1_DownloadButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328617F31301009784D3 /* PSA_0.1_DownloadButton.png */; };
+		AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328717F31301009784D3 /* PSA_0.1_KeyboardFifth.png */; };
+		AC8F329817F31301009784D3 /* PSA_0.1_KeyboardThird.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328817F31301009784D3 /* PSA_0.1_KeyboardThird.png */; };
+		AC8F329917F31301009784D3 /* PSA_0.1_KeyboardTriad.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328917F31301009784D3 /* PSA_0.1_KeyboardTriad.png */; };
+		AC8F329A17F31301009784D3 /* PSA_0.1_List.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328A17F31301009784D3 /* PSA_0.1_List.png */; };
+		AC8F329B17F31301009784D3 /* PSA_0.1_Loop.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328B17F31301009784D3 /* PSA_0.1_Loop.png */; };
+		AC8F329C17F31301009784D3 /* PSA_0.1_PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328C17F31301009784D3 /* PSA_0.1_PlayButton.png */; };
+		AC8F329D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png */; };
+		AC8F329E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png */; };
+		AC8F329F17F31301009784D3 /* PSA_0.1_ShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328F17F31301009784D3 /* PSA_0.1_ShareButton.png */; };
+		AC8F32A017F31301009784D3 /* PSA_0.1_SoundCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F329017F31301009784D3 /* PSA_0.1_SoundCircle.png */; };
+		AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */; };
 		ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */; };
 		ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */; };
 		ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */; };
@@ -57,24 +61,28 @@
 /* Begin PBXFileReference section */
 		AC742B1717F1043B004E48D8 /* barra 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barra 1.png"; sourceTree = "<group>"; };
 		AC742B1817F1043B004E48D8 /* barra 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barra 2.png"; sourceTree = "<group>"; };
-		AC742B1917F1043B004E48D8 /* Botão central.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Botão central.png"; sourceTree = "<group>"; };
-		AC742B1A17F1043B004E48D8 /* circulo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circulo.png; sourceTree = "<group>"; };
-		AC742B1B17F1043B004E48D8 /* fundo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundo.png; sourceTree = "<group>"; };
-		AC742B1D17F1043B004E48D8 /* cancelar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelar.png; sourceTree = "<group>"; };
-		AC742B1E17F1043B004E48D8 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
-		AC742B1F17F1043B004E48D8 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
-		AC742B2017F1043B004E48D8 /* voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voltar.png; sourceTree = "<group>"; };
-		AC742B2117F1043B004E48D8 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
-		AC742B2217F1043B004E48D8 /* quinta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quinta.png; sourceTree = "<group>"; };
-		AC742B2317F1043B004E48D8 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
-		AC742B2417F1043B004E48D8 /* terça.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terça.png"; sourceTree = "<group>"; };
-		AC742B2517F1043B004E48D8 /* triade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triade.png; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AC7807A217EB99A80094711F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		AC7807A317EB99A80094711F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		AC7CDCE917F2171600B8BD6A /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
+		AC8F328217F31301009784D3 /* PSA_0.1_BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_BackButton.png; sourceTree = "<group>"; };
+		AC8F328317F31301009784D3 /* PSA_0.1_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_Background.png; sourceTree = "<group>"; };
+		AC8F328417F31301009784D3 /* PSA_0.1_CancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_CancelButton.png; sourceTree = "<group>"; };
+		AC8F328517F31301009784D3 /* PSA_0.1_CenterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_CenterButton.png; sourceTree = "<group>"; };
+		AC8F328617F31301009784D3 /* PSA_0.1_DownloadButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_DownloadButton.png; sourceTree = "<group>"; };
+		AC8F328717F31301009784D3 /* PSA_0.1_KeyboardFifth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_KeyboardFifth.png; sourceTree = "<group>"; };
+		AC8F328817F31301009784D3 /* PSA_0.1_KeyboardThird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_KeyboardThird.png; sourceTree = "<group>"; };
+		AC8F328917F31301009784D3 /* PSA_0.1_KeyboardTriad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_KeyboardTriad.png; sourceTree = "<group>"; };
+		AC8F328A17F31301009784D3 /* PSA_0.1_List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_List.png; sourceTree = "<group>"; };
+		AC8F328B17F31301009784D3 /* PSA_0.1_Loop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_Loop.png; sourceTree = "<group>"; };
+		AC8F328C17F31301009784D3 /* PSA_0.1_PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_PlayButton.png; sourceTree = "<group>"; };
+		AC8F328D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_ProgressBarBackground.png; sourceTree = "<group>"; };
+		AC8F328E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_ProgressBarForeground.png; sourceTree = "<group>"; };
+		AC8F328F17F31301009784D3 /* PSA_0.1_ShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_ShareButton.png; sourceTree = "<group>"; };
+		AC8F329017F31301009784D3 /* PSA_0.1_SoundCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_SoundCircle.png; sourceTree = "<group>"; };
+		AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_StopButton.png; sourceTree = "<group>"; };
 		ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PitchShiftIterative.cpp; sourceTree = "<group>"; };
 		ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShiftIterative.h; sourceTree = "<group>"; };
 		ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmbPitchShifter.cpp; sourceTree = "<group>"; };
@@ -129,31 +137,12 @@
 		AC742B1617F103D4004E48D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC8F328117F312E3009784D3 /* PSA 0.1 UI Images */,
 				AC7CDCE917F2171600B8BD6A /* Circle.png */,
 				AC742B1717F1043B004E48D8 /* barra 1.png */,
 				AC742B1817F1043B004E48D8 /* barra 2.png */,
-				AC742B1917F1043B004E48D8 /* Botão central.png */,
-				AC742B1A17F1043B004E48D8 /* circulo.png */,
-				AC742B1B17F1043B004E48D8 /* fundo.png */,
-				AC742B2117F1043B004E48D8 /* play.png */,
-				AC742B2217F1043B004E48D8 /* quinta.png */,
-				AC742B2317F1043B004E48D8 /* stop.png */,
-				AC742B2417F1043B004E48D8 /* terça.png */,
-				AC742B2517F1043B004E48D8 /* triade.png */,
-				AC742B1C17F1043B004E48D8 /* Icones */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		AC742B1C17F1043B004E48D8 /* Icones */ = {
-			isa = PBXGroup;
-			children = (
-				AC742B1D17F1043B004E48D8 /* cancelar.png */,
-				AC742B1E17F1043B004E48D8 /* download.png */,
-				AC742B1F17F1043B004E48D8 /* share.png */,
-				AC742B2017F1043B004E48D8 /* voltar.png */,
-			);
-			path = Icones;
 			sourceTree = "<group>";
 		};
 		AC7807A617EB99CB0094711F /* Delegate */ = {
@@ -182,6 +171,29 @@
 				AC78079F17EB8C900094711F /* 440Hz.wav */,
 			);
 			name = Samples;
+			sourceTree = "<group>";
+		};
+		AC8F328117F312E3009784D3 /* PSA 0.1 UI Images */ = {
+			isa = PBXGroup;
+			children = (
+				AC8F328217F31301009784D3 /* PSA_0.1_BackButton.png */,
+				AC8F328317F31301009784D3 /* PSA_0.1_Background.png */,
+				AC8F328417F31301009784D3 /* PSA_0.1_CancelButton.png */,
+				AC8F328517F31301009784D3 /* PSA_0.1_CenterButton.png */,
+				AC8F328617F31301009784D3 /* PSA_0.1_DownloadButton.png */,
+				AC8F328717F31301009784D3 /* PSA_0.1_KeyboardFifth.png */,
+				AC8F328817F31301009784D3 /* PSA_0.1_KeyboardThird.png */,
+				AC8F328917F31301009784D3 /* PSA_0.1_KeyboardTriad.png */,
+				AC8F328A17F31301009784D3 /* PSA_0.1_List.png */,
+				AC8F328B17F31301009784D3 /* PSA_0.1_Loop.png */,
+				AC8F328C17F31301009784D3 /* PSA_0.1_PlayButton.png */,
+				AC8F328D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png */,
+				AC8F328E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png */,
+				AC8F328F17F31301009784D3 /* PSA_0.1_ShareButton.png */,
+				AC8F329017F31301009784D3 /* PSA_0.1_SoundCircle.png */,
+				AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */,
+			);
+			name = "PSA 0.1 UI Images";
 			sourceTree = "<group>";
 		};
 		ACD2B9CA17E8D1A90052A96A /* PitchShifter */ = {
@@ -358,26 +370,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8F329817F31301009784D3 /* PSA_0.1_KeyboardThird.png in Resources */,
 				AC78079E17EB35B80094711F /* sax.wav in Resources */,
-				AC742B3217F1043B004E48D8 /* terça.png in Resources */,
+				AC8F329B17F31301009784D3 /* PSA_0.1_Loop.png in Resources */,
+				AC8F329917F31301009784D3 /* PSA_0.1_KeyboardTriad.png in Resources */,
+				AC8F329517F31301009784D3 /* PSA_0.1_CenterButton.png in Resources */,
+				AC8F329D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png in Resources */,
+				AC8F329E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png in Resources */,
+				AC8F329C17F31301009784D3 /* PSA_0.1_PlayButton.png in Resources */,
+				AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */,
+				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
 				AC742B2617F1043B004E48D8 /* barra 1.png in Resources */,
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
-				AC742B2E17F1043B004E48D8 /* voltar.png in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
-				AC742B3317F1043B004E48D8 /* triade.png in Resources */,
+				AC8F329617F31301009784D3 /* PSA_0.1_DownloadButton.png in Resources */,
+				AC8F329A17F31301009784D3 /* PSA_0.1_List.png in Resources */,
+				AC8F32A017F31301009784D3 /* PSA_0.1_SoundCircle.png in Resources */,
 				ACE6EEB317E8BF8500E818A0 /* Images.xcassets in Resources */,
+				AC8F329F17F31301009784D3 /* PSA_0.1_ShareButton.png in Resources */,
+				AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */,
+				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
+				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,
 				AC742B2717F1043B004E48D8 /* barra 2.png in Resources */,
-				AC742B3117F1043B004E48D8 /* stop.png in Resources */,
-				AC742B2917F1043B004E48D8 /* circulo.png in Resources */,
 				AC7CDCEA17F2171600B8BD6A /* Circle.png in Resources */,
-				AC742B2817F1043B004E48D8 /* Botão central.png in Resources */,
-				AC742B2B17F1043B004E48D8 /* cancelar.png in Resources */,
-				AC742B2A17F1043B004E48D8 /* fundo.png in Resources */,
-				AC742B2F17F1043B004E48D8 /* play.png in Resources */,
 				AC7807A017EB8C900094711F /* 440Hz.wav in Resources */,
-				AC742B2C17F1043B004E48D8 /* download.png in Resources */,
-				AC742B2D17F1043B004E48D8 /* share.png in Resources */,
-				AC742B3017F1043B004E48D8 /* quinta.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

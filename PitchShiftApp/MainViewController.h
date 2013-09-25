@@ -48,6 +48,7 @@
     IBOutlet UILabel *centerTextLabel;
     IBOutlet UIView *selectingEffectView;
     IBOutlet UIImageView *floatingCircle;
+    IBOutlet UIImageView *floatingCircleInverse;
     IBOutlet UIImageView *progressBar;
     IBOutlet UIImageView *progressBarBackground;
     
