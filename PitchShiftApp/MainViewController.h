@@ -18,6 +18,7 @@
     int recordEncoding;
     float progress;
     double lowPassResults;
+    bool startedPlaying;
     
     enum
     {
@@ -54,6 +55,7 @@
     
     NSTimer* levelTimer;
     NSTimer* progressBarTimer;
+    NSTimer* playerTimer;
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     AVAssetReader *assetReader;
@@ -63,13 +65,12 @@
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
-- (IBAction)listButtonAction:(UIButton *)sender;
-- (IBAction)downloadButtonAction:(UIButton *)sender;
 - (IBAction)cancelButtonAction:(UIButton *)sender;
-- (IBAction)shareButtonAction:(UIButton *)sender;
 - (IBAction)selectThirdButtonAction:(UIButton *)sender;
 - (IBAction)selectFifthButtonAction:(UIButton *)sender;
 - (IBAction)selectTriadButtonAction:(UIButton *)sender;
-
+- (IBAction)shareButtonAction:(UIButton *)sender;
+- (IBAction)listButtonAction:(UIButton *)sender;
+- (IBAction)downloadButtonAction:(UIButton *)sender;
 
 @end

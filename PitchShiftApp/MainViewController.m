@@ -528,10 +528,27 @@ float GlobalAudioSampleRate = 32000;
         
         audioPlayer.numberOfLoops = 0;
         [audioPlayer play];
-        
-        NSLog(@"TERMINEI DE TOCAR");
+        startedPlaying = true;
         
     });
+    
+     playerTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(checkPlayer) userInfo: nil repeats: YES];
+}
+
+-(void)checkPlayer{
+    
+    if(audioPlayer && startedPlaying){
+        if(![audioPlayer isPlaying]){
+        
+            NSLog(@"TERMINEI DE TOCAR");
+        
+            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+            
+            [playerTimer invalidate], playerTimer = nil;
+            
+            startedPlaying = false;
+        }
+    }
 }
 
 - (void)stopSound {
@@ -599,12 +616,6 @@ float GlobalAudioSampleRate = 32000;
     
 }
 
-- (IBAction)listButtonAction:(id)sender {
-}
-
-- (IBAction)downloadButtonAction:(UIButton *)sender {
-}
-
 - (IBAction)cancelButtonAction:(UIButton *)sender {
     if (pitchShifter) {
         pitchShifter = nil;
@@ -615,9 +626,6 @@ float GlobalAudioSampleRate = 32000;
     }
     
     [self setupXib:INITIAL_VIEW]; //testing - avoid app termination
-}
-
-- (IBAction)shareButtonAction:(UIButton *)sender {
 }
 
 - (IBAction)selectThirdButtonAction:(UIButton *)sender {
@@ -634,4 +642,14 @@ float GlobalAudioSampleRate = 32000;
     [self setupXib:PROCESSING_VIEW];
     [self processSound:SHIFT_TRIAD];
 }
+
+- (IBAction)shareButtonAction:(UIButton *)sender {
+}
+
+- (IBAction)listButtonAction:(UIButton *)sender {
+}
+
+- (IBAction)downloadButtonAction:(UIButton *)sender {
+}
+
 @end
