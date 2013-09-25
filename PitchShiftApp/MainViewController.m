@@ -106,8 +106,8 @@ float GlobalAudioSampleRate = 32000;
             case SELECTING_EFFECT_VIEW:
                 
                 [selectingEffectView setHidden:NO];
-                [cancelButton setHidden:NO];
                 
+                [cancelButton setHidden:YES];
                 [centerButton setHidden:YES];
                 [centerTextLabel setHidden:YES];
                 [listButton setHidden:YES];
@@ -440,26 +440,22 @@ float GlobalAudioSampleRate = 32000;
     
     progress = 0.1;
     
-    usleep(1000);
+    usleep(100000);
     
     progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
 }
 
 -(void) updateProgressBar {
     
-    if (progress < 0.95){
+    if (progress < 0.99){
         
         progress = [pitchShifter getProgressStatus];
         
-        if (progress != progress || progress == -1.0) {
-            progress = 0.1;
-        }
-        
-        else
-        {
+        if (progress != 0.0 && !(progress != progress) && progress != -1.0) {
+            
             NSLog(@"STATUS: %f ",progress);
             
-           progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, progress * PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
+                progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, progress * PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
         }
     }
     else

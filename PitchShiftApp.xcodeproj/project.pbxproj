@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC742B2617F1043B004E48D8 /* barra 1.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1717F1043B004E48D8 /* barra 1.png */; };
-		AC742B2717F1043B004E48D8 /* barra 2.png in Resources */ = {isa = PBXBuildFile; fileRef = AC742B1817F1043B004E48D8 /* barra 2.png */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
 		AC7807A517EB99A80094711F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7807A317EB99A80094711F /* MainViewController.xib */; };
-		AC7CDCEA17F2171600B8BD6A /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7CDCE917F2171600B8BD6A /* Circle.png */; };
 		AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328217F31301009784D3 /* PSA_0.1_BackButton.png */; };
 		AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328317F31301009784D3 /* PSA_0.1_Background.png */; };
 		AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F328417F31301009784D3 /* PSA_0.1_CancelButton.png */; };
@@ -59,14 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC742B1717F1043B004E48D8 /* barra 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barra 1.png"; sourceTree = "<group>"; };
-		AC742B1817F1043B004E48D8 /* barra 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barra 2.png"; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AC7807A217EB99A80094711F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		AC7807A317EB99A80094711F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		AC7CDCE917F2171600B8BD6A /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
 		AC8F328217F31301009784D3 /* PSA_0.1_BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_BackButton.png; sourceTree = "<group>"; };
 		AC8F328317F31301009784D3 /* PSA_0.1_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_Background.png; sourceTree = "<group>"; };
 		AC8F328417F31301009784D3 /* PSA_0.1_CancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_CancelButton.png; sourceTree = "<group>"; };
@@ -138,9 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				AC8F328117F312E3009784D3 /* PSA 0.1 UI Images */,
-				AC7CDCE917F2171600B8BD6A /* Circle.png */,
-				AC742B1717F1043B004E48D8 /* barra 1.png */,
-				AC742B1817F1043B004E48D8 /* barra 2.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -380,7 +371,6 @@
 				AC8F329C17F31301009784D3 /* PSA_0.1_PlayButton.png in Resources */,
 				AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */,
 				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
-				AC742B2617F1043B004E48D8 /* barra 1.png in Resources */,
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
 				AC8F329617F31301009784D3 /* PSA_0.1_DownloadButton.png in Resources */,
@@ -391,8 +381,6 @@
 				AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */,
 				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
 				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,
-				AC742B2717F1043B004E48D8 /* barra 2.png in Resources */,
-				AC7CDCEA17F2171600B8BD6A /* Circle.png in Resources */,
 				AC7807A017EB8C900094711F /* 440Hz.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
