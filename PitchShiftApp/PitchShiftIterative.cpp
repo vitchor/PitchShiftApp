@@ -47,6 +47,15 @@ float PitchShiftIterative::getSmbPitchShiftProgress() {
     //return 2.0;
 }
 
+void PitchShiftIterative::stop_pitch_shifting() {
+    if (smbPitchShifter) {
+        smbPitchShifter->stopPitchShifting();
+    }
+    else {
+        printf("smbPitchShifter not found for stopping its action");
+    }
+}
+
 
 void PitchShiftIterative::get_info(char* c_in_wav_file_name) {
     SNDFILE *m_wave_file;
@@ -132,11 +141,12 @@ void PitchShiftIterative::array_to_wave(char* c_out_wav_file_name, int* i_in_wav
     
 }
 
-void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_array, float f_ratio_shift) {
+int PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_array, float f_ratio_shift) {
     float *f_wave_array;
     float *f_wave_shifted_pitch;
     float f_byte_value;
     float f_sample_rate;
+    int error;
     
     f_wave_array = (float *) malloc(i_wave_num_of_itens*sizeof(float));
     f_wave_shifted_pitch = (float *) malloc(i_wave_num_of_itens*sizeof(float));
@@ -152,7 +162,7 @@ void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_arra
     f_sample_rate = i_wave_sample_rate * 1.0;
     
     //smbPitchShifter->smbPitchShift(f_ratio_shift, i_wave_length, 1024, 32, 44100, f_wave_array, f_wave_shifted_pitch);
-    smbPitchShifter->smbPitchShift(f_ratio_shift, i_wave_length, 1024, 32, f_sample_rate, f_wave_array, f_wave_shifted_pitch);
+    error = smbPitchShifter->smbPitchShift(f_ratio_shift, i_wave_length, 1024, 32, f_sample_rate, f_wave_array, f_wave_shifted_pitch);
     
     printf("[3. 2/5]Finished pitch shifting algorithm\n");
     
@@ -179,6 +189,8 @@ void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_arra
     //delete(smbPitchShifter);
     
     printf("*** Finished normalizing wave back to integer values: ***\n");
+    
+    return error;
 
 }
 

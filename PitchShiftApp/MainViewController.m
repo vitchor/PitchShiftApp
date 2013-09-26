@@ -475,7 +475,7 @@ float GlobalAudioSampleRate = 48000;
         
 //        NSLog(@"STATUS 1: %f ",progress);
         
-        if (progress != 0.0 && !(progress != progress) && progress != -1.0) {
+        if (progress != 0.0 && !(progress != progress) && progress != -1.0 && progress != 1.0) {
             
 //            NSLog(@"STATUS 2: %f ",progress);
             
@@ -520,7 +520,11 @@ float GlobalAudioSampleRate = 48000;
             pitchShifter = [PitchShifter alloc];
             
             [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
+            
         } else {
+            
+            [pitchShifter stopPitchShifting];
+            
             pitchShifter = nil;
             
             pitchShifter = [PitchShifter alloc];
@@ -652,6 +656,7 @@ float GlobalAudioSampleRate = 48000;
 
 - (IBAction)cancelButtonAction:(UIButton *)sender {
     if (pitchShifter) {
+        [pitchShifter stopPitchShifting];
         pitchShifter = nil;
     }
     

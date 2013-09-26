@@ -23,8 +23,21 @@ float currentProgress = 0.0;
     return currentProgress;
 }
 
+-(void) stopPitchShifting {
+    if (pitchShiftIterator) {
+        shouldStopPitchShifting = true;
+        pitchShiftIterator->stop_pitch_shifting();
+    }
+    else {
+        printf("smbPitchShifter not found for stopping its action");
+    }
+}
+
 
 -(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath andShiftType:(int)shiftType {
+    
+    shouldStopPitchShifting = false;
+    
     NSLog(@"Initializing shifting algorithm");
     pitchShiftIterator = PitchShiftIterative::getInstance();
     
@@ -34,6 +47,8 @@ float currentProgress = 0.0;
     int *i_third_up_wave_array;
     int *i_fifth_up_wave_array;
     int *i_summed_triads_array;
+    
+    int error;
 
     NSLog(@"[1/5] Allocating space for wave arrays");
     i_original_wave_array = (int *) malloc(pitchShiftIterator->i_wave_num_of_itens*sizeof(int));
@@ -52,7 +67,11 @@ float currentProgress = 0.0;
             
             NSLog(@"[3/5] Generating third up");
             currentStage = 1.0;
-            pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
+            error = pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
+            if (error == -1) {
+                NSLog(@"Pitch shifting process terminated by user at stage %f",currentStage);
+                return;
+            }
             
             NSLog(@"[4/5] Summing the waves");
             pitchShiftIterator->sum_two_waves(i_original_wave_array, i_third_up_wave_array, i_summed_triads_array);
@@ -64,7 +83,11 @@ float currentProgress = 0.0;
             
             NSLog(@"[3/5] Generating fifth up");
             currentStage = 1.0;
-            pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
+            error = pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
+            if (error != 0) {
+                NSLog(@"Pitch shifting process terminated by user at stage %f",currentStage);
+                return;
+            }
             
             NSLog(@"[4/5] Summing the waves");
             pitchShiftIterator->sum_two_waves(i_original_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
@@ -76,9 +99,17 @@ float currentProgress = 0.0;
             
             NSLog(@"[3/5] Generating thirds and fifths up");
             currentStage = 1.0;
-            pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
+            error = pitchShiftIterator->pitch_shift(i_original_wave_array, i_third_up_wave_array, THIRD_UP);
+            if (error != 0) {
+                NSLog(@"Pitch shifting process terminated by user at stage %f",currentStage);
+                return;
+            }
             currentStage = 2.0;
-            pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
+            error = pitchShiftIterator->pitch_shift(i_original_wave_array, i_fifth_up_wave_array, FIFTH_UP);
+            if (error != 0) {
+                NSLog(@"Pitch shifting process terminated by user at stage %f",currentStage);
+                return;
+            }
             
             NSLog(@"[4/5] Summing all three waves");
             pitchShiftIterator->sum_three_waves(i_original_wave_array, i_third_up_wave_array, i_fifth_up_wave_array, i_summed_triads_array);
