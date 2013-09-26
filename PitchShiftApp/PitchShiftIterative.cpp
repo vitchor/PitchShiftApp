@@ -183,12 +183,15 @@ void PitchShiftIterative::pitch_shift(int* i_in_wave_array, int* i_out_wave_arra
 }
 
 void PitchShiftIterative::sum_two_waves(int* i_in_first_wave_array, int* i_in_second_wave_array, int* i_out_result_wave_array) {
+    // Original wave on first array, with ratio 3:1
     int i_first_value, i_second_value;
     for (int i = 0; i < i_wave_length; i += i_wave_channels) {
         i_first_value = i_in_first_wave_array[i];
-        i_first_value /= 2;
+        i_first_value /= 8;
+        i_first_value *= 5;
         i_second_value = i_in_second_wave_array[i];
-        i_second_value /= 2;
+        i_second_value /= 8;
+        i_second_value *= 3;
         i_out_result_wave_array[i] = i_first_value + i_second_value;
     }
 }
@@ -197,11 +200,14 @@ void PitchShiftIterative::sum_three_waves(int* i_in_first_wave_array, int* i_in_
     int i_first_value, i_second_value, i_third_value;
     for (int i = 0; i < i_wave_length; i += i_wave_channels) {
         i_first_value = i_in_first_wave_array[i];
-        i_first_value /= 3;
+        i_first_value /= 8;
+        i_first_value *= 4;
         i_second_value = i_in_second_wave_array[i];
-        i_second_value /= 3;
+        i_second_value /= 8;
+        i_second_value *= 2;
         i_third_value = i_in_third_wave_array[i];
-        i_third_value /= 3;
+        i_third_value /= 8;
+        i_third_value *= 2;
         i_out_result_wave_array[i] = i_first_value + i_second_value + i_third_value;
     }
 }

@@ -8,7 +8,8 @@
 
 #import "MainViewController.h"
 
-float GlobalAudioSampleRate = 32000;
+//float GlobalAudioSampleRate = 32000;
+float GlobalAudioSampleRate = 48000;
 
 @implementation MainViewController
 
@@ -468,15 +469,15 @@ float GlobalAudioSampleRate = 32000;
 
 -(void) updateProgressBar {
     
-    if (progress < 0.99){
+    if (isProcessing){
         
         progress = [pitchShifter getProgressStatus];
         
-        NSLog(@"STATUS 1: %f ",progress);
+//        NSLog(@"STATUS 1: %f ",progress);
         
         if (progress != 0.0 && !(progress != progress) && progress != -1.0) {
             
-            NSLog(@"STATUS 2: %f ",progress);
+//            NSLog(@"STATUS 2: %f ",progress);
             
                 progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, progress * PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
         }
@@ -494,12 +495,11 @@ float GlobalAudioSampleRate = 32000;
 
 - (void)doPitchShift:(NSString *)inWavPath type:(int)pitchShiftType{
     
+    isProcessing = YES;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     
         //Get wav file's directory
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
-        (NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *outWavName = @"/result-pitchshifted.wav";
         
         NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -515,9 +515,21 @@ float GlobalAudioSampleRate = 32000;
         
         char *outWavPathCharArray = [outWavPath UTF8String];
         
-        pitchShifter = [PitchShifter alloc];
+        if (!pitchShifter) {
+            
+            pitchShifter = [PitchShifter alloc];
+            
+            [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
+        } else {
+            pitchShifter = nil;
+            
+            pitchShifter = [PitchShifter alloc];
+            
+            [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
+            
+        }
         
-        [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
+        isProcessing = NO;
     
     });
 }

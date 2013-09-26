@@ -25,7 +25,7 @@
     float rotationAngle;
     double lowPassResults;
     bool startedPlaying;
-//    bool isProcessing;
+    bool isProcessing;
     
     enum
     {
