@@ -11,21 +11,14 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
 
-#define PROGRESS_BAR_FULL_WIDTH 240.0
-#define CIRCLE_MIN_SIZE 200.0
-#define CIRCLE_MAX_SIZE 300.0
-#define INV_CIRCLE_MIN_SIZE 200.0
-#define INV_CIRCLE_MAX_SIZE 300.0
-#define CIRCLE_ROTATION_INCREMENT 0.075
+#define PROGRESS_BAR_FULL_WIDTH 240
 
 @interface MainViewController : UIViewController{
     
     int recordEncoding;
     float progress;
-    float rotationAngle;
     double lowPassResults;
     bool startedPlaying;
-    bool isProcessing;
     
     enum
     {
@@ -48,22 +41,25 @@
         PLAYER_VIEW = 6, 
     } currentViewState;
     
-    IBOutlet UILabel *centerTextLabel;
     IBOutlet UIButton *centerButton;
-    IBOutlet UIButton *backButton;
+    IBOutlet UIButton *listButton;
+    IBOutlet UIButton *downloadButton;
     IBOutlet UIButton *cancelButton;
+    IBOutlet UIButton *shareButton;
+    IBOutlet UILabel *centerTextLabel;
+    IBOutlet UIView *selectingEffectView;
     IBOutlet UIImageView *floatingCircle;
     IBOutlet UIImageView *floatingCircleInverse;
     IBOutlet UIImageView *progressBar;
     IBOutlet UIImageView *progressBarBackground;
-    IBOutlet UIView *recordingView;
-    IBOutlet UIView *selectingEffectView;
-//    IBOutlet UIButton *shareButton;
     
-    NSTimer* recordTimer;
-    NSTimer* processTimer;
+    NSTimer* levelTimer;
+    NSTimer* progressBarTimer;
+<<<<<<< HEAD
     NSTimer* playerTimer;
-
+=======
+    NSTimer* animationTimer;
+>>>>>>> 11e59542f837bb2eb0b87a2f6a8c13da31992d43
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     AVAssetReader *assetReader;
@@ -73,11 +69,12 @@
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
-- (IBAction)backButtonAction:(UIButton *)sender;
 - (IBAction)cancelButtonAction:(UIButton *)sender;
 - (IBAction)selectThirdButtonAction:(UIButton *)sender;
 - (IBAction)selectFifthButtonAction:(UIButton *)sender;
 - (IBAction)selectTriadButtonAction:(UIButton *)sender;
-//- (IBAction)shareButtonAction:(UIButton *)sender;
+- (IBAction)shareButtonAction:(UIButton *)sender;
+- (IBAction)listButtonAction:(UIButton *)sender;
+- (IBAction)downloadButtonAction:(UIButton *)sender;
 
 @end

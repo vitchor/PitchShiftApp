@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */; };
+		7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B30093417F4C1AA004BA5A7 /* crazyCircle.png */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		7B30093417F4C1AA004BA5A7 /* crazyCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crazyCircle.png; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		AC742B1617F103D4004E48D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7B30093417F4C1AA004BA5A7 /* crazyCircle.png */,
 				AC8F328117F312E3009784D3 /* PSA 0.1 UI Images */,
 			);
 			name = Resources;
@@ -376,6 +379,7 @@
 				AC8F329B17F31301009784D3 /* PSA_0.1_Loop.png in Resources */,
 				AC8F329917F31301009784D3 /* PSA_0.1_KeyboardTriad.png in Resources */,
 				AC8F329517F31301009784D3 /* PSA_0.1_CenterButton.png in Resources */,
+				7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */,
 				AC8F329D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png in Resources */,
 				AC8F329E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png in Resources */,
 				AC8F329C17F31301009784D3 /* PSA_0.1_PlayButton.png in Resources */,

@@ -65,18 +65,15 @@ float GlobalAudioSampleRate = 48000;
                 
                 [centerButton setHidden:NO];
                 [centerTextLabel setHidden:NO];
-                [listButton setHidden:YES];
-
-                [downloadButton setHidden:YES];
+                
+                [backButton setHidden:YES];
                 [cancelButton setHidden:YES];
-                [shareButton setHidden:YES];
+//                [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [recordingView setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-                
+
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
                 
                 currentViewState = INITIAL_VIEW;
@@ -87,14 +84,11 @@ float GlobalAudioSampleRate = 48000;
                 
                 [centerButton setHidden:NO];
                 [recordingView setHidden:NO];
-                [floatingCircle setHidden:NO];
-                [floatingCircleInverse setHidden:NO];
- 
+                [backButton setHidden:NO];
+                [cancelButton setHidden:NO];
+                
                 [centerTextLabel setHidden:YES];
-                [listButton setHidden:YES];
-                [downloadButton setHidden:YES];
-                [cancelButton setHidden:YES];
-                [shareButton setHidden:YES];
+//                [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
@@ -109,17 +103,14 @@ float GlobalAudioSampleRate = 48000;
                 
                 [selectingEffectView setHidden:NO];
                 
+                [backButton setHidden:YES];
                 [cancelButton setHidden:YES];
                 [centerButton setHidden:YES];
                 [centerTextLabel setHidden:YES];
-                [listButton setHidden:YES];
-                [downloadButton setHidden:YES];
-                [shareButton setHidden:YES];
+//                [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [recordingView setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
 
                 currentViewState = SELECTING_EFFECT_VIEW;
                 
@@ -131,17 +122,14 @@ float GlobalAudioSampleRate = 48000;
                 [progressBarBackground setHidden:NO];
                 [progressBar setHidden:NO];
                 [cancelButton setHidden:NO];
+                [backButton setHidden:NO];
                 
                 [centerTextLabel setHidden:YES];
-                [listButton setHidden:YES];
-                [downloadButton setHidden:YES];
-                [shareButton setHidden:YES];
+//                [shareButton setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [recordingView setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
 
-                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_Loop.png"] forState:UIControlStateNormal];
                 
                 currentViewState = PROCESSING_VIEW;
                 
@@ -150,18 +138,15 @@ float GlobalAudioSampleRate = 48000;
             case PREVIEW_VIEW_NOT_PLAYING:
                 
                 [centerButton setHidden:NO];
-                [downloadButton setHidden:NO];
-                [shareButton setHidden:NO];
+//                [shareButton setHidden:NO];
                 [cancelButton setHidden:NO];
+                [backButton setHidden:NO];
                 
                 [centerTextLabel setHidden:YES];
-                [listButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [recordingView setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
 
@@ -172,18 +157,15 @@ float GlobalAudioSampleRate = 48000;
             case PREVIEW_VIEW_PLAYING:
                 
                 [centerButton setHidden:NO];
-                [downloadButton setHidden:NO];
-                [shareButton setHidden:NO];
+//                [shareButton setHidden:NO];
                 [cancelButton setHidden:NO];
+                [backButton setHidden:NO];
                 
                 [centerTextLabel setHidden:YES];
-                [listButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [recordingView setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
                 
@@ -194,18 +176,15 @@ float GlobalAudioSampleRate = 48000;
             case PLAYER_VIEW:
                 
                 [centerButton setHidden:NO];
-                [shareButton setHidden:NO];
+//                [shareButton setHidden:NO];
                 [cancelButton setHidden:NO];
+                [backButton setHidden:NO];
                 
-                [downloadButton setHidden:YES];
                 [centerTextLabel setHidden:YES];
-                [listButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
                 [recordingView setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
                 
                 currentViewState = PLAYER_VIEW;
                 
@@ -293,10 +272,10 @@ float GlobalAudioSampleRate = 48000;
         
     });
     
-    levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+    recordTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback) userInfo: nil repeats: YES];
 }
 
-- (void)levelTimerCallback:(NSTimer *)timer {
+- (void)levelTimerCallback {
     
     if (audioRecorder) {
         [audioRecorder updateMeters];
@@ -323,7 +302,7 @@ float GlobalAudioSampleRate = 48000;
         [UIView setAnimationRepeatCount:1];
         
         CGAffineTransform transfScale = CGAffineTransformMakeScale(circleScale, circleScale);
-        CGAffineTransform transfScaleInv = CGAffineTransformMakeScale(invCircleScale, invCircleScale);
+        CGAffineTransform transfScaleInv = CGAffineTransformMakeScale(invCircleScale,invCircleScale);
         CGAffineTransform transformRotate = CGAffineTransformMakeRotation(rotationAngle);
         CGAffineTransform transformRotateInv = CGAffineTransformMakeRotation(-rotationAngle);
         
@@ -331,6 +310,11 @@ float GlobalAudioSampleRate = 48000;
         floatingCircleInverse.transform = CGAffineTransformConcat(transformRotateInv, transfScaleInv);
         
         [UIView commitAnimations];
+        
+        if(floatingCircle.isHidden){
+            [floatingCircle setHidden:NO];
+            [floatingCircleInverse setHidden:NO];
+        }
         
     } else {
         NSLog(@"Timer still running");
@@ -350,11 +334,12 @@ float GlobalAudioSampleRate = 48000;
         NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
         
         if ( ![self exportAssetAsWaveFormat:filePath]) {
-            NSLog(@"DEU PAAAAAAAAUUUUUUUUUU");
+            NSLog(@"ERROR IN WAV CONVERSION!");
         }
         
     });
-    [levelTimer invalidate];
+    
+    [recordTimer invalidate], recordTimer = nil;
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
@@ -464,7 +449,7 @@ float GlobalAudioSampleRate = 48000;
     
     usleep(100000);
     
-    progressBarTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
+    processTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
 }
 
 -(void) updateProgressBar {
@@ -486,7 +471,7 @@ float GlobalAudioSampleRate = 48000;
     {
         progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
         
-        [progressBarTimer invalidate], progressBarTimer = nil;
+        [processTimer invalidate], processTimer = nil;
         
         [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
     }
@@ -595,6 +580,21 @@ float GlobalAudioSampleRate = 48000;
     });
 }
 
+- (void)killTimers{
+    
+    if (recordTimer) {
+        [recordTimer invalidate], recordTimer = nil;
+    }
+    
+    if (processTimer) {
+        [processTimer invalidate], processTimer = nil;
+    }
+    
+    if (playerTimer) {
+        [playerTimer invalidate], playerTimer = nil;
+    }
+}
+
 - (IBAction)centerButtonAction:(UIButton *)sender {
     
     switch (currentViewState) {
@@ -621,9 +621,7 @@ float GlobalAudioSampleRate = 48000;
             
         case PROCESSING_VIEW:
             
-            //[self setupXib:PREVIEW_VIEW_NOT_PLAYING];
-            
-            // do preview
+            // do nothing
             
             break;
             
@@ -651,24 +649,61 @@ float GlobalAudioSampleRate = 48000;
             
             break;
     }
-    
 }
 
-- (IBAction)cancelButtonAction:(UIButton *)sender {
+- (IBAction)backButtonAction:(UIButton *)sender {
+    
+    [self killTimers];
+    
     if (pitchShifter) {
         [pitchShifter stopPitchShifting];
         pitchShifter = nil;
     }
     
-    if (progressBarTimer) {
-        [progressBarTimer invalidate], progressBarTimer = nil;
+    switch (currentViewState) {
+            
+        case RECORDING_VIEW:
+            [self setupXib:INITIAL_VIEW];
+            break;
+            
+        case SELECTING_EFFECT_VIEW:
+            [self setupXib:INITIAL_VIEW];
+            break;
+            
+        case PROCESSING_VIEW:
+            [self setupXib:SELECTING_EFFECT_VIEW];
+            break;
+            
+        case PREVIEW_VIEW_NOT_PLAYING:
+            [self setupXib:SELECTING_EFFECT_VIEW];
+            break;
+            
+        case PREVIEW_VIEW_PLAYING:
+            [self setupXib:SELECTING_EFFECT_VIEW];
+            break;
+            
+        case PLAYER_VIEW:
+            [self setupXib:INITIAL_VIEW];
+            break;
+            
+        default:
+            
+             NSLog(@"UNRECOGNIZED STATE! backButtonAction : %d", currentViewState);
+            
+            break;
+    }
+}
+
+- (IBAction)cancelButtonAction:(UIButton *)sender {
+    
+    [self killTimers];
+    
+    if (pitchShifter) {
+        [pitchShifter stopPitchShifting];
+        pitchShifter = nil;
     }
     
-    if (currentViewState == PREVIEW_VIEW_NOT_PLAYING || currentViewState == PREVIEW_VIEW_PLAYING) {
-        [self setupXib:SELECTING_EFFECT_VIEW];
-    } else {
-        [self setupXib:INITIAL_VIEW]; //testing - avoid app termination
-    }
+    [self setupXib:INITIAL_VIEW];
 }
 
 - (IBAction)selectThirdButtonAction:(UIButton *)sender {
@@ -687,12 +722,6 @@ float GlobalAudioSampleRate = 48000;
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
-}
-
-- (IBAction)listButtonAction:(UIButton *)sender {
-}
-
-- (IBAction)downloadButtonAction:(UIButton *)sender {
 }
 
 @end
