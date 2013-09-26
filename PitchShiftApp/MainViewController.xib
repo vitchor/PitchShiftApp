@@ -14,7 +14,6 @@
                 <outlet property="floatingCircleInverse" destination="J9m-qc-jCX" id="CSa-1v-Nsk"/>
                 <outlet property="progressBar" destination="Lj1-4U-8Xk" id="jMb-vv-48l"/>
                 <outlet property="progressBarBackground" destination="Cbq-NI-OKe" id="GFz-YG-w6F"/>
-                <outlet property="recordingView" destination="etl-s8-5bj" id="81k-ZD-RqC"/>
                 <outlet property="selectingEffectView" destination="nkY-Eb-1Bm" id="gAW-Bk-elE"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -28,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etl-s8-5bj" userLabel="Rcording View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etl-s8-5bj" userLabel="Center Button View">
                     <rect key="frame" x="0.0" y="-33" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -48,26 +47,29 @@
                                 <constraint firstAttribute="width" constant="270" id="tLy-J2-N4v"/>
                             </constraints>
                         </imageView>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE" userLabel="Button - Center Button">
+                            <rect key="frame" x="95" y="175" width="130" height="130"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="3F1-Y3-OPd"/>
+                                <constraint firstAttribute="height" constant="130" id="vWe-3q-SYN"/>
+                            </constraints>
+                            <state key="normal" image="PSA_0.1_CenterButton.png"/>
+                            <connections>
+                                <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Dnq-YR-ZLu" firstAttribute="centerX" secondItem="etl-s8-5bj" secondAttribute="centerX" id="6R8-OA-h4t"/>
+                        <constraint firstAttribute="centerY" secondItem="4Ki-Wi-PzE" secondAttribute="centerY" id="8pB-Pj-WfD"/>
                         <constraint firstAttribute="centerX" secondItem="J9m-qc-jCX" secondAttribute="centerX" id="Uob-T9-Wue"/>
                         <constraint firstAttribute="centerY" secondItem="J9m-qc-jCX" secondAttribute="centerY" id="buK-Oc-mRp"/>
+                        <constraint firstAttribute="centerX" secondItem="4Ki-Wi-PzE" secondAttribute="centerX" id="cwm-gB-zBE"/>
                         <constraint firstItem="Dnq-YR-ZLu" firstAttribute="centerY" secondItem="etl-s8-5bj" secondAttribute="centerY" id="dEI-6p-Kph"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE" userLabel="Button - Center Button">
-                    <rect key="frame" x="95" y="142" width="130" height="130"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="130" id="U4I-RT-pFe"/>
-                    </constraints>
-                    <state key="normal" image="PSA_0.1_CenterButton.png"/>
-                    <connections>
-                        <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
-                    </connections>
-                </button>
                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS TO RECORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSt-SC-j5p">
                     <rect key="frame" x="71" y="340" width="178" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -106,15 +108,15 @@
                         <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="Pog-sE-z9T"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_ProgressBarBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cbq-NI-OKe" userLabel="Image View - Progress Bar Background">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_ProgressBarBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cbq-NI-OKe" userLabel="Progress Bar Background">
                     <rect key="frame" x="40" y="350" width="240" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="etn-2f-fdg"/>
                     </constraints>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_ProgressBarForeground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk">
-                    <rect key="frame" x="40" y="350" width="1" height="48"/>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_ProgressBarForeground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk" userLabel="Progress Bar Foreground">
+                    <rect key="frame" x="40" y="350" width="240" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkY-Eb-1Bm" userLabel="Selecting Effect View">
@@ -209,34 +211,29 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="etl-s8-5bj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="-33" id="0Mb-lI-Ouh"/>
                 <constraint firstAttribute="bottom" secondItem="THK-3i-2Cc" secondAttribute="bottom" constant="20" symbolic="YES" id="23B-kz-ATL"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="95" id="3As-7j-L4t"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="qLb-zF-H3o" secondAttribute="centerX" id="4FN-rO-eK3"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="leading" id="4fY-WC-mZ6"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" id="9zJ-nb-zGO"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AAy-uD-Nsg"/>
                 <constraint firstItem="PlW-BM-Cfg" firstAttribute="top" secondItem="THK-3i-2Cc" secondAttribute="top" id="Bm5-6i-rSi"/>
                 <constraint firstItem="PlW-BM-Cfg" firstAttribute="bottom" secondItem="THK-3i-2Cc" secondAttribute="bottom" id="Cj5-GO-2c3"/>
                 <constraint firstItem="nkY-Eb-1Bm" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" constant="193" id="MkR-Ul-G5M"/>
                 <constraint firstItem="THK-3i-2Cc" firstAttribute="top" secondItem="Cbq-NI-OKe" secondAttribute="bottom" constant="35" id="XCG-Xs-HXu"/>
                 <constraint firstItem="nkY-Eb-1Bm" firstAttribute="centerY" secondItem="qLb-zF-H3o" secondAttribute="centerY" constant="117.5" id="XR1-wz-IoM"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="agV-fc-P2E"/>
-                <constraint firstItem="etl-s8-5bj" firstAttribute="centerY" secondItem="4Ki-Wi-PzE" secondAttribute="centerY" id="dJH-af-Bof"/>
+                <constraint firstAttribute="bottom" secondItem="SSt-SC-j5p" secondAttribute="bottom" constant="119" id="auU-Tf-kSb"/>
+                <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="eTG-Y6-FhM"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="gUx-Vz-Vqf"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="gcW-Xb-An9"/>
                 <constraint firstItem="PlW-BM-Cfg" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="21" id="h1D-Rg-8c1"/>
-                <constraint firstItem="etl-s8-5bj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="-33" id="i82-0Q-8xB"/>
-                <constraint firstItem="SSt-SC-j5p" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="trailing" constant="30" id="k6W-e3-KYA"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="top" secondItem="1" secondAttribute="top" constant="142" id="moS-qi-UNo"/>
+                <constraint firstItem="SSt-SC-j5p" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="trailing" constant="-209" id="k6W-e3-KYA"/>
                 <constraint firstAttribute="bottom" secondItem="qLb-zF-H3o" secondAttribute="bottom" id="nTm-iW-KIr"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="40" id="pep-IZ-GWV"/>
+                <constraint firstAttribute="bottom" secondItem="etl-s8-5bj" secondAttribute="bottom" constant="33" id="qFC-3F-muq"/>
                 <constraint firstItem="THK-3i-2Cc" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="273" id="qJf-w8-1fL"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="bottom" secondItem="Lj1-4U-8Xk" secondAttribute="bottom" id="sgF-TJ-kh8"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="top" secondItem="Lj1-4U-8Xk" secondAttribute="top" id="tpJ-ea-PBH"/>
-                <constraint firstItem="4Ki-Wi-PzE" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="ujm-PT-12V"/>
-                <constraint firstItem="etl-s8-5bj" firstAttribute="trailing" secondItem="qLb-zF-H3o" secondAttribute="trailing" id="vot-sf-bS2"/>
-                <constraint firstItem="etl-s8-5bj" firstAttribute="leading" secondItem="qLb-zF-H3o" secondAttribute="leading" id="vru-Lr-bS0"/>
-                <constraint firstItem="SSt-SC-j5p" firstAttribute="top" secondItem="4Ki-Wi-PzE" secondAttribute="bottom" constant="68" id="wpe-VR-WFi"/>
+                <constraint firstItem="etl-s8-5bj" firstAttribute="leading" secondItem="qLb-zF-H3o" secondAttribute="leading" id="xnZ-4b-Rk2"/>
+                <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="etl-s8-5bj" secondAttribute="centerX" id="ye5-4s-Uaj"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="top" secondItem="1" secondAttribute="top" id="zRA-6r-U9a"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

@@ -30,7 +30,6 @@ float GlobalAudioSampleRate = 48000;
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
     
-    progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, 1.0, progressBar.frame.size.height);
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
     {
         [self prefersStatusBarHidden];
@@ -71,9 +70,9 @@ float GlobalAudioSampleRate = 48000;
 //                [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                [recordingView setHidden:YES];
-
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
+                
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
                 
                 currentViewState = INITIAL_VIEW;
@@ -83,15 +82,16 @@ float GlobalAudioSampleRate = 48000;
             case RECORDING_VIEW:
                 
                 [centerButton setHidden:NO];
-                [recordingView setHidden:NO];
                 [backButton setHidden:NO];
                 [cancelButton setHidden:NO];
                 
                 [centerTextLabel setHidden:YES];
 //                [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
-                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [progressBar setHidden:YES];
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
                 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
                 
@@ -110,7 +110,8 @@ float GlobalAudioSampleRate = 48000;
 //                [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
-                [recordingView setHidden:YES];
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
 
                 currentViewState = SELECTING_EFFECT_VIEW;
                 
@@ -120,15 +121,17 @@ float GlobalAudioSampleRate = 48000;
                 
                 [centerButton setHidden:NO];
                 [progressBarBackground setHidden:NO];
-                [progressBar setHidden:NO];
                 [cancelButton setHidden:NO];
                 [backButton setHidden:NO];
                 
                 [centerTextLabel setHidden:YES];
 //                [shareButton setHidden:YES];
                 [selectingEffectView setHidden:YES];
-                [recordingView setHidden:YES];
+                [progressBar setHidden:YES];
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
 
+//                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_Loop.png"] forState:UIControlStateNormal];
                 
                 currentViewState = PROCESSING_VIEW;
@@ -144,9 +147,10 @@ float GlobalAudioSampleRate = 48000;
                 
                 [centerTextLabel setHidden:YES];
                 [progressBarBackground setHidden:YES];
-                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
-                [recordingView setHidden:YES];
+                [progressBar setHidden:YES];
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
 
@@ -163,9 +167,10 @@ float GlobalAudioSampleRate = 48000;
                 
                 [centerTextLabel setHidden:YES];
                 [progressBarBackground setHidden:YES];
-                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
-                [recordingView setHidden:YES];
+                [progressBar setHidden:YES];
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
                 
@@ -182,9 +187,10 @@ float GlobalAudioSampleRate = 48000;
                 
                 [centerTextLabel setHidden:YES];
                 [progressBarBackground setHidden:YES];
-                [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
-                [recordingView setHidden:YES];
+                [progressBar setHidden:YES];
+                [floatingCircle setHidden:YES];
+                [floatingCircleInverse setHidden:YES];
                 
                 currentViewState = PLAYER_VIEW;
                 
@@ -340,6 +346,9 @@ float GlobalAudioSampleRate = 48000;
     });
     
     [recordTimer invalidate], recordTimer = nil;
+    
+    [floatingCircle setHidden:YES];
+    [floatingCircleInverse setHidden:YES];
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
@@ -458,20 +467,33 @@ float GlobalAudioSampleRate = 48000;
         
         progress = [pitchShifter getProgressStatus];
         
-//        NSLog(@"STATUS 1: %f ",progress);
+//        NSLog(@"STATUS : %f ",progress);
+        
+        // make animations
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.01];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationRepeatCount:1];
         
         if (progress != 0.0 && !(progress != progress) && progress != -1.0 && progress != 1.0) {
             
-//            NSLog(@"STATUS 2: %f ",progress);
+            progressBar.transform = CGAffineTransformMakeScale(progress, 1.0);
             
-                progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, progress * PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
+            if(progressBar.isHidden)
+                [progressBar setHidden:NO];
+            
         }
+        
+        centerButton.transform = CGAffineTransformRotate(centerButton.transform, CIRCLE_ROTATION_INCREMENT/2);
+        
+        [UIView commitAnimations];
     }
     else
     {
-        progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
-        
         [processTimer invalidate], processTimer = nil;
+        
+        centerButton.transform = CGAffineTransformIdentity;
         
         [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
     }
@@ -546,8 +568,10 @@ float GlobalAudioSampleRate = 48000;
         [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
         
         NSError *error = nil ;
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        //NSLog(@"%@",error);
+        
+        if(!audioPlayer)
+            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+            //NSLog(@"%@",error);
         
         audioPlayer.numberOfLoops = 0;
         [audioPlayer play];
@@ -574,13 +598,23 @@ float GlobalAudioSampleRate = 48000;
     }
 }
 
-- (void)stopSound {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [audioPlayer stop];
-    });
+- (void)stopPitchSchifting{
+    
+    if (pitchShifter) {
+        [pitchShifter stopPitchShifting];
+        pitchShifter = nil;
+    }
+    
 }
 
-- (void)killTimers{
+- (void)stopSound {
+  
+    if(audioPlayer.isPlaying)
+        [audioPlayer stop];
+
+}
+
+- (void)killTimers {
     
     if (recordTimer) {
         [recordTimer invalidate], recordTimer = nil;
@@ -593,6 +627,7 @@ float GlobalAudioSampleRate = 48000;
     if (playerTimer) {
         [playerTimer invalidate], playerTimer = nil;
     }
+
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender {
@@ -655,10 +690,9 @@ float GlobalAudioSampleRate = 48000;
     
     [self killTimers];
     
-    if (pitchShifter) {
-        [pitchShifter stopPitchShifting];
-        pitchShifter = nil;
-    }
+    [self stopPitchSchifting];
+    
+    [self stopSound];
     
     switch (currentViewState) {
             
@@ -698,10 +732,9 @@ float GlobalAudioSampleRate = 48000;
     
     [self killTimers];
     
-    if (pitchShifter) {
-        [pitchShifter stopPitchShifting];
-        pitchShifter = nil;
-    }
+    [self stopPitchSchifting];
+    
+    [self stopSound];
     
     [self setupXib:INITIAL_VIEW];
 }

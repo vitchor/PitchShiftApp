@@ -56,7 +56,6 @@
     IBOutlet UIImageView *floatingCircleInverse;
     IBOutlet UIImageView *progressBar;
     IBOutlet UIImageView *progressBarBackground;
-    IBOutlet UIView *recordingView;
     IBOutlet UIView *selectingEffectView;
 //    IBOutlet UIButton *shareButton;
     
