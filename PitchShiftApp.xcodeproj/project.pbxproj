@@ -196,7 +196,6 @@
 		ACD2B9CA17E8D1A90052A96A /* PitchShifter */ = {
 			isa = PBXGroup;
 			children = (
-				ACD2B9E717EA2A180052A96A /* libsndfile.a */,
 				ACD2B9DC17E9F4E50052A96A /* PitchShifter.h */,
 				ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */,
 				ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */,
@@ -209,6 +208,7 @@
 		ACD2B9CB17E8D2020052A96A /* auxLib */ = {
 			isa = PBXGroup;
 			children = (
+				ACD2B9E717EA2A180052A96A /* libsndfile.a */,
 				ACD2B9E917EA2ED20052A96A /* sndfile.h */,
 				ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */,
 				ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */,

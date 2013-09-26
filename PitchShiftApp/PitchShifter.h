@@ -11,9 +11,14 @@
 #define SHIFT_FIFTH 2
 #define SHIFT_TRIAD 3
 
-@interface PitchShifter : NSObject {}
+@interface PitchShifter : NSObject {
+
+    bool shouldStopPitchShifting;
+    
+}
 
 -(void) pitchShiftWavFile:(char*) wavFilePath andOutFilePath:(char*) outWavFilePath andShiftType:(int) shiftType;
 -(float) getProgressStatus;
+-(void) stopPitchShifting;
 
 @end

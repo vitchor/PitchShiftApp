@@ -28,10 +28,11 @@ class PitchShiftIterative {
         static PitchShiftIterative *getInstance();
         void get_info(char* c_in_wav_file_name);
         void wave_to_array(char* c_in_wav_file_name, int* i_out_wave_array);
-        void pitch_shift(int* i_in_wave_array, int* i_out_wave_array, float f_ratio_shift);
+        int pitch_shift(int* i_in_wave_array, int* i_out_wave_array, float f_ratio_shift);
         void array_to_wave(char* c_out_wav_file_name, int* i_in_wave_array);
         void sum_two_waves(int* i_in_first_wave_array, int* i_in_second_wave_array, int* i_out_result_wave_array);
         void sum_three_waves(int* i_in_first_wave_array, int* i_in_second_wave_array, int* i_in_third_wave_array, int* i_out_result_wave_array);
+        void stop_pitch_shifting();
         virtual ~PitchShiftIterative();
         float getSmbPitchShiftProgress();
     
