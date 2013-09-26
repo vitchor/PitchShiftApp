@@ -568,8 +568,8 @@ float GlobalAudioSampleRate = 48000;
         [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
         
         NSError *error = nil ;
-        
-        if(!audioPlayer)
+
+//        if(!audioPlayer)
             audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
             //NSLog(@"%@",error);
         
@@ -638,9 +638,9 @@ float GlobalAudioSampleRate = 48000;
             
             // change center button
             
-            [self startRecordingSound];
-            
             [self setupXib:RECORDING_VIEW];
+            
+            [self startRecordingSound];
             
             break;
             
@@ -668,8 +668,9 @@ float GlobalAudioSampleRate = 48000;
             break;
             
         case PREVIEW_VIEW_PLAYING:
-            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
             [self stopSound];
+            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+            
             break;
             
         case PLAYER_VIEW:
