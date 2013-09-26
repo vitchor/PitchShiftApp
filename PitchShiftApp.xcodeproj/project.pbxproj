@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */,
+				7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */,
 				ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */,
 				ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */,
 				ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */,
@@ -238,6 +241,7 @@
 		ACE6EE9F17E8BF8500E818A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */,
 				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
 				ACE6EEA417E8BF8500E818A0 /* UIKit.framework */,
@@ -538,6 +542,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/cassiomgoulart/Documents/FacebookSDK,
+					/Users/cassiomgoulart/Workspace/PitchShiftApp,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
 				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
@@ -557,6 +566,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/cassiomgoulart/Documents/FacebookSDK,
+					/Users/cassiomgoulart/Workspace/PitchShiftApp,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
 				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
