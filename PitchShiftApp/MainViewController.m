@@ -64,7 +64,6 @@ float GlobalAudioSampleRate = 32000;
                 
                 [centerButton setHidden:NO];
                 [centerTextLabel setHidden:NO];
-                //[listButton setHidden:NO];
                 [listButton setHidden:YES];
 
                 [downloadButton setHidden:YES];
@@ -73,6 +72,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [recordingView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
                 
@@ -85,7 +85,10 @@ float GlobalAudioSampleRate = 32000;
             case RECORDING_VIEW:
                 
                 [centerButton setHidden:NO];
-                
+                [recordingView setHidden:NO];
+                [floatingCircle setHidden:NO];
+                [floatingCircleInverse setHidden:NO];
+ 
                 [centerTextLabel setHidden:YES];
                 [listButton setHidden:YES];
                 [downloadButton setHidden:YES];
@@ -94,8 +97,6 @@ float GlobalAudioSampleRate = 32000;
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
-                [floatingCircle setHidden:NO];
-                [floatingCircleInverse setHidden:NO];
                 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
                 
@@ -115,6 +116,7 @@ float GlobalAudioSampleRate = 32000;
                 [shareButton setHidden:YES];
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
+                [recordingView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
 
@@ -134,6 +136,7 @@ float GlobalAudioSampleRate = 32000;
                 [downloadButton setHidden:YES];
                 [shareButton setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [recordingView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
 
@@ -155,6 +158,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [recordingView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
 
@@ -176,6 +180,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [recordingView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
 
@@ -197,6 +202,7 @@ float GlobalAudioSampleRate = 32000;
                 [progressBarBackground setHidden:YES];
                 [progressBar setHidden:YES];
                 [selectingEffectView setHidden:YES];
+                [recordingView setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
                 
@@ -285,72 +291,45 @@ float GlobalAudioSampleRate = 32000;
         NSLog(@"recording");
         
     });
+    
     levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
-    
-    animationTimer = [NSTimer scheduledTimerWithTimeInterval: 0.025 target: self selector: @selector(animateCircles) userInfo: nil repeats: YES];
-}
-
--(void)animateCircles{
-    
-//    CGAffineTransform transformScale = CGAffineTransformMakeScale((float)((float)rand()/(float)INT32_MAX), (float)((float)rand()/(float)INT32_MAX));
-//    CGAffineTransform transformRotateInverse = CGAffineTransformRotate(floatingCircleInverse.transform, 0.01);
-//    CGAffineTransform transformRotate = CGAffineTransformRotate(floatingCircle.transform, -0.01);
-//    
-//
-//    
-//    NSLog(@"TIMEEEEERRRRRR");
-//    
-//    [UIView animateWithDuration:0.025 animations:^(void){
-//        floatingCircleInverse.transform = transformRotateInverse;
-//        floatingCircle.transform = transformRotate;
-//    }];
 }
 
 - (void)levelTimerCallback:(NSTimer *)timer {
     
-    float angle = 0;
-    
-    floatingCircle.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    
     if (audioRecorder) {
         [audioRecorder updateMeters];
-        float circleMinSize = 200;
-        float circleMaxSize = 300;
-        float circleCurrentSize;
-        float invCircleMinSize = 200;
-        float invCircleMaxSize = 300;
-        float invCircleCurrentSize;
-        
-        angle = angle + 0.1;
-        
+
         const double ALPHA = 0.05;
         double averagePowerForChannel = pow(10, (0.05 * [audioRecorder averagePowerForChannel:0]));
         lowPassResults = ALPHA * averagePowerForChannel + (1.0 - ALPHA) * lowPassResults;
         
         //NSLog(@"Average input: %f Peak input: %f Low pass results:%f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0], lowPassResults);
-        circleCurrentSize = circleMinSize + (circleMaxSize-circleMinSize)*lowPassResults;
-        invCircleCurrentSize = invCircleMinSize + (invCircleMaxSize-invCircleMinSize)*(1-lowPassResults);
         
-////        CGAffineTransform transformScale = CGAffineTransformMakeScale(circleCurrentSize, circleCurrentSize);
-//        CGAffineTransform transformRotate = CGAffineTransformMakeRotation(angle);
-//        
-//        
-//        
-//        NSLog(@"TIMEEEEERRRRRR");
-//        
-////        [UIView animateWithDuration:0.0002 animations:^(void){
-//        
-//            floatingCircleInverse.transform = transformRotate;
-//            
-////        }];
-//
-//        
-//        
-        floatingCircle.frame = CGRectMake(160-circleCurrentSize/2, 208-circleCurrentSize/2, circleCurrentSize, circleCurrentSize);
+        float circleCurrentSize = CIRCLE_MIN_SIZE + (CIRCLE_MAX_SIZE-CIRCLE_MIN_SIZE)*lowPassResults;
+        float invCircleCurrentSize = INV_CIRCLE_MIN_SIZE + (INV_CIRCLE_MAX_SIZE-INV_CIRCLE_MIN_SIZE)*(1-lowPassResults);
         
+        float circleScale = circleCurrentSize/CIRCLE_MAX_SIZE;
+        float invCircleScale = invCircleCurrentSize/INV_CIRCLE_MAX_SIZE;
         
-        floatingCircleInverse.frame = CGRectMake(160-invCircleCurrentSize/2, 208-invCircleCurrentSize/2, invCircleCurrentSize, invCircleCurrentSize);
-//        floatingCircle.transform = CGAffineTransformRotate(floatingCircle.transform, 0.001);
+        rotationAngle += CIRCLE_ROTATION_INCREMENT;
+        
+        //DO THE FUCKING ANIMATION!
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.03];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationRepeatCount:1];
+        
+        CGAffineTransform transfScale = CGAffineTransformMakeScale(circleScale, circleScale);
+        CGAffineTransform transfScaleInv = CGAffineTransformMakeScale(invCircleScale, invCircleScale);
+        CGAffineTransform transformRotate = CGAffineTransformMakeRotation(rotationAngle);
+        CGAffineTransform transformRotateInv = CGAffineTransformMakeRotation(-rotationAngle);
+        
+        floatingCircle.transform =  CGAffineTransformConcat(transformRotate, transfScale);
+        floatingCircleInverse.transform = CGAffineTransformConcat(transformRotateInv, transfScaleInv);
+        
+        [UIView commitAnimations];
         
     } else {
         NSLog(@"Timer still running");
@@ -493,9 +472,11 @@ float GlobalAudioSampleRate = 32000;
         
         progress = [pitchShifter getProgressStatus];
         
+        NSLog(@"STATUS 1: %f ",progress);
+        
         if (progress != 0.0 && !(progress != progress) && progress != -1.0) {
             
-            NSLog(@"STATUS: %f ",progress);
+            NSLog(@"STATUS 2: %f ",progress);
             
                 progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, progress * PROGRESS_BAR_FULL_WIDTH, progressBar.frame.size.height);
         }
@@ -540,7 +521,6 @@ float GlobalAudioSampleRate = 32000;
     
     });
 }
-
 
 - (void)playSound {
     

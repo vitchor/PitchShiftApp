@@ -11,14 +11,21 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
 
-#define PROGRESS_BAR_FULL_WIDTH 240
+#define PROGRESS_BAR_FULL_WIDTH 240.0
+#define CIRCLE_MIN_SIZE 200.0
+#define CIRCLE_MAX_SIZE 300.0
+#define INV_CIRCLE_MIN_SIZE 200.0
+#define INV_CIRCLE_MAX_SIZE 300.0
+#define CIRCLE_ROTATION_INCREMENT 0.075
 
 @interface MainViewController : UIViewController{
     
     int recordEncoding;
     float progress;
+    float rotationAngle;
     double lowPassResults;
     bool startedPlaying;
+//    bool isProcessing;
     
     enum
     {
@@ -47,6 +54,7 @@
     IBOutlet UIButton *cancelButton;
     IBOutlet UIButton *shareButton;
     IBOutlet UILabel *centerTextLabel;
+    IBOutlet UIView *recordingView;
     IBOutlet UIView *selectingEffectView;
     IBOutlet UIImageView *floatingCircle;
     IBOutlet UIImageView *floatingCircleInverse;
@@ -55,8 +63,8 @@
     
     NSTimer* levelTimer;
     NSTimer* progressBarTimer;
-    NSTimer* animationTimer;
     NSTimer* playerTimer;
+
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     AVAssetReader *assetReader;
