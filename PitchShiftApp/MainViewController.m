@@ -659,7 +659,11 @@ float GlobalAudioSampleRate = 48000;
         [progressBarTimer invalidate], progressBarTimer = nil;
     }
     
-    [self setupXib:INITIAL_VIEW]; //testing - avoid app termination
+    if (currentViewState == PREVIEW_VIEW_NOT_PLAYING || currentViewState == PREVIEW_VIEW_PLAYING) {
+        [self setupXib:SELECTING_EFFECT_VIEW];
+    } else {
+        [self setupXib:INITIAL_VIEW]; //testing - avoid app termination
+    }
 }
 
 - (IBAction)selectThirdButtonAction:(UIButton *)sender {
