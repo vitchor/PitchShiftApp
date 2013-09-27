@@ -11,18 +11,25 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
 
+//#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
+#define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
+
 #define PROGRESS_BAR_FULL_WIDTH 240.0
 #define CIRCLE_MIN_SIZE 200.0
 #define CIRCLE_MAX_SIZE 300.0
 #define INV_CIRCLE_MIN_SIZE 200.0
 #define INV_CIRCLE_MAX_SIZE 300.0
 #define CIRCLE_ROTATION_INCREMENT 0.075
+#define FADING_TIME_DEFAULT 0.25
+#define FADING_TIME_PS_BUTTONS 0.75
 
 @interface MainViewController : UIViewController{
     
     int recordEncoding;
     float progress;
     float rotationAngle;
+    float fadingTime;
+    float globalAudioSampleRate;
     double lowPassResults;
     bool startedPlaying;
     bool isProcessing;
@@ -56,7 +63,12 @@
     IBOutlet UIImageView *floatingCircleInverse;
     IBOutlet UIImageView *progressBar;
     IBOutlet UIImageView *progressBarBackground;
-    IBOutlet UIView *selectingEffectView;
+    IBOutlet UIButton *thirdPSButton;
+    IBOutlet UIButton *fifthPSButton;
+    IBOutlet UIButton *triadPSButton;
+    
+    
+    
 //    IBOutlet UIButton *shareButton;
     
     NSTimer* recordTimer;

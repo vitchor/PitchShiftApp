@@ -8,9 +8,6 @@
 
 #import "MainViewController.h"
 
-//float GlobalAudioSampleRate = 32000;
-float GlobalAudioSampleRate = 48000;
-
 @implementation MainViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,6 +26,7 @@ float GlobalAudioSampleRate = 48000;
     
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
+    fadingTime = FADING_TIME_DEFAULT;
     
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
     {
@@ -40,6 +38,7 @@ float GlobalAudioSampleRate = 48000;
         // iOS 6
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
+    
     [self setupXib:INITIAL_VIEW];
 }
 
@@ -57,159 +56,247 @@ float GlobalAudioSampleRate = 48000;
 -(void)setupXib:(int)state
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+
         
-        switch (state) {
-                
-            case INITIAL_VIEW:
-                
-                centerButton.transform = CGAffineTransformIdentity;
-                [centerButton setHidden:NO];
-                [centerTextLabel setHidden:NO];
-                
-                [backButton setHidden:YES];
-                [cancelButton setHidden:YES];
-//                [shareButton setHidden:YES];
-                [progressBarBackground setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                
-                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
-                
-                currentViewState = INITIAL_VIEW;
-                
-                break;
-                
-            case RECORDING_VIEW:
-                
-                centerButton.transform = CGAffineTransformIdentity;
-                [centerButton setHidden:NO];
-                [backButton setHidden:NO];
-                [cancelButton setHidden:NO];
-                
-                [centerTextLabel setHidden:YES];
-//                [shareButton setHidden:YES];
-                [progressBarBackground setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-                
-                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
-                
-                currentViewState = RECORDING_VIEW;
-
-                break;
-                
-            case SELECTING_EFFECT_VIEW:
-                
-                [selectingEffectView setHidden:NO];
-                
-                [backButton setHidden:YES];
-                [cancelButton setHidden:YES];
-                [centerButton setHidden:YES];
-                [centerTextLabel setHidden:YES];
-//                [shareButton setHidden:YES];
-                [progressBarBackground setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-
-                currentViewState = SELECTING_EFFECT_VIEW;
-                
-                break;
-            
-            case PROCESSING_VIEW:
-                
-                [centerButton setHidden:NO];
-                [progressBarBackground setHidden:NO];
-                [cancelButton setHidden:NO];
-                [backButton setHidden:NO];
-                
-                [centerTextLabel setHidden:YES];
-//                [shareButton setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-
-//                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
-                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_Loop.png"] forState:UIControlStateNormal];
-                
-                currentViewState = PROCESSING_VIEW;
-                
-                break;
-                
-            case PREVIEW_VIEW_NOT_PLAYING:
-                
-                centerButton.transform = CGAffineTransformIdentity;
-                [centerButton setHidden:NO];
-//                [shareButton setHidden:NO];
-                [cancelButton setHidden:NO];
-                [backButton setHidden:NO];
-                
-                [centerTextLabel setHidden:YES];
-                [progressBarBackground setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-
-                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
-
-                currentViewState = PREVIEW_VIEW_NOT_PLAYING;
-                
-                break;
-            
-            case PREVIEW_VIEW_PLAYING:
-                
-                centerButton.transform = CGAffineTransformIdentity;
-                [centerButton setHidden:NO];
-//                [shareButton setHidden:NO];
-                [cancelButton setHidden:NO];
-                [backButton setHidden:NO];
-                
-                [centerTextLabel setHidden:YES];
-                [progressBarBackground setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-
-                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
-                
-                currentViewState = PREVIEW_VIEW_PLAYING;
-                
-                break;
-                
-            case PLAYER_VIEW:
-                
-                centerButton.transform = CGAffineTransformIdentity;
-                [centerButton setHidden:NO];
-//                [shareButton setHidden:NO];
-                [cancelButton setHidden:NO];
-                [backButton setHidden:NO];
-                
-                [centerTextLabel setHidden:YES];
-                [progressBarBackground setHidden:YES];
-                [selectingEffectView setHidden:YES];
-                [progressBar setHidden:YES];
-                [floatingCircle setHidden:YES];
-                [floatingCircleInverse setHidden:YES];
-                
-                currentViewState = PLAYER_VIEW;
-                
-                break;
-                
-            default:
-                
-                NSLog(@"UNRECOGNIZED STATE! setupXib : %d", state);
-                
-                break;
-        }
+        if(state == PROCESSING_VIEW)
+            fadingTime = FADING_TIME_PS_BUTTONS;
+        else
+            fadingTime = FADING_TIME_DEFAULT;
         
-    });
+        centerButton.alpha = 1.0;
+        centerTextLabel.alpha = 1.0;
+        progressBarBackground.alpha = 1.0;
+        progressBar.alpha = 1.0;
+        floatingCircle.alpha = 1.0;
+        floatingCircleInverse.alpha = 1.0;
+        thirdPSButton.alpha = 1.0;
+        fifthPSButton.alpha = 1.0;
+        triadPSButton.alpha = 1.0;
+        
+        [UIView animateWithDuration:fadingTime animations:^{
+            
+            if(state==INITIAL_VIEW){
+                backButton.alpha = 0.0;
+                cancelButton.alpha = 0.0;
+            }
+            
+            centerButton.alpha = 0.0;
+            centerTextLabel.alpha = 0.0;
+            progressBarBackground.alpha = 0.0;
+            progressBar.alpha = 0.0;
+            floatingCircle.alpha = 0.0;
+            floatingCircleInverse.alpha = 0.0;
+            thirdPSButton.alpha = 0.0;
+            fifthPSButton.alpha = 0.0;
+            triadPSButton.alpha = 0.0;
+
+            
+        } completion: ^(BOOL finished) {
+        
+            fadingTime = FADING_TIME_DEFAULT;
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:fadingTime];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            [UIView setAnimationRepeatCount:1];
+            
+            switch (state) {
+                    
+                case INITIAL_VIEW:
+                    
+                    centerButton.transform = CGAffineTransformIdentity;
+                    [centerButton setHidden:NO];
+                    [centerTextLabel setHidden:NO];
+                    
+                    [backButton setHidden:YES];
+                    [cancelButton setHidden:YES];
+                    [progressBarBackground setHidden:YES];
+                    [progressBar setHidden:YES];
+                    [floatingCircle setHidden:YES];
+                    [floatingCircleInverse setHidden:YES];
+                    [thirdPSButton setHidden:YES];
+                    [fifthPSButton setHidden:YES];
+                    [triadPSButton setHidden:YES];
+                    
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
+                    
+                    centerButton.alpha = 1.0;
+                    centerTextLabel.alpha = 1.0;
+                    
+                    currentViewState = INITIAL_VIEW;
+                    
+                    break;
+                    
+                case RECORDING_VIEW:
+                    
+                    centerButton.transform = CGAffineTransformIdentity;
+                    [centerButton setHidden:NO];
+                    [backButton setHidden:NO];
+                    [cancelButton setHidden:NO];
+                    [floatingCircle setHidden:NO];
+                    [floatingCircleInverse setHidden:NO];
+                    
+                    [centerTextLabel setHidden:YES];
+                    [progressBarBackground setHidden:YES];
+                    [progressBar setHidden:YES];
+                    [thirdPSButton setHidden:YES];
+                    [fifthPSButton setHidden:YES];
+                    [triadPSButton setHidden:YES];
+                    
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
+                    
+                    centerButton.alpha = 1.0;
+                    backButton.alpha = 1.0;
+                    cancelButton.alpha = 1.0;
+                    floatingCircle.alpha = 1.0;
+                    floatingCircleInverse.alpha = 1.0;
+                    
+                    currentViewState = RECORDING_VIEW;
+
+                    break;
+                    
+                case SELECTING_EFFECT_VIEW:
+                    
+                    [thirdPSButton setHidden:NO];
+                    [fifthPSButton setHidden:NO];
+                    [triadPSButton setHidden:NO];
+                    [backButton setHidden:NO];
+                    [cancelButton setHidden:NO];
+                    
+                    [centerButton setHidden:YES];
+                    [centerTextLabel setHidden:YES];
+                    [progressBarBackground setHidden:YES];
+                    [progressBar setHidden:YES];
+                    [floatingCircle setHidden:YES];
+                    [floatingCircleInverse setHidden:YES];
+
+                    thirdPSButton.alpha = 1.0;
+                    fifthPSButton.alpha = 1.0;
+                    triadPSButton.alpha = 1.0;
+                    backButton.alpha = 1.0;
+                    cancelButton.alpha = 1.0;
+                    
+                    currentViewState = SELECTING_EFFECT_VIEW;
+                    
+                    break;
+                
+                case PROCESSING_VIEW:
+                    
+                    [centerButton setHidden:NO];
+                    [progressBarBackground setHidden:NO];
+                    [cancelButton setHidden:NO];
+                    [backButton setHidden:NO];
+//                    [progressBar setHidden:NO];
+                    
+                    [centerTextLabel setHidden:YES];
+                    [floatingCircle setHidden:YES];
+                    [floatingCircleInverse setHidden:YES];
+                    [thirdPSButton setHidden:YES];
+                    [fifthPSButton setHidden:YES];
+                    [triadPSButton setHidden:YES];
+
+    //                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_Loop.png"] forState:UIControlStateNormal];
+                    
+                    centerButton.alpha = 1.0;
+                    progressBar.alpha = 1.0;
+                    progressBarBackground.alpha = 1.0;
+                    backButton.alpha = 1.0;
+                    cancelButton.alpha = 1.0;
+                    
+                    currentViewState = PROCESSING_VIEW;
+                    
+                    break;
+                    
+                case PREVIEW_VIEW_NOT_PLAYING:
+                    
+                    centerButton.transform = CGAffineTransformIdentity;
+                    [centerButton setHidden:NO];
+                    [cancelButton setHidden:NO];
+                    [backButton setHidden:NO];
+                    
+                    [centerTextLabel setHidden:YES];
+                    [progressBarBackground setHidden:YES];
+                    [progressBar setHidden:YES];
+                    [floatingCircle setHidden:YES];
+                    [floatingCircleInverse setHidden:YES];
+                    [thirdPSButton setHidden:YES];
+                    [fifthPSButton setHidden:YES];
+                    [triadPSButton setHidden:YES];
+
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
+
+                    centerButton.alpha = 1.0;
+                    cancelButton.alpha = 1.0;
+                    backButton.alpha = 1.0;
+                    
+                    currentViewState = PREVIEW_VIEW_NOT_PLAYING;
+                    
+                    break;
+                
+                case PREVIEW_VIEW_PLAYING:
+                    
+                    centerButton.transform = CGAffineTransformIdentity;
+                    [centerButton setHidden:NO];
+                    [cancelButton setHidden:NO];
+                    [backButton setHidden:NO];
+                    
+                    [centerTextLabel setHidden:YES];
+                    [progressBarBackground setHidden:YES];
+                    [progressBar setHidden:YES];
+                    [floatingCircle setHidden:YES];
+                    [floatingCircleInverse setHidden:YES];
+                    [thirdPSButton setHidden:YES];
+                    [fifthPSButton setHidden:YES];
+                    [triadPSButton setHidden:YES];
+
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
+                    
+                    centerButton.alpha = 1.0;
+                    cancelButton.alpha = 1.0;
+                    backButton.alpha = 1.0;
+                    
+                    currentViewState = PREVIEW_VIEW_PLAYING;
+                    
+                    break;
+                    
+                case PLAYER_VIEW:
+                    
+                    centerButton.transform = CGAffineTransformIdentity;
+                    [centerButton setHidden:NO];
+                    [cancelButton setHidden:NO];
+                    [backButton setHidden:NO];
+                    
+                    [centerTextLabel setHidden:YES];
+                    [progressBarBackground setHidden:YES];
+                    [progressBar setHidden:YES];
+                    [floatingCircle setHidden:YES];
+                    [floatingCircleInverse setHidden:YES];
+                    [thirdPSButton setHidden:YES];
+                    [fifthPSButton setHidden:YES];
+                    [triadPSButton setHidden:YES];
+                    
+                    centerButton.alpha = 1.0;
+                    cancelButton.alpha = 1.0;
+                    backButton.alpha = 1.0;
+            
+                    currentViewState = PLAYER_VIEW;
+                    
+                    break;
+                    
+                default:
+                    
+                    NSLog(@"UNRECOGNIZED STATE! setupXib : %d", state);
+                    
+                    break;
+            } // switch end
+            
+            [UIView commitAnimations];
+        
+            
+        }]; // block end
+        
+    }); // thread end
 }
 
 - (void) startRecordingSound
@@ -227,7 +314,7 @@ float GlobalAudioSampleRate = 48000;
         if(recordEncoding == ENC_PCM)
         {
             [recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
-            [recordSettings setObject:[NSNumber numberWithFloat:GlobalAudioSampleRate] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:GLOBAL_AUDIO_SAMPLE_RATE] forKey: AVSampleRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
             [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
             [recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
@@ -258,7 +345,7 @@ float GlobalAudioSampleRate = 48000;
             }
             
             [recordSettings setObject:formatObject forKey: AVFormatIDKey];
-            [recordSettings setObject:[NSNumber numberWithFloat:GlobalAudioSampleRate] forKey: AVSampleRateKey];
+            [recordSettings setObject:[NSNumber numberWithFloat:GLOBAL_AUDIO_SAMPLE_RATE] forKey: AVSampleRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
             [recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
             [recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
@@ -323,11 +410,6 @@ float GlobalAudioSampleRate = 48000;
         
         [UIView commitAnimations];
         
-        if(floatingCircle.isHidden){
-            [floatingCircle setHidden:NO];
-            [floatingCircleInverse setHidden:NO];
-        }
-        
     } else {
         NSLog(@"Timer still running");
     }
@@ -353,8 +435,6 @@ float GlobalAudioSampleRate = 48000;
     
     [recordTimer invalidate], recordTimer = nil;
     
-    [floatingCircle setHidden:YES];
-    [floatingCircleInverse setHidden:YES];
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
@@ -362,7 +442,7 @@ float GlobalAudioSampleRate = 48000;
     NSError *error = nil ;
     
     NSDictionary *audioSetting = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  [ NSNumber numberWithFloat:GlobalAudioSampleRate], AVSampleRateKey,
+                                  [ NSNumber numberWithFloat:GLOBAL_AUDIO_SAMPLE_RATE], AVSampleRateKey,
                                   [ NSNumber numberWithInt:1], AVNumberOfChannelsKey,
                                   [ NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
                                   [ NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
@@ -460,9 +540,7 @@ float GlobalAudioSampleRate = 48000;
 
     [self doPitchShift:inWavPath type:pitchShiftType];
     
-    progress = 0.1;
-    
-    usleep(100000);
+//    usleep(100000);
     
     processTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(updateProgressBar) userInfo: nil repeats: YES];
 }
@@ -473,8 +551,6 @@ float GlobalAudioSampleRate = 48000;
         
         progress = [pitchShifter getProgressStatus];
         
-//        NSLog(@"STATUS : %f ",progress);
-        
         // make animations
         
         [UIView beginAnimations:nil context:NULL];
@@ -482,18 +558,20 @@ float GlobalAudioSampleRate = 48000;
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationRepeatCount:1];
         
-        if (progress != 0.0 && !(progress != progress) && progress != -1.0 && progress != 1.0) {
+        if (!(progress != progress) && progress != -1.0 && progress != 0.0 &&  progress < 0.999) {
+            
+            NSLog(@"STATUS : %f ",progress);
             
             progressBar.transform = CGAffineTransformMakeScale(progress, 1.0);
             
-            if(progressBar.isHidden)
-                [progressBar setHidden:NO];
-            
+            if(progressBar.alpha==1.0)
+               [progressBar setHidden:NO];
         }
         
         centerButton.transform = CGAffineTransformRotate(centerButton.transform, CIRCLE_ROTATION_INCREMENT/2);
         
         [UIView commitAnimations];
+        
     }
     else
     {
@@ -614,10 +692,8 @@ float GlobalAudioSampleRate = 48000;
 }
 
 - (void)stopSound {
-  
     if(audioPlayer.isPlaying)
         [audioPlayer stop];
-
 }
 
 - (void)killTimers {
@@ -647,7 +723,7 @@ float GlobalAudioSampleRate = 48000;
             // change center button
             
             [self setupXib:RECORDING_VIEW];
-            
+        
             [self startRecordingSound];
             
             break;
@@ -676,8 +752,9 @@ float GlobalAudioSampleRate = 48000;
             break;
             
         case PREVIEW_VIEW_PLAYING:
+//            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
             [self stopSound];
-            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
+            
             
             break;
             
@@ -749,16 +826,28 @@ float GlobalAudioSampleRate = 48000;
 }
 
 - (IBAction)selectThirdButtonAction:(UIButton *)sender {
+    
+    [fifthPSButton setHidden:YES];
+    [triadPSButton setHidden:YES];
+    
     [self setupXib:PROCESSING_VIEW];
     [self processSound:SHIFT_THIRD];
 }
 
 - (IBAction)selectFifthButtonAction:(UIButton *)sender {
+    
+    [thirdPSButton setHidden:YES];
+    [triadPSButton setHidden:YES];
+    
     [self setupXib:PROCESSING_VIEW];
     [self processSound:SHIFT_FIFTH];
 }
 
 - (IBAction)selectTriadButtonAction:(UIButton *)sender {
+    
+    [thirdPSButton setHidden:YES];
+    [fifthPSButton setHidden:YES];
+    
     [self setupXib:PROCESSING_VIEW];
     [self processSound:SHIFT_TRIAD];
 }

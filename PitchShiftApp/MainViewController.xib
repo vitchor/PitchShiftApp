@@ -10,11 +10,13 @@
                 <outlet property="cancelButton" destination="THK-3i-2Cc" id="UOo-9h-bhq"/>
                 <outlet property="centerButton" destination="4Ki-Wi-PzE" id="1TZ-2J-hUY"/>
                 <outlet property="centerTextLabel" destination="SSt-SC-j5p" id="Sco-4P-f0O"/>
+                <outlet property="fifthPSButton" destination="bG9-D6-YSA" id="KAC-ax-0sh"/>
                 <outlet property="floatingCircle" destination="Dnq-YR-ZLu" id="yPT-y4-uHo"/>
                 <outlet property="floatingCircleInverse" destination="J9m-qc-jCX" id="CSa-1v-Nsk"/>
                 <outlet property="progressBar" destination="Lj1-4U-8Xk" id="jMb-vv-48l"/>
                 <outlet property="progressBarBackground" destination="Cbq-NI-OKe" id="GFz-YG-w6F"/>
-                <outlet property="selectingEffectView" destination="nkY-Eb-1Bm" id="gAW-Bk-elE"/>
+                <outlet property="thirdPSButton" destination="po8-Fm-BiK" id="IYx-YW-xMj"/>
+                <outlet property="triadPSButton" destination="x7t-i4-Jyz" id="Ekx-0V-FpD"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -47,7 +49,7 @@
                                 <constraint firstAttribute="width" constant="270" id="tLy-J2-N4v"/>
                             </constraints>
                         </imageView>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE" userLabel="Button - Center Button">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE" userLabel="Button - Center Button">
                             <rect key="frame" x="95" y="175" width="130" height="130"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -119,114 +121,68 @@
                     <rect key="frame" x="40" y="350" width="240" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkY-Eb-1Bm" userLabel="Selecting Effect View">
-                    <rect key="frame" x="0.0" y="0.0" width="706" height="715"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="po8-Fm-BiK" userLabel="Button - Third">
+                    <rect key="frame" x="87" y="45" width="145" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="po8-Fm-BiK" userLabel="Button - Third">
-                            <rect key="frame" x="88" y="45" width="145" height="92"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="145" id="ayo-86-B3T"/>
-                            </constraints>
-                            <state key="normal" image="PSA_0.1_KeyboardThird.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="selectThirdButtonAction:" destination="-1" eventType="touchUpInside" id="6ZD-sk-4lc"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-D6-YSA" userLabel="Button - Fifth">
-                            <rect key="frame" x="88" y="184" width="145" height="92"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="PSA_0.1_KeyboardFifth.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="selectFifthButtonAction:" destination="-1" eventType="touchUpInside" id="LnL-wD-Rvd"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7t-i4-Jyz" userLabel="Button - Triad">
-                            <rect key="frame" x="88" y="321" width="145" height="92"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="92" id="5nG-XH-2f9"/>
-                            </constraints>
-                            <state key="normal" image="PSA_0.1_KeyboardTriad.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="selectTriadButtonAction:" destination="-1" eventType="touchUpInside" id="uqw-MO-2tw"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYH-PA-q6w" userLabel="Button - Back">
-                            <rect key="frame" x="20" y="433" width="51" height="27"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="51" id="Lg2-V1-kuI"/>
-                            </constraints>
-                            <state key="normal" image="PSA_0.1_BackButton.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="KPV-AN-zZw"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWy-Cc-nBU" userLabel="Button - Cancel">
-                            <rect key="frame" x="272" y="433" width="27" height="27"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="27" id="Bp6-hR-Od9"/>
-                                <constraint firstAttribute="height" constant="27" id="IT7-wv-ALE"/>
-                            </constraints>
-                            <state key="normal" image="PSA_0.1_CancelButton.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="QuG-EH-r3h"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="bG9-D6-YSA" firstAttribute="centerX" secondItem="nkY-Eb-1Bm" secondAttribute="centerX" constant="-192.5" id="0BQ-Uu-29J"/>
-                        <constraint firstItem="cWy-Cc-nBU" firstAttribute="top" secondItem="ZYH-PA-q6w" secondAttribute="top" id="0QM-A0-5Yg"/>
-                        <constraint firstItem="bG9-D6-YSA" firstAttribute="top" secondItem="po8-Fm-BiK" secondAttribute="bottom" constant="47" id="1Vx-n3-yrI"/>
-                        <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="x7t-i4-Jyz" secondAttribute="leading" id="4m6-uQ-nDw"/>
-                        <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="bG9-D6-YSA" secondAttribute="trailing" id="O57-DU-wN8"/>
-                        <constraint firstItem="bG9-D6-YSA" firstAttribute="centerY" secondItem="nkY-Eb-1Bm" secondAttribute="centerY" constant="-127.5" id="PLd-eM-k9v"/>
-                        <constraint firstItem="po8-Fm-BiK" firstAttribute="top" secondItem="nkY-Eb-1Bm" secondAttribute="top" constant="45" id="QlM-wB-ZBa"/>
-                        <constraint firstItem="bG9-D6-YSA" firstAttribute="top" secondItem="nkY-Eb-1Bm" secondAttribute="top" constant="184" id="TM4-aQ-Uqk"/>
-                        <constraint firstAttribute="bottom" secondItem="cWy-Cc-nBU" secondAttribute="bottom" constant="255" id="Vug-A0-l1K"/>
-                        <constraint firstItem="ZYH-PA-q6w" firstAttribute="leading" secondItem="nkY-Eb-1Bm" secondAttribute="leading" constant="20" symbolic="YES" id="ZIT-5z-dIN"/>
-                        <constraint firstItem="x7t-i4-Jyz" firstAttribute="top" secondItem="nkY-Eb-1Bm" secondAttribute="top" constant="321" id="bv5-ha-50k"/>
-                        <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="bG9-D6-YSA" secondAttribute="leading" id="lfe-L5-cKE"/>
-                        <constraint firstItem="bG9-D6-YSA" firstAttribute="leading" secondItem="nkY-Eb-1Bm" secondAttribute="leading" constant="88" id="lkF-dF-NLz"/>
-                        <constraint firstItem="cWy-Cc-nBU" firstAttribute="leading" secondItem="nkY-Eb-1Bm" secondAttribute="leading" constant="272" id="qkP-6y-rb4"/>
-                        <constraint firstItem="cWy-Cc-nBU" firstAttribute="bottom" secondItem="ZYH-PA-q6w" secondAttribute="bottom" id="qn6-WU-0zf"/>
-                        <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="x7t-i4-Jyz" secondAttribute="trailing" id="s3z-Gp-GgR"/>
-                        <constraint firstItem="x7t-i4-Jyz" firstAttribute="top" secondItem="bG9-D6-YSA" secondAttribute="bottom" constant="45" id="vAV-li-mSs"/>
+                        <constraint firstAttribute="height" constant="92" id="Pdb-qa-0DN"/>
+                        <constraint firstAttribute="width" constant="145" id="ayo-86-B3T"/>
                     </constraints>
-                </view>
+                    <state key="normal" image="PSA_0.1_KeyboardThird.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectThirdButtonAction:" destination="-1" eventType="touchUpInside" id="6ZD-sk-4lc"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-D6-YSA" userLabel="Button - Fifth">
+                    <rect key="frame" x="87" y="184" width="145" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="PSA_0.1_KeyboardFifth.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectFifthButtonAction:" destination="-1" eventType="touchUpInside" id="LnL-wD-Rvd"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7t-i4-Jyz" userLabel="Button - Triad">
+                    <rect key="frame" x="87" y="321" width="145" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="92" id="5nG-XH-2f9"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.1_KeyboardTriad.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectTriadButtonAction:" destination="-1" eventType="touchUpInside" id="uqw-MO-2tw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="etl-s8-5bj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="-33" id="0Mb-lI-Ouh"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="x7t-i4-Jyz" secondAttribute="leading" id="13o-ap-bO5"/>
                 <constraint firstAttribute="bottom" secondItem="THK-3i-2Cc" secondAttribute="bottom" constant="20" symbolic="YES" id="23B-kz-ATL"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="leading" id="4fY-WC-mZ6"/>
+                <constraint firstItem="x7t-i4-Jyz" firstAttribute="top" secondItem="bG9-D6-YSA" secondAttribute="bottom" constant="45" id="5LS-4p-dt5"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AAy-uD-Nsg"/>
                 <constraint firstItem="PlW-BM-Cfg" firstAttribute="top" secondItem="THK-3i-2Cc" secondAttribute="top" id="Bm5-6i-rSi"/>
                 <constraint firstItem="PlW-BM-Cfg" firstAttribute="bottom" secondItem="THK-3i-2Cc" secondAttribute="bottom" id="Cj5-GO-2c3"/>
-                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" constant="193" id="MkR-Ul-G5M"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="bG9-D6-YSA" secondAttribute="leading" id="Req-AK-1tx"/>
                 <constraint firstItem="THK-3i-2Cc" firstAttribute="top" secondItem="Cbq-NI-OKe" secondAttribute="bottom" constant="35" id="XCG-Xs-HXu"/>
-                <constraint firstItem="nkY-Eb-1Bm" firstAttribute="centerY" secondItem="qLb-zF-H3o" secondAttribute="centerY" constant="117.5" id="XR1-wz-IoM"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="top" secondItem="1" secondAttribute="top" constant="45" id="Xhd-yD-MOC"/>
+                <constraint firstAttribute="bottom" secondItem="x7t-i4-Jyz" secondAttribute="bottom" constant="67" id="Yc4-IF-FhO"/>
                 <constraint firstAttribute="bottom" secondItem="SSt-SC-j5p" secondAttribute="bottom" constant="119" id="auU-Tf-kSb"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="eTG-Y6-FhM"/>
+                <constraint firstItem="bG9-D6-YSA" firstAttribute="top" secondItem="po8-Fm-BiK" secondAttribute="bottom" constant="47" id="ebN-EI-VBJ"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="gUx-Vz-Vqf"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="gcW-Xb-An9"/>
                 <constraint firstItem="PlW-BM-Cfg" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="21" id="h1D-Rg-8c1"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="x7t-i4-Jyz" secondAttribute="trailing" id="iwb-Ky-mQC"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="trailing" constant="-209" id="k6W-e3-KYA"/>
                 <constraint firstAttribute="bottom" secondItem="qLb-zF-H3o" secondAttribute="bottom" id="nTm-iW-KIr"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="bG9-D6-YSA" secondAttribute="trailing" id="oSP-9o-T9t"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="40" id="pep-IZ-GWV"/>
                 <constraint firstAttribute="bottom" secondItem="etl-s8-5bj" secondAttribute="bottom" constant="33" id="qFC-3F-muq"/>
                 <constraint firstItem="THK-3i-2Cc" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="273" id="qJf-w8-1fL"/>
@@ -235,6 +191,7 @@
                 <constraint firstItem="etl-s8-5bj" firstAttribute="leading" secondItem="qLb-zF-H3o" secondAttribute="leading" id="xnZ-4b-Rk2"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="etl-s8-5bj" secondAttribute="centerX" id="ye5-4s-Uaj"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="top" secondItem="1" secondAttribute="top" id="zRA-6r-U9a"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="87" id="zdh-Z7-CXq"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
