@@ -62,6 +62,7 @@ float GlobalAudioSampleRate = 48000;
                 
             case INITIAL_VIEW:
                 
+                centerButton.transform = CGAffineTransformIdentity;
                 [centerButton setHidden:NO];
                 [centerTextLabel setHidden:NO];
                 
@@ -72,6 +73,7 @@ float GlobalAudioSampleRate = 48000;
                 [progressBar setHidden:YES];
                 [floatingCircle setHidden:YES];
                 [floatingCircleInverse setHidden:YES];
+                [selectingEffectView setHidden:YES];
                 
                 [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
                 
@@ -81,6 +83,7 @@ float GlobalAudioSampleRate = 48000;
                 
             case RECORDING_VIEW:
                 
+                centerButton.transform = CGAffineTransformIdentity;
                 [centerButton setHidden:NO];
                 [backButton setHidden:NO];
                 [cancelButton setHidden:NO];
@@ -140,6 +143,7 @@ float GlobalAudioSampleRate = 48000;
                 
             case PREVIEW_VIEW_NOT_PLAYING:
                 
+                centerButton.transform = CGAffineTransformIdentity;
                 [centerButton setHidden:NO];
 //                [shareButton setHidden:NO];
                 [cancelButton setHidden:NO];
@@ -160,6 +164,7 @@ float GlobalAudioSampleRate = 48000;
             
             case PREVIEW_VIEW_PLAYING:
                 
+                centerButton.transform = CGAffineTransformIdentity;
                 [centerButton setHidden:NO];
 //                [shareButton setHidden:NO];
                 [cancelButton setHidden:NO];
@@ -180,6 +185,7 @@ float GlobalAudioSampleRate = 48000;
                 
             case PLAYER_VIEW:
                 
+                centerButton.transform = CGAffineTransformIdentity;
                 [centerButton setHidden:NO];
 //                [shareButton setHidden:NO];
                 [cancelButton setHidden:NO];
@@ -622,10 +628,12 @@ float GlobalAudioSampleRate = 48000;
     
     if (processTimer) {
         [processTimer invalidate], processTimer = nil;
+        isProcessing = false;
     }
     
     if (playerTimer) {
         [playerTimer invalidate], playerTimer = nil;
+        startedPlaying = false;
     }
 
 }
@@ -663,8 +671,8 @@ float GlobalAudioSampleRate = 48000;
         case PREVIEW_VIEW_NOT_PLAYING:
             
             // do player sound
-            [self setupXib:PREVIEW_VIEW_PLAYING];
             [self playSound];
+            [self setupXib:PREVIEW_VIEW_PLAYING];
             break;
             
         case PREVIEW_VIEW_PLAYING:
