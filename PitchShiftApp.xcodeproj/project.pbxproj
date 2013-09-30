@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */; };
+		1F8C8FF817FA0ED300FFD282 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */; };
 		7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B30093417F4C1AA004BA5A7 /* crazyCircle.png */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
@@ -60,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
 		7B30093417F4C1AA004BA5A7 /* crazyCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crazyCircle.png; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */,
-				7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */,
+				1F8C8FF817FA0ED300FFD282 /* FacebookSDK.framework in Frameworks */,
 				ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */,
 				ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */,
 				ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */,
@@ -244,7 +244,7 @@
 		ACE6EE9F17E8BF8500E818A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */,
+				1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */,
 				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
 				ACE6EEA417E8BF8500E818A0 /* UIKit.framework */,
@@ -480,7 +480,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marcelo Salloum dos Santos (TCNHYHKFZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Marcelo Salloum dos Santos (TCNHYHKFZG)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -499,6 +500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "1CAAB896-0542-406B-9F83-96908DA467FB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,7 +523,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marcelo Salloum dos Santos (TCNHYHKFZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Marcelo Salloum dos Santos (TCNHYHKFZG)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -534,6 +537,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "1CAAB896-0542-406B-9F83-96908DA467FB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -547,9 +551,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+					./Frameworks,
 					"$(inherited)",
-					/Users/cassiomgoulart/Documents/FacebookSDK,
-					/Users/cassiomgoulart/Workspace/PitchShiftApp,
+					/Users/marcelosalloum/workspace/PitchShiftApp/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
@@ -571,9 +575,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+					./Frameworks,
 					"$(inherited)",
-					/Users/cassiomgoulart/Documents/FacebookSDK,
-					/Users/cassiomgoulart/Workspace/PitchShiftApp,
+					/Users/marcelosalloum/workspace/PitchShiftApp/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
