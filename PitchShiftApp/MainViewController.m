@@ -145,7 +145,7 @@
                     [centerButton setHidden:NO];
                     [ring setHidden:NO];
                     [backButton setHidden:NO];
-                    [cancelButton setHidden:NO];
+                    [cancelButton setHidden:YES];
                     [bottomCircle setHidden:NO];
                     [middleCircle setHidden:NO];
                     [topCircle setHidden:NO];
