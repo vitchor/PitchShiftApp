@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.1_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLb-zF-H3o">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TESTE DE COR backvocal VI.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLb-zF-H3o">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -198,7 +198,6 @@
     </objects>
     <resources>
         <image name="PSA_0.1_BackButton.png" width="94" height="51"/>
-        <image name="PSA_0.1_Background.png" width="1050" height="1349"/>
         <image name="PSA_0.1_CancelButton.png" width="71" height="71"/>
         <image name="PSA_0.1_CenterButton.png" width="404" height="404"/>
         <image name="PSA_0.1_KeyboardFifth.png" width="417" height="265"/>
@@ -208,5 +207,6 @@
         <image name="PSA_0.1_ProgressBarForeground.png" width="266" height="125"/>
         <image name="PSA_0.1_SoundCircle2.png" width="1250" height="1250"/>
         <image name="PSA_0.1_SoundCircle3.png" width="1242" height="1250"/>
+        <image name="TESTE DE COR backvocal VI.png" width="640" height="960"/>
     </resources>
 </document>

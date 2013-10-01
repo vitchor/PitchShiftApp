@@ -28,16 +28,16 @@
     currentViewState = INITIAL_VIEW;
     fadingTime = FADING_TIME_DEFAULT;
     
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
-    {
-        [self prefersStatusBarHidden];
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    }
-    else
-    {
-        // iOS 6
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    }
+//    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
+//    {
+//        [self prefersStatusBarHidden];
+//        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+//    }
+//    else
+//    {
+//        // iOS 6
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//    }
     
     [self setupXib:INITIAL_VIEW];
 }
@@ -105,8 +105,8 @@
                 case INITIAL_VIEW:
                     
                     centerButton.transform = CGAffineTransformIdentity;
-                    [centerButton setHidden:NO];
-                    [centerTextLabel setHidden:NO];
+                    [centerButton setHidden:YES];
+                    [centerTextLabel setHidden:YES];
                     
                     [backButton setHidden:YES];
                     [cancelButton setHidden:YES];
@@ -714,6 +714,30 @@
 
 }
 
+- (IBAction)uploadAction:(UIButton *)sender {
+    
+    
+    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"wav"]];
+    
+    SCShareViewController *shareViewController;
+    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
+                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
+                                                                  
+                                                                  if (SC_CANCELED(error)) {
+                                                                      NSLog(@"Canceled!");
+                                                                  } else if (error) {
+                                                                      NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                                                                  } else {
+                                                                      // If you want to do something with the uploaded
+                                                                      // track this is the right place for that.
+                                                                      NSLog(@"Uploaded track: %@", trackInfo);
+                                                                  }
+                                                              }];
+    
+    // Now present the share view controller.
+    [self presentModalViewController:shareViewController animated:YES];
+}
+
 - (IBAction)centerButtonAction:(UIButton *)sender {
     
     switch (currentViewState) {
@@ -752,9 +776,9 @@
             break;
             
         case PREVIEW_VIEW_PLAYING:
+            
 //            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
             [self stopSound];
-            
             
             break;
             
