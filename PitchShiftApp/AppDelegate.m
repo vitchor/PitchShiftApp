@@ -32,6 +32,9 @@
     
     [self.navigationController pushViewController:mainViewController animated:YES];
     
+//    SoundRecViewController *soundRecViewController = [[SoundRecViewController alloc] initWithNibName:@"SoundRecViewController" bundle:nil];
+//    [self.navigationController pushViewController:soundRecViewController animated:YES];
+    
     return YES;
 }
 

@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
+#import "TracksTableViewController.h"
 
 //#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
@@ -66,6 +67,7 @@
     IBOutlet UIButton *thirdPSButton;
     IBOutlet UIButton *fifthPSButton;
     IBOutlet UIButton *triadPSButton;
+    IBOutlet UIButton *trackListButton;
     
     
     
@@ -89,6 +91,9 @@
 - (IBAction)selectThirdButtonAction:(UIButton *)sender;
 - (IBAction)selectFifthButtonAction:(UIButton *)sender;
 - (IBAction)selectTriadButtonAction:(UIButton *)sender;
+- (IBAction)showTrackList:(UIButton *)sender;
 //- (IBAction)shareButtonAction:(UIButton *)sender;
 
+- (void)playSound:(NSString*) outWavName;
+- (void)stopSound;
 @end

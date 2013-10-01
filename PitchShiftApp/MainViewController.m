@@ -629,21 +629,24 @@
     });
 }
 
-- (void)playSound {
+- (void)playSound{
+    [self playSound:@"result-pitchshifted.wav"];
+}
+
+- (void)playSound:(NSString*) outWavName{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
         (NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsPath =  [directoryPath objectAtIndex:0];
-        NSString *outWavName = @"/result-pitchshifted.wav";
-        NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
+        NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:outWavName];
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if ([fileManager fileExistsAtPath:outWavPath] == YES) {
             NSLog(@"File exists: %@",outWavPath);
         } else {
-            NSLog(@"File does not exist");
+            NSLog(@"File does not exist: %@",outWavPath);
         }
         
         NSURL *url = [NSURL fileURLWithPath:outWavPath];
@@ -653,14 +656,11 @@
         
         NSError *error = nil ;
 
-//        if(!audioPlayer)
-            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-            //NSLog(@"%@",error);
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
         
         audioPlayer.numberOfLoops = 0;
         [audioPlayer play];
         startedPlaying = true;
-        
     });
     
      playerTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(checkPlayer) userInfo: nil repeats: YES];
@@ -850,6 +850,12 @@
     
     [self setupXib:PROCESSING_VIEW];
     [self processSound:SHIFT_TRIAD];
+}
+- (IBAction)showTrackList:(UIButton *)sender{
+    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
+
+    [self.navigationController pushViewController:trackTableViewController animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:TRUE];
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1F8C8FF817FA0ED300FFD282 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */; };
+		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
+		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
+		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
+		1F8C902E17FB004300FFD282 /* TracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */; };
+		1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C903017FB007800FFD282 /* TracksTableViewCell.m */; };
+		1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */; };
 		7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B30093417F4C1AA004BA5A7 /* crazyCircle.png */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
@@ -61,6 +67,14 @@
 
 /* Begin PBXFileReference section */
 		1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
+		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
+		1F8C902B17FB004300FFD282 /* TracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewController.m; sourceTree = "<group>"; };
+		1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewController.xib; sourceTree = "<group>"; };
+		1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewCell.h; sourceTree = "<group>"; };
+		1F8C903017FB007800FFD282 /* TracksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewCell.m; sourceTree = "<group>"; };
+		1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
 		7B30093417F4C1AA004BA5A7 /* crazyCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crazyCircle.png; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
@@ -116,6 +130,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */,
+				1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */,
 				ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */,
 				1F8C8FF817FA0ED300FFD282 /* FacebookSDK.framework in Frameworks */,
 				ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */,
@@ -137,6 +153,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F8C8FFB17FA109800FFD282 /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
+			);
+			name = Aux;
+			sourceTree = "<group>";
+		};
+		1F8C900417FA230A00FFD282 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC7807A117EB99A80094711F /* MainViewController.h */,
+				AC7807A217EB99A80094711F /* MainViewController.m */,
+				AC7807A317EB99A80094711F /* MainViewController.xib */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		1F8C901517FAFE3000FFD282 /* TracksViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F8C902A17FB004300FFD282 /* TracksTableViewController.h */,
+				1F8C902B17FB004300FFD282 /* TracksTableViewController.m */,
+				1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */,
+				1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */,
+				1F8C903017FB007800FFD282 /* TracksTableViewCell.m */,
+				1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */,
+			);
+			name = TracksViewController;
+			sourceTree = "<group>";
+		};
 		AC742B1617F103D4004E48D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,9 +205,8 @@
 		AC7807A717EB99DF0094711F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC7807A117EB99A80094711F /* MainViewController.h */,
-				AC7807A217EB99A80094711F /* MainViewController.m */,
-				AC7807A317EB99A80094711F /* MainViewController.xib */,
+				1F8C901517FAFE3000FFD282 /* TracksViewController */,
+				1F8C900417FA230A00FFD282 /* MainViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -244,6 +290,8 @@
 		ACE6EE9F17E8BF8500E818A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F8C900217FA1F7900FFD282 /* CoreAudio.framework */,
+				1F8C900017FA1E4300FFD282 /* AVFoundation.framework */,
 				1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */,
 				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
@@ -256,10 +304,10 @@
 		ACE6EEA617E8BF8500E818A0 /* PitchShiftApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F8C8FFB17FA109800FFD282 /* Aux */,
 				ACE6EEB217E8BF8500E818A0 /* Images.xcassets */,
 				AC7807A717EB99DF0094711F /* Controllers */,
 				AC7807A617EB99CB0094711F /* Delegate */,
-				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
 				AC742B1617F103D4004E48D8 /* Resources */,
 				AC7807A817EB9F7A0094711F /* Samples */,
 				ACE6EEA717E8BF8500E818A0 /* Supporting Files */,
@@ -382,6 +430,7 @@
 				7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */,
 				AC8F329D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png in Resources */,
 				AC8F329E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png in Resources */,
+				1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */,
 				AC8F329C17F31301009784D3 /* PSA_0.1_PlayButton.png in Resources */,
 				AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */,
 				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
@@ -394,6 +443,7 @@
 				ACE6EEB317E8BF8500E818A0 /* Images.xcassets in Resources */,
 				AC8F329F17F31301009784D3 /* PSA_0.1_ShareButton.png in Resources */,
 				AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */,
+				1F8C902E17FB004300FFD282 /* TracksTableViewController.xib in Resources */,
 				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
 				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,
 				AC7807A017EB8C900094711F /* 440Hz.wav in Resources */,
@@ -419,8 +469,10 @@
 				ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */,
 				AC7807A417EB99A80094711F /* MainViewController.m in Sources */,
 				ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */,
+				1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */,
 				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
 				ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */,
+				1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */,
 				ACE6EEAD17E8BF8500E818A0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,7 +605,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					./Frameworks,
 					"$(inherited)",
-					/Users/marcelosalloum/workspace/PitchShiftApp/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
@@ -577,7 +628,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					./Frameworks,
 					"$(inherited)",
-					/Users/marcelosalloum/workspace/PitchShiftApp/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";

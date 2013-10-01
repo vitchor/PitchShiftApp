@@ -16,6 +16,7 @@
                 <outlet property="progressBar" destination="Lj1-4U-8Xk" id="jMb-vv-48l"/>
                 <outlet property="progressBarBackground" destination="Cbq-NI-OKe" id="GFz-YG-w6F"/>
                 <outlet property="thirdPSButton" destination="po8-Fm-BiK" id="IYx-YW-xMj"/>
+                <outlet property="trackListButton" destination="rCO-Te-sLv" id="p5u-nb-Mek"/>
                 <outlet property="triadPSButton" destination="x7t-i4-Jyz" id="Ekx-0V-FpD"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -59,6 +60,16 @@
                             <state key="normal" image="PSA_0.1_CenterButton.png"/>
                             <connections>
                                 <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCO-Te-sLv">
+                            <rect key="frame" x="272" y="438" width="33" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="LIST">
+                                <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="showTrackList:" destination="-1" eventType="touchUpInside" id="M2f-JP-KtV"/>
                             </connections>
                         </button>
                     </subviews>
