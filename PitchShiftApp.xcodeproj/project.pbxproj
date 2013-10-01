@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */; };
 		7B40E73A17FB3A600070F91A /* sax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E73917FB3A600070F91A /* sax.mp3 */; };
 		7BD769D817FB0EB2003B7CC9 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B92B24A17FB0E100002208F /* libSoundCloudAPI.a */; };
 		7BD769E217FB0F1C003B7CC9 /* libSoundCloudUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD769DF17FB0EC8003B7CC9 /* libSoundCloudUI.a */; };
@@ -193,7 +192,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		7B40E73917FB3A600070F91A /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sax.mp3; sourceTree = "<group>"; };
 		7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudAPI.xcodeproj; path = CocoaSoundCloudAPI/SoundCloudAPI.xcodeproj; sourceTree = "<group>"; };
 		7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudUI.xcodeproj; path = CocoaSoundCloudUI/SoundCloudUI.xcodeproj; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 				7BD76A0517FB0F7D003B7CC9 /* libOHAttributedLabel.a in Frameworks */,
 				7BD769E217FB0F1C003B7CC9 /* libSoundCloudUI.a in Frameworks */,
 				7BD769D817FB0EB2003B7CC9 /* libSoundCloudAPI.a in Frameworks */,
-				7B05A91717F4AF16001D2E2B /* FacebookSDK.framework in Frameworks */,
 				ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */,
 				ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */,
 				ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */,
@@ -480,7 +477,6 @@
 		ACE399E117FAFD1000AAB6F2 /* Misc Images */ = {
 			isa = PBXGroup;
 			children = (
-				7B30093417F4C1AA004BA5A7 /* crazyCircle.png */,
 			);
 			name = "Misc Images";
 			sourceTree = "<group>";
@@ -518,7 +514,6 @@
 				7BD76A0A17FB10F4003B7CC9 /* AddressBook.framework */,
 				7BD76A0B17FB10F4003B7CC9 /* AddressBookUI.framework */,
 				7BD76A0817FB10E4003B7CC9 /* QuartzCore.framework */,
-				7B05A91617F4AF16001D2E2B /* FacebookSDK.framework */,
 				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
 				ACE6EEA417E8BF8500E818A0 /* UIKit.framework */,
@@ -749,7 +744,6 @@
 				AC8F329917F31301009784D3 /* PSA_0.1_KeyboardTriad.png in Resources */,
 				ACE39A0117FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png in Resources */,
 				AC8F329517F31301009784D3 /* PSA_0.1_CenterButton.png in Resources */,
-				7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */,
 				ACE39A0017FAFD3200AAB6F2 /* PSA_0.2_DownloadButton.png in Resources */,
 				ACE39A0717FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png in Resources */,
 				ACE399FB17FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png in Resources */,

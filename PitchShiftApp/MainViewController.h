@@ -91,6 +91,7 @@
     
     PitchShifter *pitchShifter;
 }
+
 - (IBAction)uploadAction:(UIButton *)sender;
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
