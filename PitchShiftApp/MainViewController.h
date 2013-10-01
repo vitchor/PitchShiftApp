@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
+#import "SCUI.h"
 
 //#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
@@ -90,6 +91,8 @@
     
     PitchShifter *pitchShifter;
 }
+
+- (IBAction)uploadAction:(UIButton *)sender;
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
 - (IBAction)backButtonAction:(UIButton *)sender;

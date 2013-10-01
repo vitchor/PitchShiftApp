@@ -756,6 +756,42 @@
 
 }
 
+- (IBAction)uploadAction:(UIButton *)sender {
+    
+    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
+    
+    SCShareViewController *shareViewController;
+    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
+                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
+                                                                  
+                              if (SC_CANCELED(error)) {
+                                  NSLog(@"Canceled!");
+                              } else if (error) {
+                                  NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                              } else {
+                                  // If you want to do something with the uploaded
+                                  // track this is the right place for that.
+                                  NSLog(@"Uploaded track: %@", trackInfo);
+                              }
+                                                                  
+                          }];
+    
+//    // If your app is a registered foursquare app, you can set the client id and secret.
+//    // The user will then see a place picker where a location can be selected.
+//    // If you don't set them, the user sees a plain plain text filed for the place.
+//    [shareViewController setFoursquareClientID:@"<foursquare client id>"
+//                                  clientSecret:@"<foursquare client secret>"];
+//    
+//    // We can preset the title ...
+//    [shareViewController setTitle:@"Funny sounds"];
+//    
+//    // ... and other options like the private flag.
+//    [shareViewController setPrivate:NO];
+    
+    // Now present the share view controller.
+    [self presentModalViewController:shareViewController animated:YES];
+}
+
 - (IBAction)centerButtonAction:(UIButton *)sender {
     
     switch (currentViewState) {
