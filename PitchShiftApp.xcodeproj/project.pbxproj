@@ -35,6 +35,29 @@
 		ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */; };
 		ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */; };
 		ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD2B9E717EA2A180052A96A /* libsndfile.a */; };
+		ACE399F817FAFD3200AAB6F2 /* PSA_0.2_BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E217FAFD3200AAB6F2 /* PSA_0.2_BackButton.png */; };
+		ACE399F917FAFD3200AAB6F2 /* PSA_0.2_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */; };
+		ACE399FA17FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E417FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png */; };
+		ACE399FB17FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E517FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png */; };
+		ACE399FC17FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E617FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png */; };
+		ACE399FD17FAFD3200AAB6F2 /* PSA_0.2_CircleBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E717FAFD3200AAB6F2 /* PSA_0.2_CircleBottom.png */; };
+		ACE399FE17FAFD3200AAB6F2 /* PSA_0.2_CircleMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E817FAFD3200AAB6F2 /* PSA_0.2_CircleMiddle.png */; };
+		ACE399FF17FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E917FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png */; };
+		ACE39A0017FAFD3200AAB6F2 /* PSA_0.2_DownloadButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EA17FAFD3200AAB6F2 /* PSA_0.2_DownloadButton.png */; };
+		ACE39A0117FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EB17FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png */; };
+		ACE39A0217FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EC17FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png */; };
+		ACE39A0317FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */; };
+		ACE39A0417FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */; };
+		ACE39A0517FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */; };
+		ACE39A0617FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */; };
+		ACE39A0717FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */; };
+		ACE39A0817FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */; };
+		ACE39A0917FAFD3200AAB6F2 /* PSA_0.2_Ring.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */; };
+		ACE39A0A17FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F417FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png */; };
+		ACE39A0B17FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F517FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png */; };
+		ACE39A0C17FAFD3200AAB6F2 /* PSA_0.2_StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */; };
+		ACE39A0D17FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */; };
+		ACE39A0F17FAFD4B00AAB6F2 /* InterfaceGuide.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE39A0E17FAFD4B00AAB6F2 /* InterfaceGuide.png */; };
 		ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA017E8BF8500E818A0 /* Foundation.framework */; };
 		ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */; };
 		ACE6EEA517E8BF8500E818A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6EEA417E8BF8500E818A0 /* UIKit.framework */; };
@@ -93,6 +116,29 @@
 		ACD2B9E717EA2A180052A96A /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsndfile.a; sourceTree = "<group>"; };
 		ACD2B9E917EA2ED20052A96A /* sndfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sndfile.h; sourceTree = "<group>"; };
 		ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmbPitchShifter.h; sourceTree = "<group>"; };
+		ACE399E217FAFD3200AAB6F2 /* PSA_0.2_BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_BackButton.png; sourceTree = "<group>"; };
+		ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_Background.png; sourceTree = "<group>"; };
+		ACE399E417FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CancelButton.png; sourceTree = "<group>"; };
+		ACE399E517FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CenterButton.png; sourceTree = "<group>"; };
+		ACE399E617FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CenterButtonSelected.png; sourceTree = "<group>"; };
+		ACE399E717FAFD3200AAB6F2 /* PSA_0.2_CircleBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CircleBottom.png; sourceTree = "<group>"; };
+		ACE399E817FAFD3200AAB6F2 /* PSA_0.2_CircleMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CircleMiddle.png; sourceTree = "<group>"; };
+		ACE399E917FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CircleTop.png; sourceTree = "<group>"; };
+		ACE399EA17FAFD3200AAB6F2 /* PSA_0.2_DownloadButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_DownloadButton.png; sourceTree = "<group>"; };
+		ACE399EB17FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_KeyboardFifth.png; sourceTree = "<group>"; };
+		ACE399EC17FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_KeyboardThird.png; sourceTree = "<group>"; };
+		ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_KeyboardTriad.png; sourceTree = "<group>"; };
+		ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListPlayButton.png; sourceTree = "<group>"; };
+		ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_PlayButton.png; sourceTree = "<group>"; };
+		ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_PlayButtonSelected.png; sourceTree = "<group>"; };
+		ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ProgressBarBackground.png; sourceTree = "<group>"; };
+		ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ProgressBarForeground.png; sourceTree = "<group>"; };
+		ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_Ring.png; sourceTree = "<group>"; };
+		ACE399F417FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_RingSpinning.png; sourceTree = "<group>"; };
+		ACE399F517FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ShareButton.png; sourceTree = "<group>"; };
+		ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_StopButton.png; sourceTree = "<group>"; };
+		ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_StopButtonSelected.png; sourceTree = "<group>"; };
+		ACE39A0E17FAFD4B00AAB6F2 /* InterfaceGuide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterfaceGuide.png; sourceTree = "<group>"; };
 		ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchShiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE6EEA017E8BF8500E818A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,7 +186,8 @@
 		AC742B1617F103D4004E48D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7B30093417F4C1AA004BA5A7 /* crazyCircle.png */,
+				ACE399E117FAFD1000AAB6F2 /* Misc Images */,
+				ACE399E017FAFCFF00AAB6F2 /* PSA 0.2 UI Images */,
 				AC8F328117F312E3009784D3 /* PSA 0.1 UI Images */,
 			);
 			name = Resources;
@@ -220,6 +267,44 @@
 				ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */,
 			);
 			name = auxLib;
+			sourceTree = "<group>";
+		};
+		ACE399E017FAFCFF00AAB6F2 /* PSA 0.2 UI Images */ = {
+			isa = PBXGroup;
+			children = (
+				ACE39A0E17FAFD4B00AAB6F2 /* InterfaceGuide.png */,
+				ACE399E217FAFD3200AAB6F2 /* PSA_0.2_BackButton.png */,
+				ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */,
+				ACE399E417FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png */,
+				ACE399E517FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png */,
+				ACE399E617FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png */,
+				ACE399E717FAFD3200AAB6F2 /* PSA_0.2_CircleBottom.png */,
+				ACE399E817FAFD3200AAB6F2 /* PSA_0.2_CircleMiddle.png */,
+				ACE399E917FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png */,
+				ACE399EA17FAFD3200AAB6F2 /* PSA_0.2_DownloadButton.png */,
+				ACE399EB17FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png */,
+				ACE399EC17FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png */,
+				ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */,
+				ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */,
+				ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */,
+				ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */,
+				ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */,
+				ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */,
+				ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */,
+				ACE399F417FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png */,
+				ACE399F517FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png */,
+				ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */,
+				ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */,
+			);
+			name = "PSA 0.2 UI Images";
+			sourceTree = "<group>";
+		};
+		ACE399E117FAFD1000AAB6F2 /* Misc Images */ = {
+			isa = PBXGroup;
+			children = (
+				7B30093417F4C1AA004BA5A7 /* crazyCircle.png */,
+			);
+			name = "Misc Images";
 			sourceTree = "<group>";
 		};
 		ACE6EE9417E8BF8500E818A0 = {
@@ -377,27 +462,50 @@
 				AC8F329817F31301009784D3 /* PSA_0.1_KeyboardThird.png in Resources */,
 				AC78079E17EB35B80094711F /* sax.wav in Resources */,
 				AC8F329B17F31301009784D3 /* PSA_0.1_Loop.png in Resources */,
+				ACE39A0817FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png in Resources */,
 				AC8F329917F31301009784D3 /* PSA_0.1_KeyboardTriad.png in Resources */,
+				ACE39A0117FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png in Resources */,
 				AC8F329517F31301009784D3 /* PSA_0.1_CenterButton.png in Resources */,
 				7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */,
+				ACE39A0017FAFD3200AAB6F2 /* PSA_0.2_DownloadButton.png in Resources */,
+				ACE39A0717FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png in Resources */,
+				ACE399FB17FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png in Resources */,
 				AC8F329D17F31301009784D3 /* PSA_0.1_ProgressBarBackground.png in Resources */,
 				AC8F329E17F31301009784D3 /* PSA_0.1_ProgressBarForeground.png in Resources */,
 				AC8F329C17F31301009784D3 /* PSA_0.1_PlayButton.png in Resources */,
+				ACE399F917FAFD3200AAB6F2 /* PSA_0.2_Background.png in Resources */,
 				AC8F329217F31301009784D3 /* PSA_0.1_BackButton.png in Resources */,
+				ACE399FD17FAFD3200AAB6F2 /* PSA_0.2_CircleBottom.png in Resources */,
 				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
+				ACE39A0A17FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png in Resources */,
 				ACCF06C017F37EF2006D8698 /* PSA_0.1_SoundCircle2.png in Resources */,
+				ACE399FC17FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png in Resources */,
+				ACE39A0D17FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
+				ACE399FA17FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png in Resources */,
 				AC8F329617F31301009784D3 /* PSA_0.1_DownloadButton.png in Resources */,
+				ACE39A0417FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png in Resources */,
+				ACE39A0517FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png in Resources */,
+				ACE399FE17FAFD3200AAB6F2 /* PSA_0.2_CircleMiddle.png in Resources */,
+				ACE39A0317FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png in Resources */,
 				AC8F329A17F31301009784D3 /* PSA_0.1_List.png in Resources */,
+				ACE39A0917FAFD3200AAB6F2 /* PSA_0.2_Ring.png in Resources */,
 				AC8F32A017F31301009784D3 /* PSA_0.1_SoundCircle.png in Resources */,
 				ACE6EEB317E8BF8500E818A0 /* Images.xcassets in Resources */,
 				AC8F329F17F31301009784D3 /* PSA_0.1_ShareButton.png in Resources */,
+				ACE399F817FAFD3200AAB6F2 /* PSA_0.2_BackButton.png in Resources */,
 				AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */,
+				ACE39A0F17FAFD4B00AAB6F2 /* InterfaceGuide.png in Resources */,
 				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
 				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,
 				AC7807A017EB8C900094711F /* 440Hz.wav in Resources */,
+				ACE39A0B17FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png in Resources */,
+				ACE39A0617FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png in Resources */,
 				ACCF06C117F37EF2006D8698 /* PSA_0.1_SoundCircle3.png in Resources */,
+				ACE399FF17FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png in Resources */,
+				ACE39A0C17FAFD3200AAB6F2 /* PSA_0.2_StopButton.png in Resources */,
+				ACE39A0217FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +661,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					./Frameworks,
 					"$(inherited)",
-					/Users/marcelosalloum/workspace/PitchShiftApp/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
@@ -577,7 +684,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					./Frameworks,
 					"$(inherited)",
-					/Users/marcelosalloum/workspace/PitchShiftApp/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";

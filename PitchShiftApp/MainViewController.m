@@ -30,7 +30,8 @@
     
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
     {
-        [self prefersStatusBarHidden];
+        //[self prefersStatusBarHidden];
+        [self preferredStatusBarStyle];
         [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     }
     else
@@ -42,10 +43,13 @@
     [self setupXib:INITIAL_VIEW];
 }
 
-// Add this method
-- (BOOL)prefersStatusBarHidden {
-    return YES;
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
+
+//- (BOOL)prefersStatusBarHidden {
+//    return YES;
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -64,11 +68,13 @@
             fadingTime = FADING_TIME_DEFAULT;
         
         centerButton.alpha = 1.0;
+        ring.alpha = 1.0;
         centerTextLabel.alpha = 1.0;
         progressBarBackground.alpha = 1.0;
         progressBar.alpha = 1.0;
-        floatingCircle.alpha = 1.0;
-        floatingCircleInverse.alpha = 1.0;
+        bottomCircle.alpha = 1.0;
+        middleCircle.alpha = 1.0;
+        topCircle.alpha = 1.0;
         thirdPSButton.alpha = 1.0;
         fifthPSButton.alpha = 1.0;
         triadPSButton.alpha = 1.0;
@@ -81,11 +87,13 @@
             }
             
             centerButton.alpha = 0.0;
+            ring.alpha = 0.0;
             centerTextLabel.alpha = 0.0;
             progressBarBackground.alpha = 0.0;
             progressBar.alpha = 0.0;
-            floatingCircle.alpha = 0.0;
-            floatingCircleInverse.alpha = 0.0;
+            bottomCircle.alpha = 0.0;
+            middleCircle.alpha = 0.0;
+            topCircle.alpha = 0.0;
             thirdPSButton.alpha = 0.0;
             fifthPSButton.alpha = 0.0;
             triadPSButton.alpha = 0.0;
@@ -107,20 +115,24 @@
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
                     [centerTextLabel setHidden:NO];
+                    [ring setHidden:NO];
                     
                     [backButton setHidden:YES];
                     [cancelButton setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
-                    [floatingCircle setHidden:YES];
-                    [floatingCircleInverse setHidden:YES];
+                    [bottomCircle setHidden:YES];
+                    [middleCircle setHidden:YES];
+                    [topCircle setHidden:YES];
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
                     
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_CenterButton.png"] forState:UIControlStateNormal];
-                    
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
+
                     centerButton.alpha = 1.0;
+                    ring.alpha = 1.0;
                     centerTextLabel.alpha = 1.0;
                     
                     currentViewState = INITIAL_VIEW;
@@ -131,11 +143,12 @@
                     
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
+                    [ring setHidden:NO];
                     [backButton setHidden:NO];
                     [cancelButton setHidden:NO];
-                    [floatingCircle setHidden:NO];
-                    [floatingCircleInverse setHidden:NO];
-                    
+                    [bottomCircle setHidden:NO];
+                    [middleCircle setHidden:NO];
+                    [topCircle setHidden:NO];
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
@@ -143,13 +156,16 @@
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
                     
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
                     
                     centerButton.alpha = 1.0;
+                    ring.alpha = 1.0;
                     backButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
-                    floatingCircle.alpha = 1.0;
-                    floatingCircleInverse.alpha = 1.0;
+                    bottomCircle.alpha = 1.0;
+                    middleCircle.alpha = 1.0;
+                    topCircle.alpha = 1.0;
                     
                     currentViewState = RECORDING_VIEW;
 
@@ -164,11 +180,13 @@
                     [cancelButton setHidden:NO];
                     
                     [centerButton setHidden:YES];
+                    [ring setHidden:YES];
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
-                    [floatingCircle setHidden:YES];
-                    [floatingCircleInverse setHidden:YES];
+                    [bottomCircle setHidden:YES];
+                    [middleCircle setHidden:YES];
+                    [topCircle setHidden:YES];
 
                     thirdPSButton.alpha = 1.0;
                     fifthPSButton.alpha = 1.0;
@@ -183,22 +201,27 @@
                 case PROCESSING_VIEW:
                     
                     [centerButton setHidden:NO];
+                    [ring setHidden:NO];
                     [progressBarBackground setHidden:NO];
                     [cancelButton setHidden:NO];
                     [backButton setHidden:NO];
 //                    [progressBar setHidden:NO];
                     
                     [centerTextLabel setHidden:YES];
-                    [floatingCircle setHidden:YES];
-                    [floatingCircleInverse setHidden:YES];
+                    [bottomCircle setHidden:YES];
+                    [middleCircle setHidden:YES];
+                    [topCircle setHidden:YES];
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
 
     //                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_Loop.png"] forState:UIControlStateNormal];
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
+
                     
                     centerButton.alpha = 1.0;
+                    ring.alpha = 1.0;
                     progressBar.alpha = 1.0;
                     progressBarBackground.alpha = 1.0;
                     backButton.alpha = 1.0;
@@ -212,19 +235,22 @@
                     
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
+                    [ring setHidden:NO];
                     [cancelButton setHidden:NO];
                     [backButton setHidden:NO];
                     
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
-                    [floatingCircle setHidden:YES];
-                    [floatingCircleInverse setHidden:YES];
+                    [bottomCircle setHidden:YES];
+                    [middleCircle setHidden:YES];
+                    [topCircle setHidden:YES];
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
 
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
 
                     centerButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
@@ -239,18 +265,21 @@
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
                     [cancelButton setHidden:NO];
+                    [ring setHidden:NO];
                     [backButton setHidden:NO];
                     
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
-                    [floatingCircle setHidden:YES];
-                    [floatingCircleInverse setHidden:YES];
+                    [bottomCircle setHidden:YES];
+                    [middleCircle setHidden:YES];
+                    [topCircle setHidden:YES];
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
 
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_StopButton.png"] forState:UIControlStateNormal];
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
                     
                     centerButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
@@ -264,14 +293,16 @@
                     
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
+                    [ring setHidden:NO];
                     [cancelButton setHidden:NO];
                     [backButton setHidden:NO];
                     
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
-                    [floatingCircle setHidden:YES];
-                    [floatingCircleInverse setHidden:YES];
+                    [bottomCircle setHidden:YES];
+                    [middleCircle setHidden:YES];
+                    [topCircle setHidden:YES];
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
@@ -385,11 +416,13 @@
         
         //NSLog(@"Average input: %f Peak input: %f Low pass results:%f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0], lowPassResults);
         
-        float circleCurrentSize = CIRCLE_MIN_SIZE + (CIRCLE_MAX_SIZE-CIRCLE_MIN_SIZE)*lowPassResults;
-        float invCircleCurrentSize = INV_CIRCLE_MIN_SIZE + (INV_CIRCLE_MAX_SIZE-INV_CIRCLE_MIN_SIZE)*(1-lowPassResults);
+        float botCircleCurrentSize = BOT_CIRCLE_MIN_SIZE + (BOT_CIRCLE_MAX_SIZE-BOT_CIRCLE_MIN_SIZE)*lowPassResults;
+        float midCircleCurrentSize = MID_CIRCLE_MIN_SIZE + (MID_CIRCLE_MAX_SIZE-MID_CIRCLE_MIN_SIZE)*lowPassResults;
+//        float topCircleCurrentSize = TOP_CIRCLE_MIN_SIZE + (TOP_CIRCLE_MAX_SIZE-TOP_CIRCLE_MIN_SIZE)*lowPassResults;
         
-        float circleScale = circleCurrentSize/CIRCLE_MAX_SIZE;
-        float invCircleScale = invCircleCurrentSize/INV_CIRCLE_MAX_SIZE;
+        float botCircleScale = botCircleCurrentSize/BOT_CIRCLE_MAX_SIZE;
+        float midCircleScale = midCircleCurrentSize/MID_CIRCLE_MAX_SIZE;
+//        float topCircleScale = topCircleCurrentSize/TOP_CIRCLE_MAX_SIZE;
         
         rotationAngle += CIRCLE_ROTATION_INCREMENT;
         
@@ -400,13 +433,21 @@
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationRepeatCount:1];
         
-        CGAffineTransform transfScale = CGAffineTransformMakeScale(circleScale, circleScale);
-        CGAffineTransform transfScaleInv = CGAffineTransformMakeScale(invCircleScale,invCircleScale);
-        CGAffineTransform transformRotate = CGAffineTransformMakeRotation(rotationAngle);
-        CGAffineTransform transformRotateInv = CGAffineTransformMakeRotation(-rotationAngle);
+        CGAffineTransform botTransfScale = CGAffineTransformMakeScale(botCircleScale, botCircleScale);
+        CGAffineTransform midTransfScale = CGAffineTransformMakeScale(midCircleScale,midCircleScale);
+//        CGAffineTransform topTransfScale = CGAffineTransformMakeScale(topCircleScale,topCircleScale);
+
+        CGAffineTransform botTransformRotate = CGAffineTransformMakeRotation(rotationAngle);
+        CGAffineTransform midTransformRotate = CGAffineTransformMakeRotation(-rotationAngle);
+//        CGAffineTransform topTransformRotate = CGAffineTransformMakeRotation(rotationAngle);
+
+        bottomCircle.transform = CGAffineTransformConcat(botTransformRotate, botTransfScale);
+        middleCircle.transform = CGAffineTransformConcat(midTransformRotate, midTransfScale);
+//        topCircle.transform = CGAffineTransformConcat(topTransformRotate, topTransfScale);
         
-        floatingCircle.transform =  CGAffineTransformConcat(transformRotate, transfScale);
-        floatingCircleInverse.transform = CGAffineTransformConcat(transformRotateInv, transfScaleInv);
+        // Make the ring spin:
+        
+        ring.transform = CGAffineTransformMakeRotation(-rotationAngle*2);
         
         [UIView commitAnimations];
         
@@ -568,7 +609,8 @@
                [progressBar setHidden:NO];
         }
         
-        centerButton.transform = CGAffineTransformRotate(centerButton.transform, CIRCLE_ROTATION_INCREMENT/2);
+        //centerButton.transform = CGAffineTransformRotate(centerButton.transform, CIRCLE_ROTATION_INCREMENT/2);
+        ring.transform = CGAffineTransformRotate(ring.transform, -2.5*CIRCLE_ROTATION_INCREMENT);
         
         [UIView commitAnimations];
         
