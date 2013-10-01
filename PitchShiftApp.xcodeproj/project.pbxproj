@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
+		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
+		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
+		1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C903017FB007800FFD282 /* TracksTableViewCell.m */; };
+		1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */; };
 		7B40E73A17FB3A600070F91A /* sax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E73917FB3A600070F91A /* sax.mp3 */; };
 		7BD769D817FB0EB2003B7CC9 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B92B24A17FB0E100002208F /* libSoundCloudAPI.a */; };
 		7BD769E217FB0F1C003B7CC9 /* libSoundCloudUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD769DF17FB0EC8003B7CC9 /* libSoundCloudUI.a */; };
@@ -20,14 +25,6 @@
 		7BD76A0F17FB10FB003B7CC9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */; };
 		7BD76A1117FB1102003B7CC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A1017FB1102003B7CC9 /* Security.framework */; };
 		7BD76A1317FB110F003B7CC9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A1217FB110F003B7CC9 /* CoreText.framework */; };
-		1F8C8FF817FA0ED300FFD282 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */; };
-		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
-		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
-		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
-		1F8C902E17FB004300FFD282 /* TracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */; };
-		1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C903017FB007800FFD282 /* TracksTableViewCell.m */; };
-		1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */; };
-		7B30093517F4C1AA004BA5A7 /* crazyCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B30093417F4C1AA004BA5A7 /* crazyCircle.png */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
@@ -200,6 +197,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
+		1F8C902B17FB004300FFD282 /* TracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewController.m; sourceTree = "<group>"; };
+		1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewController.xib; sourceTree = "<group>"; };
+		1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewCell.h; sourceTree = "<group>"; };
+		1F8C903017FB007800FFD282 /* TracksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewCell.m; sourceTree = "<group>"; };
+		1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
 		7B40E73917FB3A600070F91A /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sax.mp3; sourceTree = "<group>"; };
 		7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudAPI.xcodeproj; path = CocoaSoundCloudAPI/SoundCloudAPI.xcodeproj; sourceTree = "<group>"; };
 		7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudUI.xcodeproj; path = CocoaSoundCloudUI/SoundCloudUI.xcodeproj; sourceTree = "<group>"; };
@@ -213,16 +218,6 @@
 		7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7BD76A1017FB1102003B7CC9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7BD76A1217FB110F003B7CC9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
-		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
-		1F8C902B17FB004300FFD282 /* TracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewController.m; sourceTree = "<group>"; };
-		1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewController.xib; sourceTree = "<group>"; };
-		1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewCell.h; sourceTree = "<group>"; };
-		1F8C903017FB007800FFD282 /* TracksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewCell.m; sourceTree = "<group>"; };
-		1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
-		7B30093417F4C1AA004BA5A7 /* crazyCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crazyCircle.png; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -333,6 +328,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F8C8FFB17FA109800FFD282 /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
+			);
+			name = Aux;
+			sourceTree = "<group>";
+		};
+		1F8C900417FA230A00FFD282 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC7807A117EB99A80094711F /* MainViewController.h */,
+				AC7807A217EB99A80094711F /* MainViewController.m */,
+				AC7807A317EB99A80094711F /* MainViewController.xib */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		1F8C901517FAFE3000FFD282 /* TracksViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F8C902A17FB004300FFD282 /* TracksTableViewController.h */,
+				1F8C902B17FB004300FFD282 /* TracksTableViewController.m */,
+				1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */,
+				1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */,
+				1F8C903017FB007800FFD282 /* TracksTableViewCell.m */,
+				1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */,
+			);
+			name = TracksViewController;
+			sourceTree = "<group>";
+		};
 		7B92B24317FB0E100002208F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,37 +401,6 @@
 				7BD769FA17FB0F62003B7CC9 /* libOHAttributedLabel.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1F8C8FFB17FA109800FFD282 /* Aux */ = {
-			isa = PBXGroup;
-			children = (
-				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
-			);
-			name = Aux;
-			sourceTree = "<group>";
-		};
-		1F8C900417FA230A00FFD282 /* MainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				AC7807A117EB99A80094711F /* MainViewController.h */,
-				AC7807A217EB99A80094711F /* MainViewController.m */,
-				AC7807A317EB99A80094711F /* MainViewController.xib */,
-			);
-			name = MainViewController;
-			sourceTree = "<group>";
-		};
-		1F8C901517FAFE3000FFD282 /* TracksViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1F8C902A17FB004300FFD282 /* TracksTableViewController.h */,
-				1F8C902B17FB004300FFD282 /* TracksTableViewController.m */,
-				1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */,
-				1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */,
-				1F8C903017FB007800FFD282 /* TracksTableViewCell.m */,
-				1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */,
-			);
-			name = TracksViewController;
 			sourceTree = "<group>";
 		};
 		AC742B1617F103D4004E48D8 /* Resources */ = {
@@ -534,11 +529,6 @@
 		ACE6EE9417E8BF8500E818A0 = {
 			isa = PBXGroup;
 			children = (
-				7BD769F517FB0F62003B7CC9 /* OHAttributedLabel.xcodeproj */,
-				7BD769EC17FB0F58003B7CC9 /* OAuth2Client.xcodeproj */,
-				7BD769E317FB0F4E003B7CC9 /* JSONKit.xcodeproj */,
-				7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */,
-				7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */,
 				ACE6EEA617E8BF8500E818A0 /* PitchShiftApp */,
 				ACE6EEBF17E8BF8500E818A0 /* PitchShiftAppTests */,
 				ACE6EE9F17E8BF8500E818A0 /* Frameworks */,
@@ -558,6 +548,11 @@
 		ACE6EE9F17E8BF8500E818A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BD769F517FB0F62003B7CC9 /* OHAttributedLabel.xcodeproj */,
+				7BD769EC17FB0F58003B7CC9 /* OAuth2Client.xcodeproj */,
+				7BD769E317FB0F4E003B7CC9 /* JSONKit.xcodeproj */,
+				7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */,
+				7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */,
 				7BD76A1217FB110F003B7CC9 /* CoreText.framework */,
 				7BD76A1017FB1102003B7CC9 /* Security.framework */,
 				7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */,
@@ -566,7 +561,6 @@
 				7BD76A0817FB10E4003B7CC9 /* QuartzCore.framework */,
 				1F8C900217FA1F7900FFD282 /* CoreAudio.framework */,
 				1F8C900017FA1E4300FFD282 /* AVFoundation.framework */,
-				1F8C8FF717FA0ED300FFD282 /* FacebookSDK.framework */,
 				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
 				ACE6EEA417E8BF8500E818A0 /* UIKit.framework */,
@@ -627,8 +621,8 @@
 			buildConfigurationList = ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftApp" */;
 			buildPhases = (
 				ACE6EE9917E8BF8500E818A0 /* Sources */,
-				ACE6EE9A17E8BF8500E818A0 /* Frameworks */,
 				ACE6EE9B17E8BF8500E818A0 /* Resources */,
+				ACE6EE9A17E8BF8500E818A0 /* Frameworks */,
 			);
 			buildRules = (
 			);
