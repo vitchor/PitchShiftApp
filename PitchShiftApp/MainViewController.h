@@ -16,11 +16,13 @@
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
 
 #define PROGRESS_BAR_FULL_WIDTH 240.0
-#define CIRCLE_MIN_SIZE 200.0
-#define CIRCLE_MAX_SIZE 300.0
-#define INV_CIRCLE_MIN_SIZE 200.0
-#define INV_CIRCLE_MAX_SIZE 300.0
-#define CIRCLE_ROTATION_INCREMENT 0.075
+#define BOT_CIRCLE_MIN_SIZE 304.0
+#define BOT_CIRCLE_MAX_SIZE 354.0
+#define MID_CIRCLE_MIN_SIZE 268.0
+#define MID_CIRCLE_MAX_SIZE 318.0
+#define TOP_CIRCLE_MIN_SIZE 192.0
+#define TOP_CIRCLE_MAX_SIZE 242.0
+#define CIRCLE_ROTATION_INCREMENT 0.025
 #define FADING_TIME_DEFAULT 0.25
 #define FADING_TIME_PS_BUTTONS 0.75
 
@@ -58,10 +60,16 @@
     
     IBOutlet UILabel *centerTextLabel;
     IBOutlet UIButton *centerButton;
+
     IBOutlet UIButton *backButton;
     IBOutlet UIButton *cancelButton;
-    IBOutlet UIImageView *floatingCircle;
-    IBOutlet UIImageView *floatingCircleInverse;
+    
+    IBOutlet UIImageView *ring;
+    
+    IBOutlet UIImageView *bottomCircle;
+    IBOutlet UIImageView *middleCircle;
+    IBOutlet UIImageView *topCircle;
+    
     IBOutlet UIImageView *progressBar;
     IBOutlet UIImageView *progressBarBackground;
     IBOutlet UIButton *thirdPSButton;
