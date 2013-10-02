@@ -14,6 +14,7 @@
 		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
 		1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C903017FB007800FFD282 /* TracksTableViewCell.m */; };
 		1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */; };
+		1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8870217FC9E6B00833D22 /* SoundManager.m */; };
 		7B40E73A17FB3A600070F91A /* sax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E73917FB3A600070F91A /* sax.mp3 */; };
 		7BD769D817FB0EB2003B7CC9 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B92B24A17FB0E100002208F /* libSoundCloudAPI.a */; };
 		7BD769E217FB0F1C003B7CC9 /* libSoundCloudUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD769DF17FB0EC8003B7CC9 /* libSoundCloudUI.a */; };
@@ -207,6 +208,8 @@
 		1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewCell.h; sourceTree = "<group>"; };
 		1F8C903017FB007800FFD282 /* TracksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewCell.m; sourceTree = "<group>"; };
 		1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
+		1FE8870117FC9E6B00833D22 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		1FE8870217FC9E6B00833D22 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		7B40E73917FB3A600070F91A /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sax.mp3; sourceTree = "<group>"; };
 		7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudAPI.xcodeproj; path = CocoaSoundCloudAPI/SoundCloudAPI.xcodeproj; sourceTree = "<group>"; };
 		7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudUI.xcodeproj; path = CocoaSoundCloudUI/SoundCloudUI.xcodeproj; sourceTree = "<group>"; };
@@ -332,6 +335,7 @@
 		1F8C8FFB17FA109800FFD282 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				1FE8870017FC9E0E00833D22 /* SoundManager */,
 				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
 			);
 			name = Aux;
@@ -358,6 +362,15 @@
 				1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */,
 			);
 			name = TracksViewController;
+			sourceTree = "<group>";
+		};
+		1FE8870017FC9E0E00833D22 /* SoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				1FE8870117FC9E6B00833D22 /* SoundManager.h */,
+				1FE8870217FC9E6B00833D22 /* SoundManager.m */,
+			);
+			name = SoundManager;
 			sourceTree = "<group>";
 		};
 		7B92B24317FB0E100002208F /* Products */ = {
@@ -859,6 +872,7 @@
 				1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */,
 				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
 				ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */,
+				1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */,
 				1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */,
 				ACE6EEAD17E8BF8500E818A0 /* main.m in Sources */,
 			);

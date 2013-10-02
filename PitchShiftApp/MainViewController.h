@@ -12,9 +12,9 @@
 #import "PitchShifter.h"
 #import "TracksTableViewController.h"
 #import "SCUI.h"
+#import "SoundManager.h"
 
 //#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
-#define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
 
 #define PROGRESS_BAR_FULL_WIDTH 240.0
 #define BOT_CIRCLE_MIN_SIZE 304.0
@@ -37,16 +37,6 @@
     double lowPassResults;
     bool startedPlaying;
     bool isProcessing;
-    
-    enum
-    {
-        ENC_AAC = 1,
-        ENC_ALAC = 2,
-        ENC_IMA4 = 3,
-        ENC_ILBC = 4,
-        ENC_ULAW = 5,
-        ENC_PCM = 6,
-    } encodingTypes;
     
     enum
     {
@@ -107,4 +97,5 @@
 
 - (void)playSound:(NSString*) outWavName;
 - (void)stopSound;
+- (void)pauseSound;
 @end
