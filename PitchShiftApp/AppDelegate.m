@@ -39,9 +39,19 @@
     
     [self.navigationController pushViewController:mainViewController animated:YES];
     
-//    SoundRecViewController *soundRecViewController = [[SoundRecViewController alloc] initWithNibName:@"SoundRecViewController" bundle:nil];
-//    [self.navigationController pushViewController:soundRecViewController animated:YES];
+    // Navigation bar background image:
+    UIImage *navBackgroundImage = [UIImage imageNamed:@"PSA_0.2_Background.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+
+    // Navigation bar title text color:
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], UITextAttributeTextColor,
+                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor, nil]];
+    //Navigation bar back button color:
+    self.window.tintColor = [UIColor whiteColor];
     
+    //StatusBar color for the whole app (Also needs to define a variable in the *.plist file: [“View controller-based status bar appearance” = NO]:
+    [ [ UIApplication sharedApplication ] setStatusBarStyle : UIStatusBarStyleLightContent ] ;
     return YES;
 }
 

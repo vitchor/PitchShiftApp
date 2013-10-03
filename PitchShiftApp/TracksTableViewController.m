@@ -28,6 +28,11 @@
     [super viewDidLoad];
     [self refreshCellsList];
     [self.tracksTableView setDataSource:self];
+    
+    //Changes background image:
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"PSA_0.2_Background.png"]];
+    self.tracksTableView.backgroundColor = background;
+    self.view.tintColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,9 +83,7 @@
     cell.tracksController = self;
     return cell;
 }
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 20;
-//}
+
 // ---------- END DATASOURCE METHODS
 
 

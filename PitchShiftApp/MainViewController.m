@@ -32,13 +32,7 @@
     midCircleScale = 1.0;
     topCircleScale = 1.0;
     
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
-    {
-        //[self prefersStatusBarHidden];
-        [self preferredStatusBarStyle];
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    }
-    else
+    if (![self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
     {
         // iOS 6
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
@@ -993,9 +987,8 @@
 }
 - (IBAction)showTrackList:(UIButton *)sender{
     TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
-
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:trackTableViewController animated:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:TRUE];
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
