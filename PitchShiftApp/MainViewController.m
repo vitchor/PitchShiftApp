@@ -414,13 +414,13 @@
     
      isAnimatingCircles = true;
     
-    [self startSpinAndScaleWithImage:ring options:UIViewAnimationOptionCurveEaseIn duration:0.3 angleIncrement: -M_PI/2.0 andAcumulatedAngle: -M_PI/2.0];
+    [self startSpinAndScaleWithImage:ring options:UIViewAnimationOptionCurveEaseIn duration:0.3 angleIncrement: M_PI/2.0 andAcumulatedAngle: M_PI/2.0];
     
-    [self startSpinAndScaleWithImage:topCircle options:UIViewAnimationOptionCurveEaseIn duration:0.4 angleIncrement: M_PI/2.0 andAcumulatedAngle: M_PI/2.0];
+    [self startSpinAndScaleWithImage:topCircle options:UIViewAnimationOptionCurveEaseIn duration:0.4 angleIncrement: -M_PI/2.0 andAcumulatedAngle: -M_PI/2.0];
     
-    [self startSpinAndScaleWithImage:middleCircle options:UIViewAnimationOptionCurveEaseIn duration:0.5 angleIncrement: -M_PI/2.0 andAcumulatedAngle: -M_PI/2.0];
+    [self startSpinAndScaleWithImage:middleCircle options:UIViewAnimationOptionCurveEaseIn duration:0.5 angleIncrement: M_PI/2.0 andAcumulatedAngle: M_PI/2.0];
     
-    [self startSpinAndScaleWithImage:bottomCircle options:UIViewAnimationOptionCurveEaseIn duration:0.6 angleIncrement: M_PI/2.0 andAcumulatedAngle: M_PI/2.0];
+    [self startSpinAndScaleWithImage:bottomCircle options:UIViewAnimationOptionCurveEaseIn duration:0.6 angleIncrement: -M_PI/2.0 andAcumulatedAngle: -M_PI/2.0];
     
 }
 
@@ -662,7 +662,7 @@
                [progressBar setHidden:NO];
         }
 
-        ring.transform = CGAffineTransformRotate(ring.transform, -1.0);
+        ring.transform = CGAffineTransformRotate(ring.transform, 0.1);
         
         [UIView commitAnimations];
         

@@ -9,6 +9,7 @@
 #import "TracksTableViewCell.h"
 
 @implementation TracksTableViewCell
+
 @synthesize playButton, shareButton, deleteButton, trackNameLabel, tracksController;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

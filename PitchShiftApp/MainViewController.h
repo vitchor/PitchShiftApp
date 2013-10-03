@@ -14,8 +14,6 @@
 #import "SCUI.h"
 #import "SoundManager.h"
 
-//#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
-
 #define PROGRESS_BAR_FULL_WIDTH 240.0
 #define BOT_CIRCLE_MIN_SIZE 304.0
 #define BOT_CIRCLE_MAX_SIZE 354.0
@@ -94,4 +92,5 @@
 - (void)playSound:(NSString*) outWavName;
 - (void)stopSound;
 - (void)pauseSound;
+
 @end

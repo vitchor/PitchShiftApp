@@ -16,6 +16,9 @@
 		1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */; };
 		1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8870217FC9E6B00833D22 /* SoundManager.m */; };
 		7B40E73A17FB3A600070F91A /* sax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B40E73917FB3A600070F91A /* sax.mp3 */; };
+		7BAEADD817FCFB18004BD341 /* PSA_0.2_AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAEADD517FCFB18004BD341 /* PSA_0.2_AppIcon.png */; };
+		7BAEADD917FCFB18004BD341 /* PSA_0.2_ListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAEADD617FCFB18004BD341 /* PSA_0.2_ListButton.png */; };
+		7BAEADDA17FCFB18004BD341 /* PSA_0.2_RingSpinning.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAEADD717FCFB18004BD341 /* PSA_0.2_RingSpinning.png */; };
 		7BD769D817FB0EB2003B7CC9 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B92B24A17FB0E100002208F /* libSoundCloudAPI.a */; };
 		7BD769E217FB0F1C003B7CC9 /* libSoundCloudUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD769DF17FB0EC8003B7CC9 /* libSoundCloudUI.a */; };
 		7BD76A0317FB0F7D003B7CC9 /* libJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD769E917FB0F4F003B7CC9 /* libJSONKit.a */; };
@@ -72,7 +75,6 @@
 		ACE39A0717FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */; };
 		ACE39A0817FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */; };
 		ACE39A0917FAFD3200AAB6F2 /* PSA_0.2_Ring.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */; };
-		ACE39A0A17FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F417FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png */; };
 		ACE39A0B17FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F517FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png */; };
 		ACE39A0C17FAFD3200AAB6F2 /* PSA_0.2_StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */; };
 		ACE39A0D17FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */; };
@@ -212,6 +214,9 @@
 		1FE8870217FC9E6B00833D22 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		7B40E73917FB3A600070F91A /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sax.mp3; sourceTree = "<group>"; };
 		7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudAPI.xcodeproj; path = CocoaSoundCloudAPI/SoundCloudAPI.xcodeproj; sourceTree = "<group>"; };
+		7BAEADD517FCFB18004BD341 /* PSA_0.2_AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_AppIcon.png; sourceTree = "<group>"; };
+		7BAEADD617FCFB18004BD341 /* PSA_0.2_ListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListButton.png; sourceTree = "<group>"; };
+		7BAEADD717FCFB18004BD341 /* PSA_0.2_RingSpinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_RingSpinning.png; sourceTree = "<group>"; };
 		7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudUI.xcodeproj; path = CocoaSoundCloudUI/SoundCloudUI.xcodeproj; sourceTree = "<group>"; };
 		7BD769E317FB0F4E003B7CC9 /* JSONKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONKit.xcodeproj; path = JSONKit/JSONKit.xcodeproj; sourceTree = "<group>"; };
 		7BD769EC17FB0F58003B7CC9 /* OAuth2Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuth2Client.xcodeproj; path = OAuth2Client/OAuth2Client.xcodeproj; sourceTree = "<group>"; };
@@ -272,7 +277,6 @@
 		ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ProgressBarBackground.png; sourceTree = "<group>"; };
 		ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ProgressBarForeground.png; sourceTree = "<group>"; };
 		ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_Ring.png; sourceTree = "<group>"; };
-		ACE399F417FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_RingSpinning.png; sourceTree = "<group>"; };
 		ACE399F517FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ShareButton.png; sourceTree = "<group>"; };
 		ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_StopButton.png; sourceTree = "<group>"; };
 		ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_StopButtonSelected.png; sourceTree = "<group>"; };
@@ -507,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE39A0E17FAFD4B00AAB6F2 /* InterfaceGuide.png */,
+				7BAEADD517FCFB18004BD341 /* PSA_0.2_AppIcon.png */,
 				ACE399E217FAFD3200AAB6F2 /* PSA_0.2_BackButton.png */,
 				ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */,
 				ACE399E417FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png */,
@@ -519,13 +524,14 @@
 				ACE399EB17FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png */,
 				ACE399EC17FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png */,
 				ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */,
+				7BAEADD617FCFB18004BD341 /* PSA_0.2_ListButton.png */,
 				ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */,
 				ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */,
 				ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */,
 				ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */,
 				ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */,
 				ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */,
-				ACE399F417FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png */,
+				7BAEADD717FCFB18004BD341 /* PSA_0.2_RingSpinning.png */,
 				ACE399F517FAFD3200AAB6F2 /* PSA_0.2_ShareButton.png */,
 				ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */,
 				ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */,
@@ -562,24 +568,24 @@
 		ACE6EE9F17E8BF8500E818A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F183EB717FC96FB0002470C /* UIKit.framework */,
-				1F183EB117FC94F40002470C /* CoreMedia.framework */,
-				7BD769F517FB0F62003B7CC9 /* OHAttributedLabel.xcodeproj */,
-				7BD769EC17FB0F58003B7CC9 /* OAuth2Client.xcodeproj */,
-				7BD769E317FB0F4E003B7CC9 /* JSONKit.xcodeproj */,
-				7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */,
-				7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */,
-				7BD76A1217FB110F003B7CC9 /* CoreText.framework */,
-				7BD76A1017FB1102003B7CC9 /* Security.framework */,
-				7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */,
 				7BD76A0A17FB10F4003B7CC9 /* AddressBook.framework */,
 				7BD76A0B17FB10F4003B7CC9 /* AddressBookUI.framework */,
-				7BD76A0817FB10E4003B7CC9 /* QuartzCore.framework */,
-				1F8C900217FA1F7900FFD282 /* CoreAudio.framework */,
 				1F8C900017FA1E4300FFD282 /* AVFoundation.framework */,
-				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
+				1F8C900217FA1F7900FFD282 /* CoreAudio.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
+				7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */,
+				1F183EB117FC94F40002470C /* CoreMedia.framework */,
+				7BD76A1217FB110F003B7CC9 /* CoreText.framework */,
+				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
+				7BD76A0817FB10E4003B7CC9 /* QuartzCore.framework */,
+				7BD76A1017FB1102003B7CC9 /* Security.framework */,
+				1F183EB717FC96FB0002470C /* UIKit.framework */,
 				ACE6EEB917E8BF8500E818A0 /* XCTest.framework */,
+				7BD769E317FB0F4E003B7CC9 /* JSONKit.xcodeproj */,
+				7BD769EC17FB0F58003B7CC9 /* OAuth2Client.xcodeproj */,
+				7BD769F517FB0F62003B7CC9 /* OHAttributedLabel.xcodeproj */,
+				7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */,
+				7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -588,8 +594,8 @@
 			isa = PBXGroup;
 			children = (
 				7B40E73917FB3A600070F91A /* sax.mp3 */,
-				1F8C8FFB17FA109800FFD282 /* Aux */,
 				ACE6EEB217E8BF8500E818A0 /* Images.xcassets */,
+				1F8C8FFB17FA109800FFD282 /* Aux */,
 				AC7807A717EB99DF0094711F /* Controllers */,
 				AC7807A617EB99CB0094711F /* Delegate */,
 				AC742B1617F103D4004E48D8 /* Resources */,
@@ -818,11 +824,11 @@
 				ACE399FD17FAFD3200AAB6F2 /* PSA_0.2_CircleBottom.png in Resources */,
 				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
-				ACE39A0A17FAFD3200AAB6F2 /* PSA_0.2_RingSpinning.png in Resources */,
 				ACCF06C017F37EF2006D8698 /* PSA_0.1_SoundCircle2.png in Resources */,
 				ACE399FC17FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png in Resources */,
 				ACE39A0D17FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
+				7BAEADDA17FCFB18004BD341 /* PSA_0.2_RingSpinning.png in Resources */,
 				ACE399FA17FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png in Resources */,
 				AC8F329617F31301009784D3 /* PSA_0.1_DownloadButton.png in Resources */,
 				ACE39A0417FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png in Resources */,
@@ -837,6 +843,7 @@
 				7BD76A0717FB0FFC003B7CC9 /* SoundCloud.bundle in Resources */,
 				ACE399F817FAFD3200AAB6F2 /* PSA_0.2_BackButton.png in Resources */,
 				AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */,
+				7BAEADD917FCFB18004BD341 /* PSA_0.2_ListButton.png in Resources */,
 				ACE39A0F17FAFD4B00AAB6F2 /* InterfaceGuide.png in Resources */,
 				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
 				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,
@@ -848,6 +855,7 @@
 				ACE399FF17FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png in Resources */,
 				ACE39A0C17FAFD3200AAB6F2 /* PSA_0.2_StopButton.png in Resources */,
 				ACE39A0217FAFD3200AAB6F2 /* PSA_0.2_KeyboardThird.png in Resources */,
+				7BAEADD817FCFB18004BD341 /* PSA_0.2_AppIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,11 +9,8 @@
 #import "TracksTableViewController.h"
 #import "TracksTableViewCell.h"
 
-@interface TracksTableViewController ()
-
-@end
-
 @implementation TracksTableViewController
+
 @synthesize tracksTableView, tracksArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -11,6 +11,7 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import <Foundation/Foundation.h>
 
+//#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
 
 @interface SoundManager : NSObject{

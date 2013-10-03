@@ -14,10 +14,15 @@
 #import "SoundManager.h"
 
 @interface TracksTableViewCell : UITableViewCell{
+    
     BOOL isPlaying;
-    SoundManager *soundManager;
+    
     NSTimer *playerTimer;
+    
+    SoundManager *soundManager;
+    
 }
+
 @property (nonatomic,retain) IBOutlet UIButton *playButton;
 @property (nonatomic,retain) IBOutlet UIButton *shareButton;
 @property (nonatomic,retain) IBOutlet UIButton *deleteButton;
