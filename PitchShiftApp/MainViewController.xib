@@ -18,6 +18,7 @@
                 <outlet property="ring" destination="7FC-il-zPN" id="HUY-xL-NVW"/>
                 <outlet property="thirdPSButton" destination="po8-Fm-BiK" id="IYx-YW-xMj"/>
                 <outlet property="topCircle" destination="dUB-ja-1zX" id="NIh-wM-15V"/>
+                <outlet property="trackListButton" destination="v8L-3Y-9zn" id="Ux4-bM-i1a"/>
                 <outlet property="triadPSButton" destination="x7t-i4-Jyz" id="Ekx-0V-FpD"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
