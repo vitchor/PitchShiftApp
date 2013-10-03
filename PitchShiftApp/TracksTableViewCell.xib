@@ -52,12 +52,9 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lV-hM-oB0">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="161" translatesAutoresizingMaskIntoConstraints="NO" id="3lV-hM-oB0">
                         <rect key="frame" x="4" y="0.0" width="161" height="55"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="55" id="jgS-oG-bjj"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -65,17 +62,17 @@
                 </subviews>
                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="0.0" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstItem="3lV-hM-oB0" firstAttribute="leading" secondItem="aec-CT-mUM" secondAttribute="leading" constant="4" id="3hk-dF-6wd"/>
+                    <constraint firstItem="3lV-hM-oB0" firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" id="9mh-zF-IcT"/>
                     <constraint firstItem="EZC-0C-bqn" firstAttribute="top" secondItem="aec-CT-mUM" secondAttribute="top" constant="6" id="EN0-Ye-EQa"/>
                     <constraint firstItem="EZC-0C-bqn" firstAttribute="centerY" secondItem="aec-CT-mUM" secondAttribute="centerY" id="Koi-xD-Fex"/>
                     <constraint firstItem="65D-Mt-3mZ" firstAttribute="leading" secondItem="EZC-0C-bqn" secondAttribute="trailing" constant="6" id="Ltx-yG-taN"/>
-                    <constraint firstAttribute="centerY" secondItem="3lV-hM-oB0" secondAttribute="centerY" id="N7x-Sd-JVS"/>
-                    <constraint firstItem="PIW-bz-qyM" firstAttribute="leading" secondItem="3lV-hM-oB0" secondAttribute="trailing" constant="8" id="TyV-cq-JZW"/>
+                    <constraint firstItem="3lV-hM-oB0" firstAttribute="top" secondItem="aec-CT-mUM" secondAttribute="top" id="QXp-7h-JTn"/>
+                    <constraint firstItem="PIW-bz-qyM" firstAttribute="leading" secondItem="3lV-hM-oB0" secondAttribute="trailing" constant="8" symbolic="YES" id="Rvy-9L-oUW"/>
                     <constraint firstAttribute="centerY" secondItem="65D-Mt-3mZ" secondAttribute="centerY" id="Vh5-bA-SFL"/>
                     <constraint firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" id="aF7-sI-Kxf"/>
                     <constraint firstItem="EZC-0C-bqn" firstAttribute="leading" secondItem="PIW-bz-qyM" secondAttribute="trailing" constant="6" id="lSy-0e-boU"/>
                     <constraint firstAttribute="trailing" secondItem="65D-Mt-3mZ" secondAttribute="trailing" constant="6" id="ocB-5z-nKA"/>
-                    <constraint firstItem="3lV-hM-oB0" firstAttribute="top" secondItem="aec-CT-mUM" secondAttribute="top" id="pXK-6g-eON"/>
-                    <constraint firstAttribute="bottom" secondItem="3lV-hM-oB0" secondAttribute="bottom" id="zgd-9c-jzg"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90265877019999996" green="0.90196078430000004" blue="0.90196078430000004" alpha="0.0" colorSpace="calibratedRGB"/>
