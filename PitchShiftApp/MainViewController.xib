@@ -31,18 +31,29 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etl-s8-5bj" userLabel="Center Button View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDy-8T-q8q" userLabel="Bottom Circle View">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_CircleBottom.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-YR-ZLu" userLabel="Image View - Bottom Circle">
-                            <rect key="frame" x="7" y="88" width="304" height="304"/>
+                            <rect key="frame" x="8" y="88" width="304" height="304"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="304" id="MT1-eb-LZm"/>
                                 <constraint firstAttribute="height" constant="304" id="hW8-qi-1eY"/>
                             </constraints>
                         </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="Dnq-YR-ZLu" secondAttribute="centerY" id="Izd-rv-9Ci"/>
+                        <constraint firstAttribute="centerX" secondItem="Dnq-YR-ZLu" secondAttribute="centerX" id="U6A-17-8GO"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7v-Vc-h8I" userLabel="Middle Circle View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
                         <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_CircleMiddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="J9m-qc-jCX" userLabel="Image View - Middle Circle">
                             <rect key="frame" x="26" y="106" width="268" height="268"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,14 +62,36 @@
                                 <constraint firstAttribute="height" constant="268" id="bBG-2N-cni"/>
                             </constraints>
                         </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="J9m-qc-jCX" secondAttribute="centerY" id="VwN-VD-Jut"/>
+                        <constraint firstAttribute="centerX" secondItem="J9m-qc-jCX" secondAttribute="centerX" id="X5H-st-PRm"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFU-9N-q3G" userLabel="Top Circle View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_CircleTop.png" translatesAutoresizingMaskIntoConstraints="NO" id="dUB-ja-1zX" userLabel="Image View - Top Circle">
-                            <rect key="frame" x="64" y="144" width="192" height="192"/>
+                            <rect key="frame" x="45" y="125" width="230" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="192" id="UjE-Ii-Lf4"/>
-                                <constraint firstAttribute="width" constant="192" id="tnj-kq-GfR"/>
+                                <constraint firstAttribute="height" constant="230" id="UjE-Ii-Lf4"/>
+                                <constraint firstAttribute="width" constant="230" id="tnj-kq-GfR"/>
                             </constraints>
                         </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="dUB-ja-1zX" secondAttribute="centerY" id="fLT-dq-u5i"/>
+                        <constraint firstAttribute="centerX" secondItem="dUB-ja-1zX" secondAttribute="centerX" id="viL-vQ-Gqe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSU-XX-7Nc" userLabel="Ring View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Ring.png" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-il-zPN" userLabel="Image View - Ring">
                             <rect key="frame" x="77" y="157" width="166" height="166"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,6 +100,17 @@
                                 <constraint firstAttribute="width" constant="166" id="vco-3d-4Bv"/>
                             </constraints>
                         </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="7FC-il-zPN" secondAttribute="centerX" id="640-j1-5hk"/>
+                        <constraint firstAttribute="centerY" secondItem="7FC-il-zPN" secondAttribute="centerY" id="iBh-V4-kLa"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etl-s8-5bj" userLabel="Center Button View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE" userLabel="Button - Center Button">
                             <rect key="frame" x="98" y="177" width="125" height="125"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,15 +146,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="centerX" secondItem="dUB-ja-1zX" secondAttribute="centerX" id="3D2-Wc-s4o"/>
-                        <constraint firstAttribute="centerY" secondItem="7FC-il-zPN" secondAttribute="centerY" id="3fh-lw-Xzx"/>
-                        <constraint firstAttribute="centerX" secondItem="J9m-qc-jCX" secondAttribute="centerX" id="Uob-T9-Wue"/>
-                        <constraint firstAttribute="centerY" secondItem="J9m-qc-jCX" secondAttribute="centerY" id="buK-Oc-mRp"/>
                         <constraint firstAttribute="centerX" secondItem="4Ki-Wi-PzE" secondAttribute="centerX" id="db0-v5-QSj"/>
-                        <constraint firstAttribute="centerX" secondItem="Dnq-YR-ZLu" secondAttribute="centerX" constant="1" id="fqS-vP-TQs"/>
-                        <constraint firstAttribute="centerY" secondItem="dUB-ja-1zX" secondAttribute="centerY" id="oa3-dW-tQg"/>
-                        <constraint firstAttribute="centerY" secondItem="Dnq-YR-ZLu" secondAttribute="centerY" id="x6k-pM-ma5"/>
-                        <constraint firstAttribute="centerX" secondItem="7FC-il-zPN" secondAttribute="centerX" id="y0q-MG-Err"/>
                         <constraint firstAttribute="centerY" secondItem="4Ki-Wi-PzE" secondAttribute="centerY" id="zyM-hC-UGR"/>
                     </constraints>
                 </view>
@@ -204,18 +240,28 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="HDy-8T-q8q" secondAttribute="top" id="0mS-c0-W7D"/>
                 <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="x7t-i4-Jyz" secondAttribute="leading" id="13o-ap-bO5"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="leading" constant="-6" id="4fY-WC-mZ6"/>
                 <constraint firstItem="x7t-i4-Jyz" firstAttribute="top" secondItem="bG9-D6-YSA" secondAttribute="bottom" constant="53" id="5LS-4p-dt5"/>
                 <constraint firstItem="etl-s8-5bj" firstAttribute="top" secondItem="qLb-zF-H3o" secondAttribute="top" id="6rv-41-fj9"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="HDy-8T-q8q" secondAttribute="bottom" id="7OR-zu-5Jg"/>
                 <constraint firstAttribute="centerY" secondItem="PlW-BM-Cfg" secondAttribute="centerY" constant="-216" id="82c-5M-7KG"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="qLb-zF-H3o" secondAttribute="bottom" id="8mt-oP-XO9"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AAy-uD-Nsg"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="xSU-XX-7Nc" secondAttribute="leading" id="Bcf-kg-QGA"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="xSU-XX-7Nc" secondAttribute="trailing" id="Did-ev-wXc"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="O7v-Vc-h8I" secondAttribute="bottom" id="Heu-8h-Izy"/>
                 <constraint firstItem="etl-s8-5bj" firstAttribute="leading" secondItem="qLb-zF-H3o" secondAttribute="leading" id="MaF-kM-J7h"/>
                 <constraint firstAttribute="centerY" secondItem="THK-3i-2Cc" secondAttribute="centerY" constant="-216" id="Onl-rx-RMY"/>
                 <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="bG9-D6-YSA" secondAttribute="leading" id="Req-AK-1tx"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="HDy-8T-q8q" secondAttribute="trailing" id="S6v-UR-KHL"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="etl-s8-5bj" secondAttribute="leading" id="WdF-YV-YEZ"/>
                 <constraint firstItem="etl-s8-5bj" firstAttribute="trailing" secondItem="qLb-zF-H3o" secondAttribute="trailing" id="Wyv-f5-IYR"/>
                 <constraint firstItem="po8-Fm-BiK" firstAttribute="top" secondItem="1" secondAttribute="top" constant="53" id="Xhd-yD-MOC"/>
                 <constraint firstAttribute="bottom" secondItem="x7t-i4-Jyz" secondAttribute="bottom" constant="71" id="Yc4-IF-FhO"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="O7v-Vc-h8I" secondAttribute="top" id="ZI4-E3-WJ6"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="etl-s8-5bj" secondAttribute="top" id="asA-IY-XR8"/>
                 <constraint firstAttribute="bottom" secondItem="SSt-SC-j5p" secondAttribute="bottom" constant="119" id="auU-Tf-kSb"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="eTG-Y6-FhM"/>
                 <constraint firstItem="bG9-D6-YSA" firstAttribute="top" secondItem="po8-Fm-BiK" secondAttribute="bottom" constant="51" id="ebN-EI-VBJ"/>
@@ -226,14 +272,20 @@
                 <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="x7t-i4-Jyz" secondAttribute="trailing" id="iwb-Ky-mQC"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="top" secondItem="bG9-D6-YSA" secondAttribute="bottom" constant="79" id="k1M-px-MlU"/>
                 <constraint firstItem="SSt-SC-j5p" firstAttribute="leading" secondItem="Lj1-4U-8Xk" secondAttribute="trailing" constant="-228" id="k6W-e3-KYA"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="O7v-Vc-h8I" secondAttribute="trailing" id="kxN-gd-qNw"/>
                 <constraint firstAttribute="centerX" secondItem="PlW-BM-Cfg" secondAttribute="centerX" constant="132" id="mzB-IG-ic9"/>
                 <constraint firstAttribute="bottom" secondItem="qLb-zF-H3o" secondAttribute="bottom" id="nTm-iW-KIr"/>
                 <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="bG9-D6-YSA" secondAttribute="trailing" id="oSP-9o-T9t"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="HDy-8T-q8q" secondAttribute="leading" id="p3f-48-2Xy"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="O7v-Vc-h8I" secondAttribute="leading" id="pD3-k2-m2a"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="15" id="pep-IZ-GWV"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="bottom" secondItem="Lj1-4U-8Xk" secondAttribute="bottom" constant="6" id="sgF-TJ-kh8"/>
                 <constraint firstItem="Cbq-NI-OKe" firstAttribute="top" secondItem="Lj1-4U-8Xk" secondAttribute="top" constant="-6" id="tpJ-ea-PBH"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="qLb-zF-H3o" secondAttribute="trailing" id="vLV-p8-G5P"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="xSU-XX-7Nc" secondAttribute="bottom" id="ylO-BX-CpM"/>
                 <constraint firstItem="qLb-zF-H3o" firstAttribute="top" secondItem="1" secondAttribute="top" id="zRA-6r-U9a"/>
                 <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="94" id="zdh-Z7-CXq"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="xSU-XX-7Nc" secondAttribute="top" id="zwQ-V4-0U9"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>

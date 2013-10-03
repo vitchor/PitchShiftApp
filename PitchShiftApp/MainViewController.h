@@ -23,7 +23,6 @@
 #define MID_CIRCLE_MAX_SIZE 318.0
 #define TOP_CIRCLE_MIN_SIZE 192.0
 #define TOP_CIRCLE_MAX_SIZE 242.0
-#define CIRCLE_ROTATION_INCREMENT 0.025
 #define FADING_TIME_DEFAULT 0.25
 #define FADING_TIME_PS_BUTTONS 0.75
 
@@ -31,12 +30,14 @@
     
     int recordEncoding;
     float progress;
-    float rotationAngle;
     float fadingTime;
-    float globalAudioSampleRate;
+    float botCircleScale;
+    float midCircleScale;
+    float topCircleScale;
     double lowPassResults;
     bool startedPlaying;
     bool isProcessing;
+    bool isAnimatingCircles;
     
     enum
     {
@@ -60,27 +61,22 @@
     } currentViewState;
     
     IBOutlet UILabel *centerTextLabel;
+   
     IBOutlet UIButton *centerButton;
-
     IBOutlet UIButton *backButton;
     IBOutlet UIButton *cancelButton;
-    
-    IBOutlet UIImageView *ring;
-    
-    IBOutlet UIImageView *bottomCircle;
-    IBOutlet UIImageView *middleCircle;
-    IBOutlet UIImageView *topCircle;
-    
-    IBOutlet UIImageView *progressBar;
-    IBOutlet UIImageView *progressBarBackground;
     IBOutlet UIButton *thirdPSButton;
     IBOutlet UIButton *fifthPSButton;
     IBOutlet UIButton *triadPSButton;
     IBOutlet UIButton *trackListButton;
-    
-    
-    
 //    IBOutlet UIButton *shareButton;
+    
+    IBOutlet UIImageView *bottomCircle;
+    IBOutlet UIImageView *middleCircle;
+    IBOutlet UIImageView *topCircle;
+    IBOutlet UIImageView *ring;
+    IBOutlet UIImageView *progressBar;
+    IBOutlet UIImageView *progressBarBackground;
     
     NSTimer* recordTimer;
     NSTimer* processTimer;

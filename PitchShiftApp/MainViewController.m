@@ -28,6 +28,10 @@
     currentViewState = INITIAL_VIEW;
     fadingTime = FADING_TIME_DEFAULT;
     
+    botCircleScale = 1.0;
+    midCircleScale = 1.0;
+    topCircleScale = 1.0;
+    
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
     {
         //[self prefersStatusBarHidden];
@@ -145,10 +149,11 @@
                     [centerButton setHidden:NO];
                     [ring setHidden:NO];
                     [backButton setHidden:NO];
-                    [cancelButton setHidden:YES];
                     [bottomCircle setHidden:NO];
                     [middleCircle setHidden:NO];
                     [topCircle setHidden:NO];
+                    
+                    [cancelButton setHidden:YES];
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
                     [progressBar setHidden:YES];
@@ -162,7 +167,6 @@
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
                     backButton.alpha = 1.0;
-                    cancelButton.alpha = 1.0;
                     bottomCircle.alpha = 1.0;
                     middleCircle.alpha = 1.0;
                     topCircle.alpha = 1.0;
@@ -215,7 +219,6 @@
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
 
-    //                [centerButton setImage:[UIImage imageNamed:@"PSA_0.1_PlayButton.png"] forState:UIControlStateNormal];
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
 
@@ -308,6 +311,7 @@
                     [triadPSButton setHidden:YES];
                     
                     centerButton.alpha = 1.0;
+                    ring.alpha = 1.0;
                     cancelButton.alpha = 1.0;
                     backButton.alpha = 1.0;
             
@@ -399,65 +403,115 @@
             
         }
         NSLog(@"recording");
-        
     });
     
-    recordTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback) userInfo: nil repeats: YES];
+    [self startCenterButtonAnimations];
+}
+
+-(void) startCenterButtonAnimations {
+    
+    recordTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(levelTimerCallback) userInfo: nil repeats: YES];
+    
+     isAnimatingCircles = true;
+    
+    [self startSpinAndScaleWithImage:ring options:UIViewAnimationOptionCurveEaseIn duration:0.3 angleIncrement: -M_PI/2.0 andAcumulatedAngle: -M_PI/2.0];
+    
+    [self startSpinAndScaleWithImage:topCircle options:UIViewAnimationOptionCurveEaseIn duration:0.4 angleIncrement: M_PI/2.0 andAcumulatedAngle: M_PI/2.0];
+    
+    [self startSpinAndScaleWithImage:middleCircle options:UIViewAnimationOptionCurveEaseIn duration:0.5 angleIncrement: -M_PI/2.0 andAcumulatedAngle: -M_PI/2.0];
+    
+    [self startSpinAndScaleWithImage:bottomCircle options:UIViewAnimationOptionCurveEaseIn duration:0.6 angleIncrement: M_PI/2.0 andAcumulatedAngle: M_PI/2.0];
+    
 }
 
 - (void)levelTimerCallback {
     
     if (audioRecorder) {
         [audioRecorder updateMeters];
-
+        
         const double ALPHA = 0.05;
         double averagePowerForChannel = pow(10, (0.05 * [audioRecorder averagePowerForChannel:0]));
         lowPassResults = ALPHA * averagePowerForChannel + (1.0 - ALPHA) * lowPassResults;
         
         //NSLog(@"Average input: %f Peak input: %f Low pass results:%f", [audioRecorder averagePowerForChannel:0], [audioRecorder peakPowerForChannel:0], lowPassResults);
         
-        float botCircleCurrentSize = BOT_CIRCLE_MIN_SIZE + (BOT_CIRCLE_MAX_SIZE-BOT_CIRCLE_MIN_SIZE)*lowPassResults;
-        float midCircleCurrentSize = MID_CIRCLE_MIN_SIZE + (MID_CIRCLE_MAX_SIZE-MID_CIRCLE_MIN_SIZE)*lowPassResults;
-//        float topCircleCurrentSize = TOP_CIRCLE_MIN_SIZE + (TOP_CIRCLE_MAX_SIZE-TOP_CIRCLE_MIN_SIZE)*lowPassResults;
+        float botCircleCurrentSize = BOT_CIRCLE_MIN_SIZE + (BOT_CIRCLE_MAX_SIZE-BOT_CIRCLE_MIN_SIZE)*5*lowPassResults;
+        float midCircleCurrentSize = MID_CIRCLE_MIN_SIZE + (MID_CIRCLE_MAX_SIZE-MID_CIRCLE_MIN_SIZE)*5*lowPassResults;
+        float topCircleCurrentSize = TOP_CIRCLE_MIN_SIZE + (TOP_CIRCLE_MAX_SIZE-TOP_CIRCLE_MIN_SIZE)*5*lowPassResults;
         
-        float botCircleScale = botCircleCurrentSize/BOT_CIRCLE_MAX_SIZE;
-        float midCircleScale = midCircleCurrentSize/MID_CIRCLE_MAX_SIZE;
-//        float topCircleScale = topCircleCurrentSize/TOP_CIRCLE_MAX_SIZE;
-        
-        rotationAngle += CIRCLE_ROTATION_INCREMENT;
-        
-        //DO THE FUCKING ANIMATION!
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.03];
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        [UIView setAnimationRepeatCount:1];
-        
-        CGAffineTransform botTransfScale = CGAffineTransformMakeScale(botCircleScale, botCircleScale);
-        CGAffineTransform midTransfScale = CGAffineTransformMakeScale(midCircleScale,midCircleScale);
-//        CGAffineTransform topTransfScale = CGAffineTransformMakeScale(topCircleScale,topCircleScale);
-
-        CGAffineTransform botTransformRotate = CGAffineTransformMakeRotation(rotationAngle);
-        CGAffineTransform midTransformRotate = CGAffineTransformMakeRotation(-rotationAngle);
-//        CGAffineTransform topTransformRotate = CGAffineTransformMakeRotation(rotationAngle);
-
-        bottomCircle.transform = CGAffineTransformConcat(botTransformRotate, botTransfScale);
-        middleCircle.transform = CGAffineTransformConcat(midTransformRotate, midTransfScale);
-//        topCircle.transform = CGAffineTransformConcat(topTransformRotate, topTransfScale);
-        
-        // Make the ring spin:
-        
-        ring.transform = CGAffineTransformMakeRotation(-rotationAngle*2);
-        
-        [UIView commitAnimations];
+        botCircleScale = botCircleCurrentSize/BOT_CIRCLE_MAX_SIZE;
+        midCircleScale = midCircleCurrentSize/MID_CIRCLE_MAX_SIZE;
+        topCircleScale = topCircleCurrentSize/TOP_CIRCLE_MAX_SIZE;
         
     } else {
         NSLog(@"Timer still running");
     }
 }
 
-- (void) stopRecordingSound
-{
+- (void) startSpinAndScaleWithImage: (UIImageView *) imageToSpin options: (UIViewAnimationOptions) options duration: (float) duration angleIncrement: (float) angleIncrement andAcumulatedAngle:(float) acumulatedAngle{
+    
+    ////Set scale to circles
+    
+    float scale;
+    
+    if(imageToSpin == bottomCircle){
+        scale = botCircleScale;
+    }
+    else if(imageToSpin == middleCircle){
+        scale = midCircleScale;
+    }
+    else if(imageToSpin == topCircle){
+        scale = topCircleScale;
+    }
+    else if(imageToSpin == ring){
+        scale = 1.0;
+    }
+    else
+    {
+        scale = 1.0;
+        
+        NSLog(@"ERROR! - UNKNOWN imageToSpin: %@", imageToSpin);
+    }
+    
+    
+    ////Instantiate the scale and rotation animations
+    
+    CGAffineTransform transfScale = CGAffineTransformMakeScale(scale, scale);
+    
+    CGAffineTransform transfRotation = CGAffineTransformMakeRotation(acumulatedAngle);
+    
+    
+    ////Do the concatenated animation
+    
+    [UIView animateWithDuration: duration delay: 0.0f options: options animations: ^{
+        
+        if(imageToSpin == ring)
+            imageToSpin.transform = transfRotation;
+        else
+            imageToSpin.transform = CGAffineTransformConcat(transfScale, transfRotation);
+        
+     }
+     completion: ^(BOOL finished) {
+         
+         if(isAnimatingCircles)
+             [self startSpinAndScaleWithImage:imageToSpin options:UIViewAnimationOptionCurveLinear duration:duration angleIncrement:angleIncrement andAcumulatedAngle: (acumulatedAngle+angleIncrement)];
+         
+     }];
+}
+
+-(void) stopCenterButtonAnimations {
+    
+    botCircleScale = 1.0;
+    midCircleScale = 1.0;
+    topCircleScale = 1.0;
+    
+    isAnimatingCircles = false;
+}
+
+- (void) stopRecordingSound {
+    
+    [self stopCenterButtonAnimations];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSLog(@"stopRecording");
@@ -475,7 +529,6 @@
     });
     
     [recordTimer invalidate], recordTimer = nil;
-    
 }
 
 -(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
@@ -608,9 +661,8 @@
             if(progressBar.alpha==1.0)
                [progressBar setHidden:NO];
         }
-        
-        //centerButton.transform = CGAffineTransformRotate(centerButton.transform, CIRCLE_ROTATION_INCREMENT/2);
-        ring.transform = CGAffineTransformRotate(ring.transform, -2.5*CIRCLE_ROTATION_INCREMENT);
+
+        ring.transform = CGAffineTransformRotate(ring.transform, -1.0);
         
         [UIView commitAnimations];
         
@@ -830,9 +882,8 @@
             break;
             
         case PREVIEW_VIEW_PLAYING:
-//            [self setupXib:PREVIEW_VIEW_NOT_PLAYING];
-            [self stopSound];
             
+            [self stopSound];
             
             break;
             
@@ -857,6 +908,8 @@
     [self stopPitchSchifting];
     
     [self stopSound];
+    
+    [self stopCenterButtonAnimations];
     
     switch (currentViewState) {
             
@@ -899,6 +952,8 @@
     [self stopPitchSchifting];
     
     [self stopSound];
+    
+    [self stopCenterButtonAnimations];
     
     [self setupXib:INITIAL_VIEW];
 }
