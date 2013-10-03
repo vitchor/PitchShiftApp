@@ -137,10 +137,10 @@
                                 <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="L6R-5t-53a"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8L-3Y-9zn">
-                            <rect key="frame" x="247" y="421" width="30" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8L-3Y-9zn">
+                            <rect key="frame" x="240" y="446" width="20" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="List">
+                            <state key="normal" image="PSA_0.2_ListButton.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -305,6 +305,7 @@
         <image name="PSA_0.2_KeyboardFifth.png" width="265" height="168"/>
         <image name="PSA_0.2_KeyboardThird.png" width="265" height="168"/>
         <image name="PSA_0.2_KeyboardTriad.png" width="265" height="168"/>
+        <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
         <image name="PSA_0.2_ProgressBarBackground.png" width="579" height="89"/>
         <image name="PSA_0.2_ProgressBarForeground.png" width="231" height="69"/>
         <image name="PSA_0.2_Ring.png" width="332" height="332"/>
