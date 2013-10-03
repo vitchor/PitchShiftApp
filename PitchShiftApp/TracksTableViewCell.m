@@ -7,7 +7,6 @@
 //
 
 #import "TracksTableViewCell.h"
-#import "MainViewController.h"
 
 @implementation TracksTableViewCell
 @synthesize playButton, shareButton, deleteButton, trackNameLabel, tracksController;
@@ -31,19 +30,32 @@
 
 -(void)refreshWithUrlSuffix:(NSString*)filePath{
     self.trackNameLabel.text = filePath;
+    soundManager = [[SoundManager alloc] init];
 }
 
 - (IBAction)playTrack:(UIButton *)sender {
-    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-    
     if(!isPlaying){
         isPlaying = TRUE;
         [self.playButton setTitle:@"PAUSE" forState:UIControlStateNormal];
-        [mainViewController playSound:self.trackNameLabel.text];
+        [soundManager playSound:self.trackNameLabel.text];
+        playerTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(checkPlayer) userInfo: nil repeats: YES];
     }else{
         isPlaying = FALSE;
         [self.playButton setTitle:@"PLAY" forState:UIControlStateNormal];
-        [mainViewController stopSound];
+        [soundManager pauseSound];
+        NSLog(@"STOP");
+    }
+}
+
+
+-(void)checkPlayer{
+    if(soundManager.audioPlayer && isPlaying){
+        if(![soundManager.audioPlayer isPlaying]){
+            NSLog(@"TERMINEI DE TOCAR");
+            [playerTimer invalidate], playerTimer = nil;
+            isPlaying = NO;
+            [self.playButton setTitle:@"PLAY" forState:UIControlStateNormal];
+        }
     }
 }
 

@@ -790,6 +790,13 @@
         [audioPlayer stop];
 }
 
+- (void)pauseSound {
+    if(audioPlayer.isPlaying){
+        [audioPlayer pause];
+        audioPlayer.currentTime = 0;
+    }
+}
+
 - (void)killTimers {
     
     if (recordTimer) {
