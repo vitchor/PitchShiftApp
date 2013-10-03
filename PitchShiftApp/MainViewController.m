@@ -258,6 +258,7 @@
                     centerButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
                     backButton.alpha = 1.0;
+                    ring.alpha = 1.0;
                     
                     currentViewState = PREVIEW_VIEW_NOT_PLAYING;
                     
@@ -287,6 +288,7 @@
                     centerButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
                     backButton.alpha = 1.0;
+                    ring.alpha = 1.0;
                     
                     currentViewState = PREVIEW_VIEW_PLAYING;
                     
@@ -332,6 +334,47 @@
         }]; // block end
         
     }); // thread end
+}
+
+- (void) checkButtonState {
+    
+    if (centerButton.state == UIControlStateHighlighted) {
+
+        if(currentViewState == INITIAL_VIEW || currentViewState == PROCESSING_VIEW)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButtonSelected.png"] forState:UIControlStateHighlighted];
+        
+        else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButtonSelected.png"] forState:UIControlStateHighlighted];
+        
+        else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING )
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButtonSelected.png"] forState:UIControlStateHighlighted];
+
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            centerButton.transform = CGAffineTransformMakeScale(0.95, 0.95);
+        }];
+
+    }
+    
+    
+    if (centerButton.state == UIControlStateNormal) {
+        
+        if(currentViewState == INITIAL_VIEW || currentViewState == PROCESSING_VIEW)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+
+        else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+        
+        else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING )
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+        
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            centerButton.transform = CGAffineTransformIdentity;
+        }];
+        
+    }
+
 }
 
 - (void) startRecordingSound
@@ -763,6 +806,9 @@
 -(void)checkPlayer{
     
     if(audioPlayer && startedPlaying){
+        
+        ring.transform = CGAffineTransformRotate(ring.transform, 0.1);
+        
         if(![audioPlayer isPlaying]){
         
             NSLog(@"TERMINEI DE TOCAR");
@@ -815,40 +861,52 @@
 
 }
 
-- (IBAction)uploadAction:(UIButton *)sender {
+- (void) touchDownCenterButtonAnimation {
     
-    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
+    if(currentViewState == INITIAL_VIEW)
+        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButtonSelected.png"] forState:UIControlStateNormal];
     
-    SCShareViewController *shareViewController;
-    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
-                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
-                                                                  
-                              if (SC_CANCELED(error)) {
-                                  NSLog(@"Canceled!");
-                              } else if (error) {
-                                  NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
-                              } else {
-                                  // If you want to do something with the uploaded
-                                  // track this is the right place for that.
-                                  NSLog(@"Uploaded track: %@", trackInfo);
-                              }
-                                                                  
-                          }];
+    else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING)
+        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButtonSelected.png"] forState:UIControlStateNormal];
     
-//    // If your app is a registered foursquare app, you can set the client id and secret.
-//    // The user will then see a place picker where a location can be selected.
-//    // If you don't set them, the user sees a plain plain text filed for the place.
-//    [shareViewController setFoursquareClientID:@"<foursquare client id>"
-//                                  clientSecret:@"<foursquare client secret>"];
-//    
-//    // We can preset the title ...
-//    [shareViewController setTitle:@"Funny sounds"];
-//    
-//    // ... and other options like the private flag.
-//    [shareViewController setPrivate:NO];
+    else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING )
+        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButtonSelected.png"] forState:UIControlStateNormal];
     
-    // Now present the share view controller.
-    [self presentModalViewController:shareViewController animated:YES];
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        centerButton.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }];
+    
+}
+
+- (void) touchUpCenterButtonAnimation {
+    
+    if(currentViewState == INITIAL_VIEW)
+        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+    
+    else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING)
+        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+    
+    else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING )
+        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+    
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        centerButton.transform = CGAffineTransformIdentity;
+    }];
+    
+}
+
+- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
+    [self touchDownCenterButtonAnimation];
+}
+
+- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender {
+    [self touchUpCenterButtonAnimation];
+}
+
+- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender {
+    [self touchUpCenterButtonAnimation];
 }
 
 - (IBAction)centerButtonAction:(UIButton *)sender {
@@ -991,11 +1049,50 @@
     [self setupXib:PROCESSING_VIEW];
     [self processSound:SHIFT_TRIAD];
 }
+
 - (IBAction)showTrackList:(UIButton *)sender{
+    
     TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
 
     [self.navigationController pushViewController:trackTableViewController animated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:TRUE];
+    
+}
+
+- (IBAction)uploadAction:(UIButton *)sender {
+    
+    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
+    
+    SCShareViewController *shareViewController;
+    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
+                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
+                                                                  
+                                                                  if (SC_CANCELED(error)) {
+                                                                      NSLog(@"Canceled!");
+                                                                  } else if (error) {
+                                                                      NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                                                                  } else {
+                                                                      // If you want to do something with the uploaded
+                                                                      // track this is the right place for that.
+                                                                      NSLog(@"Uploaded track: %@", trackInfo);
+                                                                  }
+                                                                  
+                                                              }];
+    
+    //    // If your app is a registered foursquare app, you can set the client id and secret.
+    //    // The user will then see a place picker where a location can be selected.
+    //    // If you don't set them, the user sees a plain plain text filed for the place.
+    //    [shareViewController setFoursquareClientID:@"<foursquare client id>"
+    //                                  clientSecret:@"<foursquare client secret>"];
+    //    
+    //    // We can preset the title ...
+    //    [shareViewController setTitle:@"Funny sounds"];
+    //    
+    //    // ... and other options like the private flag.
+    //    [shareViewController setPrivate:NO];
+    
+    // Now present the share view controller.
+    [self presentModalViewController:shareViewController animated:YES];
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {

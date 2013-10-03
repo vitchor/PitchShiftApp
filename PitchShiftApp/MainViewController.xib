@@ -121,6 +121,10 @@
                             <state key="normal" image="PSA_0.2_CenterButton.png"/>
                             <connections>
                                 <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
+                                <action selector="touchDownCenterButtonEvent:" destination="-1" eventType="touchDown" id="NPc-od-8hg"/>
+                                <action selector="touchDragOutsideCenterButtonEvent:" destination="-1" eventType="touchDragOutside" id="fGd-52-Ly8"/>
+                                <action selector="touchUpCenterButtonEvent:" destination="-1" eventType="touchUpOutside" id="8EM-II-Sqd"/>
+                                <action selector="touchUpCenterButtonEvent:" destination="-1" eventType="touchUpInside" id="iTW-uj-tUI"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MI-XY-lBr">

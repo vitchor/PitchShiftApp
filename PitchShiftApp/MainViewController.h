@@ -69,7 +69,7 @@
     NSTimer* recordTimer;
     NSTimer* processTimer;
     NSTimer* playerTimer;
-
+    
     AVAudioPlayer *audioPlayer;
     AVAudioRecorder *audioRecorder;
     AVAssetReader *assetReader;
@@ -78,19 +78,21 @@
     PitchShifter *pitchShifter;
 }
 
-- (IBAction)uploadAction:(UIButton *)sender;
+- (void)playSound:(NSString*) outWavName;
+- (void)stopSound;
+- (void)pauseSound;
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
+- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender;
+- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender;
+- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender;
 - (IBAction)backButtonAction:(UIButton *)sender;
 - (IBAction)cancelButtonAction:(UIButton *)sender;
 - (IBAction)selectThirdButtonAction:(UIButton *)sender;
 - (IBAction)selectFifthButtonAction:(UIButton *)sender;
 - (IBAction)selectTriadButtonAction:(UIButton *)sender;
 - (IBAction)showTrackList:(UIButton *)sender;
+- (IBAction)uploadAction:(UIButton *)sender;
 //- (IBAction)shareButtonAction:(UIButton *)sender;
-
-- (void)playSound:(NSString*) outWavName;
-- (void)stopSound;
-- (void)pauseSound;
 
 @end
