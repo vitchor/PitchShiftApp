@@ -35,16 +35,15 @@
 }
 
 - (IBAction)playTrack:(UIButton *)sender {
-    if(!isPlaying){
-        isPlaying = TRUE;
-        [self.playButton setTitle:@"PAUSE" forState:UIControlStateNormal];
+    if(isPlaying){
+        isPlaying = NO;
+        self.tracksController.isPlaying = NO;
+        [soundManager pauseSound];
+    }else if (!self.tracksController.isPlaying){
+        isPlaying = YES;
+        self.tracksController.isPlaying = YES;
         [soundManager playSound:self.trackNameLabel.text];
         playerTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(checkPlayer) userInfo: nil repeats: YES];
-    }else{
-        isPlaying = FALSE;
-        [self.playButton setTitle:@"PLAY" forState:UIControlStateNormal];
-        [soundManager pauseSound];
-        NSLog(@"STOP");
     }
 }
 
@@ -55,6 +54,7 @@
             NSLog(@"TERMINEI DE TOCAR");
             [playerTimer invalidate], playerTimer = nil;
             isPlaying = NO;
+            self.tracksController.isPlaying = NO;
             [self.playButton setTitle:@"PLAY" forState:UIControlStateNormal];
         }
     }

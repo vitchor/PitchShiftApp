@@ -11,13 +11,14 @@
 
 @implementation TracksTableViewController
 
-@synthesize tracksTableView, tracksArray;
+@synthesize tracksTableView, tracksArray, isPlaying;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.navigationItem.title = @"Tracks";
+        isPlaying = NO;
         // Custom initialization
     }
     return self;

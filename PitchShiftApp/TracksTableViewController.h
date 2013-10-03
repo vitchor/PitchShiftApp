@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TracksTableViewController : UIViewController <UITableViewDataSource>{
-
 }
 
+@property (nonatomic, readwrite) BOOL isPlaying;
 @property (nonatomic,retain) NSArray *tracksArray;
 @property (nonatomic,retain) IBOutlet UITableView *tracksTableView;
 
