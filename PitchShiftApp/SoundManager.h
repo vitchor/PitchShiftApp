@@ -8,22 +8,11 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
-#import <Foundation/Foundation.h>
 
 //#define GLOBAL_AUDIO_SAMPLE_RATE  32000.0
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
 
 @interface SoundManager : NSObject{
-    
-    enum
-    {
-        ENC_AAC = 1,
-        ENC_ALAC = 2,
-        ENC_IMA4 = 3,
-        ENC_ILBC = 4,
-        ENC_ULAW = 5,
-        ENC_PCM = 6,
-    } encodingTypes;
     
 //    NSTimer* playerTimer;
     AVAssetReader *assetReader;

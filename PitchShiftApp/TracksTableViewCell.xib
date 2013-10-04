@@ -24,7 +24,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="playTrack:" destination="3" eventType="touchUpInside" id="lqr-O0-iIo"/>
+                            <action selector="playButtonAction:" destination="3" eventType="touchUpInside" id="Ebp-b6-KhI"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65D-Mt-3mZ">
@@ -38,7 +38,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="deleteTrack:" destination="3" eventType="touchUpInside" id="oxn-al-YeD"/>
+                            <action selector="deleteButtonAction:" destination="3" eventType="touchUpInside" id="vAI-Tv-JYa"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZC-0C-bqn">

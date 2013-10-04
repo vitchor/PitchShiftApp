@@ -206,6 +206,7 @@
 /* Begin PBXFileReference section */
 		1F183EB117FC94F40002470C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1F183EB717FC96FB0002470C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F4B414317FEFBFE0046DF86 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
@@ -343,9 +344,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F4B413E17FEFBA60046DF86 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1F4B414317FEFBFE0046DF86 /* Defines.h */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		1F8C8FFB17FA109800FFD282 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				1F4B413E17FEFBA60046DF86 /* Settings */,
 				1FE8870017FC9E0E00833D22 /* SoundManager */,
 				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
 			);

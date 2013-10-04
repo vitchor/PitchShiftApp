@@ -34,7 +34,7 @@
     soundManager = [[SoundManager alloc] init];
 }
 
-- (IBAction)deleteTrack:(UIButton *)sender {
+- (IBAction)deleteButtonAction:(UIButton *)sender {
     NSString *alertTitle = @"Delete this track?";
     NSString *alertMsg =@"This action cannot be undone!";
     NSString *alertButton1 = @"Yes";
@@ -104,7 +104,7 @@
     }
 }
 
-- (IBAction)playTrack:(UIButton *)sender {
+- (IBAction)playButtonAction:(UIButton *)sender {
     if(isPlaying){
         isPlaying = NO;
         self.tracksController.isPlaying = NO;

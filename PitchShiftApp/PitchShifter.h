@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 CheeseCakeGarage. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #define SHIFT_THIRD 1
 #define SHIFT_FIFTH 2
 #define SHIFT_TRIAD 3

@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 CheeseCakeGarage. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface TracksTableViewController : UIViewController <UITableViewDataSource>{
 }
 

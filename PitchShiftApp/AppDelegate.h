@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 CheeseCakeGarage. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "MainViewController.h"
 #import "SCUI.h"
 

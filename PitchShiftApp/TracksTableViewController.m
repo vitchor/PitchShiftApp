@@ -44,7 +44,7 @@
     if (selection) {
         [self.tracksTableView deselectRowAtIndexPath:selection animated:YES];
     }
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
