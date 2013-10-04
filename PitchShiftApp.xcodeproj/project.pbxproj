@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F183EB217FC94F40002470C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F183EB117FC94F40002470C /* CoreMedia.framework */; };
 		1F183EB817FC96FB0002470C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F183EB717FC96FB0002470C /* UIKit.framework */; };
+		1F4B415517FF4AE70046DF86 /* InputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B415417FF4AE70046DF86 /* InputAlertView.m */; };
 		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
 		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
 		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
@@ -207,6 +208,8 @@
 		1F183EB117FC94F40002470C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1F183EB717FC96FB0002470C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F4B414317FEFBFE0046DF86 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		1F4B415317FF4AE70046DF86 /* InputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputAlertView.h; sourceTree = "<group>"; };
+		1F4B415417FF4AE70046DF86 /* InputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputAlertView.m; sourceTree = "<group>"; };
 		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
@@ -352,9 +355,19 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		1F4B414E17FF4ABA0046DF86 /* InputAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				1F4B415317FF4AE70046DF86 /* InputAlertView.h */,
+				1F4B415417FF4AE70046DF86 /* InputAlertView.m */,
+			);
+			name = InputAlertView;
+			sourceTree = "<group>";
+		};
 		1F8C8FFB17FA109800FFD282 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				1F4B414E17FF4ABA0046DF86 /* InputAlertView */,
 				1F4B413E17FEFBA60046DF86 /* Settings */,
 				1FE8870017FC9E0E00833D22 /* SoundManager */,
 				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
@@ -902,6 +915,7 @@
 				AC7807A417EB99A80094711F /* MainViewController.m in Sources */,
 				ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */,
 				1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */,
+				1F4B415517FF4AE70046DF86 /* InputAlertView.m in Sources */,
 				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
 				ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */,
 				1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */,

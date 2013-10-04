@@ -1093,9 +1093,12 @@
 }
 
 - (IBAction)saveButtonAction:(UIButton *)sender {
+    // Open popup with text view and current date and time:
+    InputAlertView *prompt = [[InputAlertView alloc] initWithTitle:@"Save to your device" message:@"Please enter a name to this track" delegate:self cancelButtonTitle:@"Cancel" okButtonTitle:@"Save"];
+    [prompt setTag:2];
+    [prompt show];
     
     //Show popup to save the track
-    
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
@@ -1149,5 +1152,18 @@
     [self presentModalViewController:shareViewController animated:YES];
     
 }
+
+// Called as a result of an affirmative answer from the SaveButtonAction
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if ([alertView tag] == 2) {
+        if (buttonIndex != [alertView cancelButtonIndex]){
+            NSString *entered = [(InputAlertView *)alertView enteredText];
+//            NSLog(@"You typed: %@", entered);
+            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Test Prompt" message:[NSString stringWithFormat:@"You typed %@",entered] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            [newAlert show];
+        }
+    }
+}
+
 
 @end
