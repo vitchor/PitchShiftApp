@@ -51,6 +51,9 @@
                         <state key="normal" image="PSA_0.2_ListShare.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="shareButtonAction:" destination="3" eventType="touchUpInside" id="KGh-yK-mJ5"/>
+                        </connections>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="161" translatesAutoresizingMaskIntoConstraints="NO" id="3lV-hM-oB0">
                         <rect key="frame" x="4" y="0.0" width="161" height="55"/>
@@ -79,6 +82,7 @@
             <connections>
                 <outlet property="deleteButton" destination="65D-Mt-3mZ" id="9eY-Gw-cgV"/>
                 <outlet property="playButton" destination="PIW-bz-qyM" id="lza-D9-jTm"/>
+                <outlet property="shareButton" destination="EZC-0C-bqn" id="R8z-8v-XTP"/>
                 <outlet property="trackNameLabel" destination="3lV-hM-oB0" id="fqe-b8-fap"/>
             </connections>
         </tableViewCell>

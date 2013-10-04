@@ -5,12 +5,17 @@
 //  Created by Marcelo Henrique Salloum dos Santos on 10/1/13.
 //  Copyright (c) 2013 CheeseCakeGarage. All rights reserved.
 //
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "TracksTableViewController.h"
-//#import "MainViewController.h"
+#import "SCUI.h"
 #import "SoundManager.h"
 
 @interface TracksTableViewCell : UITableViewCell{
@@ -35,5 +40,6 @@
 -(void)refreshWithUrlSuffix:(NSString*)filePath;
 - (IBAction)playTrack:(UIButton *)sender;
 - (IBAction)deleteTrack:(UIButton *)sender;
+- (IBAction)shareButtonAction:(UIButton *)sender;
 
 @end
