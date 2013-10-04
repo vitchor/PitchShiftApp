@@ -6,11 +6,10 @@
 //  Copyright (c) 2013 CheeseCakeGarage. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "TracksTableViewController.h"
-//#import "MainViewController.h"
+#import "SCUI.h"
 #import "SoundManager.h"
 
 @interface TracksTableViewCell : UITableViewCell{
@@ -32,8 +31,9 @@
 @property (nonatomic,retain) TracksTableViewController *tracksController;
 
 
--(void)refreshWithUrlSuffix:(NSString*)filePath;
-- (IBAction)playTrack:(UIButton *)sender;
-- (IBAction)deleteTrack:(UIButton *)sender;
+- (void)refreshWithUrlSuffix:(NSString*)filePath;
+- (IBAction)playButtonAction:(UIButton *)sender;
+- (IBAction)deleteButtonAction:(UIButton *)sender;
+- (IBAction)shareButtonAction:(UIButton *)sender;
 
 @end

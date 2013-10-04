@@ -44,6 +44,7 @@
     if (selection) {
         [self.tracksTableView deselectRowAtIndexPath:selection animated:YES];
     }
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -80,6 +81,7 @@
         cell = [topLevelObjects objectAtIndex:0];
         
     }
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; // avoids selection highlight
     [cell refreshWithUrlSuffix:[self.tracksArray objectAtIndex:indexPath.row]];
     cell.tracksController = self;
     return cell;

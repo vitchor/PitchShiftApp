@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 CheeseCakeGarage. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "PitchShifter.h"
@@ -36,17 +35,6 @@
     bool startedPlaying;
     bool isProcessing;
     bool isAnimatingCircles;
-    
-    enum
-    {
-        INITIAL_VIEW = 0,
-        RECORDING_VIEW = 1,
-        SELECTING_EFFECT_VIEW = 2,
-        PROCESSING_VIEW = 3,
-        PREVIEW_VIEW_NOT_PLAYING = 4,
-        PREVIEW_VIEW_PLAYING = 5,
-        PLAYER_VIEW = 6, 
-    } currentViewState;
     
     IBOutlet UILabel *centerTextLabel;
    
