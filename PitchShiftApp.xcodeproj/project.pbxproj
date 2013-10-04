@@ -1070,7 +1070,6 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$PROJECT_DIR/**",
-					"SoundCloudAPI/**/**",
 				);
 				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -1101,7 +1100,6 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$PROJECT_DIR/**",
-					"SoundCloudAPI/**/**",
 				);
 				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
