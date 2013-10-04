@@ -41,6 +41,14 @@
     [self setupXib:INITIAL_VIEW];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -65,37 +73,49 @@
         else
             fadingTime = FADING_TIME_DEFAULT;
         
-        centerButton.alpha = 1.0;
-        ring.alpha = 1.0;
-        centerTextLabel.alpha = 1.0;
-        progressBarBackground.alpha = 1.0;
-        progressBar.alpha = 1.0;
         bottomCircle.alpha = 1.0;
         middleCircle.alpha = 1.0;
         topCircle.alpha = 1.0;
+        ring.alpha = 1.0;
+        centerTextLabel.alpha = 1.0;
+        centerButton.alpha = 1.0;
+        listButton.alpha = 1.0;
+        backButton.alpha = 1.0;
+        cancelButton.alpha = 1.0;
         thirdPSButton.alpha = 1.0;
         fifthPSButton.alpha = 1.0;
         triadPSButton.alpha = 1.0;
+        progressBarBackground.alpha = 1.0;
+        progressBar.alpha = 1.0;
+        saveButton.alpha = 1.0;
+        shareButton.alpha = 1.0;
+        
+        
         
         [UIView animateWithDuration:fadingTime animations:^{
             
-            if(state==INITIAL_VIEW){
+            if(state == INITIAL_VIEW){
+                
                 backButton.alpha = 0.0;
                 cancelButton.alpha = 0.0;
+                saveButton.alpha = 0.0;
+                shareButton.alpha = 0.0;
+                
             }
             
-            centerButton.alpha = 0.0;
-            ring.alpha = 0.0;
-            centerTextLabel.alpha = 0.0;
-            progressBarBackground.alpha = 0.0;
-            progressBar.alpha = 0.0;
             bottomCircle.alpha = 0.0;
             middleCircle.alpha = 0.0;
             topCircle.alpha = 0.0;
+            ring.alpha = 0.0;
+            centerTextLabel.alpha = 0.0;
+            centerButton.alpha = 0.0;
+            listButton.alpha = 0.0;
             thirdPSButton.alpha = 0.0;
             fifthPSButton.alpha = 0.0;
             triadPSButton.alpha = 0.0;
-
+            progressBarBackground.alpha = 0.0;
+            progressBar.alpha = 0.0;
+            
             
         } completion: ^(BOOL finished) {
         
@@ -114,6 +134,7 @@
                     [centerButton setHidden:NO];
                     [centerTextLabel setHidden:NO];
                     [ring setHidden:NO];
+                    [listButton setHidden:NO];
                     
                     [backButton setHidden:YES];
                     [cancelButton setHidden:YES];
@@ -125,6 +146,8 @@
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
+                    [saveButton setHidden:YES];
+                    [shareButton setHidden:YES];
                     
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
@@ -132,6 +155,7 @@
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
                     centerTextLabel.alpha = 1.0;
+                    listButton.alpha = 1.0;
                     
                     currentViewState = INITIAL_VIEW;
                     
@@ -154,6 +178,9 @@
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
+                    [listButton setHidden:YES];
+                    [saveButton setHidden:YES];
+                    [shareButton setHidden:YES];
                     
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
@@ -174,9 +201,9 @@
                     [thirdPSButton setHidden:NO];
                     [fifthPSButton setHidden:NO];
                     [triadPSButton setHidden:NO];
-                    [backButton setHidden:NO];
                     [cancelButton setHidden:NO];
                     
+                    [backButton setHidden:YES];
                     [centerButton setHidden:YES];
                     [ring setHidden:YES];
                     [centerTextLabel setHidden:YES];
@@ -185,11 +212,13 @@
                     [bottomCircle setHidden:YES];
                     [middleCircle setHidden:YES];
                     [topCircle setHidden:YES];
+                    [listButton setHidden:YES];
+                    [saveButton setHidden:YES];
+                    [shareButton setHidden:YES];
 
                     thirdPSButton.alpha = 1.0;
                     fifthPSButton.alpha = 1.0;
                     triadPSButton.alpha = 1.0;
-                    backButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
                     
                     currentViewState = SELECTING_EFFECT_VIEW;
@@ -212,11 +241,13 @@
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
+                    [listButton setHidden:YES];
+                    [saveButton setHidden:YES];
+                    [shareButton setHidden:YES];
 
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
 
-                    
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
                     progressBar.alpha = 1.0;
@@ -235,6 +266,8 @@
                     [ring setHidden:NO];
                     [cancelButton setHidden:NO];
                     [backButton setHidden:NO];
+                    [shareButton setHidden:NO];
+                    [saveButton setHidden:NO];
                     
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
@@ -245,7 +278,8 @@
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
-
+                    [listButton setHidden:YES];
+                   
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
 
@@ -253,6 +287,8 @@
                     cancelButton.alpha = 1.0;
                     backButton.alpha = 1.0;
                     ring.alpha = 1.0;
+                    saveButton.alpha = 1.0;
+                    shareButton.alpha = 1.0;
                     
                     currentViewState = PREVIEW_VIEW_NOT_PLAYING;
                     
@@ -265,6 +301,8 @@
                     [cancelButton setHidden:NO];
                     [ring setHidden:NO];
                     [backButton setHidden:NO];
+                    [shareButton setHidden:NO];
+                    [saveButton setHidden:NO];
                     
                     [centerTextLabel setHidden:YES];
                     [progressBarBackground setHidden:YES];
@@ -275,7 +313,8 @@
                     [thirdPSButton setHidden:YES];
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
-
+                    [listButton setHidden:YES];
+            
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
                     
@@ -283,6 +322,8 @@
                     cancelButton.alpha = 1.0;
                     backButton.alpha = 1.0;
                     ring.alpha = 1.0;
+                    saveButton.alpha = 1.0;
+                    shareButton.alpha = 1.0;
                     
                     currentViewState = PREVIEW_VIEW_PLAYING;
                     
@@ -801,7 +842,7 @@
     
     if(audioPlayer && startedPlaying){
         
-        ring.transform = CGAffineTransformRotate(ring.transform, 0.1);
+        ring.transform = CGAffineTransformRotate(ring.transform, 0.06);
         
         if(![audioPlayer isPlaying]){
         
@@ -817,12 +858,10 @@
 }
 
 - (void)stopPitchSchifting{
-    
     if (pitchShifter) {
         [pitchShifter stopPitchShifting];
         pitchShifter = nil;
     }
-    
 }
 
 - (void)stopSound {
@@ -891,18 +930,6 @@
     
 }
 
-- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
-    [self touchDownCenterButtonAnimation];
-}
-
-- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender {
-    [self touchUpCenterButtonAnimation];
-}
-
-- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender {
-    [self touchUpCenterButtonAnimation];
-}
-
 - (IBAction)centerButtonAction:(UIButton *)sender {
     
     switch (currentViewState) {
@@ -958,6 +985,27 @@
             
             break;
     }
+}
+
+- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
+    [self touchDownCenterButtonAnimation];
+}
+
+- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender {
+    [self touchUpCenterButtonAnimation];
+}
+
+- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender {
+    [self touchUpCenterButtonAnimation];
+}
+
+- (IBAction)listButtonAction:(UIButton *)sender{
+    
+    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController pushViewController:trackTableViewController animated:YES];
+    
 }
 
 - (IBAction)backButtonAction:(UIButton *)sender {
@@ -1044,15 +1092,30 @@
     [self processSound:SHIFT_TRIAD];
 }
 
-- (IBAction)showTrackList:(UIButton *)sender{
-    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    [self.navigationController pushViewController:trackTableViewController animated:YES];
+- (IBAction)saveButtonAction:(UIButton *)sender {
+    
+    //Show popup to save the track
+    
 }
 
-- (IBAction)uploadAction:(UIButton *)sender {
+- (IBAction)shareButtonAction:(UIButton *)sender {
     
-    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
+    NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath =  [directoryPath objectAtIndex:0];
+    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:@"result-pitchshifted.wav"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:outWavPath] == YES) {
+        NSLog(@"File exists: %@",outWavPath);
+    } else {
+        NSLog(@"File does not exist: %@",outWavPath);
+    }
+    
+    NSURL *trackURL = [NSURL fileURLWithPath:outWavPath];
+//    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
     
     SCShareViewController *shareViewController;
     shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
@@ -1075,18 +1138,16 @@
     //    // If you don't set them, the user sees a plain plain text filed for the place.
     //    [shareViewController setFoursquareClientID:@"<foursquare client id>"
     //                                  clientSecret:@"<foursquare client secret>"];
-    //    
+    //
     //    // We can preset the title ...
     //    [shareViewController setTitle:@"Funny sounds"];
-    //    
+    //
     //    // ... and other options like the private flag.
     //    [shareViewController setPrivate:NO];
     
     // Now present the share view controller.
     [self presentModalViewController:shareViewController animated:YES];
-}
-
-- (IBAction)shareButtonAction:(UIButton *)sender {
+    
 }
 
 @end

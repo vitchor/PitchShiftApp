@@ -56,8 +56,9 @@
     IBOutlet UIButton *thirdPSButton;
     IBOutlet UIButton *fifthPSButton;
     IBOutlet UIButton *triadPSButton;
-    IBOutlet UIButton *trackListButton;
-//    IBOutlet UIButton *shareButton;
+    IBOutlet UIButton *listButton;
+    IBOutlet UIButton *saveButton;
+    IBOutlet UIButton *shareButton;
     
     IBOutlet UIImageView *bottomCircle;
     IBOutlet UIImageView *middleCircle;
@@ -86,13 +87,13 @@
 - (IBAction)touchDownCenterButtonEvent:(UIButton *)sender;
 - (IBAction)touchUpCenterButtonEvent:(UIButton *)sender;
 - (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender;
+- (IBAction)listButtonAction:(UIButton *)sender;
 - (IBAction)backButtonAction:(UIButton *)sender;
 - (IBAction)cancelButtonAction:(UIButton *)sender;
 - (IBAction)selectThirdButtonAction:(UIButton *)sender;
 - (IBAction)selectFifthButtonAction:(UIButton *)sender;
 - (IBAction)selectTriadButtonAction:(UIButton *)sender;
-- (IBAction)showTrackList:(UIButton *)sender;
-- (IBAction)uploadAction:(UIButton *)sender;
-//- (IBAction)shareButtonAction:(UIButton *)sender;
+- (IBAction)saveButtonAction:(UIButton *)sender;
+- (IBAction)shareButtonAction:(UIButton *)sender;
 
 @end
