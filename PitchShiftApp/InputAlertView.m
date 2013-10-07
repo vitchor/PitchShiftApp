@@ -21,12 +21,13 @@
             CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 130.0);
             [self setTransform:translate];
         }else{
+            // else if ios version grather than 7
             self.alertViewStyle = UIAlertViewStylePlainTextInput;
             textField = [self textFieldAtIndex:0];
         }
         
-        NSDate* sourceDate = [NSDate date];
         
+        NSDate* sourceDate = [NSDate date];
         NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
         [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm"];
         NSString *dateStr = [dateFormatters stringFromDate: sourceDate];

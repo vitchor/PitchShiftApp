@@ -14,5 +14,5 @@
 @property (nonatomic,retain) IBOutlet UITableView *tracksTableView;
 
 -(void) refreshCellsList;
-
+- (id)initDefaultXib;
 @end
