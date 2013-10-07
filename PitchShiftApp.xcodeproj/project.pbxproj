@@ -10,6 +10,7 @@
 		1F183EB217FC94F40002470C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F183EB117FC94F40002470C /* CoreMedia.framework */; };
 		1F183EB817FC96FB0002470C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F183EB717FC96FB0002470C /* UIKit.framework */; };
 		1F4B415517FF4AE70046DF86 /* InputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B415417FF4AE70046DF86 /* InputAlertView.m */; };
+		1F5B41971803355E002D8CCF /* TracksTableViewController_i5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */; };
 		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
 		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
 		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
@@ -210,6 +211,7 @@
 		1F4B414317FEFBFE0046DF86 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		1F4B415317FF4AE70046DF86 /* InputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputAlertView.h; sourceTree = "<group>"; };
 		1F4B415417FF4AE70046DF86 /* InputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputAlertView.m; sourceTree = "<group>"; };
+		1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewController_i5.xib; sourceTree = "<group>"; };
 		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				1F8C902A17FB004300FFD282 /* TracksTableViewController.h */,
 				1F8C902B17FB004300FFD282 /* TracksTableViewController.m */,
 				1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */,
+				1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */,
 				1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */,
 				1F8C903017FB007800FFD282 /* TracksTableViewCell.m */,
 				1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */,
@@ -880,6 +883,7 @@
 				ACE399F817FAFD3200AAB6F2 /* PSA_0.2_BackButton.png in Resources */,
 				AC8F329717F31301009784D3 /* PSA_0.1_KeyboardFifth.png in Resources */,
 				7BAEADD917FCFB18004BD341 /* PSA_0.2_ListButton.png in Resources */,
+				1F5B41971803355E002D8CCF /* TracksTableViewController_i5.xib in Resources */,
 				ACE39A0F17FAFD4B00AAB6F2 /* InterfaceGuide.png in Resources */,
 				AC8F329317F31301009784D3 /* PSA_0.1_Background.png in Resources */,
 				AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */,

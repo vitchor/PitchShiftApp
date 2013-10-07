@@ -1002,7 +1002,8 @@
 
 - (IBAction)listButtonAction:(UIButton *)sender{
     
-    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
+//    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
+    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initDefaultXib];
     
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:trackTableViewController animated:YES];
