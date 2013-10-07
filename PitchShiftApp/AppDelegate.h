@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "PitchShifter.h"
 #import "SCUI.h"
 
 

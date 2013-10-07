@@ -147,7 +147,7 @@
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
                     [saveButton setHidden:YES];
-                    [shareButton setHidden:YES];
+                    [shareButton setHidden:NO];
                     
                     [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
@@ -156,6 +156,7 @@
                     ring.alpha = 1.0;
                     centerTextLabel.alpha = 1.0;
                     listButton.alpha = 1.0;
+                    shareButton.alpha = 1.0;
                     
                     currentViewState = INITIAL_VIEW;
                     
@@ -1118,39 +1119,35 @@
     }
     
     NSURL *trackURL = [NSURL fileURLWithPath:outWavPath];
-//    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
     
     SCShareViewController *shareViewController;
     shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
                                                               completionHandler:^(NSDictionary *trackInfo, NSError *error){
                                                                   
-                                                                  if (SC_CANCELED(error)) {
-                                                                      NSLog(@"Canceled!");
-                                                                  } else if (error) {
-                                                                      NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
-                                                                  } else {
-                                                                      // If you want to do something with the uploaded
-                                                                      // track this is the right place for that.
-                                                                      NSLog(@"Uploaded track: %@", trackInfo);
-                                                                  }
-                                                                  
-                                                              }];
-    
-    //    // If your app is a registered foursquare app, you can set the client id and secret.
-    //    // The user will then see a place picker where a location can be selected.
-    //    // If you don't set them, the user sees a plain plain text filed for the place.
-    //    [shareViewController setFoursquareClientID:@"<foursquare client id>"
-    //                                  clientSecret:@"<foursquare client secret>"];
-    //
-    //    // We can preset the title ...
-    //    [shareViewController setTitle:@"Funny sounds"];
-    //
-    //    // ... and other options like the private flag.
-    //    [shareViewController setPrivate:NO];
+          if (SC_CANCELED(error)) {
+              NSLog(@"Canceled!");
+          } else if (error) {
+              NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+          } else {
+              // If you want to do something with the uploaded
+              // track this is the right place for that.
+              NSLog(@"Uploaded track: %@", trackInfo);
+          }
+          
+      }];
+
+    NSDate* sourceDate = [NSDate date];
+    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
+    [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *dateStr = [dateFormatters stringFromDate: sourceDate];
+    [shareViewController setTitle:[NSString stringWithFormat:@"Back Vocal Sound %@",dateStr]];
+
+    [shareViewController setPrivate:YES];
+    [shareViewController setCreationDate:sourceDate];
+    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon.png"]];
     
     // Now present the share view controller.
     [self presentModalViewController:shareViewController animated:YES];
-    
 }
 
 // Called as a result of an affirmative answer from the SaveButtonAction
