@@ -10,6 +10,21 @@
 
 @implementation MainViewController
 
+- (id)initDefaultXib{
+    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if(screenHeight == 480){
+        // retina 3.5:
+        self = [super initWithNibName:@"MainViewController" bundle:nil];
+    }else if(screenHeight == 568){
+        // retina 4.0:
+        self = [super initWithNibName:@"MainViewController_i5" bundle:nil];
+    }
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

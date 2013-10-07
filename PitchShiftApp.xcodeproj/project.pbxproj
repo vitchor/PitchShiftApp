@@ -11,6 +11,7 @@
 		1F183EB817FC96FB0002470C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F183EB717FC96FB0002470C /* UIKit.framework */; };
 		1F4B415517FF4AE70046DF86 /* InputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B415417FF4AE70046DF86 /* InputAlertView.m */; };
 		1F5B41971803355E002D8CCF /* TracksTableViewController_i5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */; };
+		1F5B41A118033FD1002D8CCF /* MainViewController_i5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B41A018033FD1002D8CCF /* MainViewController_i5.xib */; };
 		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
 		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
 		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
@@ -212,6 +213,7 @@
 		1F4B415317FF4AE70046DF86 /* InputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputAlertView.h; sourceTree = "<group>"; };
 		1F4B415417FF4AE70046DF86 /* InputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputAlertView.m; sourceTree = "<group>"; };
 		1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewController_i5.xib; sourceTree = "<group>"; };
+		1F5B41A018033FD1002D8CCF /* MainViewController_i5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_i5.xib; sourceTree = "<group>"; };
 		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				AC7807A117EB99A80094711F /* MainViewController.h */,
 				AC7807A217EB99A80094711F /* MainViewController.m */,
 				AC7807A317EB99A80094711F /* MainViewController.xib */,
+				1F5B41A018033FD1002D8CCF /* MainViewController_i5.xib */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				ACE39A0917FAFD3200AAB6F2 /* PSA_0.2_Ring.png in Resources */,
 				AC8F32A017F31301009784D3 /* PSA_0.1_SoundCircle.png in Resources */,
 				ACE6EEB317E8BF8500E818A0 /* Images.xcassets in Resources */,
+				1F5B41A118033FD1002D8CCF /* MainViewController_i5.xib in Resources */,
 				AC8F329F17F31301009784D3 /* PSA_0.1_ShareButton.png in Resources */,
 				1FD9267517FDA8BC006FDA0F /* PSA_0.2_ListShare.png in Resources */,
 				7BD76A0717FB0FFC003B7CC9 /* SoundCloud.bundle in Resources */,

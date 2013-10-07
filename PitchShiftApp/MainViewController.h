@@ -68,6 +68,8 @@
     PitchShifter *pitchShifter;
 }
 
+- (id)initDefaultXib;
+
 - (void)playSound:(NSString*) outWavName;
 - (void)stopSound;
 - (void)pauseSound;
