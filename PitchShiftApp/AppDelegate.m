@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "PitchShifter.h"
 
 @implementation AppDelegate
 
