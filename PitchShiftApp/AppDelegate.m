@@ -34,7 +34,7 @@
     
     [self.window addSubview:self.navigationController.view];
     
-    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    MainViewController *mainViewController = [[MainViewController alloc] initDefaultXib];
     
     [self.navigationController pushViewController:mainViewController animated:YES];
     

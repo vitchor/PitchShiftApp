@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
+            <connections>
+                <outlet property="backButton" destination="PlW-BM-Cfg" id="OUI-pp-xBx"/>
+                <outlet property="bottomCircle" destination="Dnq-YR-ZLu" id="NHS-CV-ARi"/>
+                <outlet property="cancelButton" destination="THK-3i-2Cc" id="UOo-9h-bhq"/>
+                <outlet property="centerButton" destination="4Ki-Wi-PzE" id="1TZ-2J-hUY"/>
+                <outlet property="centerTextLabel" destination="SSt-SC-j5p" id="Sco-4P-f0O"/>
+                <outlet property="fifthPSButton" destination="bG9-D6-YSA" id="KAC-ax-0sh"/>
+                <outlet property="listButton" destination="v8L-3Y-9zn" id="TnG-hT-UOH"/>
+                <outlet property="middleCircle" destination="J9m-qc-jCX" id="iEj-Tw-FGu"/>
+                <outlet property="progressBar" destination="Lj1-4U-8Xk" id="jMb-vv-48l"/>
+                <outlet property="progressBarBackground" destination="Cbq-NI-OKe" id="GFz-YG-w6F"/>
+                <outlet property="ring" destination="7FC-il-zPN" id="HUY-xL-NVW"/>
+                <outlet property="saveButton" destination="MK1-K5-QTJ" id="yd9-4j-5OD"/>
+                <outlet property="shareButton" destination="9MI-XY-lBr" id="Tqi-Ay-Zb5"/>
+                <outlet property="thirdPSButton" destination="po8-Fm-BiK" id="IYx-YW-xMj"/>
+                <outlet property="topCircle" destination="dUB-ja-1zX" id="NIh-wM-15V"/>
+                <outlet property="triadPSButton" destination="x7t-i4-Jyz" id="Ekx-0V-FpD"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLb-zF-H3o" userLabel="Background Image View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDy-8T-q8q" userLabel="Bottom Circle View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_CircleBottom.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-YR-ZLu" userLabel="Image View - Bottom Circle">
+                            <rect key="frame" x="8" y="132" width="304" height="304"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="304" id="MT1-eb-LZm"/>
+                                <constraint firstAttribute="height" constant="304" id="hW8-qi-1eY"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="Dnq-YR-ZLu" secondAttribute="centerY" id="Izd-rv-9Ci"/>
+                        <constraint firstAttribute="centerX" secondItem="Dnq-YR-ZLu" secondAttribute="centerX" id="U6A-17-8GO"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7v-Vc-h8I" userLabel="Middle Circle View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_CircleMiddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="J9m-qc-jCX" userLabel="Image View - Middle Circle">
+                            <rect key="frame" x="26" y="150" width="268" height="268"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="268" id="0B3-1b-OrP"/>
+                                <constraint firstAttribute="height" constant="268" id="bBG-2N-cni"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="J9m-qc-jCX" secondAttribute="centerY" id="VwN-VD-Jut"/>
+                        <constraint firstAttribute="centerX" secondItem="J9m-qc-jCX" secondAttribute="centerX" id="X5H-st-PRm"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFU-9N-q3G" userLabel="Top Circle View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_CircleTop.png" translatesAutoresizingMaskIntoConstraints="NO" id="dUB-ja-1zX" userLabel="Image View - Top Circle">
+                            <rect key="frame" x="45" y="169" width="230" height="230"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="230" id="UjE-Ii-Lf4"/>
+                                <constraint firstAttribute="width" constant="230" id="tnj-kq-GfR"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="dUB-ja-1zX" secondAttribute="centerY" id="fLT-dq-u5i"/>
+                        <constraint firstAttribute="centerX" secondItem="dUB-ja-1zX" secondAttribute="centerX" id="viL-vQ-Gqe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSU-XX-7Nc" userLabel="Ring View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Ring.png" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-il-zPN" userLabel="Image View - Ring">
+                            <rect key="frame" x="77" y="201" width="166" height="166"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="166" id="Jgt-Zq-mUI"/>
+                                <constraint firstAttribute="width" constant="166" id="vco-3d-4Bv"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="7FC-il-zPN" secondAttribute="centerX" id="640-j1-5hk"/>
+                        <constraint firstAttribute="centerY" secondItem="7FC-il-zPN" secondAttribute="centerY" id="iBh-V4-kLa"/>
+                    </constraints>
+                </view>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS TO RECORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSt-SC-j5p" userLabel="Label - Press to Record">
+                    <rect key="frame" x="71" y="384" width="178" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="TU7-Ik-N86"/>
+                        <constraint firstAttribute="width" constant="178" id="vIr-bn-ihM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Wi-PzE" userLabel="Button - Center Button">
+                    <rect key="frame" x="97" y="222" width="125" height="125"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="hRg-7C-scQ"/>
+                        <constraint firstAttribute="width" constant="125" id="ibO-8J-uh6"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_CenterButton.png"/>
+                    <connections>
+                        <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
+                        <action selector="touchDownCenterButtonEvent:" destination="-1" eventType="touchDown" id="NPc-od-8hg"/>
+                        <action selector="touchDragOutsideCenterButtonEvent:" destination="-1" eventType="touchDragOutside" id="fGd-52-Ly8"/>
+                        <action selector="touchUpCenterButtonEvent:" destination="-1" eventType="touchUpInside" id="iTW-uj-tUI"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlW-BM-Cfg" userLabel="Button - Back">
+                    <rect key="frame" x="15" y="533" width="26" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="BP0-3Q-IPQ"/>
+                        <constraint firstAttribute="width" constant="26" id="tpY-KM-Bhi"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_BackButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="jbq-6d-CMx"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK1-K5-QTJ" userLabel="Button - Save">
+                    <rect key="frame" x="106" y="528" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="kUO-1S-snn"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_SaveButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveButtonAction:" destination="-1" eventType="touchUpInside" id="Rr0-tT-FPQ"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MI-XY-lBr" userLabel="Button - Share">
+                    <rect key="frame" x="200" y="528" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="QKi-yz-zGi"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.1_ShareButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="COS-Dk-O0u"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8L-3Y-9zn" userLabel="Button - List">
+                    <rect key="frame" x="286" y="533" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="PSA_0.2_ListButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="listButtonAction:" destination="-1" eventType="touchUpInside" id="boO-1v-eeZ"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THK-3i-2Cc" userLabel="Button - Cancel">
+                    <rect key="frame" x="286" y="533" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Q3x-64-bcU"/>
+                        <constraint firstAttribute="width" constant="20" id="nuR-Rw-IgB"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_CancelButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="Pog-sE-z9T"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="po8-Fm-BiK" userLabel="Button - Third">
+                    <rect key="frame" x="94" y="82" width="132" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="84" id="Pdb-qa-0DN"/>
+                        <constraint firstAttribute="width" constant="132" id="ayo-86-B3T"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_KeyboardThird.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectThirdButtonAction:" destination="-1" eventType="touchUpInside" id="6ZD-sk-4lc"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-D6-YSA" userLabel="Button - Fifth">
+                    <rect key="frame" x="94" y="246" width="132" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="84" id="T5s-oJ-Kms"/>
+                        <constraint firstAttribute="width" constant="132" id="zUF-q4-vE0"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_KeyboardFifth.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectFifthButtonAction:" destination="-1" eventType="touchUpInside" id="LnL-wD-Rvd"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7t-i4-Jyz" userLabel="Button - Triad">
+                    <rect key="frame" x="94" y="412" width="132" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="84" id="5nG-XH-2f9"/>
+                        <constraint firstAttribute="width" constant="132" id="eBZ-E1-7na"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_KeyboardTriad.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectTriadButtonAction:" destination="-1" eventType="touchUpInside" id="uqw-MO-2tw"/>
+                    </connections>
+                </button>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_ProgressBarBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cbq-NI-OKe" userLabel="Progress Bar Background">
+                    <rect key="frame" x="15" y="414" width="290" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_ProgressBarForeground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk" userLabel="Progress Bar Foreground">
+                    <rect key="frame" x="21" y="420" width="278" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="4Ki-Wi-PzE" secondAttribute="centerX" id="01N-Gc-by3"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="HDy-8T-q8q" secondAttribute="top" id="0mS-c0-W7D"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="x7t-i4-Jyz" secondAttribute="leading" id="13o-ap-bO5"/>
+                <constraint firstItem="9MI-XY-lBr" firstAttribute="top" secondItem="Lj1-4U-8Xk" secondAttribute="bottom" constant="74" id="2Yn-Od-5Es"/>
+                <constraint firstItem="Lj1-4U-8Xk" firstAttribute="centerX" secondItem="SSt-SC-j5p" secondAttribute="centerX" id="2s0-PO-aiS"/>
+                <constraint firstItem="v8L-3Y-9zn" firstAttribute="leading" secondItem="THK-3i-2Cc" secondAttribute="leading" id="338-s4-l4E"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="top" secondItem="1" secondAttribute="top" constant="82" id="4Er-eY-BVt"/>
+                <constraint firstItem="O7v-Vc-h8I" firstAttribute="top" secondItem="qLb-zF-H3o" secondAttribute="top" id="5z6-eA-nnh"/>
+                <constraint firstItem="Lj1-4U-8Xk" firstAttribute="centerY" secondItem="Cbq-NI-OKe" secondAttribute="centerY" id="6sC-QU-V9W"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="HDy-8T-q8q" secondAttribute="bottom" id="7OR-zu-5Jg"/>
+                <constraint firstAttribute="centerY" secondItem="PlW-BM-Cfg" secondAttribute="centerY" constant="-259" id="82c-5M-7KG"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="qLb-zF-H3o" secondAttribute="bottom" id="8mt-oP-XO9"/>
+                <constraint firstItem="qLb-zF-H3o" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AAy-uD-Nsg"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="xSU-XX-7Nc" secondAttribute="leading" id="Bcf-kg-QGA"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="xSU-XX-7Nc" secondAttribute="trailing" id="Did-ev-wXc"/>
+                <constraint firstItem="Lj1-4U-8Xk" firstAttribute="top" secondItem="SSt-SC-j5p" secondAttribute="bottom" constant="15" id="EAB-wo-Idr"/>
+                <constraint firstItem="xSU-XX-7Nc" firstAttribute="leading" secondItem="qLb-zF-H3o" secondAttribute="leading" id="Ee0-db-71u"/>
+                <constraint firstItem="9MI-XY-lBr" firstAttribute="top" secondItem="v8L-3Y-9zn" secondAttribute="top" constant="-5" id="GZE-9F-ie4"/>
+                <constraint firstItem="Cbq-NI-OKe" firstAttribute="top" secondItem="x7t-i4-Jyz" secondAttribute="bottom" constant="-82" id="HVZ-dT-pza"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="O7v-Vc-h8I" secondAttribute="bottom" id="Heu-8h-Izy"/>
+                <constraint firstItem="MK1-K5-QTJ" firstAttribute="bottom" secondItem="PlW-BM-Cfg" secondAttribute="bottom" id="Irt-0p-vWN"/>
+                <constraint firstItem="bG9-D6-YSA" firstAttribute="top" secondItem="po8-Fm-BiK" secondAttribute="bottom" constant="80" id="Jtk-gx-PDO"/>
+                <constraint firstItem="Lj1-4U-8Xk" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="21" id="N5j-tK-1lF"/>
+                <constraint firstItem="v8L-3Y-9zn" firstAttribute="trailing" secondItem="THK-3i-2Cc" secondAttribute="trailing" id="NAm-oD-3Ze"/>
+                <constraint firstItem="MK1-K5-QTJ" firstAttribute="leading" secondItem="PlW-BM-Cfg" secondAttribute="trailing" constant="65" id="NZu-Wk-O81"/>
+                <constraint firstItem="xSU-XX-7Nc" firstAttribute="centerX" secondItem="9MI-XY-lBr" secondAttribute="centerX" constant="-52" id="OAc-v4-If7"/>
+                <constraint firstAttribute="centerY" secondItem="THK-3i-2Cc" secondAttribute="centerY" constant="-259" id="Onl-rx-RMY"/>
+                <constraint firstItem="9MI-XY-lBr" firstAttribute="bottom" secondItem="v8L-3Y-9zn" secondAttribute="bottom" id="Q86-0t-52e"/>
+                <constraint firstAttribute="centerY" secondItem="4Ki-Wi-PzE" secondAttribute="centerY" id="RbU-lX-VBK"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="bG9-D6-YSA" secondAttribute="leading" id="Req-AK-1tx"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="HDy-8T-q8q" secondAttribute="trailing" id="S6v-UR-KHL"/>
+                <constraint firstItem="9MI-XY-lBr" firstAttribute="bottom" secondItem="PlW-BM-Cfg" secondAttribute="bottom" id="UeY-Fr-fWd"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="O7v-Vc-h8I" secondAttribute="top" id="ZI4-E3-WJ6"/>
+                <constraint firstAttribute="bottom" secondItem="SSt-SC-j5p" secondAttribute="bottom" constant="163" id="auU-Tf-kSb"/>
+                <constraint firstAttribute="centerX" secondItem="THK-3i-2Cc" secondAttribute="centerX" constant="-136" id="gQS-GH-TzO"/>
+                <constraint firstItem="SSt-SC-j5p" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="gcW-Xb-An9"/>
+                <constraint firstItem="9MI-XY-lBr" firstAttribute="top" secondItem="PlW-BM-Cfg" secondAttribute="top" constant="-5" id="hEP-DL-EQt"/>
+                <constraint firstItem="Cbq-NI-OKe" firstAttribute="leading" secondItem="PlW-BM-Cfg" secondAttribute="leading" id="hcN-rO-YSG"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="x7t-i4-Jyz" secondAttribute="trailing" id="iwb-Ky-mQC"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="O7v-Vc-h8I" secondAttribute="trailing" id="kxN-gd-qNw"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="centerX" secondItem="O7v-Vc-h8I" secondAttribute="centerX" id="ljj-HF-avS"/>
+                <constraint firstAttribute="centerX" secondItem="PlW-BM-Cfg" secondAttribute="centerX" constant="132" id="mzB-IG-ic9"/>
+                <constraint firstAttribute="bottom" secondItem="qLb-zF-H3o" secondAttribute="bottom" id="nTm-iW-KIr"/>
+                <constraint firstItem="MK1-K5-QTJ" firstAttribute="top" secondItem="9MI-XY-lBr" secondAttribute="top" id="nVu-tb-yQ4"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="trailing" secondItem="bG9-D6-YSA" secondAttribute="trailing" id="oSP-9o-T9t"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="HDy-8T-q8q" secondAttribute="leading" id="p3f-48-2Xy"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="leading" secondItem="O7v-Vc-h8I" secondAttribute="leading" id="pD3-k2-m2a"/>
+                <constraint firstItem="x7t-i4-Jyz" firstAttribute="top" secondItem="bG9-D6-YSA" secondAttribute="bottom" constant="82" id="qaP-eW-bv4"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="trailing" secondItem="qLb-zF-H3o" secondAttribute="trailing" id="vLV-p8-G5P"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="bottom" secondItem="xSU-XX-7Nc" secondAttribute="bottom" id="ylO-BX-CpM"/>
+                <constraint firstItem="qLb-zF-H3o" firstAttribute="top" secondItem="1" secondAttribute="top" id="zRA-6r-U9a"/>
+                <constraint firstItem="po8-Fm-BiK" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="94" id="zdh-Z7-CXq"/>
+                <constraint firstItem="Lj1-4U-8Xk" firstAttribute="centerX" secondItem="Cbq-NI-OKe" secondAttribute="centerX" id="zuW-Q6-Ujn"/>
+                <constraint firstItem="cFU-9N-q3G" firstAttribute="top" secondItem="xSU-XX-7Nc" secondAttribute="top" id="zwQ-V4-0U9"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PSA_0.1_ShareButton.png" width="90" height="109"/>
+        <image name="PSA_0.2_BackButton.png" width="53" height="28"/>
+        <image name="PSA_0.2_Background.png" width="640" height="960"/>
+        <image name="PSA_0.2_CancelButton.png" width="40" height="40"/>
+        <image name="PSA_0.2_CenterButton.png" width="249" height="249"/>
+        <image name="PSA_0.2_CircleBottom.png" width="608" height="608"/>
+        <image name="PSA_0.2_CircleMiddle.png" width="536" height="536"/>
+        <image name="PSA_0.2_CircleTop.png" width="384" height="384"/>
+        <image name="PSA_0.2_KeyboardFifth.png" width="265" height="168"/>
+        <image name="PSA_0.2_KeyboardThird.png" width="265" height="168"/>
+        <image name="PSA_0.2_KeyboardTriad.png" width="265" height="168"/>
+        <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
+        <image name="PSA_0.2_ProgressBarBackground.png" width="579" height="89"/>
+        <image name="PSA_0.2_ProgressBarForeground.png" width="231" height="69"/>
+        <image name="PSA_0.2_Ring.png" width="332" height="332"/>
+        <image name="PSA_0.2_SaveButton.png" width="41" height="61"/>
+    </resources>
+</document>

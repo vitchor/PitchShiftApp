@@ -27,13 +27,11 @@
 - (id)initDefaultXib{
     float screenHeight = [UIScreen mainScreen].bounds.size.height;
     if(screenHeight == 480){
-        // retina 4.0:
-        self = [super initWithNibName:@"TracksTableViewController" bundle:nil];
-        NSLog(@"==== using nib for retina 3.5");
-    }else if(screenHeight == 568){
         // retina 3.5:
+        self = [super initWithNibName:@"TracksTableViewController" bundle:nil];
+    }else if(screenHeight == 568){
+        // retina 4.0:
         self = [super initWithNibName:@"TracksTableViewController_i5" bundle:nil];
-        NSLog(@"==== using nib for retina 4");
     }
     if (self) {
         self.navigationItem.title = @"Tracks";
