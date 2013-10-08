@@ -169,7 +169,7 @@
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
                     [centerTextLabel setHidden:NO];
-                    [ring setHidden:YES];
+                    [ring setHidden:NO];
                     [listButton setHidden:NO];
                     
                     [backButton setHidden:YES];
