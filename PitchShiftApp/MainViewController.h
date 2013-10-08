@@ -56,6 +56,9 @@
     IBOutlet UIImageView *progressBar;
     IBOutlet UIImageView *progressBarBackground;
     
+    NSString* lastRecordCaf;
+    NSString* lastRecordWav;
+    NSString* lastRecording; // the recorder pitchshifted
     NSTimer* recordTimer;
     NSTimer* processTimer;
     NSTimer* playerTimer;

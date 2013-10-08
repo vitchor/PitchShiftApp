@@ -21,8 +21,32 @@
     }
     if (self) {
         // Custom initialization
+        [self customInit];
     }
     return self;
+}
+
+-(void) customInit{
+    lastRecordCaf = @"_buffer.caf";
+    lastRecordWav = @"_buffer.wav";
+    lastRecording = @"Last recording.wav";
+}
+
+-(void) eraseBuffers{
+    [self eraseFile:lastRecordCaf];
+    [self eraseFile:lastRecordWav];
+}
+
+-(void) eraseFile:(NSString*) fileName{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fullPath = [[documentsDirectory stringByAppendingString:@"/"] stringByAppendingString:fileName];
+    if([[NSFileManager defaultManager] fileExistsAtPath:fullPath]){
+        [[NSFileManager defaultManager] removeItemAtPath:fullPath error:nil];
+        NSLog(@"==== deleted file at path: %@", fullPath);
+    }else{
+        NSLog(@"==== there is no file to be deleted at path: %@", fullPath);
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -503,7 +527,7 @@
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *recDir = [paths objectAtIndex:0];
-        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recorded.caf", recDir]];
+        NSURL *url = [NSURL fileURLWithPath:[[recDir stringByAppendingString:@"/"] stringByAppendingString:lastRecordCaf]];
         
         NSError *error = nil;
         audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
@@ -632,11 +656,7 @@
         [audioRecorder stop];
         NSLog(@"stopped");
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *recDir = [paths objectAtIndex:0];
-        NSString *filePath = [NSString stringWithFormat:@"%@/recorded.caf", recDir];
-        
-        if ( ![self exportAssetAsWaveFormat:filePath]) {
+        if ( ![self exportAssetAsWaveFromInput:lastRecordCaf andOutput:lastRecordWav]) {
             NSLog(@"ERROR IN WAV CONVERSION!");
         }
         
@@ -645,7 +665,7 @@
     [recordTimer invalidate], recordTimer = nil;
 }
 
--(BOOL)exportAssetAsWaveFormat:(NSString*)filePath
+-(BOOL)exportAssetAsWaveFromInput:(NSString*)inputName andOutput:(NSString*)outputName
 {
     NSError *error = nil ;
     
@@ -659,8 +679,12 @@
                                   [ NSNumber numberWithBool:NO], AVLinearPCMIsNonInterleaved,
                                   [ NSData data], AVChannelLayoutKey, nil ];
     
-    NSString *audioFilePath = filePath;
-    AVURLAsset * URLAsset = [[AVURLAsset alloc]  initWithURL:[NSURL fileURLWithPath:audioFilePath] options:nil];
+//    NSString *audioFilePath = filePath;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *recDir = [paths objectAtIndex:0];
+    
+    NSString *inputPath = [[recDir stringByAppendingString:@"/"] stringByAppendingString:inputName];
+    AVURLAsset * URLAsset = [[AVURLAsset alloc]  initWithURL:[NSURL fileURLWithPath:inputPath] options:nil];
     
     if (!URLAsset) return NO ;
     
@@ -680,17 +704,12 @@
     
     if (![assetReader startReading]) return NO;
     
+    NSString *outputPath = [[recDir stringByAppendingString:@"/"] stringByAppendingString:outputName];
     
-    NSString *title = @"recordedWAV";
-    NSArray *docDirs = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docDir = [docDirs objectAtIndex: 0];
-    NSString *outPath = [[docDir stringByAppendingPathComponent :title]
-                         stringByAppendingPathExtension:@"wav" ];
+    if([[NSFileManager defaultManager] fileExistsAtPath:outputPath])
+        [[NSFileManager defaultManager] removeItemAtPath:outputPath error:&error];
     
-    if([[NSFileManager defaultManager] fileExistsAtPath:outPath])
-        [[NSFileManager defaultManager] removeItemAtPath:outPath error:&error];
-    
-    NSURL *outURL = [NSURL fileURLWithPath:outPath];
+    NSURL *outURL = [NSURL fileURLWithPath:outputPath];
     
     assetWriter = [AVAssetWriter assetWriterWithURL:outURL
                                                           fileType:AVFileTypeWAVE
@@ -744,7 +763,8 @@
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *recDir = [paths objectAtIndex:0];
-    NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
+    NSString *inWavPath = [[recDir stringByAppendingString:@"/"] stringByAppendingString:lastRecordWav];
+//    NSString *inWavPath = [NSString stringWithFormat:@"%@/recordedWAV.wav", recDir];
 
     [self doPitchShift:inWavPath type:pitchShiftType];
     
@@ -799,12 +819,12 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     
         //Get wav file's directory
-        NSString *outWavName = @"/result-pitchshifted.wav";
+//        NSString *outWavName = lastRecorder;
         
         NSArray *directoriesPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsPath =  [directoriesPath objectAtIndex:0];
         
-        NSString *outWavPath = [documentsPath stringByAppendingString:outWavName];
+        NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:lastRecording];
         
         NSError *error = nil ;
         if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
@@ -832,13 +852,15 @@
             
         }
         
+        [self eraseBuffers];
+        NSLog(@"==== erase buffers");
         isProcessing = NO;
     
     });
 }
 
 - (void)playSound{
-    [self playSound:@"result-pitchshifted.wav"];
+    [self playSound:lastRecording];
 }
 
 - (void)playSound:(NSString*) outWavName{
@@ -1099,6 +1121,8 @@
     
     [self stopCenterButtonAnimations];
     
+    [self eraseBuffers];
+    
     [self setupXib:INITIAL_VIEW];
 }
 
@@ -1145,7 +1169,7 @@
     NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath =  [directoryPath objectAtIndex:0];
-    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:@"result-pitchshifted.wav"];
+    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:lastRecording];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:outWavPath] == YES) {
@@ -1191,8 +1215,22 @@
     if ([alertView tag] == 2) {
         if (buttonIndex != [alertView cancelButtonIndex]){
             NSString *entered = [(InputAlertView *)alertView enteredText];
+            entered = [entered stringByAppendingString:@".wav"];
+            [self exportAssetAsWaveFromInput:lastRecording andOutput:entered];
+            
 //            NSLog(@"You typed: %@", entered);
-            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Test Prompt" message:[NSString stringWithFormat:@"You typed %@",entered] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *fullPath = [[documentsDirectory stringByAppendingString:@"/"] stringByAppendingString:entered];
+            UIAlertView *newAlert;
+            if([[NSFileManager defaultManager] fileExistsAtPath:fullPath]){
+                newAlert = [[UIAlertView alloc] initWithTitle:@"Saved as..." message:[NSString stringWithFormat:@"Your recording was successfully saved as: %@",entered] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            }else{
+                newAlert = [[UIAlertView alloc] initWithTitle:@"An error occured..." message:[NSString stringWithFormat:@"Your recording could not be saved!"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            }
+
+//            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Saved as..." message:[NSString stringWithFormat:@"Your recording was asved as: %@",entered] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [newAlert show];
         }
     }

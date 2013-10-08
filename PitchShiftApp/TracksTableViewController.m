@@ -114,13 +114,25 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSError * error;
+    // get all files within the given path, alfabetically sorted
+    NSArray *bufferArray = [[[NSFileManager defaultManager]
+      contentsOfDirectoryAtPath:documentsDirectory error:&error] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
     if(!self.tracksArray){
-        self.tracksArray = [[NSArray alloc] init];
+        self.tracksArray = [[NSMutableArray alloc] init];
+    }else{
+        [self.tracksArray removeAllObjects];
     }
-    self.tracksArray =  [[NSFileManager defaultManager]
-                         contentsOfDirectoryAtPath:documentsDirectory error:&error];
-    NSLog(@"tracks array ==== %@",self.tracksArray);
-    // ----------- FINISH DOCUMENTS FOLDER CRAWLING
+    
+    // Filters files started with @"_buffer". Also inverts the order of the array:
+    for (int i = [bufferArray count] - 1; i>=0; i--) {
+        if ([(NSString*)bufferArray[i] hasPrefix:@"_buffer"]) {
+            NSLog(@" ==== Did not add the file: %@",bufferArray[i]);
+        }else{
+            NSLog(@" ==== Added the file: %@",bufferArray[i]);
+            [self.tracksArray addObject:bufferArray[i]];
+        }
+    }
 }
 
 @end

@@ -10,7 +10,7 @@
 }
 
 @property (nonatomic, readwrite) BOOL isPlaying;
-@property (nonatomic,retain) NSArray *tracksArray;
+@property (nonatomic,retain) NSMutableArray *tracksArray;
 @property (nonatomic,retain) IBOutlet UITableView *tracksTableView;
 
 -(void) refreshCellsList;
