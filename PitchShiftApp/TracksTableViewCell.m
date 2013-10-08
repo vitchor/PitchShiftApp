@@ -55,7 +55,7 @@
     NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath =  [directoryPath objectAtIndex:0];
-    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:@"result-pitchshifted.wav"];
+    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:self.trackNameLabel.text];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:outWavPath] == YES) {
@@ -76,13 +76,13 @@
                                                                   } else if (error) {
                                                                       NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
                                                                   } else {
-                                                                      // If you want to do something with the uploaded
-                                                                      // track this is the right place for that.
-                                                                      NSLog(@"Uploaded track: %@", trackInfo);
+                                                                      NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
+                                                                      NSLog(@"====Uploaded track: %@", downloadLink);
                                                                   }
                                                                   
                                                               }];
-    
+    [shareViewController setTitle:self.trackNameLabel.text];
+    [shareViewController setCoverImage:[UIImage imageNamed:@"icon 120.png"]];
     //    // If your app is a registered foursquare app, you can set the client id and secret.
     //    // The user will then see a place picker where a location can be selected.
     //    // If you don't set them, the user sees a plain plain text filed for the place.
@@ -102,6 +102,23 @@
     }else{
         [self.tracksController presentViewController:shareViewController animated:YES completion:nil];
     }
+}
+
+-(void) popupActivityViewWithURL:(NSString*) url{
+    //    NSArray * activityItems = @{[NSString stringWithFormat:@"Some initial text."], [NSURL URLWithString:@"http://www.google.com"]};
+    NSString *text = [NSString stringWithFormat:@"Check this awesome song: %@", url];
+    UIImage *image = [UIImage imageNamed:@"icon 120.png"];
+    NSArray *activityItems = [NSArray arrayWithObjects:text,image , nil];
+    
+    NSArray * excludeActivities = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop];
+    
+    UIActivityViewController *avc = [[UIActivityViewController alloc]
+                                     initWithActivityItems: activityItems applicationActivities:nil];
+    avc.excludedActivityTypes = excludeActivities;
+    
+    NSLog(@"==== presentViewController");
+//    [UIApplication sharedApplication].keyWindow
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentModalViewController:avc animated:YES];
 }
 
 - (IBAction)playButtonAction:(UIButton *)sender {
