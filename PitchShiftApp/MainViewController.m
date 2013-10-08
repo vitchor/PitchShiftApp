@@ -185,7 +185,7 @@
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
                     
-//                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
 
                     centerButton.alpha = 1.0;
