@@ -66,6 +66,7 @@
     AVAssetWriter *assetWriter;
     
     PitchShifter *pitchShifter;
+    IBOutlet UIImageView *backGroundView;
 }
 
 - (void)playSound:(NSString*) outWavName;

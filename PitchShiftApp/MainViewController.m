@@ -24,6 +24,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568) {
+    
+        [backGroundView setImage:[UIImage imageNamed:@"TESTE DE COR 4  IPHONE 5.png"]];
+        [centerButton setImage:[UIImage imageNamed:@"TESTE BOTAO IPHONE 5.png"] forState:UIControlStateNormal];
+        centerButton.alpha = 0.5;
+    }
+
+        
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
     fadingTime = FADING_TIME_DEFAULT;
@@ -47,6 +56,18 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    
+//    [UIView animateWithDuration:2.0 animations:^{
+//        
+////        centerButton.transform = CGAffineTransformMakeTranslation(-100.0, -100.0);
+//        
+//        centerButton.frame = CGRectMake(150.0, 100.0, centerButton.frame.size.width, centerButton.frame.size.height);
+//        
+//    }];
+//
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -133,7 +154,7 @@
                     centerButton.transform = CGAffineTransformIdentity;
                     [centerButton setHidden:NO];
                     [centerTextLabel setHidden:NO];
-                    [ring setHidden:NO];
+                    [ring setHidden:YES];
                     [listButton setHidden:NO];
                     
                     [backButton setHidden:YES];
@@ -147,16 +168,15 @@
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
                     [saveButton setHidden:YES];
-                    [shareButton setHidden:NO];
+                    [shareButton setHidden:YES];
                     
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+//                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
                     [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
 
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
                     centerTextLabel.alpha = 1.0;
                     listButton.alpha = 1.0;
-                    shareButton.alpha = 1.0;
                     
                     currentViewState = INITIAL_VIEW;
                     
