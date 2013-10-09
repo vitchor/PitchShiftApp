@@ -13,12 +13,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIW-bz-qyM">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIW-bz-qyM" userLabel="Button - Play">
                         <rect key="frame" x="173" y="6" width="43" height="43"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="43" id="bSQ-SA-AFh"/>
-                            <constraint firstAttribute="height" constant="43" id="bW8-hU-swy"/>
+                            <constraint firstAttribute="height" constant="43" id="7eh-Nn-CMg"/>
+                            <constraint firstAttribute="width" constant="43" id="zZ1-Zn-sEk"/>
                         </constraints>
                         <state key="normal" image="PSA_0.2_ListPlay.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,32 +27,32 @@
                             <action selector="playButtonAction:" destination="3" eventType="touchUpInside" id="Ebp-b6-KhI"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65D-Mt-3mZ">
-                        <rect key="frame" x="271" y="6" width="43" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="43" id="PSv-KJ-E4j"/>
-                            <constraint firstAttribute="height" constant="43" id="dNR-z4-wnA"/>
-                        </constraints>
-                        <state key="normal" image="PSA_0.2_ListDelete.png">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="deleteButtonAction:" destination="3" eventType="touchUpInside" id="vAI-Tv-JYa"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZC-0C-bqn">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZC-0C-bqn" userLabel="Button - Share">
                         <rect key="frame" x="222" y="6" width="43" height="43"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="43" id="GAQ-NS-HQW"/>
-                            <constraint firstAttribute="width" constant="43" id="fX9-nh-blI"/>
+                            <constraint firstAttribute="height" constant="43" id="28H-wQ-kdH"/>
+                            <constraint firstAttribute="width" constant="43" id="Xbz-bg-WiA"/>
                         </constraints>
                         <state key="normal" image="PSA_0.2_ListShare.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="shareButtonAction:" destination="3" eventType="touchUpInside" id="KGh-yK-mJ5"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65D-Mt-3mZ" userLabel="Button - X">
+                        <rect key="frame" x="271" y="6" width="43" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="R6d-pG-XEu"/>
+                            <constraint firstAttribute="height" constant="43" id="gbO-ib-Twa"/>
+                        </constraints>
+                        <state key="normal" image="PSA_0.2_ListDelete.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteButtonAction:" destination="3" eventType="touchUpInside" id="vAI-Tv-JYa"/>
                         </connections>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="161" translatesAutoresizingMaskIntoConstraints="NO" id="3lV-hM-oB0">
@@ -65,17 +65,16 @@
                 </subviews>
                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="0.0" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="3lV-hM-oB0" firstAttribute="leading" secondItem="aec-CT-mUM" secondAttribute="leading" constant="4" id="3hk-dF-6wd"/>
-                    <constraint firstItem="3lV-hM-oB0" firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" id="9mh-zF-IcT"/>
-                    <constraint firstItem="EZC-0C-bqn" firstAttribute="top" secondItem="aec-CT-mUM" secondAttribute="top" constant="6" id="EN0-Ye-EQa"/>
-                    <constraint firstItem="EZC-0C-bqn" firstAttribute="centerY" secondItem="aec-CT-mUM" secondAttribute="centerY" id="Koi-xD-Fex"/>
-                    <constraint firstItem="65D-Mt-3mZ" firstAttribute="leading" secondItem="EZC-0C-bqn" secondAttribute="trailing" constant="6" id="Ltx-yG-taN"/>
-                    <constraint firstItem="3lV-hM-oB0" firstAttribute="top" secondItem="aec-CT-mUM" secondAttribute="top" id="QXp-7h-JTn"/>
-                    <constraint firstItem="PIW-bz-qyM" firstAttribute="leading" secondItem="3lV-hM-oB0" secondAttribute="trailing" constant="8" symbolic="YES" id="Rvy-9L-oUW"/>
-                    <constraint firstAttribute="centerY" secondItem="65D-Mt-3mZ" secondAttribute="centerY" id="Vh5-bA-SFL"/>
-                    <constraint firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" id="aF7-sI-Kxf"/>
-                    <constraint firstItem="EZC-0C-bqn" firstAttribute="leading" secondItem="PIW-bz-qyM" secondAttribute="trailing" constant="6" id="lSy-0e-boU"/>
-                    <constraint firstAttribute="trailing" secondItem="65D-Mt-3mZ" secondAttribute="trailing" constant="6" id="ocB-5z-nKA"/>
+                    <constraint firstItem="3lV-hM-oB0" firstAttribute="top" secondItem="aec-CT-mUM" secondAttribute="top" id="6o2-8h-ksn"/>
+                    <constraint firstItem="3lV-hM-oB0" firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" id="FdW-aF-zFD"/>
+                    <constraint firstAttribute="centerX" secondItem="65D-Mt-3mZ" secondAttribute="centerX" constant="-132.5" id="Sva-3U-gch"/>
+                    <constraint firstAttribute="centerY" secondItem="EZC-0C-bqn" secondAttribute="centerY" id="W7r-84-ZhA"/>
+                    <constraint firstAttribute="centerX" secondItem="EZC-0C-bqn" secondAttribute="centerX" constant="-83.5" id="a95-WJ-JzI"/>
+                    <constraint firstItem="PIW-bz-qyM" firstAttribute="leading" secondItem="3lV-hM-oB0" secondAttribute="trailing" constant="8" symbolic="YES" id="boO-gl-4cN"/>
+                    <constraint firstAttribute="centerY" secondItem="65D-Mt-3mZ" secondAttribute="centerY" id="cWI-xV-FdA"/>
+                    <constraint firstItem="3lV-hM-oB0" firstAttribute="leading" secondItem="aec-CT-mUM" secondAttribute="leading" constant="4" id="f0m-qw-Dfu"/>
+                    <constraint firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" id="gsJ-6z-YRW"/>
+                    <constraint firstAttribute="centerX" secondItem="PIW-bz-qyM" secondAttribute="centerX" constant="-34.5" id="zWT-tF-60m"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90265877019999996" green="0.90196078430000004" blue="0.90196078430000004" alpha="0.0" colorSpace="calibratedRGB"/>
