@@ -31,6 +31,21 @@
 		7BD76A0F17FB10FB003B7CC9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */; };
 		7BD76A1117FB1102003B7CC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A1017FB1102003B7CC9 /* Security.framework */; };
 		7BD76A1317FB110F003B7CC9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A1217FB110F003B7CC9 /* CoreText.framework */; };
+		AC1E977B17FDA06B00D78B3D /* CsoundObj.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E974317FDA06B00D78B3D /* CsoundObj.m */; };
+		AC1E977C17FDA06B00D78B3D /* CsoundMIDI.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E974617FDA06B00D78B3D /* CsoundMIDI.m */; };
+		AC1E977D17FDA06B00D78B3D /* MidiWidgetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E974817FDA06B00D78B3D /* MidiWidgetsManager.m */; };
+		AC1E977E17FDA06B00D78B3D /* SliderMidiWidgetWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E974B17FDA06B00D78B3D /* SliderMidiWidgetWrapper.m */; };
+		AC1E977F17FDA06B00D78B3D /* BaseValueCacheable.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E974E17FDA06B00D78B3D /* BaseValueCacheable.m */; };
+		AC1E978017FDA06B00D78B3D /* CachedAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E975017FDA06B00D78B3D /* CachedAccelerometer.m */; };
+		AC1E978117FDA06B00D78B3D /* CachedAttitude.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E975217FDA06B00D78B3D /* CachedAttitude.m */; };
+		AC1E978217FDA06B00D78B3D /* CachedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E975417FDA06B00D78B3D /* CachedButton.m */; };
+		AC1E978317FDA06B00D78B3D /* CachedGyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E975617FDA06B00D78B3D /* CachedGyroscope.m */; };
+		AC1E978417FDA06B00D78B3D /* CachedSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E975817FDA06B00D78B3D /* CachedSlider.m */; };
+		AC1E978517FDA06B00D78B3D /* CachedSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E975A17FDA06B00D78B3D /* CachedSwitch.m */; };
+		AC1E978617FDA06B00D78B3D /* libcsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E977817FDA06B00D78B3D /* libcsound.a */; };
+		AC1E978717FDA06B00D78B3D /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E977917FDA06B00D78B3D /* libsndfile.a */; };
+		AC1E978817FDA06B00D78B3D /* LICENSE.TXT in Resources */ = {isa = PBXBuildFile; fileRef = AC1E977A17FDA06B00D78B3D /* LICENSE.TXT */; };
+		AC1E978B17FDA2ED00D78B3D /* PitchShifter.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E978A17FDA2ED00D78B3D /* PitchShifter.m */; };
 		AC78079E17EB35B80094711F /* sax.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079D17EB35B80094711F /* sax.wav */; };
 		AC7807A017EB8C900094711F /* 440Hz.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC78079F17EB8C900094711F /* 440Hz.wav */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
@@ -53,10 +68,6 @@
 		AC8F32A117F31301009784D3 /* PSA_0.1_StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */; };
 		ACCF06C017F37EF2006D8698 /* PSA_0.1_SoundCircle2.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCF06BE17F37EF2006D8698 /* PSA_0.1_SoundCircle2.png */; };
 		ACCF06C117F37EF2006D8698 /* PSA_0.1_SoundCircle3.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCF06BF17F37EF2006D8698 /* PSA_0.1_SoundCircle3.png */; };
-		ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */; };
-		ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */; };
-		ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */; };
-		ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD2B9E717EA2A180052A96A /* libsndfile.a */; };
 		ACE399F817FAFD3200AAB6F2 /* PSA_0.2_BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E217FAFD3200AAB6F2 /* PSA_0.2_BackButton.png */; };
 		ACE399F917FAFD3200AAB6F2 /* PSA_0.2_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */; };
 		ACE399FA17FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399E417FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png */; };
@@ -228,6 +239,61 @@
 		7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7BD76A1017FB1102003B7CC9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7BD76A1217FB110F003B7CC9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		AC1E974217FDA06B00D78B3D /* CsoundObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsoundObj.h; sourceTree = "<group>"; };
+		AC1E974317FDA06B00D78B3D /* CsoundObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CsoundObj.m; sourceTree = "<group>"; };
+		AC1E974517FDA06B00D78B3D /* CsoundMIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsoundMIDI.h; sourceTree = "<group>"; };
+		AC1E974617FDA06B00D78B3D /* CsoundMIDI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CsoundMIDI.m; sourceTree = "<group>"; };
+		AC1E974717FDA06B00D78B3D /* MidiWidgetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiWidgetsManager.h; sourceTree = "<group>"; };
+		AC1E974817FDA06B00D78B3D /* MidiWidgetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiWidgetsManager.m; sourceTree = "<group>"; };
+		AC1E974917FDA06B00D78B3D /* MidiWidgetWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiWidgetWrapper.h; sourceTree = "<group>"; };
+		AC1E974A17FDA06B00D78B3D /* SliderMidiWidgetWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderMidiWidgetWrapper.h; sourceTree = "<group>"; };
+		AC1E974B17FDA06B00D78B3D /* SliderMidiWidgetWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderMidiWidgetWrapper.m; sourceTree = "<group>"; };
+		AC1E974D17FDA06B00D78B3D /* BaseValueCacheable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseValueCacheable.h; sourceTree = "<group>"; };
+		AC1E974E17FDA06B00D78B3D /* BaseValueCacheable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseValueCacheable.m; sourceTree = "<group>"; };
+		AC1E974F17FDA06B00D78B3D /* CachedAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedAccelerometer.h; sourceTree = "<group>"; };
+		AC1E975017FDA06B00D78B3D /* CachedAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedAccelerometer.m; sourceTree = "<group>"; };
+		AC1E975117FDA06B00D78B3D /* CachedAttitude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedAttitude.h; sourceTree = "<group>"; };
+		AC1E975217FDA06B00D78B3D /* CachedAttitude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedAttitude.m; sourceTree = "<group>"; };
+		AC1E975317FDA06B00D78B3D /* CachedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedButton.h; sourceTree = "<group>"; };
+		AC1E975417FDA06B00D78B3D /* CachedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedButton.m; sourceTree = "<group>"; };
+		AC1E975517FDA06B00D78B3D /* CachedGyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedGyroscope.h; sourceTree = "<group>"; };
+		AC1E975617FDA06B00D78B3D /* CachedGyroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedGyroscope.m; sourceTree = "<group>"; };
+		AC1E975717FDA06B00D78B3D /* CachedSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedSlider.h; sourceTree = "<group>"; };
+		AC1E975817FDA06B00D78B3D /* CachedSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedSlider.m; sourceTree = "<group>"; };
+		AC1E975917FDA06B00D78B3D /* CachedSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedSwitch.h; sourceTree = "<group>"; };
+		AC1E975A17FDA06B00D78B3D /* CachedSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedSwitch.m; sourceTree = "<group>"; };
+		AC1E975B17FDA06B00D78B3D /* CsoundValueCacheable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsoundValueCacheable.h; sourceTree = "<group>"; };
+		AC1E975D17FDA06B00D78B3D /* cfgvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cfgvar.h; sourceTree = "<group>"; };
+		AC1E975E17FDA06B00D78B3D /* CppSound.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CppSound.hpp; sourceTree = "<group>"; };
+		AC1E975F17FDA06B00D78B3D /* cs_par_structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cs_par_structs.h; sourceTree = "<group>"; };
+		AC1E976017FDA06B00D78B3D /* cscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cscore.h; sourceTree = "<group>"; };
+		AC1E976117FDA06B00D78B3D /* csdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csdl.h; sourceTree = "<group>"; };
+		AC1E976217FDA06B00D78B3D /* csound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csound.h; sourceTree = "<group>"; };
+		AC1E976317FDA06B00D78B3D /* csound.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = csound.hpp; sourceTree = "<group>"; };
+		AC1E976417FDA06B00D78B3D /* csound_data_structures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csound_data_structures.h; sourceTree = "<group>"; };
+		AC1E976517FDA06B00D78B3D /* csound_standard_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csound_standard_types.h; sourceTree = "<group>"; };
+		AC1E976617FDA06B00D78B3D /* csound_type_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csound_type_system.h; sourceTree = "<group>"; };
+		AC1E976717FDA06B00D78B3D /* csoundCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csoundCore.h; sourceTree = "<group>"; };
+		AC1E976817FDA06B00D78B3D /* CsoundFile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CsoundFile.hpp; sourceTree = "<group>"; };
+		AC1E976917FDA06B00D78B3D /* cwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cwindow.h; sourceTree = "<group>"; };
+		AC1E976A17FDA06B00D78B3D /* filebuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filebuilding.h; sourceTree = "<group>"; };
+		AC1E976B17FDA06B00D78B3D /* float-version-double.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "float-version-double.h"; sourceTree = "<group>"; };
+		AC1E976C17FDA06B00D78B3D /* float-version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "float-version.h"; sourceTree = "<group>"; };
+		AC1E976D17FDA06B00D78B3D /* interlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interlocks.h; sourceTree = "<group>"; };
+		AC1E976E17FDA06B00D78B3D /* msg_attr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg_attr.h; sourceTree = "<group>"; };
+		AC1E976F17FDA06B00D78B3D /* OpcodeBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpcodeBase.hpp; sourceTree = "<group>"; };
+		AC1E977017FDA06B00D78B3D /* pools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pools.h; sourceTree = "<group>"; };
+		AC1E977117FDA06B00D78B3D /* pstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pstream.h; sourceTree = "<group>"; };
+		AC1E977217FDA06B00D78B3D /* pvfileio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pvfileio.h; sourceTree = "<group>"; };
+		AC1E977317FDA06B00D78B3D /* soundio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundio.h; sourceTree = "<group>"; };
+		AC1E977417FDA06B00D78B3D /* sysdep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sysdep.h; sourceTree = "<group>"; };
+		AC1E977517FDA06B00D78B3D /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
+		AC1E977617FDA06B00D78B3D /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		AC1E977817FDA06B00D78B3D /* libcsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcsound.a; sourceTree = "<group>"; };
+		AC1E977917FDA06B00D78B3D /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsndfile.a; sourceTree = "<group>"; };
+		AC1E977A17FDA06B00D78B3D /* LICENSE.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.TXT; sourceTree = "<group>"; };
+		AC1E978917FDA2ED00D78B3D /* PitchShifter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShifter.h; sourceTree = "<group>"; };
+		AC1E978A17FDA2ED00D78B3D /* PitchShifter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitchShifter.m; sourceTree = "<group>"; };
 		AC78079D17EB35B80094711F /* sax.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sax.wav; sourceTree = "<group>"; };
 		AC78079F17EB8C900094711F /* 440Hz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440Hz.wav; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -251,14 +317,6 @@
 		AC8F329117F31301009784D3 /* PSA_0.1_StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_StopButton.png; sourceTree = "<group>"; };
 		ACCF06BE17F37EF2006D8698 /* PSA_0.1_SoundCircle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_SoundCircle2.png; sourceTree = "<group>"; };
 		ACCF06BF17F37EF2006D8698 /* PSA_0.1_SoundCircle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.1_SoundCircle3.png; sourceTree = "<group>"; };
-		ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PitchShiftIterative.cpp; sourceTree = "<group>"; };
-		ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShiftIterative.h; sourceTree = "<group>"; };
-		ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmbPitchShifter.cpp; sourceTree = "<group>"; };
-		ACD2B9DC17E9F4E50052A96A /* PitchShifter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchShifter.h; sourceTree = "<group>"; };
-		ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PitchShifter.mm; sourceTree = "<group>"; };
-		ACD2B9E717EA2A180052A96A /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsndfile.a; sourceTree = "<group>"; };
-		ACD2B9E917EA2ED20052A96A /* sndfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sndfile.h; sourceTree = "<group>"; };
-		ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmbPitchShifter.h; sourceTree = "<group>"; };
 		ACE399E217FAFD3200AAB6F2 /* PSA_0.2_BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_BackButton.png; sourceTree = "<group>"; };
 		ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_Background.png; sourceTree = "<group>"; };
 		ACE399E417FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_CancelButton.png; sourceTree = "<group>"; };
@@ -320,7 +378,8 @@
 				7BD769E217FB0F1C003B7CC9 /* libSoundCloudUI.a in Frameworks */,
 				7BD769D817FB0EB2003B7CC9 /* libSoundCloudAPI.a in Frameworks */,
 				ACE6EEA117E8BF8500E818A0 /* Foundation.framework in Frameworks */,
-				ACD2B9E817EA2A180052A96A /* libsndfile.a in Frameworks */,
+				AC1E978617FDA06B00D78B3D /* libcsound.a in Frameworks */,
+				AC1E978717FDA06B00D78B3D /* libsndfile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +398,7 @@
 		1F8C8FFB17FA109800FFD282 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				AC1E974017FDA06B00D78B3D /* csound-iOS */,
 				1FE8870017FC9E0E00833D22 /* SoundManager */,
 				ACD2B9CA17E8D1A90052A96A /* PitchShifter */,
 			);
@@ -421,9 +481,110 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AC1E974017FDA06B00D78B3D /* csound-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E974117FDA06B00D78B3D /* classes */,
+				AC1E975C17FDA06B00D78B3D /* headers */,
+				AC1E977717FDA06B00D78B3D /* libs */,
+				AC1E977A17FDA06B00D78B3D /* LICENSE.TXT */,
+			);
+			path = "csound-iOS";
+			sourceTree = "<group>";
+		};
+		AC1E974117FDA06B00D78B3D /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E974217FDA06B00D78B3D /* CsoundObj.h */,
+				AC1E974317FDA06B00D78B3D /* CsoundObj.m */,
+				AC1E974417FDA06B00D78B3D /* midi */,
+				AC1E974C17FDA06B00D78B3D /* valueCacheable */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		AC1E974417FDA06B00D78B3D /* midi */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E974517FDA06B00D78B3D /* CsoundMIDI.h */,
+				AC1E974617FDA06B00D78B3D /* CsoundMIDI.m */,
+				AC1E974717FDA06B00D78B3D /* MidiWidgetsManager.h */,
+				AC1E974817FDA06B00D78B3D /* MidiWidgetsManager.m */,
+				AC1E974917FDA06B00D78B3D /* MidiWidgetWrapper.h */,
+				AC1E974A17FDA06B00D78B3D /* SliderMidiWidgetWrapper.h */,
+				AC1E974B17FDA06B00D78B3D /* SliderMidiWidgetWrapper.m */,
+			);
+			path = midi;
+			sourceTree = "<group>";
+		};
+		AC1E974C17FDA06B00D78B3D /* valueCacheable */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E974D17FDA06B00D78B3D /* BaseValueCacheable.h */,
+				AC1E974E17FDA06B00D78B3D /* BaseValueCacheable.m */,
+				AC1E974F17FDA06B00D78B3D /* CachedAccelerometer.h */,
+				AC1E975017FDA06B00D78B3D /* CachedAccelerometer.m */,
+				AC1E975117FDA06B00D78B3D /* CachedAttitude.h */,
+				AC1E975217FDA06B00D78B3D /* CachedAttitude.m */,
+				AC1E975317FDA06B00D78B3D /* CachedButton.h */,
+				AC1E975417FDA06B00D78B3D /* CachedButton.m */,
+				AC1E975517FDA06B00D78B3D /* CachedGyroscope.h */,
+				AC1E975617FDA06B00D78B3D /* CachedGyroscope.m */,
+				AC1E975717FDA06B00D78B3D /* CachedSlider.h */,
+				AC1E975817FDA06B00D78B3D /* CachedSlider.m */,
+				AC1E975917FDA06B00D78B3D /* CachedSwitch.h */,
+				AC1E975A17FDA06B00D78B3D /* CachedSwitch.m */,
+				AC1E975B17FDA06B00D78B3D /* CsoundValueCacheable.h */,
+			);
+			path = valueCacheable;
+			sourceTree = "<group>";
+		};
+		AC1E975C17FDA06B00D78B3D /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E975D17FDA06B00D78B3D /* cfgvar.h */,
+				AC1E975E17FDA06B00D78B3D /* CppSound.hpp */,
+				AC1E975F17FDA06B00D78B3D /* cs_par_structs.h */,
+				AC1E976017FDA06B00D78B3D /* cscore.h */,
+				AC1E976117FDA06B00D78B3D /* csdl.h */,
+				AC1E976217FDA06B00D78B3D /* csound.h */,
+				AC1E976317FDA06B00D78B3D /* csound.hpp */,
+				AC1E976417FDA06B00D78B3D /* csound_data_structures.h */,
+				AC1E976517FDA06B00D78B3D /* csound_standard_types.h */,
+				AC1E976617FDA06B00D78B3D /* csound_type_system.h */,
+				AC1E976717FDA06B00D78B3D /* csoundCore.h */,
+				AC1E976817FDA06B00D78B3D /* CsoundFile.hpp */,
+				AC1E976917FDA06B00D78B3D /* cwindow.h */,
+				AC1E976A17FDA06B00D78B3D /* filebuilding.h */,
+				AC1E976B17FDA06B00D78B3D /* float-version-double.h */,
+				AC1E976C17FDA06B00D78B3D /* float-version.h */,
+				AC1E976D17FDA06B00D78B3D /* interlocks.h */,
+				AC1E976E17FDA06B00D78B3D /* msg_attr.h */,
+				AC1E976F17FDA06B00D78B3D /* OpcodeBase.hpp */,
+				AC1E977017FDA06B00D78B3D /* pools.h */,
+				AC1E977117FDA06B00D78B3D /* pstream.h */,
+				AC1E977217FDA06B00D78B3D /* pvfileio.h */,
+				AC1E977317FDA06B00D78B3D /* soundio.h */,
+				AC1E977417FDA06B00D78B3D /* sysdep.h */,
+				AC1E977517FDA06B00D78B3D /* text.h */,
+				AC1E977617FDA06B00D78B3D /* version.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		AC1E977717FDA06B00D78B3D /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E977817FDA06B00D78B3D /* libcsound.a */,
+				AC1E977917FDA06B00D78B3D /* libsndfile.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 		AC742B1617F103D4004E48D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7B40E73917FB3A600070F91A /* sax.mp3 */,
 				7BD76A0617FB0FFC003B7CC9 /* SoundCloud.bundle */,
 				ACE399E117FAFD1000AAB6F2 /* Misc Images */,
 				ACE399E017FAFCFF00AAB6F2 /* PSA 0.2 UI Images */,
@@ -487,24 +648,10 @@
 		ACD2B9CA17E8D1A90052A96A /* PitchShifter */ = {
 			isa = PBXGroup;
 			children = (
-				ACD2B9DC17E9F4E50052A96A /* PitchShifter.h */,
-				ACD2B9DD17E9F4E50052A96A /* PitchShifter.mm */,
-				ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */,
-				ACD2B9C817E8D1A20052A96A /* PitchShiftIterative.h */,
-				ACD2B9CB17E8D2020052A96A /* auxLib */,
+				AC1E978917FDA2ED00D78B3D /* PitchShifter.h */,
+				AC1E978A17FDA2ED00D78B3D /* PitchShifter.m */,
 			);
 			name = PitchShifter;
-			sourceTree = "<group>";
-		};
-		ACD2B9CB17E8D2020052A96A /* auxLib */ = {
-			isa = PBXGroup;
-			children = (
-				ACD2B9E717EA2A180052A96A /* libsndfile.a */,
-				ACD2B9E917EA2ED20052A96A /* sndfile.h */,
-				ACD2B9CC17E8D2530052A96A /* SmbPitchShifter.cpp */,
-				ACD2B9EA17EA388E0052A96A /* SmbPitchShifter.h */,
-			);
-			name = auxLib;
 			sourceTree = "<group>";
 		};
 		ACE399E017FAFCFF00AAB6F2 /* PSA 0.2 UI Images */ = {
@@ -593,7 +740,6 @@
 		ACE6EEA617E8BF8500E818A0 /* PitchShiftApp */ = {
 			isa = PBXGroup;
 			children = (
-				7B40E73917FB3A600070F91A /* sax.mp3 */,
 				ACE6EEB217E8BF8500E818A0 /* Images.xcassets */,
 				1F8C8FFB17FA109800FFD282 /* Aux */,
 				AC7807A717EB99DF0094711F /* Controllers */,
@@ -825,6 +971,7 @@
 				AC8F329417F31301009784D3 /* PSA_0.1_CancelButton.png in Resources */,
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
 				ACCF06C017F37EF2006D8698 /* PSA_0.1_SoundCircle2.png in Resources */,
+				AC1E978817FDA06B00D78B3D /* LICENSE.TXT in Resources */,
 				ACE399FC17FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png in Resources */,
 				ACE39A0D17FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
@@ -874,15 +1021,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACD2B9CD17E8D2530052A96A /* SmbPitchShifter.cpp in Sources */,
+				AC1E978B17FDA2ED00D78B3D /* PitchShifter.m in Sources */,
+				AC1E978217FDA06B00D78B3D /* CachedButton.m in Sources */,
+				AC1E977B17FDA06B00D78B3D /* CsoundObj.m in Sources */,
 				AC7807A417EB99A80094711F /* MainViewController.m in Sources */,
-				ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */,
+				AC1E977C17FDA06B00D78B3D /* CsoundMIDI.m in Sources */,
+				AC1E977F17FDA06B00D78B3D /* BaseValueCacheable.m in Sources */,
 				1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */,
+				AC1E978117FDA06B00D78B3D /* CachedAttitude.m in Sources */,
+				AC1E978317FDA06B00D78B3D /* CachedGyroscope.m in Sources */,
 				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
-				ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */,
+				AC1E977D17FDA06B00D78B3D /* MidiWidgetsManager.m in Sources */,
 				1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */,
 				1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */,
+				AC1E978417FDA06B00D78B3D /* CachedSlider.m in Sources */,
 				ACE6EEAD17E8BF8500E818A0 /* main.m in Sources */,
+				AC1E977E17FDA06B00D78B3D /* SliderMidiWidgetWrapper.m in Sources */,
+				AC1E978017FDA06B00D78B3D /* CachedAccelerometer.m in Sources */,
+				AC1E978517FDA06B00D78B3D /* CachedSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,6 +1207,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
+					"/Users/alexandre/Workspace/PitchShiftApp/PitchShiftApp/csound-iOS/libs",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1081,6 +1238,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
+					"/Users/alexandre/Workspace/PitchShiftApp/PitchShiftApp/csound-iOS/libs",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";

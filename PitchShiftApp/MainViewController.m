@@ -695,16 +695,13 @@
         NSError *error = nil ;
         if([[NSFileManager defaultManager] fileExistsAtPath:outWavPath])
             [[NSFileManager defaultManager] removeItemAtPath:outWavPath error:&error];
-        
-        char *inWavPathCharArray = [inWavPath UTF8String];
-        
-        char *outWavPathCharArray = [outWavPath UTF8String];
+
         
         if (!pitchShifter) {
             
             pitchShifter = [PitchShifter alloc];
             
-            [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
+            [pitchShifter pitchShiftWavFile:inWavPath andOutFilePath:outWavPath andShiftType:pitchShiftType];
             
         } else {
             
@@ -714,7 +711,7 @@
             
             pitchShifter = [PitchShifter alloc];
             
-            [pitchShifter pitchShiftWavFile:inWavPathCharArray andOutFilePath:outWavPathCharArray andShiftType:pitchShiftType];
+            [pitchShifter pitchShiftWavFile:inWavPath andOutFilePath:outWavPath andShiftType:pitchShiftType];
             
         }
         
