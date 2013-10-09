@@ -65,37 +65,25 @@
     }
     
     NSURL *trackURL = [NSURL fileURLWithPath:outWavPath];
-    //    NSURL *trackURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sax" ofType:@"mp3"]];
     
     SCShareViewController *shareViewController;
     shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
                                                               completionHandler:^(NSDictionary *trackInfo, NSError *error){
-                                                                  
-                                                                  if (SC_CANCELED(error)) {
-                                                                      NSLog(@"Canceled!");
-                                                                  } else if (error) {
-                                                                      NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
-                                                                  } else {
-                                                                      NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
-                                                                      NSLog(@"====Uploaded track: %@", downloadLink);
-                                                                  }
-                                                                  
-                                                              }];
-    [shareViewController setTitle:self.trackNameLabel.text];
-    [shareViewController setCoverImage:[UIImage imageNamed:@"icon 120.png"]];
-    //    // If your app is a registered foursquare app, you can set the client id and secret.
-    //    // The user will then see a place picker where a location can be selected.
-    //    // If you don't set them, the user sees a plain plain text filed for the place.
-    //    [shareViewController setFoursquareClientID:@"<foursquare client id>"
-    //                                  clientSecret:@"<foursquare client secret>"];
-    //
-    //    // We can preset the title ...
-    //    [shareViewController setTitle:@"Funny sounds"];
-    //
-    //    // ... and other options like the private flag.
-    //    [shareViewController setPrivate:NO];
+                                                              
+      if (SC_CANCELED(error)) {
+          NSLog(@"Canceled!");
+      } else if (error) {
+          NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+      } else {
+          NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
+          NSLog(@"====Uploaded track: %@", downloadLink);
+      }
+          
+    }];
     
-    // Now present the share view controller.
+    [shareViewController setTitle:self.trackNameLabel.text];
+    [shareViewController setPrivate:YES];
+    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon_Large.png"]];
     
     if (SYSTEM_VERSION_LESS_THAN(@"6.0")) {
         [self.tracksController presentModalViewController:shareViewController animated:YES];

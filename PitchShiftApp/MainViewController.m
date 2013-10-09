@@ -69,18 +69,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
--(void) viewDidAppear:(BOOL)animated{
-    
-//    [UIView animateWithDuration:2.0 animations:^{
-//        
-////        centerButton.transform = CGAffineTransformMakeTranslation(-100.0, -100.0);
-//        
-//        centerButton.frame = CGRectMake(150.0, 100.0, centerButton.frame.size.width, centerButton.frame.size.height);
-//        
-//    }];
-//
-}
-
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
