@@ -58,6 +58,20 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
     
+    
+    UITapGestureRecognizer *tapArea1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapArea1Action)];
+    [tapArea1View addGestureRecognizer:tapArea1];
+    
+    UITapGestureRecognizer *tapArea2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapArea2Action)];
+    [tapArea2View addGestureRecognizer:tapArea2];
+
+    UITapGestureRecognizer *tapArea3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapArea3Action)];
+    [tapArea3View addGestureRecognizer:tapArea3];
+
+    UITapGestureRecognizer *tapArea4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapArea4Action)];
+    [tapArea4View addGestureRecognizer:tapArea4];
+    
+    
     [self setupXib:INITIAL_VIEW];
 }
 
@@ -72,10 +86,6 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
-
-//- (BOOL)prefersStatusBarHidden {
-//    return YES;
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -953,15 +963,29 @@
     }
 }
 
-- (void)stopSound {
-    if(audioPlayer.isPlaying)
-        [audioPlayer stop];
-}
-
-- (void)pauseSound {
-    if(audioPlayer.isPlaying){
-        [audioPlayer pause];
-        audioPlayer.currentTime = 0;
+// Called as a result of an affirmative answer from the SaveButtonAction
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if ([alertView tag] == 2) {
+        if (buttonIndex != [alertView cancelButtonIndex]){
+            NSString *entered = [(InputAlertView *)alertView enteredText];
+            entered = [entered stringByAppendingString:@".wav"];
+            [self exportAssetAsWaveFromInput:lastRecording andOutput:entered];
+            
+            //            NSLog(@"You typed: %@", entered);
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *fullPath = [[documentsDirectory stringByAppendingString:@"/"] stringByAppendingString:entered];
+            UIAlertView *newAlert;
+            if([[NSFileManager defaultManager] fileExistsAtPath:fullPath]){
+                newAlert = [[UIAlertView alloc] initWithTitle:@"Saved as..." message:[NSString stringWithFormat:@"Your recording was successfully saved as: %@",entered] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            }else{
+                newAlert = [[UIAlertView alloc] initWithTitle:@"An error occured..." message:[NSString stringWithFormat:@"Your recording could not be saved!"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            }
+            
+            //            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Saved as..." message:[NSString stringWithFormat:@"Your recording was asved as: %@",entered] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            [newAlert show];
+        }
     }
 }
 
@@ -980,7 +1004,19 @@
         [playerTimer invalidate], playerTimer = nil;
         startedPlaying = false;
     }
+    
+}
 
+- (void)stopSound {
+    if(audioPlayer.isPlaying)
+        [audioPlayer stop];
+}
+
+- (void)pauseSound {
+    if(audioPlayer.isPlaying){
+        [audioPlayer pause];
+        audioPlayer.currentTime = 0;
+    }
 }
 
 - (void) touchDownCenterButtonAnimation {
@@ -1028,41 +1064,59 @@
     
 }
 
+- (void) tapArea1Action {
+
+    if (!backButton.isHidden)
+        [self backButtonAction:nil];
+    
+}
+
+- (void) tapArea2Action {
+
+    if(!saveButton.isHidden)
+        [self saveButtonAction:nil];
+    
+}
+
+- (void) tapArea3Action {
+
+    if (!shareButton.isHidden)
+        [self shareButtonAction:nil];
+    
+}
+
+- (void) tapArea4Action {
+
+    if (!cancelButton.isHidden)
+        [self cancelButtonAction:nil];
+    
+    else if (!listButton.isHidden)
+        [self listButtonAction:nil];
+    
+}
+
 - (IBAction)centerButtonAction:(UIButton *)sender {
     
     switch (currentViewState) {
         
         case INITIAL_VIEW:
             
-            // change center button
-            
             [self setupXib:RECORDING_VIEW];
-        
             [self startRecordingSound];
-            
             break;
             
         case RECORDING_VIEW:
             
             [self stopRecordingSound];
-            
-            // stopRecording method will setup Xib depending on success or failure
-            
             [self setupXib:SELECTING_EFFECT_VIEW];
-            
-            // do selecting
-            
             break;
             
         case PROCESSING_VIEW:
             
-            // do nothing
-            
             break;
             
         case PREVIEW_VIEW_NOT_PLAYING:
-            
-            // do player sound
+
             [self playSound];
             [self setupXib:PREVIEW_VIEW_PLAYING];
             break;
@@ -1070,27 +1124,13 @@
         case PREVIEW_VIEW_PLAYING:
             
             [self stopSound];
-            
             break;
             
         default:
             
             NSLog(@"UNRECOGNIZED STATE! centerButtonAction : %d", currentViewState);
-            
             break;
     }
-}
-
-- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
-    [self touchDownCenterButtonAnimation];
-}
-
-- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender {
-    [self touchUpCenterButtonAnimation];
-}
-
-- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender {
-    [self touchUpCenterButtonAnimation];
 }
 
 - (IBAction)listButtonAction:(UIButton *)sender{
@@ -1116,29 +1156,33 @@
     switch (currentViewState) {
             
         case RECORDING_VIEW:
+            
             [self setupXib:INITIAL_VIEW];
             break;
             
         case SELECTING_EFFECT_VIEW:
+            
             [self setupXib:INITIAL_VIEW];
             break;
             
         case PROCESSING_VIEW:
+            
             [self setupXib:SELECTING_EFFECT_VIEW];
             break;
             
         case PREVIEW_VIEW_NOT_PLAYING:
+            
             [self setupXib:SELECTING_EFFECT_VIEW];
             break;
             
         case PREVIEW_VIEW_PLAYING:
+            
             [self setupXib:SELECTING_EFFECT_VIEW];
             break;
             
         default:
             
-             NSLog(@"UNRECOGNIZED STATE! backButtonAction : %d", currentViewState);
-            
+            NSLog(@"UNRECOGNIZED STATE! backButtonAction : %d", currentViewState);
             break;
     }
 }
@@ -1158,7 +1202,7 @@
     [self setupXib:INITIAL_VIEW];
 }
 
-- (IBAction)selectThirdButtonAction:(UIButton *)sender {
+- (IBAction)thirdButtonAction:(UIButton *)sender {
     
     [fifthPSButton setHidden:YES];
     [triadPSButton setHidden:YES];
@@ -1167,7 +1211,7 @@
     [self processSound:SHIFT_THIRD];
 }
 
-- (IBAction)selectFifthButtonAction:(UIButton *)sender {
+- (IBAction)fifthButtonAction:(UIButton *)sender {
     
     [thirdPSButton setHidden:YES];
     [triadPSButton setHidden:YES];
@@ -1176,7 +1220,7 @@
     [self processSound:SHIFT_FIFTH];
 }
 
-- (IBAction)selectTriadButtonAction:(UIButton *)sender {
+- (IBAction)triadButtonAction:(UIButton *)sender {
     
     [thirdPSButton setHidden:YES];
     [fifthPSButton setHidden:YES];
@@ -1186,12 +1230,13 @@
 }
 
 - (IBAction)saveButtonAction:(UIButton *)sender {
+    
     // Open popup with text view and current date and time:
     InputAlertView *prompt = [[InputAlertView alloc] initWithTitle:@"Save to your device" message:@"Please enter a name to this track" delegate:self cancelButtonTitle:@"Cancel" okButtonTitle:@"Save"];
     [prompt setTag:2];
     [prompt show];
-    
     //Show popup to save the track
+    
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
@@ -1242,31 +1287,16 @@
     [self presentModalViewController:shareViewController animated:YES];
 }
 
-// Called as a result of an affirmative answer from the SaveButtonAction
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if ([alertView tag] == 2) {
-        if (buttonIndex != [alertView cancelButtonIndex]){
-            NSString *entered = [(InputAlertView *)alertView enteredText];
-            entered = [entered stringByAppendingString:@".wav"];
-            [self exportAssetAsWaveFromInput:lastRecording andOutput:entered];
-            
-//            NSLog(@"You typed: %@", entered);
-            
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *fullPath = [[documentsDirectory stringByAppendingString:@"/"] stringByAppendingString:entered];
-            UIAlertView *newAlert;
-            if([[NSFileManager defaultManager] fileExistsAtPath:fullPath]){
-                newAlert = [[UIAlertView alloc] initWithTitle:@"Saved as..." message:[NSString stringWithFormat:@"Your recording was successfully saved as: %@",entered] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            }else{
-                newAlert = [[UIAlertView alloc] initWithTitle:@"An error occured..." message:[NSString stringWithFormat:@"Your recording could not be saved!"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            }
-
-//            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Saved as..." message:[NSString stringWithFormat:@"Your recording was asved as: %@",entered] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-            [newAlert show];
-        }
-    }
+- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
+    [self touchDownCenterButtonAnimation];
 }
 
+- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender {
+    [self touchUpCenterButtonAnimation];
+}
+
+- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender {
+    [self touchUpCenterButtonAnimation];
+}
 
 @end

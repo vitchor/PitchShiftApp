@@ -8,12 +8,13 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+
 #import "SplashScreenController.h"
-#import "PitchShifter.h"
 #import "TracksTableViewController.h"
-#import "SCUI.h"
+#import "PitchShifter.h"
 #import "SoundManager.h"
 #import "InputAlertView.h"
+#import "SCUI.h"
 
 #define PROGRESS_BAR_FULL_WIDTH 240.0
 #define BOT_CIRCLE_MIN_SIZE 304.0
@@ -35,8 +36,8 @@
     float midCircleScale;
     float topCircleScale;
     float screenHeight;
-
     double lowPassResults;
+    
     bool startedPlaying;
     bool isProcessing;
     bool isAnimatingCircles;
@@ -53,6 +54,11 @@
     IBOutlet UIButton *saveButton;
     IBOutlet UIButton *shareButton;
     
+    IBOutlet UIView *tapArea1View;
+    IBOutlet UIView *tapArea2View;
+    IBOutlet UIView *tapArea3View;
+    IBOutlet UIView *tapArea4View;
+    
     IBOutlet UIImageView *bottomCircle;
     IBOutlet UIImageView *middleCircle;
     IBOutlet UIImageView *topCircle;
@@ -63,6 +69,7 @@
     NSString* lastRecordCaf;
     NSString* lastRecordWav;
     NSString* lastRecording; // the recorder pitchshifted
+    
     NSTimer* recordTimer;
     NSTimer* processTimer;
     NSTimer* playerTimer;
@@ -73,7 +80,6 @@
     AVAssetWriter *assetWriter;
     
     PitchShifter *pitchShifter;
-    IBOutlet UIImageView *backGroundView;
 }
 
 - (id)initDefaultXib;
@@ -83,16 +89,17 @@
 - (void)pauseSound;
 
 - (IBAction)centerButtonAction:(UIButton *)sender;
-- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender;
-- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender;
-- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender;
 - (IBAction)listButtonAction:(UIButton *)sender;
 - (IBAction)backButtonAction:(UIButton *)sender;
 - (IBAction)cancelButtonAction:(UIButton *)sender;
-- (IBAction)selectThirdButtonAction:(UIButton *)sender;
-- (IBAction)selectFifthButtonAction:(UIButton *)sender;
-- (IBAction)selectTriadButtonAction:(UIButton *)sender;
+- (IBAction)thirdButtonAction:(UIButton *)sender;
+- (IBAction)fifthButtonAction:(UIButton *)sender;
+- (IBAction)triadButtonAction:(UIButton *)sender;
 - (IBAction)saveButtonAction:(UIButton *)sender;
 - (IBAction)shareButtonAction:(UIButton *)sender;
+
+- (IBAction)touchDownCenterButtonEvent:(UIButton *)sender;
+- (IBAction)touchUpCenterButtonEvent:(UIButton *)sender;
+- (IBAction)touchDragOutsideCenterButtonEvent:(UIButton *)sender;
 
 @end

@@ -19,6 +19,10 @@
                 <outlet property="ring" destination="7FC-il-zPN" id="HUY-xL-NVW"/>
                 <outlet property="saveButton" destination="MK1-K5-QTJ" id="yd9-4j-5OD"/>
                 <outlet property="shareButton" destination="9MI-XY-lBr" id="Tqi-Ay-Zb5"/>
+                <outlet property="tapArea1View" destination="au4-7g-gG3" id="LHe-2f-csB"/>
+                <outlet property="tapArea2View" destination="t75-sH-zUT" id="1fF-T3-0bE"/>
+                <outlet property="tapArea3View" destination="N2L-2V-2xV" id="dRT-gJ-FDN"/>
+                <outlet property="tapArea4View" destination="Cmw-Mx-0Ey" id="gH0-v4-2i0"/>
                 <outlet property="thirdPSButton" destination="po8-Fm-BiK" id="IYx-YW-xMj"/>
                 <outlet property="topCircle" destination="dUB-ja-1zX" id="NIh-wM-15V"/>
                 <outlet property="triadPSButton" destination="x7t-i4-Jyz" id="Ekx-0V-FpD"/>
@@ -200,6 +204,30 @@
                         <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="Pog-sE-z9T"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="au4-7g-gG3" userLabel="View - Tap Area 1">
+                    <rect key="frame" x="3" y="431" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t75-sH-zUT" userLabel="View - Tap Area 2">
+                    <rect key="frame" x="93" y="429" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N2L-2V-2xV" userLabel="View - Tap Area 3">
+                    <rect key="frame" x="187" y="429" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cmw-Mx-0Ey" userLabel="View - Tap Area 4">
+                    <rect key="frame" x="271" y="431" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="po8-Fm-BiK" userLabel="Button - Third">
                     <rect key="frame" x="94" y="53" width="132" height="84"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -211,7 +239,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="selectThirdButtonAction:" destination="-1" eventType="touchUpInside" id="6ZD-sk-4lc"/>
+                        <action selector="thirdButtonAction:" destination="-1" eventType="touchUpInside" id="aPd-FM-dk1"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-D6-YSA" userLabel="Button - Fifth">
@@ -225,7 +253,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="selectFifthButtonAction:" destination="-1" eventType="touchUpInside" id="LnL-wD-Rvd"/>
+                        <action selector="fifthButtonAction:" destination="-1" eventType="touchUpInside" id="t5e-A3-iQy"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7t-i4-Jyz" userLabel="Button - Triad">
@@ -239,7 +267,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="selectTriadButtonAction:" destination="-1" eventType="touchUpInside" id="uqw-MO-2tw"/>
+                        <action selector="triadButtonAction:" destination="-1" eventType="touchUpInside" id="lD1-Uj-Bzq"/>
                     </connections>
                 </button>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_ProgressBarBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cbq-NI-OKe" userLabel="Progress Bar Background">
