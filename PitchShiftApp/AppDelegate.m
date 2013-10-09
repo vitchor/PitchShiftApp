@@ -36,10 +36,20 @@
     
     MainViewController *mainViewController = [[MainViewController alloc] initDefaultXib];
     
-    [self.navigationController pushViewController:mainViewController animated:YES];
+    [self.navigationController pushViewController:mainViewController animated:NO];
     
     // Navigation bar background image:
-    UIImage *navBackgroundImage = [UIImage imageNamed:@"PSA_0.2_Background.png"];
+    UIImage *navBackgroundImage;
+    
+    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if(screenHeight == 480){
+        // retina 3.5:
+         navBackgroundImage = [UIImage imageNamed:@"PSA_0.2_Background.png"];
+    }else if(screenHeight == 568){
+        // retina 4.0:
+         navBackgroundImage = [UIImage imageNamed:@"PSA_0.2_Background_i5.png"];
+    }
+   
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
 
     // Navigation bar title text color:

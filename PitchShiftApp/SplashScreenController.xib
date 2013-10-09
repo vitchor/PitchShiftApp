@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashScreenController">
+            <connections>
+                <outlet property="bImage" destination="W5e-CO-XKu" id="ptO-p8-9qD"/>
+                <outlet property="backGroundImage" destination="nL1-a5-Uk9" id="VO8-m0-GOU"/>
+                <outlet property="centerButton" destination="TZS-GZ-D3R" id="ZAK-kN-6dz"/>
+                <outlet property="listButton" destination="ySV-BY-8bF" id="ux3-UJ-8oZ"/>
+                <outlet property="pressToRecordLabel" destination="VxI-tp-RiM" id="0qR-VY-PgR"/>
+                <outlet property="ring" destination="zIe-gw-9uX" id="cRw-UO-aji"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_SplashScreen_640p960.png" translatesAutoresizingMaskIntoConstraints="NO" id="yvg-xd-TJn">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="aoe-tg-hHl"/>
+                        <constraint firstAttribute="height" constant="480" id="ixV-Ua-biT"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-a5-Uk9">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="FxT-Zb-aU7"/>
+                        <constraint firstAttribute="height" constant="480" id="kPg-ef-giP"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Ring.png" translatesAutoresizingMaskIntoConstraints="NO" id="zIe-gw-9uX" userLabel="Image View - Ring">
+                    <rect key="frame" x="77" y="157" width="166" height="166"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="166" id="esg-Xd-uv0"/>
+                        <constraint firstAttribute="width" constant="166" id="haT-R1-JgK"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TZS-GZ-D3R" userLabel="Button - Center Button">
+                    <rect key="frame" x="98" y="177" width="125" height="125"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="Fli-YI-0SU"/>
+                        <constraint firstAttribute="height" constant="125" id="mk4-P6-yI7"/>
+                    </constraints>
+                    <state key="normal" image="PSA_0.2_CenterButton.png"/>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS TO RECORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxI-tp-RiM" userLabel="Label - Press to Record">
+                    <rect key="frame" x="71" y="340" width="178" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="178" id="6Rb-dI-MR5"/>
+                        <constraint firstAttribute="height" constant="21" id="Lup-vc-OKb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySV-BY-8bF" userLabel="Button - List">
+                    <rect key="frame" x="286" y="446" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="PSA_0.2_ListButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_b.png" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-CO-XKu">
+                    <rect key="frame" x="37" y="175" width="64" height="77"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="77" id="aZc-bQ-4dz"/>
+                        <constraint firstAttribute="width" constant="64" id="u91-jL-wbb"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="nL1-a5-Uk9" secondAttribute="centerY" id="4SK-89-hfF"/>
+                <constraint firstAttribute="centerY" secondItem="VxI-tp-RiM" secondAttribute="centerY" constant="-110.5" id="6wS-2P-8YT"/>
+                <constraint firstAttribute="centerY" secondItem="zIe-gw-9uX" secondAttribute="centerY" id="MHO-Tp-J1v"/>
+                <constraint firstAttribute="centerX" secondItem="TZS-GZ-D3R" secondAttribute="centerX" id="Oxg-Rt-txw"/>
+                <constraint firstAttribute="centerY" secondItem="W5e-CO-XKu" secondAttribute="centerY" constant="26.5" id="UYX-uK-KrY"/>
+                <constraint firstAttribute="centerY" secondItem="TZS-GZ-D3R" secondAttribute="centerY" id="i4Y-Lb-TOK"/>
+                <constraint firstAttribute="centerX" secondItem="yvg-xd-TJn" secondAttribute="centerX" id="liP-vm-Vkp"/>
+                <constraint firstAttribute="centerX" secondItem="nL1-a5-Uk9" secondAttribute="centerX" id="mnd-2u-kpS"/>
+                <constraint firstAttribute="centerX" secondItem="W5e-CO-XKu" secondAttribute="centerX" constant="91" id="pnv-vx-Git"/>
+                <constraint firstAttribute="centerX" secondItem="zIe-gw-9uX" secondAttribute="centerX" id="riD-w4-ikl"/>
+                <constraint firstAttribute="centerY" secondItem="yvg-xd-TJn" secondAttribute="centerY" id="smt-Ii-bGV"/>
+                <constraint firstAttribute="centerX" secondItem="VxI-tp-RiM" secondAttribute="centerX" id="yun-GJ-rAh"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PSA_0.2_Background.png" width="640" height="960"/>
+        <image name="PSA_0.2_CenterButton.png" width="249" height="249"/>
+        <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
+        <image name="PSA_0.2_Ring.png" width="332" height="332"/>
+        <image name="PSA_0.2_SplashScreen_640p960.png" width="640" height="960"/>
+        <image name="PSA_0.2_b.png" width="128" height="153"/>
+    </resources>
+</document>

@@ -37,7 +37,6 @@ enum
     PROCESSING_VIEW = 3,
     PREVIEW_VIEW_NOT_PLAYING = 4,
     PREVIEW_VIEW_PLAYING = 5,
-    PLAYER_VIEW = 6,
 } currentViewState;
 
 #endif

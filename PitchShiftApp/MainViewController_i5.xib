@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -30,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLb-zF-H3o" userLabel="Background Image View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Background_i5.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLb-zF-H3o" userLabel="Background Image View">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -95,7 +95,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Ring.png" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-il-zPN" userLabel="Image View - Ring">
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_Ring_i5.png" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-il-zPN" userLabel="Image View - Ring">
                             <rect key="frame" x="77" y="201" width="166" height="166"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -128,7 +128,7 @@
                         <constraint firstAttribute="height" constant="125" id="hRg-7C-scQ"/>
                         <constraint firstAttribute="width" constant="125" id="ibO-8J-uh6"/>
                     </constraints>
-                    <state key="normal" image="PSA_0.2_CenterButton.png"/>
+                    <state key="normal" image="PSA_0.2_CenterButton_i5.png"/>
                     <connections>
                         <action selector="centerButtonAction:" destination="-1" eventType="touchUpInside" id="6vz-GD-0ot"/>
                         <action selector="touchDownCenterButtonEvent:" destination="-1" eventType="touchDown" id="NPc-od-8hg"/>
@@ -169,7 +169,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="QKi-yz-zGi"/>
                     </constraints>
-                    <state key="normal" image="PSA_0.1_ShareButton.png">
+                    <state key="normal" image="PSA_0.2_ShareButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -246,7 +246,7 @@
                     <rect key="frame" x="15" y="414" width="290" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_ProgressBarForeground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk" userLabel="Progress Bar Foreground">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSA_0.2_ProgressBarForeground_i5.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-4U-8Xk" userLabel="Progress Bar Foreground">
                     <rect key="frame" x="21" y="420" width="278" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -313,21 +313,21 @@
         </view>
     </objects>
     <resources>
-        <image name="PSA_0.1_ShareButton.png" width="90" height="109"/>
         <image name="PSA_0.2_BackButton.png" width="53" height="28"/>
-        <image name="PSA_0.2_Background.png" width="640" height="960"/>
+        <image name="PSA_0.2_Background_i5.png" width="640" height="960"/>
         <image name="PSA_0.2_CancelButton.png" width="40" height="40"/>
-        <image name="PSA_0.2_CenterButton.png" width="249" height="249"/>
+        <image name="PSA_0.2_CenterButton_i5.png" width="249" height="249"/>
         <image name="PSA_0.2_CircleBottom.png" width="608" height="608"/>
         <image name="PSA_0.2_CircleMiddle.png" width="536" height="536"/>
         <image name="PSA_0.2_CircleTop.png" width="384" height="384"/>
         <image name="PSA_0.2_KeyboardFifth.png" width="265" height="168"/>
-        <image name="PSA_0.2_KeyboardThird.png" width="265" height="168"/>
+        <image name="PSA_0.2_KeyboardThird.png" width="265" height="169"/>
         <image name="PSA_0.2_KeyboardTriad.png" width="265" height="168"/>
         <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
         <image name="PSA_0.2_ProgressBarBackground.png" width="579" height="89"/>
-        <image name="PSA_0.2_ProgressBarForeground.png" width="231" height="69"/>
-        <image name="PSA_0.2_Ring.png" width="332" height="332"/>
+        <image name="PSA_0.2_ProgressBarForeground_i5.png" width="231" height="69"/>
+        <image name="PSA_0.2_Ring_i5.png" width="332" height="332"/>
         <image name="PSA_0.2_SaveButton.png" width="41" height="61"/>
+        <image name="PSA_0.2_ShareButton.png" width="51" height="61"/>
     </resources>
 </document>

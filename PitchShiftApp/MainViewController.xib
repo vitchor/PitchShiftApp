@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -169,7 +169,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="QKi-yz-zGi"/>
                     </constraints>
-                    <state key="normal" image="PSA_0.1_ShareButton.png">
+                    <state key="normal" image="PSA_0.2_ShareButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -316,7 +316,6 @@
         </view>
     </objects>
     <resources>
-        <image name="PSA_0.1_ShareButton.png" width="90" height="109"/>
         <image name="PSA_0.2_BackButton.png" width="53" height="28"/>
         <image name="PSA_0.2_Background.png" width="640" height="960"/>
         <image name="PSA_0.2_CancelButton.png" width="40" height="40"/>
@@ -324,13 +323,14 @@
         <image name="PSA_0.2_CircleBottom.png" width="608" height="608"/>
         <image name="PSA_0.2_CircleMiddle.png" width="536" height="536"/>
         <image name="PSA_0.2_CircleTop.png" width="384" height="384"/>
-        <image name="PSA_0.2_KeyboardFifth.png" width="882" height="563"/>
-        <image name="PSA_0.2_KeyboardThird.png" width="265" height="168"/>
+        <image name="PSA_0.2_KeyboardFifth.png" width="265" height="168"/>
+        <image name="PSA_0.2_KeyboardThird.png" width="265" height="169"/>
         <image name="PSA_0.2_KeyboardTriad.png" width="265" height="168"/>
         <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
         <image name="PSA_0.2_ProgressBarBackground.png" width="579" height="89"/>
         <image name="PSA_0.2_ProgressBarForeground.png" width="231" height="69"/>
         <image name="PSA_0.2_Ring.png" width="332" height="332"/>
         <image name="PSA_0.2_SaveButton.png" width="41" height="61"/>
+        <image name="PSA_0.2_ShareButton.png" width="51" height="61"/>
     </resources>
 </document>

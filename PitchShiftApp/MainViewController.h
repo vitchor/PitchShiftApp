@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+#import "SplashScreenController.h"
 #import "PitchShifter.h"
 #import "TracksTableViewController.h"
 #import "SCUI.h"
@@ -32,6 +33,8 @@
     float botCircleScale;
     float midCircleScale;
     float topCircleScale;
+    float screenHeight;
+
     double lowPassResults;
     bool startedPlaying;
     bool isProcessing;

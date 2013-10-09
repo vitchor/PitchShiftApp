@@ -11,7 +11,7 @@
 @implementation MainViewController
 
 - (id)initDefaultXib{
-    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    screenHeight = [UIScreen mainScreen].bounds.size.height;
     if(screenHeight == 480){
         // retina 3.5:
         self = [super initWithNibName:@"MainViewController" bundle:nil];
@@ -24,29 +24,6 @@
         [self customInit];
     }
     return self;
-}
-
--(void) customInit{
-    lastRecordCaf = @"_buffer.caf";
-    lastRecordWav = @"_buffer.wav";
-    lastRecording = @"Last recording.wav";
-}
-
--(void) eraseBuffers{
-    [self eraseFile:lastRecordCaf];
-    [self eraseFile:lastRecordWav];
-}
-
--(void) eraseFile:(NSString*) fileName{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fullPath = [[documentsDirectory stringByAppendingString:@"/"] stringByAppendingString:fileName];
-    if([[NSFileManager defaultManager] fileExistsAtPath:fullPath]){
-        [[NSFileManager defaultManager] removeItemAtPath:fullPath error:nil];
-        NSLog(@"==== deleted file at path: %@", fullPath);
-    }else{
-        NSLog(@"==== there is no file to be deleted at path: %@", fullPath);
-    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,18 +40,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    if (screenBounds.size.height == 568) {
+    SplashScreenController *splashScreenController = [[SplashScreenController alloc] initDefaultXib];
+    [self.navigationController pushViewController:splashScreenController animated:NO];
     
-        [backGroundView setImage:[UIImage imageNamed:@"TESTE DE COR 4  IPHONE 5.png"]];
-        [centerButton setImage:[UIImage imageNamed:@"TESTE BOTAO IPHONE 5.png"] forState:UIControlStateNormal];
-        centerButton.alpha = 0.5;
-    }
-
-        
     recordEncoding = ENC_PCM;
     currentViewState = INITIAL_VIEW;
     fadingTime = FADING_TIME_DEFAULT;
+    screenHeight = [UIScreen mainScreen].bounds.size.height;
     
     botCircleScale = 1.0;
     midCircleScale = 1.0;
@@ -121,6 +93,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) customInit{
+    lastRecordCaf = @"_buffer.caf";
+    lastRecordWav = @"_buffer.wav";
+    lastRecording = @"Last recording.wav";
+}
+
+-(void) eraseBuffers{
+    [self eraseFile:lastRecordCaf];
+    [self eraseFile:lastRecordWav];
+}
+
+-(void) eraseFile:(NSString*) fileName{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fullPath = [[documentsDirectory stringByAppendingString:@"/"] stringByAppendingString:fileName];
+    if([[NSFileManager defaultManager] fileExistsAtPath:fullPath]){
+        [[NSFileManager defaultManager] removeItemAtPath:fullPath error:nil];
+        NSLog(@"==== deleted file at path: %@", fullPath);
+    }else{
+        NSLog(@"==== there is no file to be deleted at path: %@", fullPath);
+    }
 }
 
 -(void)setupXib:(int)state
@@ -209,8 +204,17 @@
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
                     
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
-                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
+                    if(screenHeight == 480){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
+                        
+                    }else if(screenHeight == 568){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton_i5.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring_i5.png"]];
+                        
+                    }
 
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
@@ -242,8 +246,17 @@
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
                     
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
-                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
+                    if(screenHeight == 480){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
+                        
+                    }else if(screenHeight == 568){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton_i5.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning_i5.png"]];
+                        
+                    }
                     
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
@@ -305,9 +318,18 @@
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
 
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
-                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
-
+                    if(screenHeight == 480){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
+                        
+                    }else if(screenHeight == 568){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton_i5.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning_i5.png"]];
+                        
+                    }
+                    
                     centerButton.alpha = 1.0;
                     ring.alpha = 1.0;
                     progressBar.alpha = 1.0;
@@ -340,9 +362,18 @@
                     [triadPSButton setHidden:YES];
                     [listButton setHidden:YES];
                    
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
-                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
-
+                    if(screenHeight == 480){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring.png"]];
+                        
+                    }else if(screenHeight == 568){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton_i5.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_Ring_i5.png"]];
+                        
+                    }
+                    
                     centerButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
                     backButton.alpha = 1.0;
@@ -375,8 +406,16 @@
                     [triadPSButton setHidden:YES];
                     [listButton setHidden:YES];
             
-                    [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
-                    [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
+                    if(screenHeight == 480){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning.png"]];
+                        
+                    }else if(screenHeight == 568){
+                        
+                        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton_i5.png"] forState:UIControlStateNormal];
+                        [ring setImage:[UIImage imageNamed:@"PSA_0.2_RingSpinning_i5.png"]];
+                    }
                     
                     centerButton.alpha = 1.0;
                     cancelButton.alpha = 1.0;
@@ -386,33 +425,6 @@
                     shareButton.alpha = 1.0;
                     
                     currentViewState = PREVIEW_VIEW_PLAYING;
-                    
-                    break;
-                    
-                case PLAYER_VIEW:
-                    
-                    centerButton.transform = CGAffineTransformIdentity;
-                    [centerButton setHidden:NO];
-                    [ring setHidden:NO];
-                    [cancelButton setHidden:NO];
-                    [backButton setHidden:NO];
-                    
-                    [centerTextLabel setHidden:YES];
-                    [progressBarBackground setHidden:YES];
-                    [progressBar setHidden:YES];
-                    [bottomCircle setHidden:YES];
-                    [middleCircle setHidden:YES];
-                    [topCircle setHidden:YES];
-                    [thirdPSButton setHidden:YES];
-                    [fifthPSButton setHidden:YES];
-                    [triadPSButton setHidden:YES];
-                    
-                    centerButton.alpha = 1.0;
-                    ring.alpha = 1.0;
-                    cancelButton.alpha = 1.0;
-                    backButton.alpha = 1.0;
-            
-                    currentViewState = PLAYER_VIEW;
                     
                     break;
                     
@@ -454,14 +466,31 @@
     
     if (centerButton.state == UIControlStateNormal) {
         
-        if(currentViewState == INITIAL_VIEW || currentViewState == PROCESSING_VIEW)
-            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
-
-        else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING)
-            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+        if(currentViewState == INITIAL_VIEW || currentViewState == PROCESSING_VIEW){
+            if(screenHeight == 480)
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+                
+            else if(screenHeight == 568)
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton_i5.png"] forState:UIControlStateNormal];
+        }
         
-        else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING )
-            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+
+        else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING){
+            if(screenHeight == 480)
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+            
+            else if(screenHeight == 568)
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton_i5.png"] forState:UIControlStateNormal];
+        }
+
+        
+        else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING){
+            if(screenHeight == 480)
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+            
+            else if(screenHeight == 568)
+                [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton_i5.png"] forState:UIControlStateNormal];
+        }
         
         
         [UIView animateWithDuration:0.1 animations:^{
@@ -972,15 +1001,24 @@
 
 - (void) touchUpCenterButtonAnimation {
     
-    if(currentViewState == INITIAL_VIEW)
-        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
-    
-    else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING)
-        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
-    
-    else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING )
-        [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
-    
+    if(currentViewState == INITIAL_VIEW){
+        if(screenHeight == 480)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton.png"] forState:UIControlStateNormal];
+        else if(screenHeight == 568)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_CenterButton_i5.png"] forState:UIControlStateNormal];
+    }
+    else if (currentViewState == PREVIEW_VIEW_NOT_PLAYING){
+        if(screenHeight == 480)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton.png"] forState:UIControlStateNormal];
+        else if(screenHeight == 568)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_PlayButton_i5.png"] forState:UIControlStateNormal];
+    }
+    else if (currentViewState == RECORDING_VIEW || currentViewState == PREVIEW_VIEW_PLAYING){
+        if(screenHeight == 480)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+        else if(screenHeight == 568)
+            [centerButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton_i5.png"] forState:UIControlStateNormal];
+    }
     
     [UIView animateWithDuration:0.1 animations:^{
         centerButton.transform = CGAffineTransformIdentity;
@@ -1028,12 +1066,6 @@
         case PREVIEW_VIEW_PLAYING:
             
             [self stopSound];
-            
-            break;
-            
-        case PLAYER_VIEW:
-            
-            // do player selected sound
             
             break;
             
@@ -1097,10 +1129,6 @@
             
         case PREVIEW_VIEW_PLAYING:
             [self setupXib:SELECTING_EFFECT_VIEW];
-            break;
-            
-        case PLAYER_VIEW:
-            [self setupXib:INITIAL_VIEW];
             break;
             
         default:
@@ -1204,7 +1232,7 @@
 
     [shareViewController setPrivate:YES];
     [shareViewController setCreationDate:sourceDate];
-    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon.png"]];
+    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon_Large.png"]];
     
     // Now present the share view controller.
     [self presentModalViewController:shareViewController animated:YES];

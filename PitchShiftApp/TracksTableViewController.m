@@ -50,7 +50,18 @@
     [self.tracksTableView setDataSource:self];
     
     //Changes background image:
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"PSA_0.2_Background.png"]];
+    
+    UIColor *background;
+    
+    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if(screenHeight == 480){
+        // retina 3.5:
+        background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"PSA_0.2_Background.png"]];
+    }else if(screenHeight == 568){
+        // retina 4.0:
+        background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"PSA_0.2_Background_i5.png"]];
+    }
+
     self.tracksTableView.backgroundColor = background;
     self.view.tintColor = [UIColor whiteColor];
 }
