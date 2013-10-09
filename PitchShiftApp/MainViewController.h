@@ -24,6 +24,7 @@
 #define TOP_CIRCLE_MAX_SIZE 242.0
 #define FADING_TIME_DEFAULT 0.25
 #define FADING_TIME_PS_BUTTONS 0.75
+#define RECORDING_MIN_DURATION 1.0 //in seconds
 
 @interface MainViewController : UIViewController{
     
