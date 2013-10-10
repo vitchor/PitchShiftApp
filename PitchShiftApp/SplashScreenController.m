@@ -54,7 +54,7 @@
         
     }completion:^(BOOL finished){
         
-        [UIView animateWithDuration:1.5 animations:^{
+        [UIView animateWithDuration:1.0 animations:^{
         
             float screenHeight = [UIScreen mainScreen].bounds.size.height;
             if(screenHeight == 480){
