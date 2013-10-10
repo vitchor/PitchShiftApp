@@ -99,4 +99,12 @@
     [Flurry logEvent:event];
 }
 
+-(void) logEvent:(NSString *) event withParameters:(NSString*)soundCloudLink{
+    NSDictionary *articleParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   soundCloudLink, @"Sound Cloud Link",
+                                   nil];
+    
+    [Flurry logEvent:event withParameters:articleParams];
+}
+
 @end

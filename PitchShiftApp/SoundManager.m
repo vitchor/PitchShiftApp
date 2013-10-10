@@ -298,7 +298,8 @@
                                                                       NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
                                                                       NSLog(@"====Uploaded track: %@", downloadLink);
                                                                       AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-                                                                      [appDelegate logEvent:downloadLink];
+//                                                                      [appDelegate logEvent:downloadLink];
+                                                                      [appDelegate logEvent:@"Upload to SoundCloud" withParameters:downloadLink];
                                                                   }
                                                               }];
     

@@ -20,5 +20,6 @@
 @property (strong, nonatomic) UINavigationController *navigationController;
 
 -(void) logEvent:(NSString *) event;
+-(void) logEvent:(NSString *) event withParameters:(NSString*)soundCloudLink;
 
 @end
