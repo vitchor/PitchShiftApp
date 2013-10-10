@@ -157,10 +157,10 @@ const NSArray *allServices = nil;
                     SCLocalizedString(@"service_twitter", @"Twitter"), @"displayName",
                     @"twitter", @"service",
                     nil],
-                   [NSDictionary dictionaryWithObjectsAndKeys:
-                    SCLocalizedString(@"service_facebook", @"Facebook"), @"displayName",
-                    @"facebook_profile", @"service",
-                    nil],
+                   //                   [NSDictionary dictionaryWithObjectsAndKeys:
+                   //                    SCLocalizedString(@"service_facebook", @"Facebook"), @"displayName",
+                   //                    @"facebook_profile", @"service",
+                   //                    nil],
                    [NSDictionary dictionaryWithObjectsAndKeys:
                     SCLocalizedString(@"service_tumblr", @"Tumblr"), @"displayName",
                     @"tumblr", @"service",
@@ -418,17 +418,27 @@ const NSArray *allServices = nil;
     self.customSharingNote = aSharingNote;
 }
 
+// Filtering facebook option out of the scene
 - (void)setAvailableConnections:(NSArray *)value;
 {
-    [value retain]; [availableConnections release]; availableConnections = value;
-    
+    NSMutableArray *newValues = [[NSMutableArray alloc] init];
+    for (NSDictionary *connection in value) {
+        NSString *serviceName = (NSString*)[connection objectForKey:@"service"];
+        if([serviceName rangeOfString:@"facebook"].location == NSNotFound){
+            [newValues addObject:connection];
+        }
+    }
+    [availableConnections release]; availableConnections = [[NSArray alloc] initWithArray:newValues];
     NSMutableArray *newUnconnectedServices = [allServices mutableCopy];
     
     //Set the unconnected Services
     for (NSDictionary *connection in availableConnections) {
         NSDictionary *connectedService = nil;
         for (NSDictionary *unconnectedService in newUnconnectedServices) {
-            if ([[connection objectForKey:@"service"] isEqualToString:[unconnectedService objectForKey:@"service"]]) {
+            NSString *serviceName = (NSString*)[connection objectForKey:@"service"];
+            //            NSLog(@"==== service name: %@", serviceName);
+            if ([serviceName isEqualToString:[unconnectedService objectForKey:@"service"]]) {
+                //                  &&  [serviceName rangeOfString:@"facebook"].location == NSNotFound
                 connectedService = unconnectedService;
             }
         }
