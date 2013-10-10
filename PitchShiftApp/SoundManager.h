@@ -8,6 +8,8 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+#import "SCUI.h"
+#import "AppDelegate.h"
 
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
 
@@ -26,6 +28,7 @@
 - (void)playSound:(NSString*) outWavName;
 - (void)pauseSound;
 - (void)stopSound;
+-(UIViewController*) shareOnSoundCloudWithString:(NSString*)songName shouldLog:(BOOL)shouldLog;
 
 // NOT TESTED:
 - (void) startRecordingSound;

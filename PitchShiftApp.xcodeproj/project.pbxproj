@@ -17,6 +17,10 @@
 		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
 		1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C903017FB007800FFD282 /* TracksTableViewCell.m */; };
 		1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */; };
+		1FA6E9F71806D4130072BC18 /* libFlurry_4.2.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6E9F61806D4130072BC18 /* libFlurry_4.2.4.a */; };
+		1FA6E9FE1806D5370072BC18 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6E9FD1806D5370072BC18 /* SystemConfiguration.framework */; };
+		1FA6EA001806D5570072BC18 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6E9FF1806D5570072BC18 /* AdSupport.framework */; };
+		1FA6EA061806F2F60072BC18 /* SelectorBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6EA051806F2F60072BC18 /* SelectorBuilder.m */; };
 		1FD9266B17FDA7D2006FDA0F /* TracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */; };
 		1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8870217FC9E6B00833D22 /* SoundManager.m */; };
 		7B2F3E711804D96B001CB577 /* PSA_0.2_RingSpinning.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2F3E701804D96B001CB577 /* PSA_0.2_RingSpinning.png */; };
@@ -221,6 +225,18 @@
 		1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewCell.h; sourceTree = "<group>"; };
 		1F8C903017FB007800FFD282 /* TracksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewCell.m; sourceTree = "<group>"; };
 		1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		1FA6E9F51806D4130072BC18 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = PitchShiftApp/Flurry/Flurry.h; sourceTree = "<group>"; };
+		1FA6E9F61806D4130072BC18 /* libFlurry_4.2.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_4.2.4.a; path = PitchShiftApp/Flurry/libFlurry_4.2.4.a; sourceTree = "<group>"; };
+		1FA6E9FD1806D5370072BC18 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1FA6E9FF1806D5570072BC18 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		1FA6EA041806F2F60072BC18 /* SelectorBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorBuilder.h; sourceTree = "<group>"; };
+		1FA6EA051806F2F60072BC18 /* SelectorBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectorBuilder.m; sourceTree = "<group>"; };
+		1FD9267017FDA8BC006FDA0F /* PSA_0.2_ListDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListDelete.png; sourceTree = "<group>"; };
+		1FD9267117FDA8BC006FDA0F /* PSA_0.2_ListPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListPlay.png; sourceTree = "<group>"; };
+		1FD9267217FDA8BC006FDA0F /* PSA_0.2_ListShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListShare.png; sourceTree = "<group>"; };
+>>>>>>> 401f988bda06bc1435fdbb5daa14afa3ad659593
 		1FE8870117FC9E6B00833D22 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		1FE8870217FC9E6B00833D22 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		7B2F3E701804D96B001CB577 /* PSA_0.2_RingSpinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_RingSpinning.png; sourceTree = "<group>"; };
@@ -317,14 +333,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA6EA001806D5570072BC18 /* AdSupport.framework in Frameworks */,
+				7BD76A1117FB1102003B7CC9 /* Security.framework in Frameworks */,
+				1FA6E9FE1806D5370072BC18 /* SystemConfiguration.framework in Frameworks */,
 				1F183EB817FC96FB0002470C /* UIKit.framework in Frameworks */,
 				1F183EB217FC94F40002470C /* CoreMedia.framework in Frameworks */,
 				7BD76A1317FB110F003B7CC9 /* CoreText.framework in Frameworks */,
 				1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */,
 				1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */,
 				ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */,
-				7BD76A1117FB1102003B7CC9 /* Security.framework in Frameworks */,
 				7BD76A0F17FB10FB003B7CC9 /* CoreLocation.framework in Frameworks */,
+				1FA6E9F71806D4130072BC18 /* libFlurry_4.2.4.a in Frameworks */,
 				7BD76A0C17FB10F4003B7CC9 /* AddressBook.framework in Frameworks */,
 				7BD76A0D17FB10F4003B7CC9 /* AddressBookUI.framework in Frameworks */,
 				7BD76A0917FB10E4003B7CC9 /* QuartzCore.framework in Frameworks */,
@@ -370,6 +389,7 @@
 		1F8C8FFB17FA109800FFD282 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				1FA6EA031806F2AE0072BC18 /* SelectorBuilder */,
 				1F4B414E17FF4ABA0046DF86 /* InputAlertView */,
 				1F4B413E17FEFBA60046DF86 /* Settings */,
 				1FE8870017FC9E0E00833D22 /* SoundManager */,
@@ -401,6 +421,24 @@
 				1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */,
 			);
 			name = TracksViewController;
+			sourceTree = "<group>";
+		};
+		1FA6E9FC1806D4200072BC18 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				1FA6E9F51806D4130072BC18 /* Flurry.h */,
+				1FA6E9F61806D4130072BC18 /* libFlurry_4.2.4.a */,
+			);
+			name = Flurry;
+			sourceTree = "<group>";
+		};
+		1FA6EA031806F2AE0072BC18 /* SelectorBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				1FA6EA041806F2F60072BC18 /* SelectorBuilder.h */,
+				1FA6EA051806F2F60072BC18 /* SelectorBuilder.m */,
+			);
+			name = SelectorBuilder;
 			sourceTree = "<group>";
 		};
 		1FE8870017FC9E0E00833D22 /* SoundManager */ = {
@@ -618,6 +656,7 @@
 			children = (
 				7BD76A0A17FB10F4003B7CC9 /* AddressBook.framework */,
 				7BD76A0B17FB10F4003B7CC9 /* AddressBookUI.framework */,
+				1FA6E9FF1806D5570072BC18 /* AdSupport.framework */,
 				1F8C900017FA1E4300FFD282 /* AVFoundation.framework */,
 				1F8C900217FA1F7900FFD282 /* CoreAudio.framework */,
 				ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */,
@@ -627,6 +666,7 @@
 				ACE6EEA017E8BF8500E818A0 /* Foundation.framework */,
 				7BD76A0817FB10E4003B7CC9 /* QuartzCore.framework */,
 				7BD76A1017FB1102003B7CC9 /* Security.framework */,
+				1FA6E9FD1806D5370072BC18 /* SystemConfiguration.framework */,
 				1F183EB717FC96FB0002470C /* UIKit.framework */,
 				ACE6EEB917E8BF8500E818A0 /* XCTest.framework */,
 				7BD769E317FB0F4E003B7CC9 /* JSONKit.xcodeproj */,
@@ -634,6 +674,7 @@
 				7BD769F517FB0F62003B7CC9 /* OHAttributedLabel.xcodeproj */,
 				7B92B24217FB0E100002208F /* SoundCloudAPI.xcodeproj */,
 				7BD769D917FB0EC8003B7CC9 /* SoundCloudUI.xcodeproj */,
+				1FA6E9FC1806D4200072BC18 /* Flurry */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -928,6 +969,7 @@
 				AC7807A417EB99A80094711F /* MainViewController.m in Sources */,
 				7B888F3F1804E13B00CA61FF /* SplashScreenController.m in Sources */,
 				ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */,
+				1FA6EA061806F2F60072BC18 /* SelectorBuilder.m in Sources */,
 				1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */,
 				1F4B415517FF4AE70046DF86 /* InputAlertView.m in Sources */,
 				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
@@ -1103,6 +1145,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
+					/Users/marcelosalloum/workspace/PitchShiftApp/PitchShiftApp/Flurry,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1133,6 +1176,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
+					/Users/marcelosalloum/workspace/PitchShiftApp/PitchShiftApp/Flurry,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";

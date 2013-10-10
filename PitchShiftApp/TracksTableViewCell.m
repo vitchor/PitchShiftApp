@@ -59,47 +59,8 @@
 
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    
-    NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath =  [directoryPath objectAtIndex:0];
-    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:self.trackNameLabel.text];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:outWavPath] == YES) {
-        NSLog(@"File exists: %@",outWavPath);
-    } else {
-        NSLog(@"File does not exist: %@",outWavPath);
-    }
-    
-    NSURL *trackURL = [NSURL fileURLWithPath:outWavPath];
-    
-    SCShareViewController *shareViewController;
-    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
-                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
-                                                              
-      if (SC_CANCELED(error)) {
-          NSLog(@"Canceled!");
-      } else if (error) {
-          NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
-      } else {
-          NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
-          NSLog(@"====Uploaded track: %@", downloadLink);
-      }
-          
-    }];
-    
-    [shareViewController setTitle:self.trackNameLabel.text];
-    [shareViewController setPrivate:YES];
-    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon_Large.png"]];
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"6.0")) {
-        [self.tracksController presentModalViewController:shareViewController animated:YES];
-    }else{
-        [self.tracksController presentViewController:shareViewController animated:YES completion:nil];
-    }
+    UIViewController *sCSharingImageView = [soundManager shareOnSoundCloudWithString:self.trackNameLabel.text shouldLog:NO];
+    [self.tracksController presentViewController:sCSharingImageView animated:YES completion:nil];
 }
 
 //Sharing options through iOS SDK

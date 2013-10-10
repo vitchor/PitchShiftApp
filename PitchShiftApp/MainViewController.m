@@ -1128,14 +1128,22 @@
 }
 
 - (IBAction)listButtonAction:(UIButton *)sender{
-    
-//    TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initWithNibName:@"TracksTableViewController" bundle:nil];
     TracksTableViewController *trackTableViewController = [[TracksTableViewController alloc] initDefaultXib];
-    
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:trackTableViewController animated:YES];
-    
+
+//    NSLog(@" ==== 0 listButtonAction");
+//    SelectorBuilder *buildSelector = [SelectorBuilder sharedInstance];
+//    SEL aSelector = @selector(returnMethod:);
+//    NSMutableArray *inputArray = [[NSMutableArray alloc] init];
+//    [inputArray addObject:@"that's me, mario. I've found a mathod to return =)"];
+//    NSArray *inArray = [NSArray arrayWithArray:inputArray];
+//    [buildSelector doGeneralStuff:aSelector withContext:inArray];
 }
+
+//-(void) returnMethod:(NSString*)inputString{
+//    NSLog(@" ==== 1 ReturnMethod: %@", inputString);
+//}
 
 - (IBAction)backButtonAction:(UIButton *)sender {
     
@@ -1234,52 +1242,11 @@
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    
-    NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath =  [directoryPath objectAtIndex:0];
-    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:lastRecording];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:outWavPath] == YES) {
-        NSLog(@"File exists: %@",outWavPath);
-    } else {
-        NSLog(@"File does not exist: %@",outWavPath);
-    }
-    
-    NSURL *trackURL = [NSURL fileURLWithPath:outWavPath];
-    
-    SCShareViewController *shareViewController;
-    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
-                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
-                                                                  
-          if (SC_CANCELED(error)) {
-              NSLog(@"Canceled!");
-          } else if (error) {
-              NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
-          } else {
-              // If you want to do something with the uploaded
-              // track this is the right place for that.
-              NSLog(@"Uploaded track: %@", trackInfo);
-          }
-          
-      }];
-
-    NSDate* sourceDate = [NSDate date];
-    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
-    [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm"];
-    NSString *dateStr = [dateFormatters stringFromDate: sourceDate];
-    [shareViewController setTitle:[NSString stringWithFormat:@"Back Vocal Sound %@",dateStr]];
-
-    [shareViewController setPrivate:YES];
-    [shareViewController setCreationDate:sourceDate];
-    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon_Large.png"]];
-    
-    // Now present the share view controller.
-    [self presentModalViewController:shareViewController animated:YES];
+    SoundManager *soundManager = [[SoundManager alloc] init];
+    UIViewController *sCSharingImageView = [soundManager shareOnSoundCloudWithString:lastRecording shouldLog:NO];
+    [self presentViewController:sCSharingImageView animated:YES completion:nil];
 }
+
 
 - (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
     [self touchDownCenterButtonAnimation];

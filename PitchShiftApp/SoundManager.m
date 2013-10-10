@@ -266,4 +266,56 @@
     return YES;
 }
 
+-(UIViewController*) shareOnSoundCloudWithString:(NSString*)songName shouldLog:(BOOL)shouldLog{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
+    NSArray *directoryPath = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath =  [directoryPath objectAtIndex:0];
+    NSString *outWavPath = [[documentsPath stringByAppendingString:@"/"] stringByAppendingString:songName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if(shouldLog){
+        if ([fileManager fileExistsAtPath:outWavPath] == YES) {
+            NSLog(@"File exists: %@",outWavPath);
+        } else {
+            NSLog(@"File does not exist: %@",outWavPath);
+        }
+    }
+    
+    NSURL *trackURL = [NSURL fileURLWithPath:outWavPath];
+    SCShareViewController *shareViewController;
+    shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
+                                                              completionHandler:^(NSDictionary *trackInfo, NSError *error){
+                                                                  if (SC_CANCELED(error)) {
+                                                                      if (shouldLog) NSLog(@"Canceled!");
+                                                                  } else if (error) {
+                                                                      if (shouldLog) NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                                                                  } else {
+                                                                      // If you want to do something with the uploaded
+                                                                      // track this is the right place for that.
+                                                                      NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
+                                                                      NSLog(@"====Uploaded track: %@", downloadLink);
+                                                                      AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+//                                                                      [appDelegate logEvent:downloadLink];
+                                                                      [appDelegate logEvent:@"Upload to SoundCloud" withParameters:downloadLink];
+                                                                  }
+                                                              }];
+    
+    NSDate* sourceDate = [NSDate date];
+    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
+    [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *dateStr = [dateFormatters stringFromDate: sourceDate];
+    [shareViewController setTitle:[NSString stringWithFormat:@"Back Vocal Sound %@",dateStr]];
+    
+    [shareViewController setPrivate:NO];
+    [shareViewController setCreationDate:sourceDate];
+    [shareViewController setCoverImage:[UIImage imageNamed:@"PSA_0.2_AppIcon_Large.png"]];
+    
+    // Now present the share view controller.
+    //    [self presentViewController:shareViewController animated:YES completion:nil];
+    return shareViewController;
+}
+
 @end
