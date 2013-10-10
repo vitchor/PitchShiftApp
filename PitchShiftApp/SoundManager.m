@@ -297,7 +297,8 @@
                                                                       // track this is the right place for that.
                                                                       NSString *downloadLink = [trackInfo objectForKey:@"permalink_url"];
                                                                       NSLog(@"====Uploaded track: %@", downloadLink);
-                                                                      [Flurry logEvent:downloadLink];
+                                                                      AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                                                                      [appDelegate logEvent:downloadLink];
                                                                   }
                                                               }];
     

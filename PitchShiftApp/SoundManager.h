@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "SCUI.h"
-#import "Flurry.h"
+#import "AppDelegate.h"
 
 #define GLOBAL_AUDIO_SAMPLE_RATE  48000.0
 
