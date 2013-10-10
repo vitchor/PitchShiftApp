@@ -14,7 +14,6 @@
 #import "PitchShifter.h"
 #import "SoundManager.h"
 #import "InputAlertView.h"
-#import "SCUI.h"
 
 #define PROGRESS_BAR_FULL_WIDTH 240.0
 #define BOT_CIRCLE_MIN_SIZE 304.0

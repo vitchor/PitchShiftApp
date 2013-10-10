@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "PitchShifter.h"
 #import "SCUI.h"
+#import "Flurry.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
