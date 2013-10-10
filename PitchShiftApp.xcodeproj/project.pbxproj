@@ -342,6 +342,7 @@
 				1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */,
 				1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */,
 				ACE6EEA317E8BF8500E818A0 /* CoreGraphics.framework in Frameworks */,
+				7BD76A1117FB1102003B7CC9 /* Security.framework in Frameworks */,
 				7BD76A0F17FB10FB003B7CC9 /* CoreLocation.framework in Frameworks */,
 				1FA6E9F71806D4130072BC18 /* libFlurry_4.2.4.a in Frameworks */,
 				7BD76A0C17FB10F4003B7CC9 /* AddressBook.framework in Frameworks */,
