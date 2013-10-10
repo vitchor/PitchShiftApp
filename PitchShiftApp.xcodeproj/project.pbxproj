@@ -22,9 +22,6 @@
 		1FA6EA001806D5570072BC18 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6E9FF1806D5570072BC18 /* AdSupport.framework */; };
 		1FA6EA061806F2F60072BC18 /* SelectorBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6EA051806F2F60072BC18 /* SelectorBuilder.m */; };
 		1FD9266B17FDA7D2006FDA0F /* TracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8C902C17FB004300FFD282 /* TracksTableViewController.xib */; };
-		1FD9267317FDA8BC006FDA0F /* PSA_0.2_ListDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9267017FDA8BC006FDA0F /* PSA_0.2_ListDelete.png */; };
-		1FD9267417FDA8BC006FDA0F /* PSA_0.2_ListPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9267117FDA8BC006FDA0F /* PSA_0.2_ListPlay.png */; };
-		1FD9267517FDA8BC006FDA0F /* PSA_0.2_ListShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9267217FDA8BC006FDA0F /* PSA_0.2_ListShare.png */; };
 		1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8870217FC9E6B00833D22 /* SoundManager.m */; };
 		7B2F3E711804D96B001CB577 /* PSA_0.2_RingSpinning.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2F3E701804D96B001CB577 /* PSA_0.2_RingSpinning.png */; };
 		7B2F3E731804D9CE001CB577 /* PSA_0.2_RingSpinning_i5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2F3E721804D9CE001CB577 /* PSA_0.2_RingSpinning_i5.png */; };
@@ -63,6 +60,10 @@
 		7BD76A0F17FB10FB003B7CC9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */; };
 		7BD76A1117FB1102003B7CC9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A1017FB1102003B7CC9 /* Security.framework */; };
 		7BD76A1317FB110F003B7CC9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD76A1217FB110F003B7CC9 /* CoreText.framework */; };
+		7BF8AF1218076B97005F3774 /* PSA_0.2_ListStopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF8AF0F18076B97005F3774 /* PSA_0.2_ListStopButton.png */; };
+		7BF8AF1318076B97005F3774 /* PSA_0.2_ListShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF8AF1018076B97005F3774 /* PSA_0.2_ListShareButton.png */; };
+		7BF8AF1418076B97005F3774 /* PSA_0.2_ListDeleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF8AF1118076B97005F3774 /* PSA_0.2_ListDeleteButton.png */; };
+		7BF8AF1618076BAF005F3774 /* PSA_0.2_ListPlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF8AF1518076BAF005F3774 /* PSA_0.2_ListPlayButton.png */; };
 		AC7807A417EB99A80094711F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7807A217EB99A80094711F /* MainViewController.m */; };
 		AC7807A517EB99A80094711F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7807A317EB99A80094711F /* MainViewController.xib */; };
 		ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACD2B9C717E8D1A20052A96A /* PitchShiftIterative.cpp */; };
@@ -80,7 +81,6 @@
 		ACE39A0017FAFD3200AAB6F2 /* PSA_0.2_SaveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EA17FAFD3200AAB6F2 /* PSA_0.2_SaveButton.png */; };
 		ACE39A0217FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EC17FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png */; };
 		ACE39A0317FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */; };
-		ACE39A0417FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */; };
 		ACE39A0517FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */; };
 		ACE39A0617FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */; };
 		ACE39A0717FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */; };
@@ -225,18 +225,12 @@
 		1F8C902F17FB007800FFD282 /* TracksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewCell.h; sourceTree = "<group>"; };
 		1F8C903017FB007800FFD282 /* TracksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksTableViewCell.m; sourceTree = "<group>"; };
 		1F8C903617FB0C3800FFD282 /* TracksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		1FA6E9F51806D4130072BC18 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = PitchShiftApp/Flurry/Flurry.h; sourceTree = "<group>"; };
 		1FA6E9F61806D4130072BC18 /* libFlurry_4.2.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_4.2.4.a; path = PitchShiftApp/Flurry/libFlurry_4.2.4.a; sourceTree = "<group>"; };
 		1FA6E9FD1806D5370072BC18 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1FA6E9FF1806D5570072BC18 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		1FA6EA041806F2F60072BC18 /* SelectorBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorBuilder.h; sourceTree = "<group>"; };
 		1FA6EA051806F2F60072BC18 /* SelectorBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectorBuilder.m; sourceTree = "<group>"; };
-		1FD9267017FDA8BC006FDA0F /* PSA_0.2_ListDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListDelete.png; sourceTree = "<group>"; };
-		1FD9267117FDA8BC006FDA0F /* PSA_0.2_ListPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListPlay.png; sourceTree = "<group>"; };
-		1FD9267217FDA8BC006FDA0F /* PSA_0.2_ListShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListShare.png; sourceTree = "<group>"; };
->>>>>>> 401f988bda06bc1435fdbb5daa14afa3ad659593
 		1FE8870117FC9E6B00833D22 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		1FE8870217FC9E6B00833D22 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		7B2F3E701804D96B001CB577 /* PSA_0.2_RingSpinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_RingSpinning.png; sourceTree = "<group>"; };
@@ -277,6 +271,10 @@
 		7BD76A0E17FB10FB003B7CC9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7BD76A1017FB1102003B7CC9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7BD76A1217FB110F003B7CC9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7BF8AF0F18076B97005F3774 /* PSA_0.2_ListStopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListStopButton.png; sourceTree = "<group>"; };
+		7BF8AF1018076B97005F3774 /* PSA_0.2_ListShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListShareButton.png; sourceTree = "<group>"; };
+		7BF8AF1118076B97005F3774 /* PSA_0.2_ListDeleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListDeleteButton.png; sourceTree = "<group>"; };
+		7BF8AF1518076BAF005F3774 /* PSA_0.2_ListPlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListPlayButton.png; sourceTree = "<group>"; };
 		AC7807A117EB99A80094711F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AC7807A217EB99A80094711F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		AC7807A317EB99A80094711F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 		ACE399EA17FAFD3200AAB6F2 /* PSA_0.2_SaveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_SaveButton.png; sourceTree = "<group>"; };
 		ACE399EC17FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_KeyboardFifth.png; sourceTree = "<group>"; };
 		ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_KeyboardTriad.png; sourceTree = "<group>"; };
-		ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ListPlayButton.png; sourceTree = "<group>"; };
 		ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_PlayButton.png; sourceTree = "<group>"; };
 		ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_PlayButtonSelected.png; sourceTree = "<group>"; };
 		ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_ProgressBarBackground.png; sourceTree = "<group>"; };
@@ -609,10 +606,10 @@
 				7B83EAE31804C5E300FD1DDD /* PSA_0.2_KeyboardThird.png */,
 				ACE399ED17FAFD3200AAB6F2 /* PSA_0.2_KeyboardTriad.png */,
 				7BAEADD617FCFB18004BD341 /* PSA_0.2_ListButton.png */,
-				1FD9267017FDA8BC006FDA0F /* PSA_0.2_ListDelete.png */,
-				1FD9267117FDA8BC006FDA0F /* PSA_0.2_ListPlay.png */,
-				ACE399EE17FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png */,
-				1FD9267217FDA8BC006FDA0F /* PSA_0.2_ListShare.png */,
+				7BF8AF1118076B97005F3774 /* PSA_0.2_ListDeleteButton.png */,
+				7BF8AF1518076BAF005F3774 /* PSA_0.2_ListPlayButton.png */,
+				7BF8AF1018076B97005F3774 /* PSA_0.2_ListShareButton.png */,
+				7BF8AF0F18076B97005F3774 /* PSA_0.2_ListStopButton.png */,
 				ACE399F017FAFD3200AAB6F2 /* PSA_0.2_PlayButtonSelected.png */,
 				ACE399F117FAFD3200AAB6F2 /* PSA_0.2_ProgressBarBackground.png */,
 				ACE399EA17FAFD3200AAB6F2 /* PSA_0.2_SaveButton.png */,
@@ -889,6 +886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF8AF1318076B97005F3774 /* PSA_0.2_ListShareButton.png in Resources */,
 				1FD9266B17FDA7D2006FDA0F /* TracksTableViewController.xib in Resources */,
 				7B2F3E821804DD26001CB577 /* PSA_0.2_AppIcon_40_pt.png in Resources */,
 				7B83EAE41804C5E300FD1DDD /* PSA_0.2_KeyboardThird.png in Resources */,
@@ -902,8 +900,8 @@
 				ACE399FB17FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png in Resources */,
 				7B83EAE21804C5D500FD1DDD /* PSA_0.2_PlayButton_i5.png in Resources */,
 				1F8C903717FB0C3800FFD282 /* TracksTableViewCell.xib in Resources */,
+				7BF8AF1418076B97005F3774 /* PSA_0.2_ListDeleteButton.png in Resources */,
 				7B2F3E811804DD26001CB577 /* PSA_0.2_AppIcon_29_pt.png in Resources */,
-				1FD9267317FDA8BC006FDA0F /* PSA_0.2_ListDelete.png in Resources */,
 				7B3129341803969F0057B03B /* PSA_0.2_AppIcon_58_pt.png in Resources */,
 				ACE399F917FAFD3200AAB6F2 /* PSA_0.2_Background.png in Resources */,
 				7B888F401804E13B00CA61FF /* SplashScreenController.xib in Resources */,
@@ -911,12 +909,13 @@
 				ACE6EEAB17E8BF8500E818A0 /* InfoPlist.strings in Resources */,
 				7B312929180396870057B03B /* PSA_0.2_Background_i5.png in Resources */,
 				ACE399FC17FAFD3200AAB6F2 /* PSA_0.2_CenterButtonSelected.png in Resources */,
+				7BF8AF1218076B97005F3774 /* PSA_0.2_ListStopButton.png in Resources */,
 				ACE39A0D17FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png in Resources */,
 				AC7807A517EB99A80094711F /* MainViewController.xib in Resources */,
 				7B312937180396A90057B03B /* PSA_0.2_SplashScreen_640p1136.png in Resources */,
 				7B2F3E731804D9CE001CB577 /* PSA_0.2_RingSpinning_i5.png in Resources */,
+				7BF8AF1618076BAF005F3774 /* PSA_0.2_ListPlayButton.png in Resources */,
 				ACE399FA17FAFD3200AAB6F2 /* PSA_0.2_CancelButton.png in Resources */,
-				ACE39A0417FAFD3200AAB6F2 /* PSA_0.2_ListPlayButton.png in Resources */,
 				ACE39A0517FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png in Resources */,
 				7B2F3E831804DD26001CB577 /* PSA_0.2_AppIcon_60_pt.png in Resources */,
 				ACE399FE17FAFD3200AAB6F2 /* PSA_0.2_CircleMiddle.png in Resources */,
@@ -924,7 +923,6 @@
 				ACE39A0917FAFD3200AAB6F2 /* PSA_0.2_Ring.png in Resources */,
 				1F5B41A118033FD1002D8CCF /* MainViewController_i5.xib in Resources */,
 				7B83EAD81804C2A000FD1DDD /* PSA_0.2_CenterButton_i5.png in Resources */,
-				1FD9267517FDA8BC006FDA0F /* PSA_0.2_ListShare.png in Resources */,
 				7BD76A0717FB0FFC003B7CC9 /* SoundCloud.bundle in Resources */,
 				7B31292E180396900057B03B /* PSA_0.2_b.png in Resources */,
 				ACE399F817FAFD3200AAB6F2 /* PSA_0.2_BackButton.png in Resources */,
@@ -939,7 +937,6 @@
 				ACE399FF17FAFD3200AAB6F2 /* PSA_0.2_CircleTop.png in Resources */,
 				7B3129321803969F0057B03B /* PSA_0.2_AppIcon_120_pt.png in Resources */,
 				ACE39A0C17FAFD3200AAB6F2 /* PSA_0.2_StopButton.png in Resources */,
-				1FD9267417FDA8BC006FDA0F /* PSA_0.2_ListPlay.png in Resources */,
 				7B83EAD41804C1ED00FD1DDD /* PSA_0.2_Ring_i5.png in Resources */,
 				7B888F421804E16F00CA61FF /* SplashScreenController_i5.xib in Resources */,
 				ACE39A0217FAFD3200AAB6F2 /* PSA_0.2_KeyboardFifth.png in Resources */,
@@ -1142,7 +1139,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
-					/Users/marcelosalloum/workspace/PitchShiftApp/PitchShiftApp/Flurry,
+					./PitchShiftApp/Flurry,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1173,7 +1170,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
-					/Users/marcelosalloum/workspace/PitchShiftApp/PitchShiftApp/Flurry,
+					./PitchShiftApp/Flurry,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
