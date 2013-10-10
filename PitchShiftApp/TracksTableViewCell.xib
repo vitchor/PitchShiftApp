@@ -21,12 +21,9 @@
                             <constraint firstAttribute="width" constant="40" id="zZ1-Zn-sEk"/>
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <state key="normal" image="PSA_0.2_ListPlay.png">
+                        <state key="normal" image="PSA_0.2_ListPlayButton.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="playButtonAction:" destination="3" eventType="touchUpInside" id="Ebp-b6-KhI"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZC-0C-bqn" userLabel="Button - Share">
                         <rect key="frame" x="252" y="23" width="30" height="30"/>
@@ -36,12 +33,9 @@
                             <constraint firstAttribute="width" constant="30" id="Xbz-bg-WiA"/>
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <state key="normal" image="PSA_0.2_ListShare.png">
+                        <state key="normal" image="PSA_0.2_ListShareButton.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="shareButtonAction:" destination="3" eventType="touchUpInside" id="KGh-yK-mJ5"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65D-Mt-3mZ" userLabel="Button - X">
                         <rect key="frame" x="290" y="28" width="20" height="20"/>
@@ -51,55 +45,64 @@
                             <constraint firstAttribute="height" constant="20" id="gbO-ib-Twa"/>
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <state key="normal" image="PSA_0.2_ListDelete.png">
+                        <state key="normal" image="PSA_0.2_ListDeleteButton.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="deleteButtonAction:" destination="3" eventType="touchUpInside" id="vAI-Tv-JYa"/>
-                        </connections>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="161" translatesAutoresizingMaskIntoConstraints="NO" id="3lV-hM-oB0">
-                        <rect key="frame" x="5" y="5" width="161" height="55"/>
+                        <rect key="frame" x="10" y="26" width="161" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="161" id="1Pp-0d-Kk3"/>
-                            <constraint firstAttribute="height" constant="55" id="5Ei-je-mAg"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" alpha="0.19999999999999968" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKg-nP-kYN" userLabel="Image View - Cell Separator">
-                        <rect key="frame" x="0.0" y="75" width="320" height="1"/>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXK-zo-MPJ" userLabel="View - Tap Area 1">
+                        <rect key="frame" x="197" y="13" width="50" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </imageView>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-ft-lSY" userLabel="View - Tap Area 2">
+                        <rect key="frame" x="247" y="18" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHH-xj-LYv" userLabel="View - Tap Area 3">
+                        <rect key="frame" x="283" y="21" width="35" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="0.0" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="centerX" secondItem="PIW-bz-qyM" secondAttribute="centerX" constant="-62" id="3g2-HF-2lU"/>
+                    <constraint firstAttribute="centerY" secondItem="3lV-hM-oB0" secondAttribute="centerY" constant="1" id="9rV-3c-B3e"/>
                     <constraint firstAttribute="centerX" secondItem="EZC-0C-bqn" secondAttribute="centerX" constant="-107" id="DPE-sW-Rsp"/>
                     <constraint firstAttribute="centerX" secondItem="65D-Mt-3mZ" secondAttribute="centerX" constant="-140" id="RAj-nj-t5B"/>
                     <constraint firstAttribute="centerY" secondItem="65D-Mt-3mZ" secondAttribute="centerY" constant="-0.5" id="W5y-ei-5LN"/>
                     <constraint firstAttribute="centerY" secondItem="PIW-bz-qyM" secondAttribute="centerY" constant="-0.5" id="WDc-9H-MWJ"/>
-                    <constraint firstAttribute="centerY" secondItem="3lV-hM-oB0" secondAttribute="centerY" constant="5" id="mcQ-4O-ixn"/>
                     <constraint firstAttribute="centerY" secondItem="EZC-0C-bqn" secondAttribute="centerY" constant="-0.5" id="pPm-bS-BbJ"/>
-                    <constraint firstAttribute="centerX" secondItem="3lV-hM-oB0" secondAttribute="centerX" constant="74.5" id="w58-b7-xJG"/>
+                    <constraint firstItem="PIW-bz-qyM" firstAttribute="leading" secondItem="3lV-hM-oB0" secondAttribute="trailing" constant="31" id="xjd-vt-oeC"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90265877019999996" green="0.90196078430000004" blue="0.90196078430000004" alpha="0.0" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="deleteButton" destination="65D-Mt-3mZ" id="9eY-Gw-cgV"/>
                 <outlet property="playButton" destination="PIW-bz-qyM" id="lza-D9-jTm"/>
-                <outlet property="shareButton" destination="EZC-0C-bqn" id="R8z-8v-XTP"/>
+                <outlet property="tapAreaView1" destination="GXK-zo-MPJ" id="qBm-FR-8tB"/>
+                <outlet property="tapAreaView2" destination="DIf-ft-lSY" id="JZW-Q7-xrc"/>
+                <outlet property="tapAreaView3" destination="MHH-xj-LYv" id="79g-cr-0xc"/>
                 <outlet property="trackNameLabel" destination="3lV-hM-oB0" id="fqe-b8-fap"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="PSA_0.2_ListDelete.png" width="68" height="68"/>
-        <image name="PSA_0.2_ListPlay.png" width="95" height="95"/>
-        <image name="PSA_0.2_ListShare.png" width="95" height="95"/>
+        <image name="PSA_0.2_ListDeleteButton.png" width="55" height="55"/>
+        <image name="PSA_0.2_ListPlayButton.png" width="95" height="95"/>
+        <image name="PSA_0.2_ListShareButton.png" width="68" height="68"/>
     </resources>
 </document>

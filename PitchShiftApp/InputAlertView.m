@@ -29,7 +29,7 @@
         
         NSDate* sourceDate = [NSDate date];
         NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
-        [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm"];
+        [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         NSString *dateStr = [dateFormatters stringFromDate: sourceDate];
         [textField setText:[NSString stringWithFormat:@"%@",dateStr]];
     }

@@ -16,24 +16,19 @@
     
     BOOL isPlaying;
     
+    IBOutlet UIView *tapAreaView1;
+    IBOutlet UIView *tapAreaView2;
+    IBOutlet UIView *tapAreaView3;
+    
     NSTimer *playerTimer;
     
     SoundManager *soundManager;
-    
 }
 
 @property (nonatomic,retain) IBOutlet UIButton *playButton;
-@property (nonatomic,retain) IBOutlet UIButton *shareButton;
-@property (nonatomic,retain) IBOutlet UIButton *deleteButton;
 @property (nonatomic,retain) IBOutlet UILabel *trackNameLabel;
-
-//@property (nonatomic,retain) IBOutlet UIButton *playButton;
 @property (nonatomic,retain) TracksTableViewController *tracksController;
 
-
 - (void)refreshWithUrlSuffix:(NSString*)filePath;
-- (IBAction)playButtonAction:(UIButton *)sender;
-- (IBAction)deleteButtonAction:(UIButton *)sender;
-- (IBAction)shareButtonAction:(UIButton *)sender;
 
 @end
