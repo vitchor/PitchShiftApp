@@ -312,18 +312,18 @@
 		ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_StopButton.png; sourceTree = "<group>"; };
 		ACE399F717FAFD3200AAB6F2 /* PSA_0.2_StopButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PSA_0.2_StopButtonSelected.png; sourceTree = "<group>"; };
 		ACE39A0E17FAFD4B00AAB6F2 /* InterfaceGuide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterfaceGuide.png; sourceTree = "<group>"; };
-		ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchShiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE6EE9D17E8BF8500E818A0 /* backVocal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = backVocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE6EEA017E8BF8500E818A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACE6EEA217E8BF8500E818A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		ACE6EEA817E8BF8500E818A0 /* PitchShiftApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PitchShiftApp-Info.plist"; sourceTree = "<group>"; };
+		ACE6EEA817E8BF8500E818A0 /* backVocal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "backVocal-Info.plist"; sourceTree = "<group>"; };
 		ACE6EEAA17E8BF8500E818A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACE6EEAC17E8BF8500E818A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ACE6EEAE17E8BF8500E818A0 /* PitchShiftApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PitchShiftApp-Prefix.pch"; sourceTree = "<group>"; };
+		ACE6EEAE17E8BF8500E818A0 /* backVocal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "backVocal-Prefix.pch"; sourceTree = "<group>"; };
 		ACE6EEAF17E8BF8500E818A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ACE6EEB017E8BF8500E818A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ACE6EEB817E8BF8500E818A0 /* PitchShiftAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchShiftAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE6EEB817E8BF8500E818A0 /* backVocalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = backVocalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE6EEB917E8BF8500E818A0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		ACE6EEC117E8BF8500E818A0 /* PitchShiftAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PitchShiftAppTests-Info.plist"; sourceTree = "<group>"; };
+		ACE6EEC117E8BF8500E818A0 /* backVocalTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "backVocalTests-Info.plist"; sourceTree = "<group>"; };
 		ACE6EEC317E8BF8500E818A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACE6EEC517E8BF8500E818A0 /* PitchShiftAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PitchShiftAppTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -529,12 +529,12 @@
 		7B83EAD11804BF9800FD1DDD /* 4x */ = {
 			isa = PBXGroup;
 			children = (
-				7B2F3E701804D96B001CB577 /* PSA_0.2_RingSpinning.png */,
 				ACE399E317FAFD3200AAB6F2 /* PSA_0.2_Background.png */,
 				ACE399E517FAFD3200AAB6F2 /* PSA_0.2_CenterButton.png */,
 				ACE399EF17FAFD3200AAB6F2 /* PSA_0.2_PlayButton.png */,
 				ACE399F217FAFD3200AAB6F2 /* PSA_0.2_ProgressBarForeground.png */,
 				ACE399F317FAFD3200AAB6F2 /* PSA_0.2_Ring.png */,
+				7B2F3E701804D96B001CB577 /* PSA_0.2_RingSpinning.png */,
 				7B312936180396A90057B03B /* PSA_0.2_SplashScreen_640p960.png */,
 				ACE399F617FAFD3200AAB6F2 /* PSA_0.2_StopButton.png */,
 			);
@@ -544,14 +544,14 @@
 		7B83EAD21804BFA800FD1DDD /* 5x */ = {
 			isa = PBXGroup;
 			children = (
-				7B83EAE11804C5D500FD1DDD /* PSA_0.2_PlayButton_i5.png */,
-				7B83EADF1804C5C800FD1DDD /* PSA_0.2_StopButton_i5.png */,
-				7B2F3E721804D9CE001CB577 /* PSA_0.2_RingSpinning_i5.png */,
-				7B83EADD1804C53400FD1DDD /* PSA_0.2_ProgressBarForeground_i5.png */,
 				7B312924180396870057B03B /* PSA_0.2_Background_i5.png */,
 				7B83EAD71804C2A000FD1DDD /* PSA_0.2_CenterButton_i5.png */,
+				7B83EAE11804C5D500FD1DDD /* PSA_0.2_PlayButton_i5.png */,
+				7B83EADD1804C53400FD1DDD /* PSA_0.2_ProgressBarForeground_i5.png */,
 				7B83EAD31804C1ED00FD1DDD /* PSA_0.2_Ring_i5.png */,
+				7B2F3E721804D9CE001CB577 /* PSA_0.2_RingSpinning_i5.png */,
 				7B312935180396A90057B03B /* PSA_0.2_SplashScreen_640p1136.png */,
+				7B83EADF1804C5C800FD1DDD /* PSA_0.2_StopButton_i5.png */,
 			);
 			name = 5x;
 			sourceTree = "<group>";
@@ -677,8 +677,8 @@
 		ACE6EE9E17E8BF8500E818A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */,
-				ACE6EEB817E8BF8500E818A0 /* PitchShiftAppTests.xctest */,
+				ACE6EE9D17E8BF8500E818A0 /* backVocal.app */,
+				ACE6EEB817E8BF8500E818A0 /* backVocalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -723,10 +723,10 @@
 		ACE6EEA717E8BF8500E818A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ACE6EEA817E8BF8500E818A0 /* PitchShiftApp-Info.plist */,
+				ACE6EEA817E8BF8500E818A0 /* backVocal-Info.plist */,
 				ACE6EEA917E8BF8500E818A0 /* InfoPlist.strings */,
 				ACE6EEAC17E8BF8500E818A0 /* main.m */,
-				ACE6EEAE17E8BF8500E818A0 /* PitchShiftApp-Prefix.pch */,
+				ACE6EEAE17E8BF8500E818A0 /* backVocal-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -743,7 +743,7 @@
 		ACE6EEC017E8BF8500E818A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ACE6EEC117E8BF8500E818A0 /* PitchShiftAppTests-Info.plist */,
+				ACE6EEC117E8BF8500E818A0 /* backVocalTests-Info.plist */,
 				ACE6EEC217E8BF8500E818A0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -752,9 +752,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACE6EE9C17E8BF8500E818A0 /* PitchShiftApp */ = {
+		ACE6EE9C17E8BF8500E818A0 /* backVocal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftApp" */;
+			buildConfigurationList = ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "backVocal" */;
 			buildPhases = (
 				ACE6EE9917E8BF8500E818A0 /* Sources */,
 				ACE6EE9B17E8BF8500E818A0 /* Resources */,
@@ -769,14 +769,14 @@
 				1F57904B180778D500C39A59 /* PBXTargetDependency */,
 				1F57904D180778D500C39A59 /* PBXTargetDependency */,
 			);
-			name = PitchShiftApp;
+			name = backVocal;
 			productName = PitchShiftApp;
-			productReference = ACE6EE9D17E8BF8500E818A0 /* PitchShiftApp.app */;
+			productReference = ACE6EE9D17E8BF8500E818A0 /* backVocal.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ACE6EEB717E8BF8500E818A0 /* PitchShiftAppTests */ = {
+		ACE6EEB717E8BF8500E818A0 /* backVocalTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACE6EECC17E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftAppTests" */;
+			buildConfigurationList = ACE6EECC17E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "backVocalTests" */;
 			buildPhases = (
 				ACE6EEB417E8BF8500E818A0 /* Sources */,
 				ACE6EEB517E8BF8500E818A0 /* Frameworks */,
@@ -787,9 +787,9 @@
 			dependencies = (
 				ACE6EEBE17E8BF8500E818A0 /* PBXTargetDependency */,
 			);
-			name = PitchShiftAppTests;
+			name = backVocalTests;
 			productName = PitchShiftAppTests;
-			productReference = ACE6EEB817E8BF8500E818A0 /* PitchShiftAppTests.xctest */;
+			productReference = ACE6EEB817E8BF8500E818A0 /* backVocalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -809,7 +809,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACE6EE9817E8BF8500E818A0 /* Build configuration list for PBXProject "PitchShiftApp" */;
+			buildConfigurationList = ACE6EE9817E8BF8500E818A0 /* Build configuration list for PBXProject "backVocal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -843,8 +843,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				ACE6EE9C17E8BF8500E818A0 /* PitchShiftApp */,
-				ACE6EEB717E8BF8500E818A0 /* PitchShiftAppTests */,
+				ACE6EE9C17E8BF8500E818A0 /* backVocal */,
+				ACE6EEB717E8BF8500E818A0 /* backVocalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1048,7 +1048,7 @@
 		};
 		ACE6EEBE17E8BF8500E818A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACE6EE9C17E8BF8500E818A0 /* PitchShiftApp */;
+			target = ACE6EE9C17E8BF8500E818A0 /* backVocal */;
 			targetProxy = ACE6EEBD17E8BF8500E818A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1165,13 +1165,13 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "PitchShiftApp/backVocal-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$PROJECT_DIR/**",
 				);
-				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
+				INFOPLIST_FILE = "PitchShiftApp/backVocal-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
@@ -1179,7 +1179,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = backVocal;
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1196,13 +1196,13 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "PitchShiftApp/backVocal-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$PROJECT_DIR/**",
 				);
-				INFOPLIST_FILE = "PitchShiftApp/PitchShiftApp-Info.plist";
+				INFOPLIST_FILE = "PitchShiftApp/backVocal-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./PitchShiftApp,
@@ -1210,7 +1210,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = backVocal;
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1232,8 +1232,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "PitchShiftAppTests/PitchShiftAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "PitchShiftAppTests/backVocalTests-Info.plist";
+				PRODUCT_NAME = backVocalTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1251,8 +1251,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PitchShiftApp/PitchShiftApp-Prefix.pch";
-				INFOPLIST_FILE = "PitchShiftAppTests/PitchShiftAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "PitchShiftAppTests/backVocalTests-Info.plist";
+				PRODUCT_NAME = backVocalTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1261,7 +1261,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ACE6EE9817E8BF8500E818A0 /* Build configuration list for PBXProject "PitchShiftApp" */ = {
+		ACE6EE9817E8BF8500E818A0 /* Build configuration list for PBXProject "backVocal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACE6EEC717E8BF8500E818A0 /* Debug */,
@@ -1270,7 +1270,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftApp" */ = {
+		ACE6EEC917E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "backVocal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACE6EECA17E8BF8500E818A0 /* Debug */,
@@ -1279,7 +1279,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACE6EECC17E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "PitchShiftAppTests" */ = {
+		ACE6EECC17E8BF8500E818A0 /* Build configuration list for PBXNativeTarget "backVocalTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACE6EECD17E8BF8500E818A0 /* Debug */,
