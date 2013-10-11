@@ -16,7 +16,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        isPlaying = FALSE;
         // Initialization code
     }
     return self;
@@ -87,15 +86,13 @@
 //}
 
 - (IBAction)playButtonAction:(UIButton *)sender {
-    if(isPlaying){
+    if([soundManager.audioPlayer isPlaying]){
         [playerTimer invalidate], playerTimer = nil;
-        isPlaying = NO;
         [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlayButton.png"] forState:UIControlStateNormal];
         self.tracksController.isPlaying = NO;
         [soundManager stopSound];
     }else if (!self.tracksController.isPlaying){
         [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListStopButton.png"] forState:UIControlStateNormal];
-        isPlaying = YES;
         self.tracksController.isPlaying = YES;
         [soundManager playSound:self.trackNameLabel.text];
         playerTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector: @selector(checkPlayer) userInfo:nil repeats:YES];
@@ -104,14 +101,13 @@
 
 // Called from a timer started on playButtonAction
 -(void)checkPlayer{
-    if(soundManager.audioPlayer && isPlaying){
-        if(![soundManager.audioPlayer isPlaying]){
-            NSLog(@"TERMINEI DE TOCAR");
-            [playerTimer invalidate], playerTimer = nil;
-            isPlaying = NO;
-            self.tracksController.isPlaying = NO;
-            [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlayButton.png"] forState:UIControlStateNormal];
-        }
+    if(soundManager && ![soundManager.audioPlayer isPlaying]){
+        NSLog(@"====TERMINEI DE TOCAR");
+        
+        [playerTimer invalidate], playerTimer = nil;
+        [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlayButton.png"] forState:UIControlStateNormal];
+        self.tracksController.isPlaying = NO;
+        [soundManager stopSound];
     }
 }
 

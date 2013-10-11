@@ -18,13 +18,12 @@
     AVAssetWriter *assetWriter;
 }
 
-@property(nonatomic,readonly) BOOL isPlaying;
+@property(nonatomic,readwrite) BOOL isPlaying;
 @property(nonatomic,readwrite) int recordEncoding;
 @property(nonatomic,retain) AVAudioRecorder *audioRecorder;
 @property(nonatomic,retain) AVAudioPlayer *audioPlayer;
 
 - (NSString*)getRecDir;
-- (void)playSound;
 - (void)playSound:(NSString*) outWavName;
 - (void)pauseSound;
 - (void)stopSound;

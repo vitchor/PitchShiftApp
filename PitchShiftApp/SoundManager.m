@@ -125,10 +125,6 @@
     
 }
 
-- (void)playSound{
-    [self playSound:@"result-pitchshifted.wav"];
-}
-
 - (void)playSound:(NSString*) outWavName{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

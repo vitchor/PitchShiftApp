@@ -15,7 +15,7 @@
 
 @interface TracksTableViewCell : UITableViewCell{
     
-    BOOL isPlaying;
+//    BOOL isPlaying;
     
     IBOutlet UIView *tapAreaView1;
     IBOutlet UIView *tapAreaView2;
