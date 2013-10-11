@@ -1265,9 +1265,13 @@
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
+    [LoadView loadViewOnView:self.view withText:@"Loading..."];
+    
     SoundManager *soundManager = [[SoundManager alloc] init];
     UIViewController *sCSharingImageView = [soundManager shareOnSoundCloudWithString:lastRecording shouldLog:NO];
     [self presentViewController:sCSharingImageView animated:YES completion:nil];
+    
+    [LoadView fadeAndRemoveFromView:self.view];
 }
 
 

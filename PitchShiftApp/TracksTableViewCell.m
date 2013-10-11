@@ -60,7 +60,12 @@
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
     UIViewController *sCSharingImageView = [soundManager shareOnSoundCloudWithString:self.trackNameLabel.text shouldLog:NO];
+    
+    [LoadView loadViewOnView:self.tracksController.view withText:@"Loading..."];
+    
     [self.tracksController presentViewController:sCSharingImageView animated:YES completion:nil];
+    
+    [LoadView fadeAndRemoveFromView:self.tracksController.view];
 }
 
 //Sharing options through iOS SDK
