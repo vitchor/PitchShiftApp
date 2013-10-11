@@ -11,6 +11,7 @@
 #import "TracksTableViewController.h"
 #import "SCUI.h"
 #import "SoundManager.h"
+#import "LoadView.h"
 
 @interface TracksTableViewCell : UITableViewCell{
     

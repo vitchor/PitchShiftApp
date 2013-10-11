@@ -18,6 +18,8 @@
 		1F5790521807790E00C39A59 /* libSoundCloudUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F57901E1807785500C39A59 /* libSoundCloudUI.a */; };
 		1F5B41971803355E002D8CCF /* TracksTableViewController_i5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */; };
 		1F5B41A118033FD1002D8CCF /* MainViewController_i5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B41A018033FD1002D8CCF /* MainViewController_i5.xib */; };
+		1F7A351518078058009B85AD /* LoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A351418078058009B85AD /* LoadView.m */; };
+		1F7A3519180781E9009B85AD /* ActivityLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A3518180781E9009B85AD /* ActivityLabel.m */; };
 		1F8C900117FA1E4300FFD282 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900017FA1E4300FFD282 /* AVFoundation.framework */; };
 		1F8C900317FA1F7900FFD282 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C900217FA1F7900FFD282 /* CoreAudio.framework */; };
 		1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C902B17FB004300FFD282 /* TracksTableViewController.m */; };
@@ -223,6 +225,10 @@
 		1F579042180778B700C39A59 /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SoundCloud.bundle; path = Frameworks/SoundCloud/CocoaSoundCloudUI/SoundCloud.bundle; sourceTree = SOURCE_ROOT; };
 		1F5B41961803355E002D8CCF /* TracksTableViewController_i5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracksTableViewController_i5.xib; sourceTree = "<group>"; };
 		1F5B41A018033FD1002D8CCF /* MainViewController_i5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_i5.xib; sourceTree = "<group>"; };
+		1F7A351318078058009B85AD /* LoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadView.h; sourceTree = "<group>"; };
+		1F7A351418078058009B85AD /* LoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadView.m; sourceTree = "<group>"; };
+		1F7A3517180781E9009B85AD /* ActivityLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityLabel.h; sourceTree = "<group>"; };
+		1F7A3518180781E9009B85AD /* ActivityLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityLabel.m; sourceTree = "<group>"; };
 		1F8C900017FA1E4300FFD282 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1F8C900217FA1F7900FFD282 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1F8C902A17FB004300FFD282 /* TracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksTableViewController.h; sourceTree = "<group>"; };
@@ -436,9 +442,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F7A350E18078031009B85AD /* LoadView */ = {
+			isa = PBXGroup;
+			children = (
+				1F7A3516180781D5009B85AD /* ActivityLabel */,
+				1F7A351318078058009B85AD /* LoadView.h */,
+				1F7A351418078058009B85AD /* LoadView.m */,
+			);
+			name = LoadView;
+			sourceTree = "<group>";
+		};
+		1F7A3516180781D5009B85AD /* ActivityLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1F7A3517180781E9009B85AD /* ActivityLabel.h */,
+				1F7A3518180781E9009B85AD /* ActivityLabel.m */,
+			);
+			name = ActivityLabel;
+			sourceTree = "<group>";
+		};
 		1F8C8FFB17FA109800FFD282 /* Aux */ = {
 			isa = PBXGroup;
 			children = (
+				1F7A350E18078031009B85AD /* LoadView */,
 				1FA6EA031806F2AE0072BC18 /* SelectorBuilder */,
 				1F4B414E17FF4ABA0046DF86 /* InputAlertView */,
 				1F4B413E17FEFBA60046DF86 /* Settings */,
@@ -971,10 +997,12 @@
 				AC7807A417EB99A80094711F /* MainViewController.m in Sources */,
 				7B888F3F1804E13B00CA61FF /* SplashScreenController.m in Sources */,
 				ACD2B9DE17E9F4E50052A96A /* PitchShifter.mm in Sources */,
+				1F7A351518078058009B85AD /* LoadView.m in Sources */,
 				1FA6EA061806F2F60072BC18 /* SelectorBuilder.m in Sources */,
 				1F8C902D17FB004300FFD282 /* TracksTableViewController.m in Sources */,
 				1F4B415517FF4AE70046DF86 /* InputAlertView.m in Sources */,
 				ACE6EEB117E8BF8500E818A0 /* AppDelegate.m in Sources */,
+				1F7A3519180781E9009B85AD /* ActivityLabel.m in Sources */,
 				ACD2B9C917E8D1A20052A96A /* PitchShiftIterative.cpp in Sources */,
 				1FE8870317FC9E6B00833D22 /* SoundManager.m in Sources */,
 				1F8C903117FB007800FFD282 /* TracksTableViewCell.m in Sources */,
