@@ -38,6 +38,7 @@
     double lowPassResults;
     
     bool startedPlaying;
+    bool isAlphaGrowing;
     bool isProcessing;
     bool isAnimatingCircles;
     
@@ -69,6 +70,7 @@
     NSString* lastRecordWav;
     NSString* lastRecording; // the recorder pitchshifted
     
+    NSTimer* centerLabelTimer;
     NSTimer* recordTimer;
     NSTimer* processTimer;
     NSTimer* playerTimer;

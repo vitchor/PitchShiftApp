@@ -219,6 +219,8 @@
                     centerTextLabel.alpha = 1.0;
                     listButton.alpha = 1.0;
                     
+                    centerLabelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(blinkCenterLabel) userInfo: nil repeats: YES];
+                    
                     currentViewState = INITIAL_VIEW;
                     
                     break;
@@ -439,6 +441,27 @@
         }]; // block end
         
     }); // thread end
+}
+
+- (void) blinkCenterLabel {
+    
+    if (isAlphaGrowing) {
+        
+        centerTextLabel.alpha += 0.02;
+        
+        if (centerTextLabel.alpha >= 1.5)
+            isAlphaGrowing = false;
+    }else{
+        
+        centerTextLabel.alpha -= 0.02;
+        
+        if (centerTextLabel.alpha <= -0.2)
+            isAlphaGrowing = true;
+    }
+    
+    if (currentViewState != INITIAL_VIEW) {
+        [centerLabelTimer invalidate], centerLabelTimer = nil;
+    }
 }
 
 - (void) checkButtonState {
