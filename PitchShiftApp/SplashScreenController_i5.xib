@@ -10,6 +10,7 @@
                 <outlet property="backGroundImage" destination="wSN-yx-1Pw" id="xFa-aC-o7M"/>
                 <outlet property="centerButton" destination="qJe-oj-a1h" id="iSy-Za-a9M"/>
                 <outlet property="listButton" destination="Q4O-nh-Fna" id="60M-Lx-gfk"/>
+                <outlet property="pressToRecordLabel" destination="b6t-RF-u5S" id="Uo3-zF-1i9"/>
                 <outlet property="ring" destination="Qo7-an-K1Z" id="WLt-T2-Ul4"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -93,7 +94,7 @@
         </view>
     </objects>
     <resources>
-        <image name="PSA_0.2_Background_i5.png" width="640" height="960"/>
+        <image name="PSA_0.2_Background_i5.png" width="640" height="1136"/>
         <image name="PSA_0.2_CenterButton_i5.png" width="249" height="249"/>
         <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
         <image name="PSA_0.2_Ring_i5.png" width="332" height="332"/>

@@ -10,7 +10,7 @@
 
 @implementation TracksTableViewCell
 
-@synthesize playButton, shareButton, deleteButton, trackNameLabel, tracksController;
+@synthesize playButton, trackNameLabel, tracksController;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -30,6 +30,16 @@
 }
 
 -(void)refreshWithUrlSuffix:(NSString*)filePath{
+    
+    UITapGestureRecognizer *tapArea1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playButtonAction:)];
+    [tapAreaView1 addGestureRecognizer:tapArea1];
+    
+    UITapGestureRecognizer *tapArea2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareButtonAction:)];
+    [tapAreaView2 addGestureRecognizer:tapArea2];
+    
+    UITapGestureRecognizer *tapArea3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deleteButtonAction:)];
+    [tapAreaView3 addGestureRecognizer:tapArea3];
+    
     self.trackNameLabel.text = filePath;
     soundManager = [[SoundManager alloc] init];
 }
@@ -53,31 +63,33 @@
     [self.tracksController presentViewController:sCSharingImageView animated:YES completion:nil];
 }
 
--(void) popupActivityViewWithURL:(NSString*) url{
-    //    NSArray * activityItems = @{[NSString stringWithFormat:@"Some initial text."], [NSURL URLWithString:@"http://www.google.com"]};
-    NSString *text = [NSString stringWithFormat:@"Check this awesome song: %@", url];
-    UIImage *image = [UIImage imageNamed:@"icon 120.png"];
-    NSArray *activityItems = [NSArray arrayWithObjects:text,image , nil];
-    
-    NSArray * excludeActivities = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop];
-    
-    UIActivityViewController *avc = [[UIActivityViewController alloc]
-                                     initWithActivityItems: activityItems applicationActivities:nil];
-    avc.excludedActivityTypes = excludeActivities;
-    
-    NSLog(@"==== presentViewController");
-//    [UIApplication sharedApplication].keyWindow
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentModalViewController:avc animated:YES];
-}
+//Sharing options through iOS SDK
+//-(void) popupActivityViewWithURL:(NSString*) url{
+//    //    NSArray * activityItems = @{[NSString stringWithFormat:@"Some initial text."], [NSURL URLWithString:@"http://www.google.com"]};
+//    NSString *text = [NSString stringWithFormat:@"Check this awesome song: %@", url];
+//    UIImage *image = [UIImage imageNamed:@"PSA_0.2_AppIcon_120_pt.png"];
+//    NSArray *activityItems = [NSArray arrayWithObjects:text,image , nil];
+//    
+//    NSArray * excludeActivities = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop];
+//    
+//    UIActivityViewController *avc = [[UIActivityViewController alloc]
+//                                     initWithActivityItems: activityItems applicationActivities:nil];
+//    avc.excludedActivityTypes = excludeActivities;
+//    
+//    NSLog(@"==== presentViewController");
+////    [UIApplication sharedApplication].keyWindow
+//    [[UIApplication sharedApplication].keyWindow.rootViewController presentModalViewController:avc animated:YES];
+//}
 
 - (IBAction)playButtonAction:(UIButton *)sender {
     if(isPlaying){
+        [playerTimer invalidate], playerTimer = nil;
         isPlaying = NO;
+        [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlayButton.png"] forState:UIControlStateNormal];
         self.tracksController.isPlaying = NO;
         [soundManager stopSound];
-        [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlay.png"] forState:UIControlStateNormal];
     }else if (!self.tracksController.isPlaying){
-        [playButton setImage:[UIImage imageNamed:@"PSA_0.2_StopButton.png"] forState:UIControlStateNormal];
+        [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListStopButton.png"] forState:UIControlStateNormal];
         isPlaying = YES;
         self.tracksController.isPlaying = YES;
         [soundManager playSound:self.trackNameLabel.text];
@@ -93,7 +105,7 @@
             [playerTimer invalidate], playerTimer = nil;
             isPlaying = NO;
             self.tracksController.isPlaying = NO;
-            [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlay.png"] forState:UIControlStateNormal];
+            [playButton setImage:[UIImage imageNamed:@"PSA_0.2_ListPlayButton.png"] forState:UIControlStateNormal];
         }
     }
 }

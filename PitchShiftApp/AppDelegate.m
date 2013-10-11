@@ -29,37 +29,33 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    // Configures Blurr Effect Colors in UINavigationBar:
+    UIColor *barColour = [UIColor colorWithRed:175.0/255.0  green:0/255.0 blue:0/255.0 alpha:1.00];
+    UIView *colourView = [[UIView alloc] initWithFrame:CGRectMake(0.f, -20.f, self.navigationController.navigationBar.frame.size.width, 64.f)];
+    colourView.opaque = NO;
+    colourView.alpha = 1.0f;
+    colourView.backgroundColor = barColour;
     
     // Configures UINavigationController:
-    
     self.navigationController = [[UINavigationController alloc] init];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barTintColor = barColour;
+    [self.navigationController.navigationBar.layer insertSublayer:colourView.layer atIndex:1];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.window.rootViewController = self.navigationController;
     
+    self.window.rootViewController = self.navigationController;
     [self.window addSubview:self.navigationController.view];
     
     MainViewController *mainViewController = [[MainViewController alloc] initDefaultXib];
     
     [self.navigationController pushViewController:mainViewController animated:NO];
     
-    // Navigation bar background image:
-    UIImage *navBackgroundImage;
-    
-    float screenHeight = [UIScreen mainScreen].bounds.size.height;
-    if(screenHeight == 480){
-        // retina 3.5:
-         navBackgroundImage = [UIImage imageNamed:@"PSA_0.2_Background.png"];
-    }else if(screenHeight == 568){
-        // retina 4.0:
-         navBackgroundImage = [UIImage imageNamed:@"PSA_0.2_Background_i5.png"];
-    }
-   
-    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
-
     // Navigation bar title text color:
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], UITextAttributeTextColor,
-                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor, nil]];
+                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0],UITextAttributeTextShadowColor, nil]];
     //Navigation bar back button color:
     self.window.tintColor = [UIColor whiteColor];
     

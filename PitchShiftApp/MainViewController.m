@@ -677,31 +677,25 @@
     
     [self stopCenterButtonAnimations];
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSLog(@"stopRecording");
+    NSTimeInterval audioLength = audioRecorder.currentTime;
+    [audioRecorder stop];
     
-        NSLog(@"stopRecording");
-        NSTimeInterval audioLength = audioRecorder.currentTime;
-        [audioRecorder stop];
-        
-        if (audioLength <= RECORDING_MIN_DURATION) {
+    if (audioLength <= RECORDING_MIN_DURATION) {
 
-            NSString *message = [NSString stringWithFormat:@"The recording is too short. Maybe you won't be able to notice the recording effects"];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
-                                                            message:message
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }
-    
-        NSLog(@"stopped with a record duration of %f", audioLength);
-        if ( ![self exportAssetAsWaveFromInput:lastRecordCaf andOutput:lastRecordWav]) {
-            NSLog(@"ERROR IN WAV CONVERSION!");
-        }
-            //[self setupXib:SELECTING_EFFECT_VIEW];
-//        }
-    
-//    });
+        NSString *message = [NSString stringWithFormat:@"The recording is too short. Maybe you won't be able to notice the recording effects"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+
+    NSLog(@"stopped with a record duration of %f", audioLength);
+    if ( ![self exportAssetAsWaveFromInput:lastRecordCaf andOutput:lastRecordWav]) {
+        NSLog(@"ERROR IN WAV CONVERSION!");
+    }
     
     [recordTimer invalidate], recordTimer = nil;
 }

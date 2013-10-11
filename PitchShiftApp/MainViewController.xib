@@ -351,9 +351,9 @@
         <image name="PSA_0.2_CircleBottom.png" width="608" height="608"/>
         <image name="PSA_0.2_CircleMiddle.png" width="536" height="536"/>
         <image name="PSA_0.2_CircleTop.png" width="384" height="384"/>
-        <image name="PSA_0.2_KeyboardFifth.png" width="265" height="168"/>
-        <image name="PSA_0.2_KeyboardThird.png" width="265" height="169"/>
-        <image name="PSA_0.2_KeyboardTriad.png" width="265" height="168"/>
+        <image name="PSA_0.2_KeyboardFifth.png" width="351" height="232"/>
+        <image name="PSA_0.2_KeyboardThird.png" width="351" height="232"/>
+        <image name="PSA_0.2_KeyboardTriad.png" width="351" height="232"/>
         <image name="PSA_0.2_ListButton.png" width="40" height="41"/>
         <image name="PSA_0.2_ProgressBarBackground.png" width="579" height="89"/>
         <image name="PSA_0.2_ProgressBarForeground.png" width="231" height="69"/>

@@ -52,7 +52,6 @@
     //Changes background image:
     
     UIColor *background;
-    
     float screenHeight = [UIScreen mainScreen].bounds.size.height;
     if(screenHeight == 480){
         // retina 3.5:
@@ -63,7 +62,6 @@
     }
 
     self.tracksTableView.backgroundColor = background;
-    self.view.tintColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
