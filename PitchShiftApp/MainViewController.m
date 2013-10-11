@@ -142,6 +142,7 @@
         progressBar.alpha = 1.0;
         saveButton.alpha = 1.0;
         shareButton.alpha = 1.0;
+        infoButton.alpha = 1.0;
         
         
         
@@ -168,6 +169,7 @@
             triadPSButton.alpha = 0.0;
             progressBarBackground.alpha = 0.0;
             progressBar.alpha = 0.0;
+            infoButton.alpha = 0.0;
             
             
         } completion: ^(BOOL finished) {
@@ -188,6 +190,7 @@
                     [centerTextLabel setHidden:NO];
                     [ring setHidden:NO];
                     [listButton setHidden:NO];
+                    [infoButton setHidden:NO];
                     
                     [backButton setHidden:YES];
                     [cancelButton setHidden:YES];
@@ -218,6 +221,7 @@
                     ring.alpha = 1.0;
                     centerTextLabel.alpha = 1.0;
                     listButton.alpha = 1.0;
+                    infoButton.alpha = 1.0;
                     
                     centerLabelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.01 target: self selector: @selector(blinkCenterLabel) userInfo: nil repeats: YES];
                     
@@ -245,6 +249,7 @@
                     [listButton setHidden:YES];
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
+                    [infoButton setHidden:YES];
                     
                     if(screenHeight == 480){
                         
@@ -288,6 +293,7 @@
                     [listButton setHidden:YES];
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
+                    [infoButton setHidden:YES];
 
                     thirdPSButton.alpha = 1.0;
                     fifthPSButton.alpha = 1.0;
@@ -317,6 +323,7 @@
                     [listButton setHidden:YES];
                     [saveButton setHidden:YES];
                     [shareButton setHidden:YES];
+                    [infoButton setHidden:YES];
 
                     if(screenHeight == 480){
                         
@@ -361,6 +368,7 @@
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
                     [listButton setHidden:YES];
+                    [infoButton setHidden:YES];
                    
                     if(screenHeight == 480){
                         
@@ -405,6 +413,7 @@
                     [fifthPSButton setHidden:YES];
                     [triadPSButton setHidden:YES];
                     [listButton setHidden:YES];
+                    [infoButton setHidden:YES];
             
                     if(screenHeight == 480){
                         
@@ -1034,6 +1043,56 @@
     }
 }
 
+- (void)sendSupportEmail {
+    
+    NSArray *supportEmail = [[NSArray alloc] initWithObjects:SUPPORT_EMAIL, nil];
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController* mailComposeController = [[MFMailComposeViewController alloc] init];
+        
+        mailComposeController.mailComposeDelegate = self;
+        [mailComposeController setSubject:@"User Feedback"];
+        [mailComposeController setMessageBody:@"Please tell us what you think about backVocal!" isHTML:NO];
+        [mailComposeController setToRecipients:supportEmail];
+        mailComposeController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        mailComposeController.navigationBar.tintColor = [UIColor whiteColor];
+
+        if (mailComposeController)
+            [self presentViewController:mailComposeController animated:YES completion:nil];
+        
+    } else {
+        [self showOkAlertWithMessage:@"Configure your device email app.\nPlease go to: \"Settings\" -> \"Mail, Contacts, Calendars\" -> Then turn ON your Mail app." andTitle:@"Error"];
+    }
+    
+}
+
+-(void)showOkAlertWithMessage:(NSString *)message andTitle:(NSString *)title
+{
+    NSString *alertButton = @"OK";
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:alertButton otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error {
+    
+    if (result == MFMailComposeResultSent || result == MFMailComposeResultCancelled) {
+        NSLog(@"It's away!");
+    }
+    else if(result == MFMailComposeResultSaved) {
+        [self showOkAlertWithMessage:@"The draft was saved in your email box." andTitle:@"Draft Saved"];
+    }
+    else if(result == MFMailComposeResultFailed){
+        
+        [self showOkAlertWithMessage:@"There was an error sending your email. Please try again later." andTitle:@"Error"];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void) touchDownCenterButtonAnimation {
     
     if(currentViewState == INITIAL_VIEW)
@@ -1083,6 +1142,9 @@
 
     if (!backButton.isHidden)
         [self backButtonAction:nil];
+    
+    else if (!infoButton.isHidden)
+        [self infoButtonAction:nil];
     
 }
 
@@ -1272,6 +1334,9 @@
     [LoadView fadeAndRemoveFromView:self.view];
 }
 
+- (IBAction)infoButtonAction:(UIButton *)sender {
+    [self sendSupportEmail];
+}
 
 - (IBAction)touchDownCenterButtonEvent:(UIButton *)sender {
     [self touchDownCenterButtonAnimation];

@@ -9,6 +9,7 @@
                 <outlet property="bImage" destination="W5e-CO-XKu" id="ptO-p8-9qD"/>
                 <outlet property="backGroundImage" destination="nL1-a5-Uk9" id="VO8-m0-GOU"/>
                 <outlet property="centerButton" destination="TZS-GZ-D3R" id="ZAK-kN-6dz"/>
+                <outlet property="infoButton" destination="Fqe-WJ-zxL" id="Bfb-EV-LWt"/>
                 <outlet property="listButton" destination="ySV-BY-8bF" id="ux3-UJ-8oZ"/>
                 <outlet property="pressToRecordLabel" destination="VxI-tp-RiM" id="0qR-VY-PgR"/>
                 <outlet property="ring" destination="zIe-gw-9uX" id="cRw-UO-aji"/>
@@ -64,6 +65,14 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqe-WJ-zxL" userLabel="Button - Info (support)">
+                    <rect key="frame" x="17" y="445" width="22" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
                 <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySV-BY-8bF" userLabel="Button - List">
                     <rect key="frame" x="286" y="446" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

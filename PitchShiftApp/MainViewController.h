@@ -8,7 +8,9 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
+#import "Defines.h"
 #import "SplashScreenController.h"
 #import "TracksTableViewController.h"
 #import "PitchShifter.h"
@@ -27,7 +29,7 @@
 #define FADING_TIME_PS_BUTTONS 0.75
 #define RECORDING_MIN_DURATION 1.0 //in seconds
 
-@interface MainViewController : UIViewController{
+@interface MainViewController : UIViewController <MFMailComposeViewControllerDelegate> {
     
     int recordEncoding;
     float progress;
@@ -54,6 +56,7 @@
     IBOutlet UIButton *listButton;
     IBOutlet UIButton *saveButton;
     IBOutlet UIButton *shareButton;
+    IBOutlet UIButton *infoButton;
     
     IBOutlet UIView *tapArea1View;
     IBOutlet UIView *tapArea2View;
@@ -99,6 +102,7 @@
 - (IBAction)triadButtonAction:(UIButton *)sender;
 - (IBAction)saveButtonAction:(UIButton *)sender;
 - (IBAction)shareButtonAction:(UIButton *)sender;
+- (IBAction)infoButtonAction:(UIButton *)sender;
 
 - (IBAction)touchDownCenterButtonEvent:(UIButton *)sender;
 - (IBAction)touchUpCenterButtonEvent:(UIButton *)sender;

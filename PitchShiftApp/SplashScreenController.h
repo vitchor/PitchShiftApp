@@ -15,6 +15,7 @@
     IBOutlet UIImageView *ring;
     IBOutlet UIButton *centerButton;
     IBOutlet UIButton *listButton;
+    IBOutlet UIButton *infoButton;
     IBOutlet UILabel *pressToRecordLabel;
 }
 

@@ -301,7 +301,7 @@
     
     NSDate* sourceDate = [NSDate date];
     NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
-    [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm"];
+    [dateFormatters setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateStr = [dateFormatters stringFromDate: sourceDate];
     [shareViewController setTitle:[NSString stringWithFormat:@"Back Vocal Sound %@",dateStr]];
     

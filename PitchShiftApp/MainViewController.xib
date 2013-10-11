@@ -12,6 +12,7 @@
                 <outlet property="centerButton" destination="4Ki-Wi-PzE" id="1TZ-2J-hUY"/>
                 <outlet property="centerTextLabel" destination="SSt-SC-j5p" id="Sco-4P-f0O"/>
                 <outlet property="fifthPSButton" destination="bG9-D6-YSA" id="KAC-ax-0sh"/>
+                <outlet property="infoButton" destination="VQA-Zf-umn" id="2so-yv-hXf"/>
                 <outlet property="listButton" destination="v8L-3Y-9zn" id="TnG-hT-UOH"/>
                 <outlet property="middleCircle" destination="J9m-qc-jCX" id="iEj-Tw-FGu"/>
                 <outlet property="progressBar" destination="Lj1-4U-8Xk" id="jMb-vv-48l"/>
@@ -154,6 +155,17 @@
                         <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="jbq-6d-CMx"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQA-Zf-umn" userLabel="Button - Info (support)">
+                    <rect key="frame" x="17" y="445" width="22" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="infoButtonAction:" destination="-1" eventType="touchUpInside" id="yKY-4u-UAL"/>
+                    </connections>
+                </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK1-K5-QTJ" userLabel="Button - Save">
                     <rect key="frame" x="106" y="441" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -180,16 +192,6 @@
                         <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="COS-Dk-O0u"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8L-3Y-9zn" userLabel="Button - List">
-                    <rect key="frame" x="286" y="446" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="PSA_0.2_ListButton.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="listButtonAction:" destination="-1" eventType="touchUpInside" id="lii-Ka-TGh"/>
-                    </connections>
-                </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THK-3i-2Cc" userLabel="Button - Cancel">
                     <rect key="frame" x="286" y="446" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -202,6 +204,16 @@
                     </state>
                     <connections>
                         <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="Pog-sE-z9T"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8L-3Y-9zn" userLabel="Button - List">
+                    <rect key="frame" x="286" y="446" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="PSA_0.2_ListButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="listButtonAction:" destination="-1" eventType="touchUpInside" id="lii-Ka-TGh"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="au4-7g-gG3" userLabel="View - Tap Area 1">

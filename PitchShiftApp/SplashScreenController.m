@@ -78,6 +78,7 @@
                 ring.alpha = 1.0;
                 pressToRecordLabel.alpha = 1.0;
                 listButton.alpha = 1.0;
+                infoButton.alpha = 1.0;
                 
             }completion:^(BOOL finished){
             
