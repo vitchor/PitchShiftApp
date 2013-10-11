@@ -910,8 +910,6 @@
             
         }
         
-        [self eraseBuffers];
-        NSLog(@"==== erase buffers");
         isProcessing = NO;
     
     });
